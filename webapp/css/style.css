@@ -1,0 +1,112 @@
+/* Enter your custom styles here */
+.agasown .logo{
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+.agasown .menuBorder{
+    border-right: solid ;
+}
+.agasown .menuLinks{
+    color: black;
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px 0 0 16px;
+    font-size: 14px!important;
+}
+
+.agasown .menuLinks:active {
+    background: #fea31d;
+    color: #FFF;
+}
+.agasown .menuLinks:hover{
+    background: #fea31d;
+    color: #FFF;
+}
+.agasown .icon{
+    color: black;
+}
+
+.agasown .icon:hover{
+    color: black;
+}
+
+.agasown .welcomeCarouselText {
+	color: white;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	padding: 1rem;
+	font-size: 1.5rem;
+	width: 100%;
+	text-shadow: 0 0 0.125rem black;
+}
+.agasown .categories{
+  border-radius: 15px;
+  padding-bottom: 20px;
+  margin: 15px;
+}
+.agasown .images{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 200px;
+}
+
+.agasown .images:hover{
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.agasown .imageLink{
+    text-align: center;
+    color: black;
+    font-size: 1rem;
+}
+
+.agasown .imageLink:hover{
+    text-align: center;
+    color: black;
+}
+
+/* Style the tab */
+.agasown .tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 30%;
+    height: 300px;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .agasown .tab a {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  /* Change background color of buttons on hover */
+  .agasown .tab a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .agasown .tab a.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .agasown .tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: 300px;
+    display: none;
+  }

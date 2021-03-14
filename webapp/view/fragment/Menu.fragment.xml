@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core">
+    <ResponsivePopover id="myPopover" class="sapUiPopupWithPadding agasown" placement="Bottom">
+        <beginButton>
+            <Button text="X" press="handleCloseMenu" />
+        </beginButton>
+        <subHeader>
+            <OverflowToolbar>
+                <SearchField liveChange=".onSearch" width="100%" />
+            </OverflowToolbar>
+        </subHeader>
+        <content>
+            <HBox>
+                <VBox backgroundDesign="Solid" class="menuBorder sapUiSmallMargin">
+                    <List id="mainCategoryList" headerText="Kategorien" items="{
+                        path: 'oDataCategory>/',
+                        filters: [{path: 'parent_id', operator: 'EQ', value1: '0'}],
+                        sorter: {path: 'id'}
+                    }">
+                        <items>
+                            <StandardListItem title="{oDataCategory>category_name}" icon="{oDataCategory>picture}" iconDensityAware="false" type="Navigation" iconInset="false" press="handleMenuCategory"/>
+                        </items>
+                    </List>
+                </VBox>
+                <VBox id="categoryDetails" backgroundDesign="Solid" class="categories sapUiSmallMargin">
+                    <List id="subCategoryList" headerText="Subkategorien" items="{
+                        path: 'oDataCategory>/',
+                        filters: [{path: 'parent_id', operator: 'EQ', value1: '11'}],
+                        sorter: {path: 'id'}
+                    }">
+                        <items>
+                            <StandardListItem title="{oDataCategory>category_name}" icon="{oDataCategory>picture}" iconDensityAware="false" type="Navigation" iconInset="false" press="handleMenuCategory"/>
+                        </items>
+                    </List>
+                </VBox>
+            </HBox>
+        </content>
+
+    </ResponsivePopover>
+</core:FragmentDefinition>
