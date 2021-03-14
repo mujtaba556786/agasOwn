@@ -2,3 +2,6 @@ node_modules/
 dist/
 .scp/
 .env
+package-lock.json
+ui5-local.yaml
+.vscode
