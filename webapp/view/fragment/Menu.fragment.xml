@@ -12,18 +12,21 @@
         </subHeader>
         <content>
             <HBox>
-                <VBox backgroundDesign="Solid" class="menuBorder sapUiSmallMargin">
+                <VBox backgroundDesign="Solid" class="sapUiSmallMargin">
                     <List id="mainCategoryList" headerText="Kategorien" items="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent_id', operator: 'EQ', value1: '0'}],
                         sorter: {path: 'id'}
                     }">
                         <items>
-                            <StandardListItem title="{oDataCategory>category_name}" icon="{oDataCategory>picture}" iconDensityAware="false" type="Navigation" iconInset="false" press="handleMenuCategory"/>
+                            <StandardListItem title="{oDataCategory>category_name}" 
+                            icon="{oDataCategory>picture}" iconDensityAware="false" 
+                            type="Navigation" iconInset="false" 
+                            press="handleMenuCategory"/>
                         </items>
                     </List>
                 </VBox>
-                <VBox id="categoryDetails" backgroundDesign="Solid" class="categories sapUiSmallMargin">
+                <VBox id="categoryDetails" visible="false" backgroundDesign="Solid" class="categories sapUiSmallMargin">
                     <List id="subCategoryList" headerText="Subkategorien" items="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent_id', operator: 'EQ', value1: '11'}],
@@ -36,6 +39,5 @@
                 </VBox>
             </HBox>
         </content>
-
     </ResponsivePopover>
 </core:FragmentDefinition>

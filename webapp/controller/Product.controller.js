@@ -9,7 +9,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel, formatter, Device, Fragment, Filter, FilterOperator) {
 	"use strict";
 
-	return BaseController.extend("ag.agasown.controller.Home", {
+	return BaseController.extend("ag.agasown.controller.Product", {
 		_iCarouselTimeout: 0, // a pointer to the current timeout
 		_iCarouselLoopTime: 8000, // loop to next picture after 8 seconds
 

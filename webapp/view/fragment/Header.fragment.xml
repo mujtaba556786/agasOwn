@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Bar>
+        <contentLeft>
+            <ImageContent class="logo" src="{path: 'view>/welcomeLogo',
+                        formatter : '.formatter.pictureUrl'
+                        }" description="Logo" press="pressLogo">
+            </ImageContent>
+            <Button class="icon" icon="sap-icon://menu2" text="Kategorien" press=".onShowCategories"/>
+        </contentLeft>
+        <contentMiddle>
+        </contentMiddle>
+        <contentRight>
+            <Button class="icon" icon="sap-icon://customer" press=".onShowCategories"/>
+            <Button class="icon" icon="sap-icon://cart" press=".onShowCategories"/>
+        </contentRight>
+    </Bar>
+</core:FragmentDefinition>

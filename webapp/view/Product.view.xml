@@ -1,0 +1,54 @@
+<mvc:View xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:f="sap.f" controllerName="ag.agasown.controller.Product">
+    <Page id="category" class="agasown">
+        <customHeader>
+            <core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
+        </customHeader>
+        <content>
+        <core:Fragment fragmentName="ag.agasown.view.fragment.Carousel" type="XML" />    
+            <Panel id="productPanel" backgroundDesign="Transparent" class="sapUiNoContentPadding">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Promoted Item" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
+                    </Toolbar>
+                </headerToolbar>
+                <f:GridList id="gridProduct"  mode="SingleSelectMaster" items="{oDataProducts>/}" 
+                class="sapUiResponsiveContentPadding">
+                    <f:customLayout>
+                        <grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(16rem, 1fr))" gridGap="0.5rem" />
+                    </f:customLayout>
+
+                    <f:GridListItem detailPress="onDetailPress" press="onPress">
+                        <VBox height="100%">
+                            <Image src="{oDataProducts>picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
+                            <HBox height="100%" class="sapUiSmallMargin" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
+                                <VBox>
+                                    <Title text="{oDataProducts>product_name}" wrapping="true" />
+                                    <HBox justifyContent="SpaceBetween" alignItems="Baseline">
+                                        <Button tooltip="{i18n>addToCart}" press=".onAddToCart" icon="sap-icon://cart-3" type="Emphasized"/>
+                                        <ObjectListItem class="welcomePrice" number="{
+											parts:[
+												{path:'oDataProducts>unit_price'},
+												{path:'view>/Currency'}
+											],
+											type:'sap.ui.model.type.Currency',
+											formatOptions:{showMeasure: false}
+										}" numberUnit="{view>/Currency}">
+                                        </ObjectListItem>
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </f:GridListItem>
+                </f:GridList>
+            </Panel>
+        </content>
+        <footer>
+
+        </footer>
+    </Page>
+</mvc:View>

@@ -89,6 +89,11 @@
           "pattern": "",  
           "name": "home",
           "target": ["home"]
+        },
+        {
+          "pattern": "product",  
+          "name": "product",
+          "target": ["product"]
         }
       ],
       "targets": {
@@ -98,6 +103,13 @@
           "clearControlAggregation": false,
           "viewId": "home",
           "viewName": "Home"
+        },
+        "product": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "product",
+          "viewName": "Product"
         }
       }
     }
