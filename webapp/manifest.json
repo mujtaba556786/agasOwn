@@ -91,7 +91,7 @@
           "target": ["home"]
         },
         {
-          "pattern": "product",  
+          "pattern": "product/{productPath}",  
           "name": "product",
           "target": ["product"]
         }

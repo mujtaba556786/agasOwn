@@ -1,123 +1,74 @@
 sap.ui.define([
-	"./BaseController",
 	"sap/ui/model/json/JSONModel",
-	"../model/formatter",
-	"sap/ui/Device",
-	'sap/ui/core/Fragment',
+	"./BaseController",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-], function (BaseController, JSONModel, formatter, Device, Fragment, Filter, FilterOperator) {
+	'sap/ui/model/Sorter',
+	'sap/m/MessageBox',
+	'sap/f/library'
+], function (JSONModel, BaseController, Filter, FilterOperator, Sorter, MessageBox, fioriLibrary) {
 	"use strict";
 
 	return BaseController.extend("ag.agasown.controller.Product", {
-		_iCarouselTimeout: 0, // a pointer to the current timeout
-		_iCarouselLoopTime: 8000, // loop to next picture after 8 seconds
-
-		formatter: formatter,
 
 		onInit: function () {
-			this.setHeaderModel();
-		},
+			this.oView = this.getView();
+			this._bDescendingSort = false;
+			this.oProductsTable = this.oView.byId("productsTable");
+			var oViewModel = new JSONModel({
+				welcomeLogo: 'ag/agasown/img/AgasOwn.jpg',
+				welcomeCarouselShipping: 'ag/agasown/img/ShopCarouselShipping.jpg',
+				welcomeCarouselInviteFriend: 'ag/agasown/img/ShopCarouselInviteFriend.jpg',
+				welcomeCarouselTablet: 'ag/agasown/img/ShopCarouselTablet.jpg',
+				welcomeCarouselCreditCard: 'ag/agasown/img/ShopCarouselCreditCard.jpg',
+				Promoted: [],
+				Viewed: [],
+				Favorite: [],
+				Currency: "EUR"
+			});
+			this.getView().setModel(oViewModel, "view");
 
-		/**
-		 * lifecycle hook that will initialize the welcome carousel
-		 */
-		onAfterRendering: function () {
-			this.onCarouselPageChanged();
-		},
+			var oDataProducts = new JSONModel();
+			oDataProducts.loadData("http://127.0.0.1:8000/products" );
+			this.getView().setModel(oDataProducts, "oDataProducts");
 
-		/**
-		 * clear previous animation and initialize the loop animation of the welcome carousel
-		 */
-		onCarouselPageChanged: function () {
-			clearTimeout(this._iCarouselTimeout);
-			this._iCarouselTimeout = setTimeout(function () {
-				var oWelcomeCarousel = this.byId("welcomeCarousel");
-				if (oWelcomeCarousel) {
-					oWelcomeCarousel.next();
-					this.onCarouselPageChanged();
-				}
-			}.bind(this), this._iCarouselLoopTime);
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
 		},
-
-
-		/**
-		 * Always navigates back to home
-		 * @override
-		 */
-		onBack: function () {
-			this.getRouter().navTo("home");
-		},
-		handleMenuCategory: function (oEvent) {
-			var categoryId = sap.ui.getCore().byId("subCategoryList");
-			var categoryDetails = sap.ui.getCore().byId("categoryDetails");
-			var oSelectedItem = oEvent.getSource();
-			var oContext = oSelectedItem.getBindingContext("oDataCategory");
-			var sValue1 = oContext.getProperty("id");
-			var sPath = "parent_id";
-			var sOperator = "EQ";
-			var oBinding = categoryId.getBinding("items");
+	
+		_onObjectMatched: function (oEvent) {
+			oTableSearchState = [new Filter("Name", FilterOperator.Contains, sQuery)];
+			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
 		
-			oBinding.filter([new sap.ui.model.Filter(sPath, sOperator, sValue1)]);
-			sap.ui.getCore().byId("myPopover").focus();
-			if(oBinding.getLength() !== 0){
-				categoryDetails.setVisible(true);
-			} else {
-				categoryDetails.setVisible(false);
-				this.getRouter().navTo("product");
-			}
 		},
-
+	
 		onSearch: function (oEvent) {
-			// add filter for search
-			var aFilters = [];
-			var sQuery = oEvent.getSource().getValue();
+			var oTableSearchState = [],
+				sQuery = oEvent.getParameter("query");
+
 			if (sQuery && sQuery.length > 0) {
-				var filter = new Filter("category_name", FilterOperator.Contains, sQuery);
-				aFilters.push(filter);
+				oTableSearchState = [new Filter("Name", FilterOperator.Contains, sQuery)];
 			}
 
-			// update list binding
-			var oList = sap.ui.getCore().byId("mainCategoryList");
-			var oBinding = oList.getBinding("items");
-			oBinding.filter(aFilters, "Application");
-		
-		},
-		pressLogo: function () {
-			this.getRouter().navTo("home");
-		},
-		onExit: function () {
-			if (this._oPopover) {
-				this._oPopover.destroy();
-			}
+			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
 		},
 
-		onShowCategories: function (oEvent) {
-			var oMenu = oEvent.getSource();
-
-			// create popover
-			if (!this._oPopover) {
-				Fragment.load({
-					name: "ag.agasown.view.fragment.Menu",
-					controller: this
-				}).then(function (pPopover) {
-					this._oPopover = pPopover;
-					this.getView().addDependent(this._oPopover);
-					//this._oPopover.bindElement("/ProductCollection/0");
-					this._oPopover.openBy(oMenu);
-				}.bind(this));
-			} else {
-				this._oPopover.openBy(oMenu);
-			}
+		onAdd: function () {
+			MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
 		},
 
-		handleCloseMenu: function (oEvent) {
-			// note: We don't need to chain to the _pPopover promise, since this event-handler
-			// is only called from within the loaded dialog itself.
-			//this.byId("myMenu").close();
-			if (this._oPopover) {
-				this._oPopover.close();
-			}
+		onSort: function () {
+			this._bDescendingSort = !this._bDescendingSort;
+			var oBinding = this.oProductsTable.getBinding("items"),
+				oSorter = new Sorter("Name", this._bDescendingSort);
+
+			oBinding.sort(oSorter);
+		},
+
+		onListItemPress: function () {
+			var oFCL = this.oView.getParent().getParent();
+
+			oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
 		}
 	});
 });

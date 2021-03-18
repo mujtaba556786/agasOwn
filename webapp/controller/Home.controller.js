@@ -54,7 +54,7 @@ sap.ui.define([
 			var oSelectedItem = oEvent.getSource();
 			var oContext = oSelectedItem.getBindingContext("oDataCategory");
 			var sValue1 = oContext.getProperty("id");
-			var sPath = "parent_id";
+			var sPath = "parent";
 			var sOperator = "EQ";
 			var oBinding = categoryId.getBinding("items");
 		
@@ -64,7 +64,9 @@ sap.ui.define([
 				categoryDetails.setVisible(true);
 			} else {
 				categoryDetails.setVisible(false);
-				this.getRouter().navTo("product");
+				this.getRouter().navTo("product", {
+					productPath: sValue1
+				});
 			}
 		},
 

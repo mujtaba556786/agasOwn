@@ -15,7 +15,7 @@
                 <VBox backgroundDesign="Solid" class="sapUiSmallMargin">
                     <List id="mainCategoryList" headerText="Kategorien" items="{
                         path: 'oDataCategory>/',
-                        filters: [{path: 'parent_id', operator: 'EQ', value1: '0'}],
+                        filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
                     }">
                         <items>
