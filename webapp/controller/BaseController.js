@@ -30,11 +30,11 @@ sap.ui.define([
 			this.getView().setModel(oViewModel, "view");
 
 			var oDataProducts = new JSONModel();
-			oDataProducts.loadData("http://127.0.0.1:8000/products/");
+			oDataProducts.loadData("http://18.194.155.205:8000/products/");
 
 			this.getView().setModel(oDataProducts, "oDataProducts");
 			var oDataCategory = new JSONModel();
-			oDataCategory.loadData("http://127.0.0.1:8000/category");
+			oDataCategory.loadData("http://18.194.155.205:8000/category");
 
 			this.getView().setModel(oDataCategory, "oDataCategory");
 

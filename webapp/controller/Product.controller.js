@@ -29,7 +29,7 @@ sap.ui.define([
 			this.getView().setModel(oViewModel, "view");
 
 			var oDataProducts = new JSONModel();
-			oDataProducts.loadData("http://127.0.0.1:8000/products" );
+			oDataProducts.loadData("http://18.194.155.205:8000/products" );
 			this.getView().setModel(oDataProducts, "oDataProducts");
 
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -37,9 +37,9 @@ sap.ui.define([
 		},
 	
 		_onObjectMatched: function (oEvent) {
-			oTableSearchState = [new Filter("Name", FilterOperator.Contains, sQuery)];
+			var sCategoryId = oEvent.getParameter("arguments").productPath;
+			var oTableSearchState = [new Filter("category_id", FilterOperator.EQ, sCategoryId)];
 			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
-		
 		},
 	
 		onSearch: function (oEvent) {
@@ -47,7 +47,7 @@ sap.ui.define([
 				sQuery = oEvent.getParameter("query");
 
 			if (sQuery && sQuery.length > 0) {
-				oTableSearchState = [new Filter("Name", FilterOperator.Contains, sQuery)];
+				oTableSearchState = [new Filter("product_name", FilterOperator.Contains, sQuery)];
 			}
 
 			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
@@ -60,15 +60,22 @@ sap.ui.define([
 		onSort: function () {
 			this._bDescendingSort = !this._bDescendingSort;
 			var oBinding = this.oProductsTable.getBinding("items"),
-				oSorter = new Sorter("Name", this._bDescendingSort);
+				oSorter = new Sorter("product_name", this._bDescendingSort);
 
 			oBinding.sort(oSorter);
 		},
 
-		onListItemPress: function () {
-			var oFCL = this.oView.getParent().getParent();
-
-			oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
+		onListItemPress: function (oEvent) {
+			var oBndngCtxt =  oEvent.getSource().getBindingContext("oDataProducts");
+			var spath = oBndngCtxt.getPath();
+			var selectedPath = oBndngCtxt.getProperty(spath);
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.publish("ProductDetail", "ProductDetailEvent", selectedPath);
+			//var oProductDetail = oEvent.getSource().getBindingContext("oDataProducts").getPath().substr(1);
+			var sProductsId = oBndngCtxt.getProperty("id");
+			this.getRouter().navTo("productDetail", {
+				"detailObj" : sProductsId
+			});
 		}
 	});
 });

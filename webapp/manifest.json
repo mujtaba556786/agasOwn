@@ -94,6 +94,11 @@
           "pattern": "product/{productPath}",  
           "name": "product",
           "target": ["product"]
+        },
+        {
+          "pattern": "productDetail/{detailObj}",  
+          "name": "productDetail",
+          "target": ["productDetail"]
         }
       ],
       "targets": {
@@ -110,6 +115,13 @@
           "clearControlAggregation": false,
           "viewId": "product",
           "viewName": "Product"
+        },
+        "productDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "productDetail",
+          "viewName": "ProductDetail"
         }
       }
     }

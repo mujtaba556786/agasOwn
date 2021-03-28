@@ -1,103 +1,104 @@
-<mvc:View
-	xmlns="sap.uxap"
-	xmlns:m="sap.m"
-	xmlns:f="sap.f"
-	xmlns:form="sap.ui.layout.form"
-	xmlns:mvc="sap.ui.core.mvc">
-	<ObjectPageLayout
-		id="ObjectPageLayout"
-		showTitleInHeaderContent="true"
-		alwaysShowContentHeader="false"
-		preserveHeaderStateOnScroll="false"
-		headerContentPinnable="true"
-		isChildPage="true"
-		upperCaseAnchorBar="false">
-		<headerTitle>
-			<ObjectPageDynamicHeaderTitle>
-				<actions>
-					<m:ToggleButton
-						text="Edit"
-						type="Emphasized"/>
-					<m:Button
-						text="Delete"
-						type="Transparent"/>
-					<m:Button
-						text="Copy"
-						type="Transparent"/>
-					<m:Button
-						icon="sap-icon://action"
-						type="Transparent"/>
-				</actions>
-			</ObjectPageDynamicHeaderTitle>
-		</headerTitle>
+<mvc:View xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f" controllerName="ag.agasown.controller.ProductDetail">
+	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
+		<customHeader>
+		</customHeader>
+		<content>
+			<Panel headerText="Product Detail" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Product Detail" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
+					</Toolbar>
+				</headerToolbar>
+				<l:VerticalLayout class="sapUiContentPadding equalColumns" width="100%">
+					<FlexBox class="columns">
+						<HBox>
+							<Carousel class="sapUiContentPadding" loop="true">
+								<Image src="{detailProduct>/picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" backgroundSize="contain" backgroundPosition="center center"/>
+								<Image src="{img>/products/pic2}" alt="Example picture of USB flash drive" />
+								<Image src="{img>/products/pic3}" alt="Example picture of spotlight" />
+								<Image src="{img>/products/screw}" alt="Example picture of screw" />
+							</Carousel>
+							<layoutData>
+								<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+							</layoutData>
+						</HBox>
+						<VBox>
+							<Text id="product_name" text="{detailProduct>/product_name}"/>
 
-		<headerContent>
-			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
-				<f:Avatar
-					displaySize="L"
-					displayShape="Square"
-					class="sapUiTinyMarginEnd">
-				</f:Avatar>
-				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Main Category"/>
-				</m:VBox>
-				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Subcategory"/>
-				</m:VBox>
-				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Price"/>
-				</m:VBox>
-			</m:FlexBox>
-		</headerContent>
+							<Text id="product_price" text="{detailProduct>/unit_price} EUR"/>
 
-		<sections>
-			<ObjectPageSection title="General Information">
-				<subSections>
-					<ObjectPageSubSection>
-						<blocks>
-							<form:SimpleForm
-								maxContainerCols="2"
-								editable="false"
-								layout="ResponsiveGridLayout"
-								labelSpanL="12"
-								labelSpanM="12"
-								emptySpanL="0"
-								emptySpanM="0"
-								columnsL="1"
-								columnsM="1">
-								<form:content>
-									<m:Label text="Product ID"/>
-									<m:Label text="Description"/>
-									<m:Label text="Supplier"/>
-								</form:content>
-							</form:SimpleForm>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
 
-			<ObjectPageSection title="Suppliers">
-				<subSections>
-					<ObjectPageSubSection>
-						<blocks>
-							<m:Table
-								id="suppliersTable"
-								items="{path : 'products>/ProductCollectionStats/Filters/1/values'}">
-								<m:columns>
-									<m:Column/>
-								</m:columns>
-								<m:items>
-									<m:ColumnListItem type="Navigation">
-										<m:cells>
-											<m:ObjectIdentifier text="{products>text}"/>
-										</m:cells>
-									</m:ColumnListItem>
-								</m:items>
-							</m:Table>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-		</sections>
-	</ObjectPageLayout>
+							<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip" editable="false"/>
+
+
+							<Label text="Color" labelFor="product_color" />
+							<Text id="product_color" text="{detailProduct>/color}"/>
+
+							<Label text="Dimension" labelFor="product_dimension" />
+							<Text id="product_dimension" text="{detailProduct>/size}"/>
+
+							<HBox justifyContent="SpaceBetween">
+								<VBox>
+									<Label text="Size" labelFor="RI_default"/>
+									<Select forceSelection="false" selectedKey="{/SelectedProduct}">
+										<core:Item key="S" text="Small" />
+										<core:Item key="M" text="Medium" />
+										<core:Item key="L" text="Large" />
+									</Select>
+								</VBox>
+								<VBox>
+									<Label text="Quantity" labelFor="product_quantity" />
+									<StepInput value="{detailView>/value}" min="{detailView>/min}" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
+								</VBox>
+								<VBox>
+									<Label text="Add to cart" labelFor="RI_default"/>
+									<Button class="icon" icon="sap-icon://cart" press=".onShowCategories"/>
+								</VBox>
+							</HBox>
+							<Label text="Description" labelFor="product_description" />
+							<Text id="product_description" text="{detailProduct>/note}"/>
+
+							<layoutData>
+								<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+							</layoutData>
+						</VBox>
+					</FlexBox>
+				</l:VerticalLayout>
+				<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+					<items>
+						<IconTabFilter text="Description" key="description">
+							<VBox>
+								<Text text="Product Description" />
+								<Text text="{detailProduct>/note}"/>
+								<Text text="{detailProduct>/unit_price} EUR"/>
+								<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip" />
+								<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+								At vero eos et accusam et justo duo dolores et ea rebum. 
+								Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+								sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+							</VBox>
+						</IconTabFilter>
+						<IconTabFilter text="Information" key="information">
+							<Text text="Information go here ..." />
+						</IconTabFilter>
+						<IconTabFilter text="Reviews" key="reviews">
+							<Text text="Reviews go here ..." />
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</Panel>
+		</content>
+		<footer>
+
+		</footer>
+	</Page>
 </mvc:View>

@@ -25,15 +25,13 @@
 				<Table
 					id="productsTable"
 					inset="false"
-					items="{
-						path: 'oDataProducts>/',
-						sorter: {
-							path: 'product_name'
-						}
-					}"
+					items="{oDataProducts>/}"
 					class="sapFDynamicPageAlignContent"
 					width="auto">
 					<columns>
+					<Column width="12em">
+							<Text text="Image"/>
+						</Column>
 						<Column width="12em">
 							<Text text="Product"/>
 						</Column>
@@ -44,6 +42,7 @@
 					<items>
 						<ColumnListItem type="Navigation" press=".onListItemPress">
 							<cells>
+								<Image src="{oDataProducts>picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
 								<ObjectIdentifier title="{oDataProducts>product_name}" text="{oDataProducts>id}"/>
 								<ObjectNumber
 									number="{
@@ -54,7 +53,7 @@
 										type: 'sap.ui.model.type.Currency',
 										formatOptions: {showMeasure: false}
 									}"
-									unit="{view>Currency}"/>
+									unit="EUR"/>
 							</cells>
 						</ColumnListItem>
 					</items>

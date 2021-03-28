@@ -29,7 +29,7 @@
                 <VBox id="categoryDetails" visible="false" backgroundDesign="Solid" class="categories sapUiSmallMargin">
                     <List id="subCategoryList" headerText="Subkategorien" items="{
                         path: 'oDataCategory>/',
-                        filters: [{path: 'parent_id', operator: 'EQ', value1: '11'}],
+                        filters: [{path: 'parent', operator: 'EQ', value1: '11'}],
                         sorter: {path: 'id'}
                     }">
                         <items>
