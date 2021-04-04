@@ -27,7 +27,12 @@
 
 					<f:GridListItem detailPress="onDetailPress" press="onPress" type="SingleSelectMaster">
 						<VBox height="100%">
-							<Image src="{oDataCategory>picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
+							<Image 
+							src="{
+											path: 'oDataCategory>picture',
+											formatter : '.formatter.jsonPictureUrl'
+											}"
+							 width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
 							<HBox height="100%" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
 								<VBox>
 									<Title text="{oDataCategory>category_name}" wrapping="true" />
@@ -51,7 +56,11 @@
 
 					<f:GridListItem detailPress="onDetailPress" press="onPress" type="SingleSelectMaster">
 						<VBox height="100%">
-							<Image src="{oDataProducts>picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
+							<Image src="{
+											path: 'oDataProducts>picture',
+											formatter : '.formatter.jsonPictureUrl'
+											}"
+							width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
 							<HBox height="100%" class="sapUiSmallMargin" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
 								<VBox>
 									<Title text="{oDataProducts>product_name}" wrapping="true" />
