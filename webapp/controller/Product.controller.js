@@ -29,7 +29,7 @@ sap.ui.define([
 			this.getView().setModel(oViewModel, "view");
 
 			var oDataProducts = new JSONModel();
-			oDataProducts.loadData("http://18.194.155.205:8000/products" );
+			oDataProducts.loadData("https://cors-anywhere.herokuapp.com/http://18.194.155.205:8000/products" );
 			this.getView().setModel(oDataProducts, "oDataProducts");
 
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
