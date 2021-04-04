@@ -73,8 +73,8 @@ sap.ui.define([
 		 * @param {*} oCollection2 
 		 */
 		jsonPictureUrl: function(sUrl){
-			//var corsUrl = "https://cors-anywhere.herokuapp.com/"; 
-			return sUrl; 
+			var corsUrl = "https://cors-anywhere.herokuapp.com/"; 
+			return corsURl+sUrl; 
 		},
 
 		/**
