@@ -53,6 +53,10 @@ sap.ui.define([
 			var categoryDetails = sap.ui.getCore().byId("categoryDetails");
 			var oSelectedItem = oEvent.getSource();
 			var oContext = oSelectedItem.getBindingContext("oDataCategory");
+
+			var sName = oContext.getProperty("category_name");
+			this.getView().getModel("view").setProperty("/category_name", sName);
+
 			var sValue1 = oContext.getProperty("id");
 			var sPath = "parent";
 			var sOperator = "EQ";

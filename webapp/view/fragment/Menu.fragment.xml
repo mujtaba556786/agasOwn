@@ -5,15 +5,10 @@
         <beginButton>
             <Button text="X" press="handleCloseMenu" />
         </beginButton>
-        <subHeader>
-            <OverflowToolbar>
-                <SearchField liveChange=".onSearch" width="100%" />
-            </OverflowToolbar>
-        </subHeader>
         <content>
             <HBox>
                 <VBox backgroundDesign="Solid" class="sapUiSmallMargin">
-                    <List id="mainCategoryList" headerText="Kategorien" items="{
+                    <List id="mainCategoryList" items="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
@@ -27,7 +22,7 @@
                     </List>
                 </VBox>
                 <VBox id="categoryDetails" visible="false" backgroundDesign="Solid" class="categories sapUiSmallMargin">
-                    <List id="subCategoryList" headerText="Subkategorien" items="{
+                    <List id="subCategoryList" headerText="{view>/category_name}" items="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: '11'}],
                         sorter: {path: 'id'}

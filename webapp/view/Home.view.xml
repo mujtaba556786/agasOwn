@@ -5,19 +5,18 @@
 	xmlns:grid="sap.ui.layout.cssgrid"
 	xmlns:f="sap.f" controllerName="ag.agasown.controller.Home">
 	<Page id="home" class="agasown">
-	<customHeader>
+		<customHeader>
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
-	</customHeader>
-	<content>
-	<core:Fragment fragmentName="ag.agasown.view.fragment.Carousel" type="XML" />
-	<Panel id="panelCategory" backgroundDesign="Transparent" class="sapUiNoContentPadding">
-	<headerToolbar>
-	<Toolbar>
-	<Title text="Beliebte Kategorien" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
-		</Toolbar>
+		</customHeader>
+		<content>
+			<core:Fragment fragmentName="ag.agasown.view.fragment.Carousel" type="XML" />
+			<Panel id="panelCategory" backgroundDesign="Transparent" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Beliebte Kategorien" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
+					</Toolbar>
 				</headerToolbar>
-				<f:GridList id="gridCategory" mode="SingleSelectMaster"  
-				items="{
+				<f:GridList id="gridCategory" mode="SingleSelectMaster" items="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
@@ -74,9 +73,80 @@
 					</f:GridListItem>
 				</f:GridList>
 			</Panel>
-		</content>
-		<footer>
+			<Panel headerText="News letter" class="sapUiDemoFlexBoxSizeAdjustments">
+				<FlexBox class="columns">
+					<Image src="{
+							path: 'view>/welcomeNews',
+							formatter : '.formatter.pictureUrl'
+						}" width="100%" height="100%">
+						<layoutData>
+							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+						</layoutData>
+					</Image>
+					<VBox>
+						<Text text="Newsletter-Lesser sind immer up to date"/>
 
-		</footer>
+						<Input id="passwordInput" type="Email" placeholder="Enter Email" />
+						<Button type="Accept" text="Subscribe" width="100%" press="onPress"/>
+
+						<Text text="Newsletter von Agasown. Abmelden ist jederzeit möglich"/>
+						<Link text="Datenschutzerklärung" press="handleLinkPress" />
+						<layoutData>
+							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+						</layoutData>
+					</VBox>
+
+				</FlexBox>
+			</Panel>
+			<Panel >
+				<FlexBox alignItems="Start">
+					<List backgroundDesign="Transparent" headerText="Agas own" items="{
+                        path: 'oDataCategory>/',
+                        filters: [{path: 'parent', operator: 'EQ', value1: null}],
+                        sorter: {path: 'id'}
+                    }">
+						<CustomListItem>
+							<VBox class="">
+								<Link text="{oDataCategory>category_name}" press="handlePress"/>
+							</VBox>
+						</CustomListItem>
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</List>
+					<List backgroundDesign="Transparent" headerText="Categories" items="{
+                        path: 'oDataCategory>/',
+                        filters: [{path: 'parent', operator: 'EQ', value1: null}],
+                        sorter: {path: 'id'}
+                    }">
+						<CustomListItem>
+							<HBox>
+								<VBox class="">
+									<Link text="{oDataCategory>category_name}" press="handlePress"/>
+								</VBox>
+							</HBox>
+						</CustomListItem>
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</List>
+
+					<List backgroundDesign="Transparent" headerText="Agas own" items="{
+                        path: 'oDataCategory>/',
+                        filters: [{path: 'parent', operator: 'EQ', value1: null}],
+                        sorter: {path: 'id'}
+                    }">
+						<CustomListItem>
+							<VBox class="">
+								<Link text="{oDataCategory>category_name}" press="handlePress"/>
+							</VBox>
+						</CustomListItem>
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</List>
+				</FlexBox>
+			</Panel>
+		</content>
 	</Page>
 </mvc:View>
