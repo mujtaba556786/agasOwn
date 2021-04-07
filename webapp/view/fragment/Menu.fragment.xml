@@ -13,12 +13,14 @@
                         filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
                     }">
-                        <items>
-                            <StandardListItem title="{oDataCategory>category_name}" 
-                            icon="{oDataCategory>picture}" iconDensityAware="false" 
-                            type="Navigation" iconInset="false" 
-                            press="handleMenuCategory"/>
-                        </items>
+                        <CustomListItem>
+                    
+                                <HBox alignItems="Center" justifyContent="SpaceBetween" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                                    <Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
+                                    <Button type="Transparent" icon="sap-icon://navigation-right-arrow"  press="handleMenuCategory" ariaLabelledBy="editButtonLabel"/>
+                                </HBox>
+                            
+                        </CustomListItem>
                     </List>
                 </VBox>
                 <VBox id="categoryDetails" visible="false" backgroundDesign="Solid" class="categories sapUiSmallMargin">
@@ -27,9 +29,14 @@
                         filters: [{path: 'parent', operator: 'EQ', value1: '11'}],
                         sorter: {path: 'id'}
                     }">
-                        <items>
-                            <StandardListItem title="{oDataCategory>category_name}" icon="{oDataCategory>picture}" iconDensityAware="false" type="Navigation" iconInset="false" press="handleMenuCategory"/>
-                        </items>
+
+                        <CustomListItem>
+                            <HBox>
+                                <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                                    <Link text="{oDataCategory>category_name}" target="{ProductPicUrl}" press="onCategoryLinkPress"/>
+                                </VBox>
+                            </HBox>
+                        </CustomListItem>
                     </List>
                 </VBox>
             </HBox>

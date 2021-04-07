@@ -15,22 +15,6 @@ sap.ui.define([
 			this.oView = this.getView();
 			this._bDescendingSort = false;
 			this.oProductsTable = this.oView.byId("productsTable");
-			var oViewModel = new JSONModel({
-				welcomeLogo: 'ag/agasown/img/AgasOwn.jpg',
-				welcomeCarouselShipping: 'ag/agasown/img/ShopCarouselShipping.jpg',
-				welcomeCarouselInviteFriend: 'ag/agasown/img/ShopCarouselInviteFriend.jpg',
-				welcomeCarouselTablet: 'ag/agasown/img/ShopCarouselTablet.jpg',
-				welcomeCarouselCreditCard: 'ag/agasown/img/ShopCarouselCreditCard.jpg',
-				Promoted: [],
-				Viewed: [],
-				Favorite: [],
-				Currency: "EUR"
-			});
-			this.getView().setModel(oViewModel, "view");
-
-			var oDataProducts = new JSONModel();
-			oDataProducts.loadData("https://cors-anywhere.herokuapp.com/http://18.194.155.205:8000/products" );
-			this.getView().setModel(oDataProducts, "oDataProducts");
 
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
@@ -69,8 +53,11 @@ sap.ui.define([
 			var oBndngCtxt =  oEvent.getSource().getBindingContext("oDataProducts");
 			var spath = oBndngCtxt.getPath();
 			var selectedPath = oBndngCtxt.getProperty(spath);
-			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.publish("ProductDetail", "ProductDetailEvent", selectedPath);
+
+			this.getView().getModel("oGlobalModel").setProperty("/", {"detailProduct":selectedPath});
+
+			//var eventBus = sap.ui.getCore().getEventBus();
+			//eventBus.publish("ProductDetail", "ProductDetailEvent", selectedPath);
 			//var oProductDetail = oEvent.getSource().getBindingContext("oDataProducts").getPath().substr(1);
 			var sProductsId = oBndngCtxt.getProperty("id");
 			this.getRouter().navTo("productDetail", {

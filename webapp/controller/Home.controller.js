@@ -74,6 +74,28 @@ sap.ui.define([
 			}
 		},
 
+		onCategoryLinkPress: function(oEvent){
+			var aFilters = [];
+			var oSelectedItem = oEvent.getSource();
+			var oContext = oSelectedItem.getBindingContext("oDataCategory");
+			var sValue1 = oContext.getProperty("id");
+
+			var fnFilter = function (item) {
+				return item.parent === sValue1;
+			}
+
+			var oDataCategory = this.getView().getModel("oDataCategory").getData();
+			var selectedPath = oDataCategory.filter(fnFilter);
+
+			//aFilters.push(selectedPath);
+
+			this.getView().getModel("oGlobalModel").setProperty("/", {"detailCategory":selectedPath});
+
+			this.getRouter().navTo("product", {
+				productPath: sValue1
+			});
+		},
+
 		onSearch: function (oEvent) {
 			// add filter for search
 			var aFilters = [];

@@ -34,15 +34,6 @@ sap.ui.define([
 			});
 			this.getView().setModel(oViewModel, "view");
 
-			var oDataProducts = new JSONModel();
-			oDataProducts.loadData("https://cors-anywhere.herokuapp.com/http://18.194.155.205:8000/products/");
-
-			this.getView().setModel(oDataProducts, "oDataProducts");
-			var oDataCategory = new JSONModel();
-			oDataCategory.loadData("https://cors-anywhere.herokuapp.com/http://18.194.155.205:8000/category");
-
-			this.getView().setModel(oDataCategory, "oDataCategory");
-
 			// select random carousel page at start
 			var oWelcomeCarousel = this.byId("welcomeCarousel");
 			var iRandomIndex = Math.floor(Math.abs(Math.random()) * oWelcomeCarousel.getPages().length);

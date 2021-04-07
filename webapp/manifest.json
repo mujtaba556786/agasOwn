@@ -12,10 +12,14 @@
     "resources": "resources.json",
     "ach": "ach",
     "dataSources": {
-			"init_data_alias": {
-				"uri": "http://127.0.0.1:8000/?$format=json",
+      "product_data_alias":{
+        "uri": "https://cors-anywhere.herokuapp.com/http://18.194.155.205:8000/products/?$format=json",
 				"type": "Json"
-			}
+      },
+      "category_data_alias":{
+        "uri": "https://cors-anywhere.herokuapp.com/http://18.194.155.205:8000/category/?$format=json",
+				"type": "Json"
+      }
 		}
   },
   "sap.ui": {
@@ -62,9 +66,13 @@
           "bundleName": "ag.agasown.i18n.i18n"
         }
       },
-      "init_data": {
+      "oDataProducts": {
 				"type": "sap.ui.model.json.JSONModel",
-				"dataSource": "init_data_alias"
+				"dataSource": "product_data_alias"
+			},
+      "oDataCategory": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "category_data_alias"
 			}
     },
     "resources": {

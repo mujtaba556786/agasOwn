@@ -22,26 +22,21 @@ sap.ui.define([
 			this._bDescendingSort = false;
 			this.oDetailProduct = this.oView.byId("detailProduct");
 
-			var aData =
-				{ value: 6, min: 1, max: 100, width: "90px", validationMode: "LiveChange" }
-				;
+			var aData ={ value: 6, min: 1, max: 100, width: "90px", validationMode: "LiveChange" };
 			var oModel = new JSONModel(aData);
 			this.getView().setModel(oModel, "detailView");
 
-			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.subscribe("ProductDetail", "ProductDetailEvent", this._setViewData, this);
 
-			var oRouter = this.getOwnerComponent().getRouter(this);
-			oRouter.getRoute("productDetail").attachPatternMatched(this._onObjectMatched, this);
+			//var oRouter = this.getOwnerComponent().getRouter(this);
+			//oRouter.getRoute("productDetail").attachPatternMatched(this._onObjectMatched, this);
 		},
-		_setViewData: function (sChannel, sEvent, oData) {
-			this.globalDetailData = oData;
-		},
+		
+
 
 		_onObjectMatched: function () {
+			var eventBus = sap.ui.getCore().getEventBus();
+			eventBus.subscribe("ProductDetail", "ProductDetailEvent", this._setViewData, this);
 			console.log("this.oDetailData", this.globalDetailData);
-			var oDataProducts = new JSONModel(this.globalDetailData);
-			this.oView.setModel(oDataProducts, "detailProduct");
 		},
 
 		onAdd: function () {
