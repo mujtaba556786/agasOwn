@@ -59,6 +59,15 @@ sap.ui.define([
 			}
 		},
 
+		/**
+		 * Always navigates back to home
+		 * @override
+		 */
+		 onNavBack: function () {
+			this.getRouter().navTo("home");
+			location.reload();
+		},
+
 		handleCloseMenu: function (oEvent) {
 			// note: We don't need to chain to the _pPopover promise, since this event-handler
 			// is only called from within the loaded dialog itself.

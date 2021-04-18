@@ -61,10 +61,10 @@ sap.ui.define([
 			var sPath = "parent";
 			var sOperator = "EQ";
 			var oBinding = categoryId.getBinding("items");
-		
+
 			oBinding.filter([new sap.ui.model.Filter(sPath, sOperator, sValue1)]);
 			sap.ui.getCore().byId("myPopover").focus();
-			if(oBinding.getLength() !== 0){
+			if (oBinding.getLength() !== 0) {
 				categoryDetails.setVisible(true);
 			} else {
 				categoryDetails.setVisible(false);
@@ -74,22 +74,27 @@ sap.ui.define([
 			}
 		},
 
-		onCategoryLinkPress: function(oEvent){
-			var aFilters = [];
+		onCategoryLinkPress: function (oEvent) {
 			var oSelectedItem = oEvent.getSource();
 			var oContext = oSelectedItem.getBindingContext("oDataCategory");
 			var sValue1 = oContext.getProperty("id");
 
-			var fnFilter = function (item) {
+			var fnFilterCategory = function (item) {
 				return item.parent === sValue1;
 			}
 
+			var fnFilterProducts = function (item) {
+				return item.category_id === sValue1;
+			}
+
 			var oDataCategory = this.getView().getModel("oDataCategory").getData();
-			var selectedPath = oDataCategory.filter(fnFilter);
-
-			//aFilters.push(selectedPath);
-
-			this.getView().getModel("oGlobalModel").setProperty("/", {"detailCategory":selectedPath});
+			var oDataProducts = this.getView().getModel("oDataProducts").getData();
+			var selectedCategory = oDataCategory.filter(fnFilterCategory);
+			var selectedProducts = oDataProducts.filter(fnFilterProducts);
+			this.getView().getModel("oGlobalModel").setProperty("/", {
+				"detailCategory": selectedCategory,
+				"detailProducts": selectedProducts
+			});
 
 			this.getRouter().navTo("product", {
 				productPath: sValue1
@@ -109,10 +114,21 @@ sap.ui.define([
 			var oList = sap.ui.getCore().byId("mainCategoryList");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilters, "Application");
-		
 		},
-		pressLogo: function () {
-			this.getRouter().navTo("home");
+
+		onProductItemPress: function (oEvent) {
+			var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
+			var spath = oBndngCtxt.getPath();
+			var selectedPath = oBndngCtxt.getProperty(spath);
+
+			this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
+
+			//var eventBus = sap.ui.getCore().getEventBus();
+			//eventBus.publish("ProductDetail", "ProductDetailEvent", selectedPath);
+			//var oProductDetail = oEvent.getSource().getBindingContext("oDataProducts").getPath().substr(1);
+			this.getRouter().navTo("productDetail", {
+				"detailObj": selectedPath.id
+			});
 		},
 		onExit: function () {
 			if (this._oPopover) {

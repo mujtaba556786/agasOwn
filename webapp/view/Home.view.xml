@@ -4,7 +4,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:grid="sap.ui.layout.cssgrid"
 	xmlns:f="sap.f" controllerName="ag.agasown.controller.Home">
-	<Page id="home" class="agasown">
+	<Page id="home">
 		<customHeader>
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
@@ -25,17 +25,15 @@
 						<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(16rem, 1fr))" gridGap="0.5rem" />
 					</f:customLayout>
 
-					<f:GridListItem detailPress="onDetailPress" press="onPress" type="SingleSelectMaster">
+					<f:GridListItem type="SingleSelectMaster">
 						<VBox height="100%">
-							<Image 
-							src="{
+							<Image src="{
 											path: 'oDataCategory>picture',
 											formatter : '.formatter.jsonPictureUrl'
-											}"
-							 width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
+											}" width="100%" class="imageDisplayBlock" press="onCategoryLinkPress"/>
 							<HBox height="100%" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
 								<VBox>
-									<Title text="{oDataCategory>category_name}" wrapping="true" />
+									<Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
 								</VBox>
 							</HBox>
 						</VBox>
@@ -49,19 +47,24 @@
 					</Toolbar>
 				</headerToolbar>
 
-				<f:GridList id="gridProduct" headerText="promoted" mode="SingleSelectMaster" items="{oDataProducts>/}" class="sapUiResponsiveContentPadding">
+				<f:GridList id="gridProduct" headerText="promoted" mode="SingleSelectMaster" 
+				items="{
+                        path: 'oDataProducts>/',
+                        filters: [{path: 'ranking', operator: 'EQ', value1: '1'}],
+                        sorter: {path: 'id'}
+                    }" 
+				 class="sapUiResponsiveContentPadding">
 					<f:customLayout>
 						<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(16rem, 1fr))" gridGap="0.5rem" />
 					</f:customLayout>
 
-					<f:GridListItem detailPress="onDetailPress" press="onPress" type="SingleSelectMaster">
+					<f:GridListItem detailPress="onDetailPress" press="onPress">
 						<VBox height="100%">
 							<Image src="{
 											path: 'oDataProducts>picture',
 											formatter : '.formatter.jsonPictureUrl'
-											}"
-							width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
-							<HBox height="100%" class="sapUiSmallMargin" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
+											}" width="100%" class="imageDisplayBlock" press="onProductItemPress"/>
+							<HBox height="100%" class="sapUiSmallMargin" alignItems="Center">
 								<VBox>
 									<Title text="{oDataProducts>product_name}" wrapping="true" />
 									<HBox justifyContent="SpaceBetween" alignItems="Baseline">

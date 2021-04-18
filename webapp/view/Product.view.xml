@@ -1,55 +1,52 @@
-<mvc:View
-	controllerName="ag.agasown.controller.Product"
+<mvc:View controllerName="ag.agasown.controller.Product"
 	xmlns="sap.m"
 	xmlns:f="sap.f"
 	xmlns:mvc="sap.ui.core.mvc">
-
-	<IconTabBar
-		id="idIconTabBarNoIcons"
-		expanded="{device>/isNoPhone}"
-		items="{oGlobalModel>/detailCategory}"
-		class="sapUiResponsiveContentPadding">
-		<items>
-			<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>category_name}">
-				<VBox>
-				<Table
-					id="productsTable"
-					inset="false"
-					items="{oDataProducts>/}"
-					class="sapFDynamicPageAlignContent"
-					width="auto">
-					<columns>
-					<Column width="12em">
-							<Text text="Image"/>
-						</Column>
-						<Column width="12em">
-							<Text text="Product"/>
-						</Column>
-						<Column	hAlign="End">
-							<Text text="Price"/>
-						</Column>
-					</columns>
-					<items>
-						<ColumnListItem type="Navigation" press=".onListItemPress">
-							<cells>
-								<Image src="{oDataProducts>picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
-								<ObjectIdentifier title="{oDataProducts>product_name}" text="{oDataProducts>id}"/>
-								<ObjectNumber
-									number="{
+	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
+		<customHeader>
+		</customHeader>
+		<content>
+			<IconTabBar  expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>category_name}">
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+							<VBox>
+								<Table inset="false" items="{oGlobalModel>/detailProducts}" class="sapFDynamicPageAlignContent" width="auto">
+									<columns>
+										<Column width="12em">
+											<Text text="Image"/>
+										</Column>
+										<Column width="12em">
+											<Text text="Product"/>
+										</Column>
+										<Column hAlign="End">
+											<Text text="Price"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem type="Navigation" press=".onListItemPress">
+											<cells>
+												<Image src="{oGlobalModel>picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
+												<ObjectIdentifier title="{oGlobalModel>product_name}" text="{oGlobalModel>id}"/>
+												<ObjectNumber number="{
 										parts:[
-											{path:'oDataProducts>unit_price'},
+											{path:'oGlobalModel>unit_price'},
 											{path:'view>Currency'}
 										],
 										type: 'sap.ui.model.type.Currency',
 										formatOptions: {showMeasure: false}
-									}"
-									unit="EUR"/>
-							</cells>
-						</ColumnListItem>
-					</items>
-				</Table>
-			</VBox>
-			</IconTabFilter>
-		</items>
-	</IconTabBar>
+									}" unit="EUR"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</VBox>
+						</ScrollContainer>
+		</content>
+		<footer>
+		</footer>
+	</Page>
 </mvc:View>

@@ -16,16 +16,16 @@ sap.ui.define([
 			this._bDescendingSort = false;
 			this.oProductsTable = this.oView.byId("productsTable");
 
-			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
+			//var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			//oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
 		},
-	
+
 		_onObjectMatched: function (oEvent) {
 			var sCategoryId = oEvent.getParameter("arguments").productPath;
 			var oTableSearchState = [new Filter("category_id", FilterOperator.EQ, sCategoryId)];
 			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
 		},
-	
+
 		onSearch: function (oEvent) {
 			var oTableSearchState = [],
 				sQuery = oEvent.getParameter("query");
@@ -38,7 +38,7 @@ sap.ui.define([
 		},
 
 		onAdd: function () {
-			MessageBox.information("This functionality is not ready yet.", {title: "Aw, Snap!"});
+			MessageBox.information("This functionality is not ready yet.", { title: "Aw, Snap!" });
 		},
 
 		onSort: function () {
@@ -48,20 +48,25 @@ sap.ui.define([
 
 			oBinding.sort(oSorter);
 		},
-
+		/**
+				 * Always navigates back to home
+				 * @override
+				 */
+		onBack: function () {
+			this.getRouter().navTo("home");
+		},
 		onListItemPress: function (oEvent) {
-			var oBndngCtxt =  oEvent.getSource().getBindingContext("oDataProducts");
+			var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
 			var spath = oBndngCtxt.getPath();
 			var selectedPath = oBndngCtxt.getProperty(spath);
 
-			this.getView().getModel("oGlobalModel").setProperty("/", {"detailProduct":selectedPath});
+			this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
 
 			//var eventBus = sap.ui.getCore().getEventBus();
 			//eventBus.publish("ProductDetail", "ProductDetailEvent", selectedPath);
 			//var oProductDetail = oEvent.getSource().getBindingContext("oDataProducts").getPath().substr(1);
-			var sProductsId = oBndngCtxt.getProperty("id");
 			this.getRouter().navTo("productDetail", {
-				"detailObj" : sProductsId
+				"detailObj": selectedPath.id
 			});
 		}
 	});
