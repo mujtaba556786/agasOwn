@@ -14,16 +14,24 @@ sap.ui.define([
 		onInit: function () {
 			this.oView = this.getView();
 			this._bDescendingSort = false;
-			this.oProductsTable = this.oView.byId("productsTable");
+			this.oProductDetail = this.oView.byId("productDetailCarousel");
 
-			//var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			//oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
+			//var oSelectedCategory = this.oView.getModel("oGlobalModel").getProperty("/detailCategory"); 
+			//console.log("oSelectedCategory", oSelectedCategory);
+
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
 		},
 
 		_onObjectMatched: function (oEvent) {
 			var sCategoryId = oEvent.getParameter("arguments").productPath;
-			var oTableSearchState = [new Filter("category_id", FilterOperator.EQ, sCategoryId)];
-			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
+			
+			var fnFilterCategory = function (item) {
+				return item.parent === sCategoryId;
+			};
+
+			var oProductSearchState = [new Filter("category_id", FilterOperator.EQ, sCategoryId)];
+			this.oProductDetail.getBinding("pages").filter(oProductSearchState, "Application");
 		},
 
 		onSearch: function (oEvent) {
@@ -34,7 +42,7 @@ sap.ui.define([
 				oTableSearchState = [new Filter("product_name", FilterOperator.Contains, sQuery)];
 			}
 
-			this.oProductsTable.getBinding("items").filter(oTableSearchState, "Application");
+			this.oProductDetail.getBinding("items").filter(oTableSearchState, "Application");
 		},
 
 		onAdd: function () {
@@ -43,28 +51,34 @@ sap.ui.define([
 
 		onSort: function () {
 			this._bDescendingSort = !this._bDescendingSort;
-			var oBinding = this.oProductsTable.getBinding("items"),
+			var oBinding = this.oProductDetail.getBinding("pages"),
 				oSorter = new Sorter("product_name", this._bDescendingSort);
 
 			oBinding.sort(oSorter);
 		},
-		/**
-				 * Always navigates back to home
-				 * @override
-				 */
-		onBack: function () {
-			this.getRouter().navTo("home");
+
+
+		onFilterSelect: function (oEvent) {
+			var oBinding = this.oProductDetail.getBinding("pages");
+			// Array to combine filters
+			var aFilters = [];
+
+			var sQuery = oEvent.getParameter("key");
+			if (sQuery && sQuery.length > 0) {
+				var filter = new Filter("category_id", FilterOperator.EQ, sQuery);
+				aFilters.push(filter);
+			}
+			// update list binding
+			oBinding.filter(aFilters, "Application");
 		},
+
 		onListItemPress: function (oEvent) {
-			var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
+			var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
 			var spath = oBndngCtxt.getPath();
 			var selectedPath = oBndngCtxt.getProperty(spath);
 
 			this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
 
-			//var eventBus = sap.ui.getCore().getEventBus();
-			//eventBus.publish("ProductDetail", "ProductDetailEvent", selectedPath);
-			//var oProductDetail = oEvent.getSource().getBindingContext("oDataProducts").getPath().substr(1);
 			this.getRouter().navTo("productDetail", {
 				"detailObj": selectedPath.id
 			});

@@ -11,8 +11,8 @@
         <contentMiddle>
         </contentMiddle>
         <contentRight>
-            <Button class="icon" icon="sap-icon://customer" press=".onShowCategories"/>
-            <Button class="icon" icon="sap-icon://cart" press=".onShowCategories"/>
+            <Button class="icon" icon="sap-icon://customer" press=".onShowCustomer"/>
+            <Button class="icon" icon="sap-icon://cart" press=".onAddToCart"/>
         </contentRight>
     </Bar>
 </core:FragmentDefinition>

@@ -83,17 +83,11 @@ sap.ui.define([
 				return item.parent === sValue1;
 			}
 
-			var fnFilterProducts = function (item) {
-				return item.category_id === sValue1;
-			}
-
 			var oDataCategory = this.getView().getModel("oDataCategory").getData();
-			var oDataProducts = this.getView().getModel("oDataProducts").getData();
 			var selectedCategory = oDataCategory.filter(fnFilterCategory);
-			var selectedProducts = oDataProducts.filter(fnFilterProducts);
+			
 			this.getView().getModel("oGlobalModel").setProperty("/", {
 				"detailCategory": selectedCategory,
-				"detailProducts": selectedProducts
 			});
 
 			this.getRouter().navTo("product", {
@@ -120,12 +114,8 @@ sap.ui.define([
 			var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
 			var spath = oBndngCtxt.getPath();
 			var selectedPath = oBndngCtxt.getProperty(spath);
-
+			
 			this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
-
-			//var eventBus = sap.ui.getCore().getEventBus();
-			//eventBus.publish("ProductDetail", "ProductDetailEvent", selectedPath);
-			//var oProductDetail = oEvent.getSource().getBindingContext("oDataProducts").getPath().substr(1);
 			this.getRouter().navTo("productDetail", {
 				"detailObj": selectedPath.id
 			});

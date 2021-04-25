@@ -6,45 +6,49 @@
 		<customHeader>
 		</customHeader>
 		<content>
-			<IconTabBar  expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">
+			<IconTabBar select=".onFilterSelect"  expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>category_name}">
+					<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>id}">
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
-			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+
+			<Panel id="productDetailPanel" backgroundDesign="Transparent" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Most sale Item" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
+					</Toolbar>
+				</headerToolbar>
+				<Carousel id="productDetailCarousel" height="auto" pages="{path: 'oDataProducts>/'}">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="4" />
+					</customLayout>
+
+					<VBox height="100%">
+						<Image src="{
+											path: 'oDataProducts>picture',
+											formatter : '.formatter.jsonPictureUrl'
+											}" width="100%" class="imageDisplayBlock" press="onProductItemPress"/>
+						<HBox height="100%" class="sapUiSmallMargin" alignItems="Center">
 							<VBox>
-								<Table inset="false" items="{oGlobalModel>/detailProducts}" class="sapFDynamicPageAlignContent" width="auto">
-									<columns>
-										<Column width="12em">
-											<Text text="Image"/>
-										</Column>
-										<Column width="12em">
-											<Text text="Product"/>
-										</Column>
-										<Column hAlign="End">
-											<Text text="Price"/>
-										</Column>
-									</columns>
-									<items>
-										<ColumnListItem type="Navigation" press=".onListItemPress">
-											<cells>
-												<Image src="{oGlobalModel>picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" />
-												<ObjectIdentifier title="{oGlobalModel>product_name}" text="{oGlobalModel>id}"/>
-												<ObjectNumber number="{
-										parts:[
-											{path:'oGlobalModel>unit_price'},
-											{path:'view>Currency'}
-										],
-										type: 'sap.ui.model.type.Currency',
-										formatOptions: {showMeasure: false}
-									}" unit="EUR"/>
-											</cells>
-										</ColumnListItem>
-									</items>
-								</Table>
+								<Title text="{oDataProducts>product_name}" wrapping="true" />
+								<HBox justifyContent="SpaceBetween" alignItems="Baseline">
+									<Button tooltip="{i18n>addToCart}" press=".onAddToCart" icon="sap-icon://cart-3" type="Emphasized"/>
+									<ObjectListItem class="welcomePrice" number="{
+											parts:[
+												{path:'oDataProducts>unit_price'},
+												{path:'view>/Currency'}
+											],
+											type:'sap.ui.model.type.Currency',
+											formatOptions:{showMeasure: false}
+										}" numberUnit="{view>/Currency}">
+									</ObjectListItem>
+								</HBox>
 							</VBox>
-						</ScrollContainer>
+						</HBox>
+					</VBox>
+				</Carousel>
+			</Panel>
 		</content>
 		<footer>
 		</footer>

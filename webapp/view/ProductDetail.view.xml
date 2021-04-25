@@ -32,9 +32,7 @@
 
 							<Text id="product_price" text="{oGlobalModel>/detailProduct/unit_price} EUR"/>
 
-
 							<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="false"/>
-
 
 							<Label text="Color" labelFor="product_color" />
 							<Text id="product_color" text="{oGlobalModel>/detailProduct/color}"/>
