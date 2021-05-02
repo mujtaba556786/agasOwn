@@ -102,6 +102,23 @@ sap.ui.define([
 		},
 		onShowCustomer: function () {
 			alert("Oh Crap!!! this function is not ready yet!!!!");
-		}
+		},
+
+		/**
+		 * Getter for the resource bundle.
+		 * @public
+		 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
+		 */
+		 getResourceBundle: function () {
+			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+		},
+		/** 
+		* Navigate to the generic cart view
+		* @param {sap.ui.base.Event} @param oEvent the button press event
+		*/
+	   onToggleCart: function (oEvent) {
+		   this.getRouter().navTo("cart");
+	   },
+
 	});
 });
