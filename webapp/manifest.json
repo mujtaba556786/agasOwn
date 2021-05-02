@@ -13,11 +13,11 @@
     "ach": "ach",
     "dataSources": {
       "product_data_alias":{
-        "uri": "https://cors-anywhere.herokuapp.com/http://18.194.155.205:8000/products/?$format=json",
+        "uri": "http://18.194.155.205:8000/products/?$format=json",
 				"type": "Json"
       },
       "category_data_alias":{
-        "uri": "https://cors-anywhere.herokuapp.com/http://18.194.155.205:8000/category/?$format=json",
+        "uri": "http://18.194.155.205:8000/category/?$format=json",
 				"type": "Json"
       }
 		}
@@ -107,30 +107,64 @@
           "pattern": "productDetail/{detailObj}",  
           "name": "productDetail",
           "target": ["productDetail"]
-        }
+        },
+        {
+					"pattern": "cart",
+					"name": "cart",
+					"target": ["cart"]
+				},
+        {
+					"pattern": "notFound",
+					"name": "notFound",
+					"target": ["notFound"]
+				},
+        {
+					"pattern": "checkout",
+					"name": "checkout",
+					"target": ["checkout"]
+				},
+        {
+					"pattern": "OrderCompleted",
+					"name": "OrderCompleted",
+					"target": ["OrderCompleted"]
+				}
       ],
       "targets": {
         "home": {
           "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
           "viewId": "home",
           "viewName": "Home"
         },
         "product": {
           "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
           "viewId": "product",
           "viewName": "Product"
         },
         "productDetail": {
           "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
           "viewId": "productDetail",
           "viewName": "ProductDetail"
-        }
+        },
+        "cart": {
+          "viewType": "XML",
+					"viewName": "Cart",
+					"viewId": "cartView"
+				},
+        "notFound": {
+          "viewType": "XML",
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				},
+        "checkout": {
+          "viewType": "XML",
+					"viewName": "Checkout",
+					"viewId": "checkout"
+				},
+        "orderCompleted": {
+          "viewType": "XML",
+					"viewName": "OrderCompleted",
+					"viewId": "orderCompleted"
+				}
       }
     }
   }
