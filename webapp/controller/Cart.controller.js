@@ -15,7 +15,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	var sCartModelName = "cartProducts";
+	var sCartModelName = "oDataProducts";
 	var sSavedForLaterEntries = "savedForLaterEntries";
 	var sCartEntries = "cartEntries";
 
@@ -50,8 +50,7 @@ sap.ui.define([
 		},
 
 		_routePatternMatched: function () {
-			this._setLayout("Three");
-			var oCartModel = this.getModel("cartProducts");
+			var oCartModel = this.getView().getModel("oDataProducts");
 			var oCartEntries = oCartModel.getProperty("/cartEntries");
 			//enables the proceed and edit buttons if the cart has entries
 			if (Object.keys(oCartEntries).length > 0) {
@@ -145,20 +144,8 @@ sap.ui.define([
 		},
 
 		_showProduct: function (oItem) {
+			//TODO redirect to Cart Page
 			var oEntry = oItem.getBindingContext(sCartModelName).getObject();
-
-			// close cart when showing a product on phone
-			var bCartVisible = false;
-			if (!Device.system.phone) {
-				bCartVisible = this.getModel("appView").getProperty("/layout").startsWith("Three");
-			} else {
-				bCartVisible = false;
-				this._setLayout("Two");
-			}
-			this._oRouter.navTo(bCartVisible ? "productCart" : "product", {
-				id: oEntry.Category,
-				productId: oEntry.ProductId
-			}, !Device.system.phone);
 		},
 
 		onCartEntriesDelete: function (oEvent) {
@@ -179,8 +166,9 @@ sap.ui.define([
 		_deleteProduct: function (sCollection, oEvent) {
 			var oBindingContext = oEvent.getParameter("listItem").getBindingContext(sCartModelName),
 				oBundle = this.getResourceBundle(),
-				sEntryId = oBindingContext.getProperty("ProductId"),
-				sEntryName = oBindingContext.getProperty("Name");
+				sPath = oBindingContext.sPath,
+				sEntryId = oBindingContext.getProperty(sPath).id,
+				sEntryName = oBindingContext.getProperty(sPath).product_name;				;
 
 			// show confirmation dialog
 			MessageBox.show(oBundle.getText("cartDeleteDialogMsg"), {

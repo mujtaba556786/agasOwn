@@ -94,11 +94,13 @@ sap.ui.define([
 		 * Saves the product, the i18n bundle, and the cart model and hands them to the <code>addToCart</code> function
 		 * @public
 		 */
-		onAddToCart: function () {
+		onAddToCart: function (oEvent) {
 			var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
-			var oEntry = this.getView().getModel("oDataProducts").getData();
-			var oCartModel = this.getView().getModel("oDataProducts");
-			cart.addToCart(oResourceBundle, oEntry, oCartModel);
+			var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
+			var spath = oBndngCtxt.getPath();
+			var oSelectedPath = oBndngCtxt.getProperty(spath);
+			var oDataProducts = this.getView().getModel("oDataProducts");
+			cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
 		},
 		onShowCustomer: function () {
 			alert("Oh Crap!!! this function is not ready yet!!!!");

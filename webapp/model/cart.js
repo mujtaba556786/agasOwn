@@ -18,7 +18,7 @@ sap.ui.define([
 		 */
 		addToCart: function (oBundle, oProduct, oCartModel) {
 			// Items to be added from the welcome view have it's content inside product object
-			if (oProduct.Product !== undefined) {
+			/*if (oProduct.Product !== undefined) {
 				oProduct = oProduct.Product;
 			}
 			switch (oProduct.Status) {
@@ -50,7 +50,8 @@ sap.ui.define([
 				default:
 					this._updateCartItem(oBundle, oProduct, oCartModel);
 					break;
-			}
+			}*/
+			this._updateCartItem(oBundle, oProduct, oCartModel);
 		},
 
 		/**
@@ -65,13 +66,13 @@ sap.ui.define([
 		_updateCartItem: function (oBundle, oProductToBeAdded, oCartModel) {
 			// find existing entry for product
 			var oCollectionEntries = Object.assign({}, oCartModel.getData()["cartEntries"]);
-			var oCartEntry =  oCollectionEntries[oProductToBeAdded.ProductId];
+			var oCartEntry =  oCollectionEntries[oProductToBeAdded.id];
 
 			if (oCartEntry === undefined) {
 				// create new entry
 				oCartEntry = Object.assign({}, oProductToBeAdded);
 				oCartEntry.Quantity = 1;
-				oCollectionEntries[oProductToBeAdded.ProductId] = oCartEntry;
+				oCollectionEntries[oProductToBeAdded.id] = oCartEntry;
 			} else {
 				// update existing entry
 				oCartEntry.Quantity += 1;
@@ -79,7 +80,7 @@ sap.ui.define([
 			//update the cart model
 			oCartModel.setProperty("/cartEntries", Object.assign({}, oCollectionEntries));
 			oCartModel.refresh(true);
-			MessageToast.show(oBundle.getText("productMsgAddedToCart", [oProductToBeAdded.Name] ));
+			MessageToast.show(oBundle.getText("productMsgAddedToCart", [oProductToBeAdded.product_name] ));
 		}
 	};
 });

@@ -14,8 +14,8 @@
 				id="editButton"
 				icon="sap-icon://edit"
 				enabled="{parts: [
-					{path: 'cartProducts>/cartEntries'},
-					{path: 'cartProducts>/savedForLaterEntries'}
+					{path: 'oDataProducts>/cartEntries'},
+					{path: 'oDataProducts>/savedForLaterEntries'}
 				 ], formatter : '.formatter.hasItems'}"
 				visible="{cfg>/notInDelete}"
 				press=".onEditOrDoneButtonPress"
@@ -26,7 +26,7 @@
 				<Text
 					id="totalPriceText"
 					text="{
-						path : 'cartProducts>/cartEntries',
+						path : 'oDataProducts>/cartEntries',
 						formatter : '.formatter.totalPrice'
 					} EUR"
 					class="sapUiTinyMarginBegin"/>
@@ -36,7 +36,7 @@
 					type="Accept"
 					text="{i18n>cartProceedButtonText}"
 					enabled="{
-						path: 'cartProducts>/cartEntries',
+						path: 'oDataProducts>/cartEntries',
 						formatter: '.formatter.hasItems'
 					}"
 					visible="{cfg>/notInDelete}"
@@ -54,7 +54,7 @@
 				delete=".onCartEntriesDelete"
 				id="entryList"
 				items="{
-					path : 'cartProducts>/cartEntries',
+					path : 'oDataProducts>/cartEntries',
 					sorter : {
 						path : 'Name',
 						descending : false
@@ -73,15 +73,15 @@
 				</headerToolbar>
 				<items>
 					<ObjectListItem
-						intro="{cartProducts>Quantity} x"
+						intro="{oDataProducts>Quantity} x"
 						type="{cfg>/listItemType}"
 						icon="{
-							path : 'cartProducts>PictureUrl',
-							formatter : '.formatter.pictureUrl'
+							path : 'oDataProducts>picture',
+							formatter : '.formatter.picture'
 						}"
-						title="{cartProducts>Name}"
+						title="{oDataProducts>product_name}"
 						number="{
-							path : 'cartProducts>Price',
+							path : 'oDataProducts>unit_price',
 							formatter : '.formatter.price'
 						}"
 						numberUnit="EUR"
@@ -96,11 +96,11 @@
 						<firstStatus>
 							<ObjectStatus
 								text="{
-									path : 'cartProducts>Status',
+									path : 'oDataProducts>Status',
 									formatter : '.formatter.statusText'
 								}"
 								state="{
-									path : 'cartProducts>Status',
+									path : 'oDataProducts>Status',
 									formatter : '.formatter.statusState'
 								}"/>
 						</firstStatus>
@@ -111,7 +111,7 @@
 				delete=".onSaveForLaterDelete"
 				id="saveForLaterList"
 				items="{
-					path : 'cartProducts>/savedForLaterEntries',
+					path : 'oDataProducts>/savedForLaterEntries',
 					sorter : {
 						path : 'Name',
 						descending : false
@@ -130,15 +130,15 @@
 				</headerToolbar>
 				<items>
 					<ObjectListItem
-						intro="{cartProducts>Quantity} x"
+						intro="{oDataProducts>Quantity} x"
 						type="{cfg>/listItemType}"
 						icon="{
-							path : 'cartProducts>PictureUrl',
-							formatter : '.formatter.pictureUrl'
+							path : 'oDataProducts>picture',
+							formatter : '.formatter.picture'
 						}"
-						title="{cartProducts>Name}"
+						title="{oDataProducts>product_name}"
 						number="{
-							path : 'cartProducts>Price',
+							path : 'oDataProducts>unit_price',
 							formatter : '.formatter.price'
 						}"
 						numberUnit="EUR"
@@ -153,11 +153,11 @@
 						<firstStatus>
 							<ObjectStatus
 								text="{
-									path : 'cartProducts>Status',
+									path : 'oDataProducts>Status',
 									formatter : '.formatter.statusText'
 								}"
 								state="{
-									path : 'cartProducts>Status',
+									path : 'oDataProducts>Status',
 									formatter : '.formatter.statusState'
 								}"/>
 						</firstStatus>

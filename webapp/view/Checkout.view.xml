@@ -35,22 +35,22 @@
 									id="entryList"
 									noDataText="{i18n>cartNoData}"
 									items="{
-										path : 'cartProducts>/cartEntries',
+										path : 'oDataProducts>/cartEntries',
 										sorter : {
-											path : 'Name',
+											path : 'product_name',
 											descending : false
 										}
 								}">
 									<items>
 										<ObjectListItem
-											intro="{cartProducts>Quantity} x"
+											intro="{oDataProducts>Quantity} x"
 											icon="{
-												path : 'cartProducts>PictureUrl',
-												formatter : '.formatter.pictureUrl'
+												path : 'oDataProducts>picture',
+												formatter : '.formatter.picture'
 											}"
-											title="{cartProducts>Name}"
+											title="{oDataProducts>product_name}"
 											number="{
-												path : 'cartProducts>Price',
+												path : 'oDataProducts>unit_price',
 												formatter : '.formatter.price'
 											}"
 											numberUnit="EUR"
@@ -59,11 +59,11 @@
 											<firstStatus>
 												<ObjectStatus
 													text="{
-														path : 'cartProducts>Status',
+														path : 'oDataProducts>Status',
 														formatter : '.formatter.statusText'
 													}"
 													state="{
-														path : 'cartProducts>Status',
+														path : 'oDataProducts>Status',
 														formatter : '.formatter.statusState'
 													}"/>
 											</firstStatus>
@@ -74,7 +74,7 @@
 									<contentRight>
 										<Text
 											text="{
-												path : 'cartProducts>/cartEntries',
+												path : 'oDataProducts>/cartEntries',
 												formatter : '.formatter.totalPrice'
 											} EUR"/>
 									</contentRight>

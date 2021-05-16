@@ -31,11 +31,17 @@ sap.ui.define([
 		 * @param {object} oCartEntries current cart entries
 		 * @return {string} string with the total value
 		 */
-		totalPrice: function (oCartEntries) {
-			
+		 totalPrice: function (oCartEntries) {
+			var oBundle = this.getResourceBundle(),
+				fTotalPrice = 0;
 
+			Object.keys(oCartEntries).forEach(function (sProductId) {
+				var oProduct = oCartEntries[sProductId];
+				fTotalPrice += parseFloat(oProduct.unit_price) * oProduct.Quantity;
+			});
+
+			return oBundle.getText("cartTotalPrice", [formatter.price(fTotalPrice)]);
 		},
-
 		/**
 		 * Returns the status text based on the product status
 		 * @param {string} sStatus product status

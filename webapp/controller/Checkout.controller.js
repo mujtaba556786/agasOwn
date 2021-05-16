@@ -65,7 +65,7 @@ sap.ui.define([
 				}),
 				oReturnToShopButton = this.byId("returnToShopButton");
 
-			this.setModel(oModel);
+			this.getView().setModel(oModel);
 
 			// previously selected entries in wizard
 			this._oHistory = {
@@ -74,11 +74,10 @@ sap.ui.define([
 			};
 
 			// Assign the model object to the SAPUI5 core
-			this.setModel(sap.ui.getCore().getMessageManager().getMessageModel(), "message");
+			this.getView().setModel(sap.ui.getCore().getMessageManager().getMessageModel(), "message");
 
 			// switch to single column view for checout process
 			this.getRouter().getRoute("checkout").attachMatched(function () {
-				this._setLayout("One");
 			}.bind(this));
 
 			// set focus to the "Return to Shop" button each time the view is shown to avoid losing
@@ -138,7 +137,7 @@ sap.ui.define([
 		 * Shows next WizardStep according to user selection
 		 */
 		goToPaymentStep: function () {
-			var selectedKey = this.getModel().getProperty("/SelectedPayment");
+			var selectedKey = this.getView().getModel().getProperty("/SelectedPayment");
 			var oElement = this.byId("paymentTypeStep");
 			switch (selectedKey) {
 				case "Bank Transfer":
@@ -183,7 +182,7 @@ sap.ui.define([
 		 * shows next WizardStep "DeliveryAddressStep" or "DeliveryTypeStep" according to user selection
 		 */
 		invoiceAddressComplete: function () {
-			var sNextStepId = (this.getModel().getProperty("/DifferentDeliveryAddress"))
+			var sNextStepId = (this.getView().getModel().getProperty("/DifferentDeliveryAddress"))
 				? "deliveryAddressStep"
 				: "deliveryTypeStep";
 			this.byId("invoiceStep").setNextStep(this.byId(sNextStepId));
@@ -330,7 +329,6 @@ sap.ui.define([
 		 * navigates to "home" for further shopping
 		 */
 		onReturnToShopButtonPress: function () {
-			this._setLayout("Two");
 			this.getRouter().navTo("home");
 		},
 
@@ -351,14 +349,14 @@ sap.ui.define([
 					onClose: function (oAction) {
 						if (oAction === MessageBox.Action.YES) {
 							oWizard.discardProgress(oParams.discardStep);
-							this._oHistory[oParams.historyPath] = this.getModel().getProperty(oParams.modelPath);
+							this._oHistory[oParams.historyPath] = this.getView().getModel().getProperty(oParams.modelPath);
 						} else {
-							this.getModel().setProperty(oParams.modelPath, this._oHistory[oParams.historyPath]);
+							this.getView().getModel().setProperty(oParams.modelPath, this._oHistory[oParams.historyPath]);
 						}
 					}.bind(this)
 				});
 			} else {
-				this._oHistory[oParams.historyPath] = this.getModel().getProperty(oParams.modelPath);
+				this._oHistory[oParams.historyPath] = this.getView().getModel().getProperty(oParams.modelPath);
 			}
 		},
 
@@ -378,8 +376,8 @@ sap.ui.define([
 					if (oAction === MessageBox.Action.YES) {
 						// resets Wizard
 						var oWizard = this.byId("shoppingCartWizard");
-						var oModel = this.getModel();
-						var oCartModel = this.getOwnerComponent().getModel("cartProducts");
+						var oModel = this.getView().getModel();
+						var oCartModel = this.getOwnerComponent().getModel("oDataProducts");
 						this._navToWizardStep(this.byId("contentsStep"));
 						oWizard.discardProgress(oWizard.getSteps()[0]);
 						var oModelData = oModel.getData();
