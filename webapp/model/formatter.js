@@ -31,16 +31,17 @@ sap.ui.define([
 		 * @param {object} oCartEntries current cart entries
 		 * @return {string} string with the total value
 		 */
-		 totalPrice: function (oCartEntries) {
+		totalPrice: function (oCartEntries) {
 			var oBundle = this.getResourceBundle(),
 				fTotalPrice = 0;
+			if (oCartEntries !== undefined) {
 
-			Object.keys(oCartEntries).forEach(function (sProductId) {
-				var oProduct = oCartEntries[sProductId];
-				fTotalPrice += parseFloat(oProduct.unit_price) * oProduct.Quantity;
-			});
-
-			return oBundle.getText("cartTotalPrice", [formatter.price(fTotalPrice)]);
+				Object.keys(oCartEntries).forEach(function (sProductId) {
+					var oProduct = oCartEntries[sProductId];
+					fTotalPrice += parseFloat(oProduct.unit_price) * oProduct.Quantity;
+				});
+				return oBundle.getText("cartTotalPrice", [formatter.price(fTotalPrice)]);
+			}
 		},
 		/**
 		 * Returns the status text based on the product status
@@ -48,7 +49,7 @@ sap.ui.define([
 		 * @return {string} the corresponding text if found or the original value
 		 */
 		statusText: function (sStatus) {
-			
+
 		},
 
 		/**
@@ -66,8 +67,8 @@ sap.ui.define([
 		 * @return {string} relative image URL
 		 */
 		pictureUrl: function (sUrl) {
-			if (sUrl){
-				return  sap.ui.require.toUrl(sUrl);
+			if (sUrl) {
+				return sap.ui.require.toUrl(sUrl);
 			} else {
 				return undefined;
 			}
@@ -78,8 +79,8 @@ sap.ui.define([
 		 * @param {*} oCollection1 
 		 * @param {*} oCollection2 
 		 */
-		jsonPictureUrl: function(sUrl){
-			return sUrl; 
+		jsonPictureUrl: function (sUrl) {
+			return sUrl;
 		},
 
 		/**
