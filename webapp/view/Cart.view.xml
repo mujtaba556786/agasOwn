@@ -85,7 +85,7 @@
 							formatter : '.formatter.price'
 						}"
 						numberUnit="EUR"
-						press=".onEntryListPress"
+						press=".onProductItemPress"
 						iconDensityAware="false">
 						<attributes>
 							<ObjectAttribute

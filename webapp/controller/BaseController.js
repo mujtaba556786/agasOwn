@@ -6,13 +6,12 @@ sap.ui.define([
 	"../model/cart",
 	"sap/ui/core/Fragment",
 	"../model/formatter",
-	"sap/ui/core/routing/HashChanger"
-], function (Controller, UIComponent, JSONModel, Device, cart, Fragment, formatter, HashChanger) {
+	"sap/ui/core/routing/History",
+], function (Controller, UIComponent, JSONModel, Device, cart, Fragment, formatter, History) {
 	"use strict";
 
 	return Controller.extend("ag.agasown.controller.BaseController", {
 		cart: cart,
-
 		formatter: formatter,
 		/**
 		 * Convenience method for accessing the router.
@@ -134,6 +133,17 @@ sap.ui.define([
 			
 		},
 
+		onProductItemPress: function (oEvent) {
+			var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
+			var spath = oBndngCtxt.getPath();
+			var selectedPath = oBndngCtxt.getProperty(spath);
+			
+			this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
+			this.getRouter().navTo("productDetail", {
+				"detailObj": selectedPath.id
+			});
+		},
+
 		onExit: function () {
 			if (this._oPopover) {
 				this._oPopover.destroy();
@@ -180,14 +190,16 @@ sap.ui.define([
 	   onToggleCart: function (oEvent) {
 		   this.getRouter().navTo("cart");
 	   },
-	   /**
-		 * Always navigates back to home
-		 * @override
-		 */
-		onBack: function () {
+	   onNavBack: function(){
+		   
+		var oHistory = History.getInstance();
+		var oPrevHash = oHistory.getPreviousHash();
+		if (oPrevHash !== undefined) {
+			window.history.go(-1);
+		} else {
 			this.getRouter().navTo("home");
 			this.onExit();
-		},
-
+		}
+	   }
 	});
 });

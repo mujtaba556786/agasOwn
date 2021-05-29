@@ -28,9 +28,9 @@
 
 					<VBox height="100%">
 						<Image src="{
-											path: 'oDataProducts>picture',
-											formatter : '.formatter.jsonPictureUrl'
-											}" width="100%" class="imageDisplayBlock" press="onProductItemPress"/>
+							path: 'oDataProducts>picture',
+							formatter : '.formatter.jsonPictureUrl'
+						}" width="100%" class="imageDisplayBlock" press="onProductItemPress"/>
 						<HBox height="100%" class="sapUiSmallMargin" alignItems="Center">
 							<VBox>
 								<Title text="{oDataProducts>product_name}" wrapping="true" />

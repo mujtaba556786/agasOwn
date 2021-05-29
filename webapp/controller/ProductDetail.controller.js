@@ -6,13 +6,15 @@ sap.ui.define([
 	'sap/ui/model/Sorter',
 	'sap/m/MessageBox',
 	"../model/formatter",
+	"../model/cart",
 	"sap/m/MessageToast",
 	"sap/ui/core/routing/History"
 ], function (JSONModel, BaseController, Filter, FilterOperator, 
-	Sorter, MessageBox, formatter, MessageToast, History) {
+	Sorter, MessageBox, formatter, cart ,MessageToast, History) {
 	"use strict";
 
 	return BaseController.extend("ag.agasown.controller.Product", {
+		cart: cart,
 		formatter: formatter,
 
 		onInit: function () {
@@ -42,7 +44,19 @@ sap.ui.define([
 		},
 		onChange: function (oEvent) {
 			MessageToast.show("Value changed to '" + oEvent.getParameter("value") + "'");
-		}
+		},
+
+		/**
+		 * Called, when the add button of a product is pressed.
+		 * Saves the product, the i18n bundle, and the cart model and hands them to the <code>addToCart</code> function
+		 * @public
+		 */
+		 onAddToCartDetails: function (oEvent) {
+			var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			var oSelectedPath = this.getView().getModel("oGlobalModel").getData().detailProduct;
+			var oDataProducts = this.getView().getModel("oDataProducts");
+			cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+		},
 
 	});
 });
