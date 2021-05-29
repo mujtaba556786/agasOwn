@@ -24,7 +24,7 @@
 					<f:customLayout>
 						<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(16rem, 1fr))" gridGap="0.5rem" />
 					</f:customLayout>
-					<f:GridListItem type="SingleSelectMaster">
+					<f:GridListItem >
 						<VBox height="100%">
 							<Image src="{path: 'oDataCategory>picture',
 											formatter : '.formatter.jsonPictureUrl'

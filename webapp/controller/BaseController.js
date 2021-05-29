@@ -4,11 +4,16 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/Device",
 	"../model/cart",
-], function (Controller, UIComponent, JSONModel, Device, cart) {
+	"sap/ui/core/Fragment",
+	"../model/formatter",
+	"sap/ui/core/routing/HashChanger"
+], function (Controller, UIComponent, JSONModel, Device, cart, Fragment, formatter, HashChanger) {
 	"use strict";
 
 	return Controller.extend("ag.agasown.controller.BaseController", {
 		cart: cart,
+
+		formatter: formatter,
 		/**
 		 * Convenience method for accessing the router.
 		 * @public
@@ -26,7 +31,6 @@ sap.ui.define([
 			} else if (Device.system.tablet) {
 				iPagesCount = 2;
 			}
-
 
 			var oViewModel = new JSONModel({
 				welcomeLogo: 'ag/agasown/img/AgasOwn.jpg',
@@ -47,10 +51,6 @@ sap.ui.define([
 			});
 			this.getView().setModel(oViewModel, "view");
 
-			// select random carousel page at start
-			var oWelcomeCarousel = this.byId("welcomeCarousel");
-			var iRandomIndex = Math.floor(Math.abs(Math.random()) * oWelcomeCarousel.getPages().length);
-			oWelcomeCarousel.setActivePage(oWelcomeCarousel.getPages()[iRandomIndex]);
 		},
 
 		onShowCategories: function (oEvent) {
@@ -79,6 +79,65 @@ sap.ui.define([
 		onNavBack: function () {
 			this.getRouter().navTo("home");
 			location.reload();
+		},
+
+		handleMenuCategory: function (oEvent) {
+			var categoryId = sap.ui.getCore().byId("subCategoryList");
+			var categoryDetails = sap.ui.getCore().byId("categoryDetails");
+			var oSelectedItem = oEvent.getSource();
+			var oContext = oSelectedItem.getBindingContext("oDataCategory");
+
+			var sName = oContext.getProperty("category_name");
+			this.getView().getModel("view").setProperty("/category_name", sName);
+
+			var sValue1 = oContext.getProperty("id");
+			var sPath = "parent";
+			var sOperator = "EQ";
+			var oBinding = categoryId.getBinding("items");
+
+			oBinding.filter([new sap.ui.model.Filter(sPath, sOperator, sValue1)]);
+			sap.ui.getCore().byId("myPopover").focus();
+			if (oBinding.getLength() !== 0) {
+				categoryDetails.setVisible(true);
+			} else {
+				categoryDetails.setVisible(false);
+				this.getRouter().navTo("product", {
+					productPath: sValue1
+				});
+			}
+		},
+
+		onCategoryLinkPress: function (oEvent) {
+			var sCurrentRouteName = this.getView().getModel("oGlobalModel").getProperty("/currentRouteName");
+			var oSelectedItem = oEvent.getSource();
+			var oContext = oSelectedItem.getBindingContext("oDataCategory");
+			var sValue1 = oContext.getProperty("id");
+
+			var fnFilterCategory = function (item) {
+				return item.parent === sValue1;
+			}
+
+			var oDataCategory = this.getView().getModel("oDataCategory").getData();
+			var selectedCategory = oDataCategory.filter(fnFilterCategory);
+			
+			this.getView().getModel("oGlobalModel").setProperty("/", {
+				"detailCategory": selectedCategory,
+			});
+
+			if(sCurrentRouteName !== "product") {
+				this.onExit();
+			}
+
+			this.getRouter().navTo("product", {
+				productPath: sValue1
+			});
+			
+		},
+
+		onExit: function () {
+			if (this._oPopover) {
+				this._oPopover.destroy();
+			}
 		},
 
 		handleCloseMenu: function (oEvent) {
@@ -121,6 +180,14 @@ sap.ui.define([
 	   onToggleCart: function (oEvent) {
 		   this.getRouter().navTo("cart");
 	   },
+	   /**
+		 * Always navigates back to home
+		 * @override
+		 */
+		onBack: function () {
+			this.getRouter().navTo("home");
+			this.onExit();
+		},
 
 	});
 });

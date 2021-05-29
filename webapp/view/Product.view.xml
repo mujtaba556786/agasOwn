@@ -1,9 +1,11 @@
 <mvc:View controllerName="ag.agasown.controller.Product"
+	xmlns:core="sap.ui.core"
 	xmlns="sap.m"
 	xmlns:f="sap.f"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
 		<customHeader>
+			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
 			<IconTabBar select=".onFilterSelect"  expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">

@@ -58,8 +58,8 @@ sap.ui.define([
 				oCartModel.setProperty("/showEditButton", true);
 			}
 			//set selection of list back
-			var oEntryList = this.byId("entryList");
-			oEntryList.removeSelections();
+			//var oEntryList = this.byId("entryList");
+			//oEntryList.removeSelections();
 		},
 
 		onEditOrDoneButtonPress: function () {

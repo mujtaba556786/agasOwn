@@ -34,6 +34,7 @@ sap.ui.define([
 		totalPrice: function (oCartEntries) {
 			var oBundle = this.getResourceBundle(),
 				fTotalPrice = 0;
+			//TODO have to check another way	
 			if (oCartEntries !== undefined) {
 
 				Object.keys(oCartEntries).forEach(function (sProductId) {

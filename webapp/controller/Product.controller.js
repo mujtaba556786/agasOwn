@@ -16,16 +16,17 @@ sap.ui.define([
 			this._bDescendingSort = false;
 			this.oProductDetail = this.oView.byId("productDetailCarousel");
 
-			//var oSelectedCategory = this.oView.getModel("oGlobalModel").getProperty("/detailCategory"); 
-			//console.log("oSelectedCategory", oSelectedCategory);
+			this.setHeaderModel();
 
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
 		},
 
 		_onObjectMatched: function (oEvent) {
+			var sCurrentRouteName = oEvent.getParameter("name");
 			var sCategoryId = oEvent.getParameter("arguments").productPath;
-			
+			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
+
 			var fnFilterCategory = function (item) {
 				return item.parent === sCategoryId;
 			};

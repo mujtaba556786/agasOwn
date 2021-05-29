@@ -6,6 +6,7 @@
 	xmlns:f="sap.f" controllerName="ag.agasown.controller.ProductDetail">
 	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
 		<customHeader>
+			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
 			<Panel headerText="Product Detail" class="sapUiNoContentPadding">

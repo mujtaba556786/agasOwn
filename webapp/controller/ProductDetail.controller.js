@@ -14,29 +14,23 @@ sap.ui.define([
 
 	return BaseController.extend("ag.agasown.controller.Product", {
 		formatter: formatter,
-		globalDetailData: {},
-
 
 		onInit: function () {
 			this.oView = this.getView();
 			this._bDescendingSort = false;
 			this.oDetailProduct = this.oView.byId("detailProduct");
+			this.setHeaderModel();
 
 			var aData ={ value: 6, min: 1, max: 100, width: "90px", validationMode: "LiveChange" };
 			var oModel = new JSONModel(aData);
 			this.getView().setModel(oModel, "detailView");
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.getRoute("productDetail").attachPatternMatched(this._onObjectMatched, this);
 		},
 		
-
-
-		_onObjectMatched: function () {
-			var eventBus = sap.ui.getCore().getEventBus();
-			eventBus.subscribe("ProductDetail", "ProductDetailEvent", this._setViewData, this);
-			console.log("this.oDetailData", this.globalDetailData);
-		},
-
-		onAdd: function () {
-			MessageBox.information("This functionality is not ready yet.", { title: "Aw, Snap!" });
+		_onObjectMatched: function (oEvent) {
+			var sCurrentRouteName = oEvent.getParameter("name");
+			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
 		},
 
 		onSort: function () {
@@ -48,19 +42,6 @@ sap.ui.define([
 		},
 		onChange: function (oEvent) {
 			MessageToast.show("Value changed to '" + oEvent.getParameter("value") + "'");
-		},
-		onNavBack: function () {
-			var oHistory = History.getInstance();
-			var sPreviousHash = oHistory.getPreviousHash();
-			location.reload();
-
-			if (sPreviousHash !== undefined) {
-				window.history.go(-1);
-				
-			} else {
-				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-				oRouter.navTo("product", true);
-			}
 		}
 
 	});

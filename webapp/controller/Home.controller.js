@@ -1,24 +1,26 @@
 sap.ui.define([
 	"./BaseController",
 	"sap/ui/model/json/JSONModel",
-	"../model/formatter",
 	"sap/ui/Device",
 	'sap/ui/core/Fragment',
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-], function (BaseController, JSONModel, formatter, Device, Fragment, Filter, FilterOperator) {
+], function (BaseController, JSONModel, Device, Fragment, Filter, FilterOperator) {
 	"use strict";
 
 	return BaseController.extend("ag.agasown.controller.Home", {
 		_iCarouselTimeout: 0, // a pointer to the current timeout
 		_iCarouselLoopTime: 8000, // loop to next picture after 8 seconds
 
-		formatter: formatter,
-
 		onInit: function () {
+		
+			// select random carousel page at start
+			var oWelcomeCarousel = this.byId("welcomeCarousel");
+			var iRandomIndex = Math.floor(Math.abs(Math.random()) * oWelcomeCarousel.getPages().length);
+			oWelcomeCarousel.setActivePage(oWelcomeCarousel.getPages()[iRandomIndex]);
+
 			this.setHeaderModel();
 		},
-
 		/**
 		 * lifecycle hook that will initialize the welcome carousel
 		 */
@@ -40,60 +42,6 @@ sap.ui.define([
 			}.bind(this), this._iCarouselLoopTime);
 		},
 
-
-		/**
-		 * Always navigates back to home
-		 * @override
-		 */
-		onBack: function () {
-			this.getRouter().navTo("home");
-		},
-		handleMenuCategory: function (oEvent) {
-			var categoryId = sap.ui.getCore().byId("subCategoryList");
-			var categoryDetails = sap.ui.getCore().byId("categoryDetails");
-			var oSelectedItem = oEvent.getSource();
-			var oContext = oSelectedItem.getBindingContext("oDataCategory");
-
-			var sName = oContext.getProperty("category_name");
-			this.getView().getModel("view").setProperty("/category_name", sName);
-
-			var sValue1 = oContext.getProperty("id");
-			var sPath = "parent";
-			var sOperator = "EQ";
-			var oBinding = categoryId.getBinding("items");
-
-			oBinding.filter([new sap.ui.model.Filter(sPath, sOperator, sValue1)]);
-			sap.ui.getCore().byId("myPopover").focus();
-			if (oBinding.getLength() !== 0) {
-				categoryDetails.setVisible(true);
-			} else {
-				categoryDetails.setVisible(false);
-				this.getRouter().navTo("product", {
-					productPath: sValue1
-				});
-			}
-		},
-
-		onCategoryLinkPress: function (oEvent) {
-			var oSelectedItem = oEvent.getSource();
-			var oContext = oSelectedItem.getBindingContext("oDataCategory");
-			var sValue1 = oContext.getProperty("id");
-
-			var fnFilterCategory = function (item) {
-				return item.parent === sValue1;
-			}
-
-			var oDataCategory = this.getView().getModel("oDataCategory").getData();
-			var selectedCategory = oDataCategory.filter(fnFilterCategory);
-			
-			this.getView().getModel("oGlobalModel").setProperty("/", {
-				"detailCategory": selectedCategory,
-			});
-
-			this.getRouter().navTo("product", {
-				productPath: sValue1
-			});
-		},
 
 		onSearch: function (oEvent) {
 			// add filter for search
@@ -120,38 +68,6 @@ sap.ui.define([
 				"detailObj": selectedPath.id
 			});
 		},
-		onExit: function () {
-			if (this._oPopover) {
-				this._oPopover.destroy();
-			}
-		},
 
-		onShowCategories: function (oEvent) {
-			var oMenu = oEvent.getSource();
-
-			// create popover
-			if (!this._oPopover) {
-				Fragment.load({
-					name: "ag.agasown.view.fragment.Menu",
-					controller: this
-				}).then(function (pPopover) {
-					this._oPopover = pPopover;
-					this.getView().addDependent(this._oPopover);
-					//this._oPopover.bindElement("/ProductCollection/0");
-					this._oPopover.openBy(oMenu);
-				}.bind(this));
-			} else {
-				this._oPopover.openBy(oMenu);
-			}
-		},
-
-		handleCloseMenu: function (oEvent) {
-			// note: We don't need to chain to the _pPopover promise, since this event-handler
-			// is only called from within the loaded dialog itself.
-			//this.byId("myMenu").close();
-			if (this._oPopover) {
-				this._oPopover.close();
-			}
-		}
 	});
 });
