@@ -71,18 +71,6 @@ sap.ui.define([
 			}
 			// update list binding
 			oBinding.filter(aFilters, "Application");
-		},
-
-		onListItemPress: function (oEvent) {
-			var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
-			var spath = oBndngCtxt.getPath();
-			var selectedPath = oBndngCtxt.getProperty(spath);
-
-			this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
-
-			this.getRouter().navTo("productDetail", {
-				"detailObj": selectedPath.id
-			});
-		}
+		}	
 	});
 });

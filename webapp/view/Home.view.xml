@@ -163,10 +163,12 @@
 					<List backgroundDesign="Transparent" headerText="Agas own">
 						<CustomListItem>
 							<VBox class="">
-								<Link text="Impressum" press="onPressImpressum"/>
-								<Link text="Nutzungserklärung" press="onPressUsedClearance"/>
-								<Link text="Datenschutzerklärung" press="onPressDataClearance"/>
-								<Link text="Newsletter" press="onPressNewsletter"/>
+								<Link text="About Us" press="onPressImprint"/>
+								<Link text="Contact" press="onPressImprint"/>
+								<Link text="Imprint" press="onPressImprint"/>
+								<Link text="Terms of Services" press="onPressImprint"/>
+								<Link text="Privacy Policy" press="onPressImprint"/>
+								<Link text="GDPR" press="onPressImprint"/>
 							</VBox>
 						</CustomListItem>
 						<layoutData>

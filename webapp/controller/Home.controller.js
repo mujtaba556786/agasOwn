@@ -20,7 +20,21 @@ sap.ui.define([
 			oWelcomeCarousel.setActivePage(oWelcomeCarousel.getPages()[iRandomIndex]);
 
 			this.setHeaderModel();
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.getRoute("home").attachPatternMatched(this._onObjectMatched, this);
 		},
+		
+		_onObjectMatched: function (oEvent) {
+			var sCurrentRouteName = oEvent.getParameter("name");
+			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
+		},
+
+		onExit: function () {
+			if (this._oPopover) {
+				this._oPopover.destroy();
+			}
+		},
+
 		/**
 		 * lifecycle hook that will initialize the welcome carousel
 		 */

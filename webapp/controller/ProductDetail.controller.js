@@ -26,6 +26,7 @@ sap.ui.define([
 			var aData ={ value: 6, min: 1, max: 100, width: "90px", validationMode: "LiveChange" };
 			var oModel = new JSONModel(aData);
 			this.getView().setModel(oModel, "detailView");
+
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("productDetail").attachPatternMatched(this._onObjectMatched, this);
 		},
@@ -57,6 +58,12 @@ sap.ui.define([
 			var oDataProducts = this.getView().getModel("oDataProducts");
 			cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
 		},
+		
+		onExit: function () {
+			if (this._oPopover) {
+				this._oPopover.destroy();
+			}
+		}	
 
 	});
 });

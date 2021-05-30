@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core">
+
+            <HBox>
+                <VBox backgroundDesign="Solid" class="sapUiSmallMargin">
+                   <Text text="GDPR goes here" />
+                </VBox>
+                <VBox  visible="false" backgroundDesign="Solid" class="categories sapUiSmallMargin">
+                   <Text text="GDPR goes here" />
+                </VBox>
+            </HBox>
+</core:FragmentDefinition>

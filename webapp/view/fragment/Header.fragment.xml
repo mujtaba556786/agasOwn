@@ -4,7 +4,7 @@
         <contentLeft>
             <ImageContent class="logo" src="{path: 'view>/welcomeLogo',
                         formatter : '.formatter.pictureUrl'
-                        }" description="Logo" press="onNavBack">
+                        }" description="Logo" press="onNavBackHome">
             </ImageContent>
             <Button class="icon" icon="sap-icon://menu2" text="Kategorien" press=".onShowCategories"/>
         </contentLeft>

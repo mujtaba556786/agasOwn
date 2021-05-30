@@ -75,7 +75,7 @@ sap.ui.define([
 		 * Always navigates back to home
 		 * @override
 		 */
-		onNavBack: function () {
+		onNavBackHome: function () {
 			this.getRouter().navTo("home");
 			location.reload();
 		},
@@ -123,7 +123,7 @@ sap.ui.define([
 				"detailCategory": selectedCategory,
 			});
 
-			if(sCurrentRouteName !== "product") {
+			if(sCurrentRouteName === "home") {
 				this.onExit();
 			}
 
@@ -137,11 +137,16 @@ sap.ui.define([
 			var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
 			var spath = oBndngCtxt.getPath();
 			var selectedPath = oBndngCtxt.getProperty(spath);
+			//To load detail controller
+			this.getRouter().navTo("product", {
+				productPath: selectedPath.id
+			});
 			
 			this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
 			this.getRouter().navTo("productDetail", {
 				"detailObj": selectedPath.id
 			});
+			this.onExit();
 		},
 
 		onExit: function () {
@@ -191,15 +196,18 @@ sap.ui.define([
 		   this.getRouter().navTo("cart");
 	   },
 	   onNavBack: function(){
-		   
 		var oHistory = History.getInstance();
 		var oPrevHash = oHistory.getPreviousHash();
 		if (oPrevHash !== undefined) {
 			window.history.go(-1);
 		} else {
 			this.getRouter().navTo("home");
-			this.onExit();
 		}
+	   },
+
+	   onPressImprint: function(){
+		this.getRouter().navTo("information");
+
 	   }
 	});
 });
