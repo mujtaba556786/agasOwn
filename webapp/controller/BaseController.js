@@ -39,8 +39,9 @@ sap.ui.define([
 				welcomeCarouselCreditCard: 'ag/agasown/img/ShopCarouselCreditCard.jpg',
 				welcomeNews: 'ag/agasown/img/newsletter_footer.jpeg',
 				facebook: 'ag/agasown/img/Facebook.png',
+				youtube:'ag/agasown/img/youtube.png',
 				instagram: 'ag/agasown/img/Instagram.jpeg',
-				youtube: 'ag/agaswon/img/Youtube.png',
+				pinterest:'ag/agasown/img/pinterest.png',
 				category_name: "",
 				Promoted: [],
 				Viewed: [],
@@ -208,6 +209,9 @@ sap.ui.define([
 	   onPressImprint: function(){
 		this.getRouter().navTo("information");
 
+	   },
+	   onPressFaceBook: function(){
+		alert("Oh Crap!!! this function is not ready yet!!!!");
 	   }
 	});
 });

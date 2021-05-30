@@ -178,7 +178,30 @@
 					<List backgroundDesign="Transparent" headerText="Social">
 						<CustomListItem>
 							<HBox>
-								<Text text="Availaible  15:00 - 18:00"></Text>
+							<Avatar
+							displaySize="XS"
+							showBorder="true"
+							press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
+                        formatter : '.formatter.pictureUrl'
+                        }"  />
+						<Avatar
+							displaySize="XS"
+							showBorder="true"
+							press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
+                        formatter : '.formatter.pictureUrl'
+                        }"  />
+						<Avatar
+							displaySize="XS"
+							showBorder="true"
+							press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
+                        formatter : '.formatter.pictureUrl'
+                        }"  />
+						<Avatar
+							displaySize="XS"
+							showBorder="true"
+							press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
+                        formatter : '.formatter.pictureUrl'
+                        }"  />
 							</HBox>
 						</CustomListItem>
 						<layoutData>
@@ -194,7 +217,7 @@
 						<CustomListItem>
 							<HBox>
 								<VBox class="">
-									<Link text="{oDataCategory>category_name}" press="handlePress"/>
+									<Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
 								</VBox>
 							</HBox>
 						</CustomListItem>
