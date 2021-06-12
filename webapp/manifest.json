@@ -132,6 +132,11 @@
 					"pattern": "information",
 					"name": "information",
 					"target": ["information"]
+				},
+        {
+					"pattern": "registration",
+					"name": "registration",
+					"target": ["registration"]
 				}
       ],
       "targets": {
@@ -174,6 +179,11 @@
           "viewType": "XML",
 					"viewName": "Information",
 					"viewId": "information"
+				},
+        "registration": {
+          "viewType": "XML",
+					"viewName": "Registration",
+					"viewId": "registration"
 				}
       }
     }

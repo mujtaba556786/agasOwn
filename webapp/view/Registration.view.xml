@@ -1,0 +1,69 @@
+<mvc:View xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f" controllerName="ag.agasown.controller.Registration">
+	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
+		<customHeader>
+			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
+		</customHeader>
+		<content>
+			<Panel headerText="Registration" class="sapUiNoContentPadding">
+				<headerToolbar>
+
+				</headerToolbar>
+				<l:VerticalLayout class="sapUiContentPadding" width="100%">
+					<FlexBox direction="Column" width="100%">
+						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center" class="sapUiSmallMargin" >
+							<Label text="E-mail" labelFor="emailInput" />
+							<Input id="emailInput" class="sapUiSmallMarginBottom" 
+							type="Email" placeholder="Enter email" 
+							valueStateText="E-mail must be a valid email address." 
+							value="{
+								path: '/email',
+								type: '.customEMailType'
+							}" />
+							<Label text="Password" labelFor="passwordInput"/>
+							<Input class="sapUiSmallMarginBottom" placeholder="Enter password" />
+
+							<Button width="12rem"  type="Emphasized" text="Submit" press=".onPressLogin" />
+
+							<Link text="Password forget" press="handleLinkPress" ariaHasPopup="Dialog" />
+						</VBox>
+						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+						<Label text="First Name" labelFor="firstName" />
+						<Input id="firstName" placeholder="First Name"></Input>
+
+						<Label text="Second Name" labelFor="secondName" />
+						<Input id="secondName" placeholder="Second Name"></Input>
+
+						<Label text="E-mail" labelFor="emailInput" />
+						<Input class="sapUiSmallMarginBottom" type="Email" 
+						placeholder="Enter email" 
+						valueStateText="E-mail must be a valid email address." value="{
+							path: '/email',
+							type: '.customEMailType'
+						}" />
+
+						<Label text="Password" labelFor="passwordInput"/>
+						<Input type="Password"  class="sapUiSmallMarginBottom" placeholder="Enter password" />
+
+						<CheckBox text="Ja, ich möchte per E-Mail Newsletter über Trends, Aktionen 
+						 Gutscheine informiert werden. Abmeldung jederzeit möglich. (optional)" />
+
+						 <CheckBox text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
+						 von Zalando sowie einer Bonitätsprüfung zu.* *" />
+						
+						<Button width="12rem" text="Login" type="Emphasized" press="onLoginTap"></Button>
+						</VBox>
+					</FlexBox>
+				</l:VerticalLayout>
+
+			</Panel>
+		</content>
+		<footer>
+
+		</footer>
+	</Page>
+</mvc:View>

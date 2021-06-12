@@ -39,9 +39,9 @@ sap.ui.define([
 				welcomeCarouselCreditCard: 'ag/agasown/img/ShopCarouselCreditCard.jpg',
 				welcomeNews: 'ag/agasown/img/newsletter_footer.jpeg',
 				facebook: 'ag/agasown/img/Facebook.png',
-				youtube:'ag/agasown/img/youtube.png',
+				youtube: 'ag/agasown/img/youtube.png',
 				instagram: 'ag/agasown/img/Instagram.jpeg',
-				pinterest:'ag/agasown/img/pinterest.png',
+				pinterest: 'ag/agasown/img/pinterest.png',
 				category_name: "",
 				Promoted: [],
 				Viewed: [],
@@ -119,19 +119,19 @@ sap.ui.define([
 
 			var oDataCategory = this.getView().getModel("oDataCategory").getData();
 			var selectedCategory = oDataCategory.filter(fnFilterCategory);
-			
+
 			this.getView().getModel("oGlobalModel").setProperty("/", {
 				"detailCategory": selectedCategory,
 			});
 
-			if(sCurrentRouteName === "home") {
+			if (sCurrentRouteName === "home") {
 				this.onExit();
 			}
 
 			this.getRouter().navTo("product", {
 				productPath: sValue1
 			});
-			
+
 		},
 
 		onProductItemPress: function (oEvent) {
@@ -142,7 +142,7 @@ sap.ui.define([
 			this.getRouter().navTo("product", {
 				productPath: selectedPath.id
 			});
-			
+
 			this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
 			this.getRouter().navTo("productDetail", {
 				"detailObj": selectedPath.id
@@ -177,8 +177,25 @@ sap.ui.define([
 			var oDataProducts = this.getView().getModel("oDataProducts");
 			cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
 		},
-		onShowCustomer: function () {
-			alert("Oh Crap!!! this function is not ready yet!!!!");
+
+		onShowCustomer: function (oEvent) {
+			var oView = this.getView();
+
+			// creates requested dialog if not yet created
+			if (!this._mDialogs) {
+				this._mDialogs = Fragment.load({
+					id: oView.getId(),
+					name: "ag.agasown.view.fragment.loginDialog.Login",
+					controller: this
+				}).then(function (oDialog) {
+					oView.addDependent(oDialog);
+					return oDialog;
+				});
+			}
+			this._mDialogs.then(function (oDialog) {
+				// opens the requested dialog
+				oDialog.open();
+			});
 		},
 
 		/**
@@ -186,32 +203,36 @@ sap.ui.define([
 		 * @public
 		 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
 		 */
-		 getResourceBundle: function () {
+		getResourceBundle: function () {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
 		/** 
 		* Navigate to the generic cart view
 		* @param {sap.ui.base.Event} @param oEvent the button press event
 		*/
-	   onToggleCart: function (oEvent) {
-		   this.getRouter().navTo("cart");
-	   },
-	   onNavBack: function(){
-		var oHistory = History.getInstance();
-		var oPrevHash = oHistory.getPreviousHash();
-		if (oPrevHash !== undefined) {
-			window.history.go(-1);
-		} else {
-			this.getRouter().navTo("home");
+		onToggleCart: function (oEvent) {
+			this.getRouter().navTo("cart");
+		},
+		onNavBack: function () {
+			var oHistory = History.getInstance();
+			var oPrevHash = oHistory.getPreviousHash();
+			if (oPrevHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				this.getRouter().navTo("home");
+			}
+		},
+
+		onPressImprint: function () {
+			this.getRouter().navTo("information");
+
+		},
+		onPressRegistration: function () {
+			this.getRouter().navTo("registration");
+		},
+
+		onPressFaceBook: function () {
+			alert("Oh Crap!!! this function is not ready yet!!!!");
 		}
-	   },
-
-	   onPressImprint: function(){
-		this.getRouter().navTo("information");
-
-	   },
-	   onPressFaceBook: function(){
-		alert("Oh Crap!!! this function is not ready yet!!!!");
-	   }
 	});
 });
