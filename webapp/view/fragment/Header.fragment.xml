@@ -11,7 +11,7 @@
         <contentMiddle>
         </contentMiddle>
         <contentRight>
-            <Button class="icon" icon="sap-icon://customer" press=".onShowCustomer"/>
+            <Button class="icon" icon="sap-icon://customer" press=".onLoginOpen"/>
             <Button class="icon" icon="sap-icon://cart" press=".onToggleCart"/>
         </contentRight>
     </Bar>

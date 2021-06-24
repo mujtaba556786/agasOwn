@@ -2,26 +2,27 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
-    <Dialog titleAlignment="Center" title="Login" contentWidth="50%" contentHeight="60%" showReset="true" 
-    reset="onReset" class="sapUiSizeCompact">
-        <VBox class="sapUiSmallMargin" width="100%">
-            <Label text="E-mail" labelFor="emailInput" />
-            <Input id="emailInput" class="sapUiSmallMarginBottom" type="Email" 
-            placeholder="Enter email" 
-            valueStateText="E-mail must be a valid email address." value="{
-				path: '/email',
-				type: '.customEMailType'
-			}" />
-            <Label text="Password" labelFor="passwordInput"/>
-            <Input class="sapUiSmallMarginBottom" placeholder="Enter password" />
+    <Dialog id="loginDialog" titleAlignment="Center" title="Login"  showReset="true" reset="onReset" class="sapUiSizeCompact">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Label text="E-mail" labelFor="emailInput" />
+                <Input id="emailInput" class="sapUiSmallMarginBottom" type="Email" 
+                    placeholder="Enter email" valueStateText="E-mail must be a valid email address."
+                />
+                <Label text="Password" labelFor="passwordInput"/>
+                <Input type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
 
-            <Button text="Submit" press=".onSubmit" />
-            <Link text="Password forget" press="onPasswordForgot" />
-        </VBox>
+                <Button text="Submit" press=".onSubmit" />
+                <Link text="Password forget" press="onPasswordForgot" />
+            </VBox>
 
-        <VBox class="sapUiSmallMargin" width="100%">
-            <Label text="New Registration"/>
-            <Button text="Registration" press=".onPressRegistration" />
-        </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Label text="New Registration"/>
+                <Button text="Registration" press=".onPressRegistration" />
+            </VBox>
+        </content>
+        <endButton>
+                <Button icon="sap-icon://sys-cancel" press=".onLoginClose" />
+        </endButton>
     </Dialog>
 </core:FragmentDefinition>
