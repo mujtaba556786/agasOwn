@@ -16,27 +16,26 @@
 						<Title text="Beliebte Kategorien" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
-				<f:GridList id="gridCategory" mode="SingleSelectMaster" items="{
+				<Carousel height="auto" pages="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
-                    }" class="sapUiResponsiveContentPadding">
-					<f:customLayout>
-						<grid:GridBasicLayout gridTemplateColumns="repeat(auto-fit, minmax(16rem, 1fr))" gridGap="0.5rem" />
-					</f:customLayout>
-					<f:GridListItem >
-						<VBox height="100%">
-							<Image src="{path: 'oDataCategory>picture',
+                    }">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+					<VBox height="100%">
+						<Image src="{path: 'oDataCategory>picture',
 											formatter : '.formatter.jsonPictureUrl'
 											}" width="100%" class="imageDisplayBlock" press="onCategoryLinkPress"/>
-							<HBox height="100%" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
-								<VBox>
-									<Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
-								</VBox>
-							</HBox>
-						</VBox>
-					</f:GridListItem>
-				</f:GridList>
+						<HBox height="100%" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
+							<VBox>
+								<Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
+							</VBox>
+						</HBox>
+					</VBox>
+
+				</Carousel>
 			</Panel>
 			<Panel>
 				<headerToolbar>
@@ -61,8 +60,7 @@
 					</customLayout>
 
 					<VBox height="100%">
-						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" 
-						width="100%" class="imageDisplayBlock" press="onProductItemPress"/>
+						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" class="imageDisplayBlock" press="onProductItemPress"/>
 						<HBox height="100%" class="sapUiSmallMargin" alignItems="Center">
 							<VBox>
 								<Title text="{oDataProducts>product_name}" wrapping="true" />
@@ -178,30 +176,18 @@
 					<List backgroundDesign="Transparent" headerText="Social">
 						<CustomListItem>
 							<HBox>
-							<Avatar
-							displaySize="XS"
-							showBorder="true"
-							press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
+								<Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
                         formatter : '.formatter.pictureUrl'
-                        }"  />
-						<Avatar
-							displaySize="XS"
-							showBorder="true"
-							press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
+                        }" />
+								<Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
                         formatter : '.formatter.pictureUrl'
-                        }"  />
-						<Avatar
-							displaySize="XS"
-							showBorder="true"
-							press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
+                        }" />
+								<Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
                         formatter : '.formatter.pictureUrl'
-                        }"  />
-						<Avatar
-							displaySize="XS"
-							showBorder="true"
-							press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
+                        }" />
+								<Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
                         formatter : '.formatter.pictureUrl'
-                        }"  />
+                        }" />
 							</HBox>
 						</CustomListItem>
 						<layoutData>
