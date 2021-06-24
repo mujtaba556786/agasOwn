@@ -28,5 +28,8 @@
 		"dependencies": [
 			"@sap/ux-ui5-tooling"
 		]
+	},
+	"dependencies": {
+		"stripe": "8.154.0"
 	}
 }
