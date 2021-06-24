@@ -178,7 +178,7 @@ sap.ui.define([
 			cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
 		},
 
-		onShowCustomer: function (oEvent) {
+		onLoginOpen: function (oEvent) {
 			var oView = this.getView();
 
 			// creates requested dialog if not yet created
@@ -196,6 +196,10 @@ sap.ui.define([
 				// opens the requested dialog
 				oDialog.open();
 			});
+		},
+
+		onLoginClose: function(){
+			this.byId("loginDialog").close();
 		},
 
 		/**
@@ -233,6 +237,7 @@ sap.ui.define([
 
 		onPressFaceBook: function () {
 			alert("Oh Crap!!! this function is not ready yet!!!!");
-		}
+		},
+
 	});
 });
