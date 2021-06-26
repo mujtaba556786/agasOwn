@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m"
     xmlns:f="sap.f"
     xmlns:core="sap.ui.core">
-    <ResponsivePopover id="myPopover" class="sapUiPopupWithPadding agasown" placement="Bottom">
+    <ResponsivePopover showHeader="false" id="myPopover" class="sapUiPopupWithPadding" placement="Bottom">
         <beginButton>
             <Button icon="sap-icon://sys-cancel" press="handleCloseMenu" />
         </beginButton>

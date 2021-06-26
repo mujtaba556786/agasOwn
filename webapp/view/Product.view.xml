@@ -21,7 +21,37 @@
 						<Title text="Most sale Item" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
+
 				<Carousel id="productDetailCarousel" height="auto" pages="{path: 'oDataProducts>/'}">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+
+					<VBox >
+						<Image src="{
+											path: 'oDataProducts>picture',
+											formatter : '.formatter.jsonPictureUrl'
+											}" width="100%"  class="imageDisplayBlock" press="onProductItemPress"/>
+						<HBox  class="sapUiSmallMargin" alignItems="Center">
+							<VBox>
+								<Title text="{oDataProducts>product_name}" wrapping="true" />
+								<HBox justifyContent="SpaceBetween" alignItems="Baseline">
+									<Button tooltip="{i18n>addToCart}" press=".onAddToCart" icon="sap-icon://cart-3" type="Emphasized"/>
+									<ObjectListItem class="welcomePrice" number="{
+											parts:[
+												{path:'oDataProducts>unit_price'},
+												{path:'view>/Currency'}
+											],
+											type:'sap.ui.model.type.Currency',
+											formatOptions:{showMeasure: false}
+										}" numberUnit="{view>/Currency}">
+									</ObjectListItem>
+								</HBox>
+							</VBox>
+						</HBox>
+					</VBox>
+				</Carousel>
+				<!--<Carousel id="productDetailCarousel" height="auto" pages="{path: 'oDataProducts>/'}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="4" />
 					</customLayout>
@@ -49,7 +79,7 @@
 							</VBox>
 						</HBox>
 					</VBox>
-				</Carousel>
+				</Carousel>-->
 			</Panel>
 		</content>
 		<footer>

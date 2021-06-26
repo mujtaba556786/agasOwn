@@ -16,19 +16,19 @@
 						<Title text="Beliebte Kategorien" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
-				<Carousel height="auto" pages="{
+				<Carousel pages="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
-                    }">
+                    }" arrowsPlacement="PageIndicator" loop="true">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
-					<VBox height="100%">
+					<VBox >
 						<Image src="{path: 'oDataCategory>picture',
 											formatter : '.formatter.jsonPictureUrl'
 											}" width="100%" class="imageDisplayBlock" press="onCategoryLinkPress"/>
-						<HBox height="100%" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
+						<HBox class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
 							<VBox>
 								<Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
 							</VBox>
@@ -52,16 +52,16 @@
 						<Title text="Promoted Item" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
-				<Carousel height="auto" pages="{path: 'oDataProducts>/',
+				<Carousel  pages="{path: 'oDataProducts>/',
                         filters: [{path: 'ranking', operator: 'EQ', value1: '1'}],
                         sorter: {path: 'id'}}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
 
-					<VBox height="100%">
-						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" class="imageDisplayBlock" press="onProductItemPress"/>
-						<HBox height="100%" class="sapUiSmallMargin" alignItems="Center">
+					<VBox>
+						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress"/>
+						<HBox class="sapUiSmallMargin" alignItems="Center">
 							<VBox>
 								<Title text="{oDataProducts>product_name}" wrapping="true" />
 								<HBox justifyContent="SpaceBetween" alignItems="Baseline">
@@ -97,19 +97,19 @@
 						<Title text="Most sale Item" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
-				<Carousel height="auto" pages="{path: 'oDataProducts>/',
+				<Carousel pages="{path: 'oDataProducts>/',
                         filters: [{path: 'ranking', operator: 'EQ', value1: '3'}],
                         sorter: {path: 'id'}}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
 
-					<VBox height="100%">
+					<VBox >
 						<Image src="{
 											path: 'oDataProducts>picture',
 											formatter : '.formatter.jsonPictureUrl'
-											}" width="100%" class="imageDisplayBlock" press="onProductItemPress"/>
-						<HBox height="100%" class="sapUiSmallMargin" alignItems="Center">
+											}" width="100%" height="295px" press="onProductItemPress"/>
+						<HBox  class="sapUiSmallMargin" alignItems="Center">
 							<VBox>
 								<Title text="{oDataProducts>product_name}" wrapping="true" />
 								<HBox justifyContent="SpaceBetween" alignItems="Baseline">
@@ -135,7 +135,7 @@
 					<Image src="{
 							path: 'view>/welcomeNews',
 							formatter : '.formatter.pictureUrl'
-						}" width="100%" height="100%">
+						}" width="100%">
 						<layoutData>
 							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
 						</layoutData>
