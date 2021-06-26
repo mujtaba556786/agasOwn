@@ -1,11 +1,22 @@
 /* Enter your custom styles here */
-.agasown .logo{
-    margin: 0;
-    padding: 0;
-    color: black;
+.agasown {
+  background: #FFF;
 }
-.sapMImg {
-  object-fit: contain;
+.agasown .logo .sapMImg{
+    width: 150px;
+    height: fit-content;
+    object-fit: cover;
+}
+.agasown .categoryLogo .sapMImg{
+  width: 150px;
+  height: fit-content;
+  object-fit: cover;
+}
+.agasown .categoryLogo .sapMImageConten{
+  width: 6rem;
+}
+.agasown .sapMImg {
+  object-fit: fill;
 }
 .agasown .menuBorder{
     border-right: solid ;

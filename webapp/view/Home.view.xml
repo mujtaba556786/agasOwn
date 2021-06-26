@@ -3,7 +3,9 @@
 	xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:grid="sap.ui.layout.cssgrid"
-	xmlns:f="sap.f" controllerName="ag.agasown.controller.Home">
+	xmlns:f="sap.f" 
+	
+	controllerName="ag.agasown.controller.Home">
 	<Page id="home">
 		<customHeader>
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
@@ -20,7 +22,7 @@
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
-                    }" arrowsPlacement="PageIndicator" loop="true">
+                    }" showPageIndicator="false" loop="true">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
