@@ -1,7 +1,5 @@
 /* Enter your custom styles here */
-.agasown {
-  background: #FFF;
-}
+
 .agasown .logo .sapMImg{
     width: 150px;
     height: fit-content;
@@ -12,7 +10,7 @@
   height: fit-content;
   object-fit: cover;
 }
-.agasown .categoryLogo .sapMImageConten{
+.agasown .categoryLogo .sapMImageContent{
   width: 6rem;
 }
 .agasown .sapMImg {

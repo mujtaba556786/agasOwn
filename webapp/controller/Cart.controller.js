@@ -53,13 +53,10 @@ sap.ui.define([
 			var oCartModel = this.getView().getModel("oDataProducts");
 			var oCartEntries = oCartModel.getProperty("/cartEntries");
 			//enables the proceed and edit buttons if the cart has entries
-			if (Object.keys(oCartEntries).length > 0) {
+			if(oCartEntries.hasOwnProperty("product_name")) {
 				oCartModel.setProperty("/showProceedButton", true);
 				oCartModel.setProperty("/showEditButton", true);
 			}
-			//set selection of list back
-			//var oEntryList = this.byId("entryList");
-			//oEntryList.removeSelections();
 		},
 
 		onEditOrDoneButtonPress: function () {

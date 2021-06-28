@@ -12,7 +12,7 @@
         </contentMiddle>
         <contentRight>
             <Button class="icon" icon="sap-icon://customer" press=".onLoginOpen"/>
-            <Button class="icon" icon="sap-icon://cart" press=".onToggleCart"/>
+            <Button id="goToCart" enabled="false" class="icon" icon="sap-icon://cart" press=".onToggleCart"/>
         </contentRight>
     </Bar>
 </core:FragmentDefinition>

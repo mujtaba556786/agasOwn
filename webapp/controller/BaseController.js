@@ -170,12 +170,16 @@ sap.ui.define([
 		 * @public
 		 */
 		onAddToCart: function (oEvent) {
+			var sGoToCardId = this.byId("goToCart");
 			var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
 			var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
 			var spath = oBndngCtxt.getPath();
 			var oSelectedPath = oBndngCtxt.getProperty(spath);
 			var oDataProducts = this.getView().getModel("oDataProducts");
-			cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+			if(oSelectedPath.hasOwnProperty("product_name") ) {
+				sGoToCardId.setEnabled(true);
+				cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+			}
 		},
 
 		onLoginOpen: function (oEvent) {
@@ -216,6 +220,21 @@ sap.ui.define([
 		*/
 		onToggleCart: function (oEvent) {
 			this.getRouter().navTo("cart");
+
+			//TODO: create popover check later
+			/*var oMenu = oEvent.getSource();
+			if (!this._oPopoverCart) {
+				Fragment.load({
+					name: "ag.agasown.view.fragment.Cart",
+					controller: this
+				}).then(function (pPopover) {
+					this._oPopoverCart = pPopover;
+					this.getView().addDependent(this._oPopoverCart);
+					this._oPopoverCart.openBy(oMenu);
+				}.bind(this));
+			} else {
+				this._oPopoverCart.openBy(oMenu);
+			}*/
 		},
 		onNavBack: function () {
 			var oHistory = History.getInstance();
