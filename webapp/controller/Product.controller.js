@@ -72,20 +72,22 @@ sap.ui.define([
 		},
 
 		onProductFilter: function(){
+			var oBinding = this.oProductDetail.getBinding("pages");
 			var aSelectedProduct = [];
 			var aDetailCategory = this.getView().getModel("oGlobalModel").getData().detailCategory;
 			var oDataProducts = this.getView().getModel("oDataProducts").getData();
 
 			var fnFilterCategory = function (item) {
 				aDetailCategory.forEach(element => {
-					if(item.category_id === element.id){
-						aSelectedProduct.push(item);
-					}
+					var filter = new Filter("category_id", FilterOperator.EQ, element.id);
+					aSelectedProduct.push(filter);			
 				});
 			}
 			oDataProducts.filter(fnFilterCategory);
+
+			// update list binding
+			oBinding.filter(aSelectedProduct, "Application");
 		
-			this.getView().getModel("oDataProducts").setProperty("/", aSelectedProduct);
 		}
 	
 	});
