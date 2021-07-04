@@ -14,7 +14,7 @@
   width: 6rem;
 }
 .agasown .sapMImg {
-  object-fit: fill;
+  object-fit: contain;
 }
 .agasown .menuBorder{
     border-right: solid ;
