@@ -22,24 +22,24 @@
 					</Toolbar>
 				</headerToolbar>
 
-				<Carousel  id="productDetailCarousel" height="auto" pages="{path: 'oGlobalModel>/detailProduct'}">
+				<Carousel  id="productDetailCarousel" height="auto" pages="{path: 'oDataProducts>/'}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
 
 					<VBox >
 						<Image src="{
-											path: 'oGlobalModel>picture',
+											path: 'oDataProducts>picture',
 											formatter : '.formatter.jsonPictureUrl'
-											}" width="100%" height="295px" class="imageDisplayBlock" press="onProductItemPress"/>
+											}" width="100%" height="295px"  press="onProductItemPress"/>
 						<HBox  class="sapUiSmallMargin" alignItems="Center">
 							<VBox>
-								<Title text="{oGlobalModel>product_name}" wrapping="true" />
+								<Title text="{oDataProducts>product_name}" wrapping="true" />
 								<HBox justifyContent="SpaceBetween" alignItems="Baseline">
 									<Button tooltip="{i18n>addToCart}" press=".onAddToCart" icon="sap-icon://cart-3" type="Emphasized"/>
 									<ObjectListItem class="welcomePrice" number="{
 											parts:[
-												{path:'oGlobalModel>unit_price'},
+												{path:'oDataProducts>unit_price'},
 												{path:'view>/Currency'}
 											],
 											type:'sap.ui.model.type.Currency',
@@ -52,6 +52,9 @@
 					</VBox>
 				</Carousel>
 				
+			</Panel>
+			<Panel>
+				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
 			</Panel>
 		</content>
 		<footer>

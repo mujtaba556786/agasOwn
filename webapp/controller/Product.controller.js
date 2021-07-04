@@ -85,7 +85,7 @@ sap.ui.define([
 			}
 			oDataProducts.filter(fnFilterCategory);
 		
-			this.getView().getModel("oGlobalModel").setProperty("/detailProduct", aSelectedProduct);
+			this.getView().getModel("oDataProducts").setProperty("/", aSelectedProduct);
 		}
 	
 	});
