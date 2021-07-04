@@ -43,6 +43,9 @@
                     </IconTabFilter>
                 </items>
             </IconTabBar>
+            <Panel>
+				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
+			</Panel>
         </content>
     </Page>
 </mvc:View>

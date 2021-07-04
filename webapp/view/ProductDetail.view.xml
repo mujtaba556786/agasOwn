@@ -95,6 +95,9 @@
 					</items>
 				</IconTabBar>
 			</Panel>
+			<Panel>
+				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
+			</Panel>
 		</content>
 		<footer>
 

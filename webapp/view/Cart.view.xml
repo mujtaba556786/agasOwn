@@ -6,8 +6,8 @@
 		id="page"
 		title="{cfg>/pageTitle}"
 		backgroundDesign="Solid"
-		showNavButton="{appView>/smallScreenMode}"
-		navButtonPress=".onBack"
+		showNavButton="true"
+		navButtonPress=".onNavBack"
 		showFooter="true">
 		<headerContent>
 			<Button

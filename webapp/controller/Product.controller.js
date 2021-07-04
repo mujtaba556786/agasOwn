@@ -27,12 +27,10 @@ sap.ui.define([
 			var sCategoryId = oEvent.getParameter("arguments").productPath;
 			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
 
-			var fnFilterCategory = function (item) {
-				return item.parent === sCategoryId;
-			};
-
-			var oProductSearchState = [new Filter("category_id", FilterOperator.EQ, sCategoryId)];
-			this.oProductDetail.getBinding("pages").filter(oProductSearchState, "Application");
+		
+			//var oProductSearchState = [new Filter("category_id", FilterOperator.EQ, sCategoryId)];
+			//this.oProductDetail.getBinding("pages").filter(oProductSearchState, "Application");
+			this.onProductFilter();
 		},
 
 		onSearch: function (oEvent) {
@@ -58,8 +56,8 @@ sap.ui.define([
 			oBinding.sort(oSorter);
 		},
 
-
 		onFilterSelect: function (oEvent) {
+			// Array to combine filters
 			var oBinding = this.oProductDetail.getBinding("pages");
 			// Array to combine filters
 			var aFilters = [];
@@ -71,6 +69,24 @@ sap.ui.define([
 			}
 			// update list binding
 			oBinding.filter(aFilters, "Application");
-		}	
+		},
+
+		onProductFilter: function(){
+			var aSelectedProduct = [];
+			var aDetailCategory = this.getView().getModel("oGlobalModel").getData().detailCategory;
+			var oDataProducts = this.getView().getModel("oDataProducts").getData();
+
+			var fnFilterCategory = function (item) {
+				aDetailCategory.forEach(element => {
+					if(item.category_id === element.id){
+						aSelectedProduct.push(item);
+					}
+				});
+			}
+			oDataProducts.filter(fnFilterCategory);
+		
+			this.getView().getModel("oGlobalModel").setProperty("/detailProduct", aSelectedProduct);
+		}
+	
 	});
 });
