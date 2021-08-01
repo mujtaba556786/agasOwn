@@ -53,7 +53,7 @@
 					</Toolbar>
 				</headerToolbar>
 				<Carousel pages="{path: 'oDataProducts>/',
-                        filters: [{path: 'ranking', operator: 'EQ', value1: '1'}],
+                        filters: [{path: 'ranking', operator: 'EQ', value1: 'promoted'}],
                         sorter: {path: 'id'}}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
@@ -68,7 +68,7 @@
 									<Button tooltip="{i18n>addToCart}" press=".onAddToCart" icon="sap-icon://cart-3" type="Emphasized"/>
 									<ObjectListItem class="welcomePrice" number="{
 											parts:[
-												{path:'oDataProducts>unit_price'},
+												{path:'oDataProducts>price'},
 												{path:'view>/Currency'}
 											],
 											type:'sap.ui.model.type.Currency',
@@ -98,7 +98,7 @@
 					</Toolbar>
 				</headerToolbar>
 				<Carousel pages="{path: 'oDataProducts>/',
-                        filters: [{path: 'ranking', operator: 'EQ', value1: '3'}],
+                        filters: [{path: 'ranking', operator: 'EQ', value1: 'best_seller'}],
                         sorter: {path: 'id'}}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
@@ -116,7 +116,7 @@
 									<Button tooltip="{i18n>addToCart}" press=".onAddToCart" icon="sap-icon://cart-3" type="Emphasized"/>
 									<ObjectListItem class="welcomePrice" number="{
 											parts:[
-												{path:'oDataProducts>unit_price'},
+												{path:'oDataProducts>price'},
 												{path:'view>/Currency'}
 											],
 											type:'sap.ui.model.type.Currency',

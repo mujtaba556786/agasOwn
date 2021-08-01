@@ -39,7 +39,7 @@
 									<Button tooltip="{i18n>addToCart}" press=".onAddToCart" icon="sap-icon://cart-3" type="Emphasized"/>
 									<ObjectListItem class="welcomePrice" number="{
 											parts:[
-												{path:'oDataProducts>unit_price'},
+												{path:'oDataProducts>price'},
 												{path:'view>/Currency'}
 											],
 											type:'sap.ui.model.type.Currency',

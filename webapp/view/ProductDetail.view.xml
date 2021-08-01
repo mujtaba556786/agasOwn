@@ -31,7 +31,7 @@
 						<VBox>
 							<Text id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
 
-							<Text id="product_price" text="{oGlobalModel>/detailProduct/unit_price} EUR"/>
+							<Text id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
 
 							<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="false"/>
 
