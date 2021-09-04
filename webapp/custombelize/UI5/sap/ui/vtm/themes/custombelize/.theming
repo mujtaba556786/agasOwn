@@ -1,0 +1,38 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/vtm.sap_belize": "1.93.0",
+		"UI5.sap/ui/vtm": "1.93.0",
+		"UI5": "1.93.0"
+	},
+	"sEntity": "Theme",
+	"sId": "custombelize",
+	"sLabel": "ag",
+	"oExtends": "UI5.sap/ui/vtm.sap_belize",
+	"aBundled": [
+		"custombelize--Contrast"
+	],
+	"sTextDirections": "LTR",
+	"sType": "STANDARD",
+	"sThemability": "PUBLIC",
+	"mCssScopes": {
+		"library": {
+			"sEmbeddingMethod": "APPEND",
+			"aScopes": [
+				{
+					"sLabel": "Contrast",
+					"sSelector": "sapContrast",
+					"sThemeIdSuffix": "Contrast",
+					"sThemability": "PUBLIC",
+					"aThemabilityFilter": [
+						"Color"
+					],
+					"rExcludeSelector": "\\.sapContrastPlus\\W",
+					"sEmbeddedFile": "custombelize--Contrast.library",
+					"sEmbeddedCompareFile": "library"
+				}
+			],
+			"sBaseFile": "library"
+		}
+	},
+	"sReleaseStage": "GENERAL_AVAILABILITY"
+}

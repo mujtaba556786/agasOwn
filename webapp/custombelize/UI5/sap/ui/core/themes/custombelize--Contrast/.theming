@@ -1,0 +1,28 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/core.sap_belize_plus": "1.93.0",
+		"UI5.sap/ui/core": "1.93.0",
+		"UI5": "1.93.0"
+	},
+	"sEntity": "Theme",
+	"sId": "custombelize--Contrast",
+	"oExtends": "UI5.sap/ui/core.sap_belize_plus",
+	"aBuildFiles": [
+		"library",
+		"css_variables",
+		"custom"
+	],
+	"aFiles": [
+		"library",
+		"global",
+		"css_variables",
+		"custom"
+	],
+	"aBundled": [
+		"custombelize"
+	],
+	"sBuildOptions": "SKIP",
+	"sType": "ABSTRACT",
+	"sThemability": "PRIVATE",
+	"sReleaseStage": "GENERAL_AVAILABILITY"
+}

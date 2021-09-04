@@ -1,0 +1,32 @@
+/*!
+* (c) Copyright 2010-2016 SAP SE or an SAP affiliate company.
+*/
+/*!
+ * SAPUI5
+  (c) Copyright 2009-2021 SAP SE. All rights reserved
+ */
+/******************* FILE /Base/baseLib/baseTheme/base.less *******************/
+/******************* FILE /Base/baseLib/sap_belize_hcw/base.less *******************/
+/* ============================================= */
+/* CSS for control sap.ushell/StaticTile.control */
+/* ============================================= */
+.sapUshellStaticTile ~ span.sapUshellTileBaseIcon {
+  left: auto;
+}
+/******************* FILE /Base/baseLib/sap_belize/base.less *******************/
+/*!
+* (c) Copyright 2010-2016 SAP SE or an SAP affiliate company.
+*/
+
+/*!
+ * SAPUI5
+  (c) Copyright 2009-2021 SAP SE. All rights reserved
+ */
+
+/******************* FILE /Base/baseLib/baseTheme/base.less *******************/
+
+/******************* FILE /Base/baseLib/sap_belize_hcw/base.less *******************/
+
+/* ============================================= */
+
+/* CSS for control sap.ushell/StaticTile.control */

@@ -1,0 +1,19 @@
+{
+	"default": {
+		"_sap_rules_ui_AstExpression_Color": "#000000",
+		"_sap_rules_ui_AstExpression_BorderError": "#e42e2e",
+		"_sap_rules_ui_AstExpression_VariableClassColor": "#FF0000",
+		"_sap_rules_ui_AstExpression_RangeColor": "#000000",
+		"_sap_rules_ui_AstExpression_OperatorColor": "#32CD32",
+		"_sap_rules_ui_AstExpression_FunctionalOperatorColor": "#8B008B",
+		"_sap_rules_ui_AstExpression_FunctionColor": "#0000cd",
+		"_sap_rules_ui_AstExpression_ParenthesisColor": "#000000",
+		"_sap_rules_ui_AstExpression_LiteralColor": "#000000",
+		"_sap_rules_ui_AstExpression_LogicalOpertorColor": "#ADFF2F",
+		"_sap_rules_ui_AstExpression_FieldBorderColor": "#cccccc",
+		"_sap_rules_ui_AstExpression_PopoverBorderColor": "#bfbfbf"
+	},
+	"scopes": {
+		"sapContrast": {}
+	}
+}

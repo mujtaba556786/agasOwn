@@ -1,4 +1,43 @@
 /* Enter your custom styles here */
+.agasown .sapMPageHeader{
+  background: rgb(243,218,156);
+  background: linear-gradient(191deg, rgba(243,218,156,1) 0%, rgba(219,168,43,0.44021358543417366) 54%, rgba(213,177,103,1) 100%);
+}
+.sapMShellBrandingBar{
+  background-color: #3F183B;
+}
+
+.sapUiRootBackground, .sapMShellGlobalOuterBackground{
+  background: linear-gradient(to bottom, #3F183B, #e7ecf0);
+}
+.agasown .sapMBtnIcon{
+  color: #3F183B;
+}
+.headerBar .sapMImg{
+  width: 10%;
+  object-fit: cover;
+}
+.agasown .sapMFocusable:hover{
+  color: #0c0004;
+}
+.agasown 
+.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>
+.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnDefault 
+.sapUiIcon, 
+.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>
+.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnBack .sapUiIcon, .sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnGhost .sapUiIcon{
+  color: #363032;
+  background: transparent;
+}
+
+.agasown .sapMBtnIcon:active {
+  color: #DF3165;
+  background: transparent;
+}
+.agasown .menusapMBtnIcon:hover{
+  color: #DF3165;
+  background: transparent;
+}
 
 .agasown .logo .sapMImg{
     width: 150px;
@@ -13,9 +52,7 @@
 .agasown .categoryLogo .sapMImageContent{
   width: 6rem;
 }
-.agasown .sapMImg {
-  object-fit: contain;
-}
+
 .agasown .menuBorder{
     border-right: solid ;
 }

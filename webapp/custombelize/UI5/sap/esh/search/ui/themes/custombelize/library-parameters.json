@@ -1,0 +1,13 @@
+{
+	"default": {
+		"sapUshellOnePixel": "1px",
+		"sapUshellTwoPixels": "0.125rem",
+		"searchPhoneSize": "(max-width: 767px)",
+		"searchTabletSize": "(min-width: 768px) and (max-width: 1150px)",
+		"searchNotPhoneSize": "(min-width: 768px)",
+		"searchDesktopSize": "(min-width: 1151px)"
+	},
+	"scopes": {
+		"sapContrast": {}
+	}
+}

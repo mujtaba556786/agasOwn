@@ -1,0 +1,12 @@
+{
+	"default": {
+		"_sap_ui_mdc_PersonalizationDialog_Border_LightColor": "#fff",
+		"_sap_ui_mdc_PersonalizationDialog_Border_DarkColor": "#000"
+	},
+	"scopes": {
+		"sapContrast": {
+			"_sap_ui_mdc_PersonalizationDialog_Border_LightColor": "#000",
+			"_sap_ui_mdc_PersonalizationDialog_Border_DarkColor": "#fff"
+		}
+	}
+}

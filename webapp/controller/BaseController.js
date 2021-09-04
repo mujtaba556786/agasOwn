@@ -32,11 +32,11 @@ sap.ui.define([
 			}
 
 			var oViewModel = new JSONModel({
-				welcomeLogo: 'ag/agasown/img/AgasOwn.jpg',
-				welcomeCarouselShipping: 'ag/agasown/img/ShopCarouselShipping.png',
-				welcomeCarouselInviteFriend: 'ag/agasown/img/ShopCarouselInviteFriend.png',
-				welcomeCarouselTablet: 'ag/agasown/img/ShopCarouselTablet.jpg',
-				welcomeCarouselCreditCard: 'ag/agasown/img/ShopCarouselCreditCard.jpg',
+				welcomeLogo: 'ag/agasown/img/LOGO-HQ.png',
+				welcomeCarouselShipping: 'ag/agasown/img/BANNER-1.jpg',
+				welcomeCarouselInviteFriend: 'ag/agasown/img/BANNER-2.jpg',
+				welcomeCarouselTablet: 'ag/agasown/img/BANNER-3.jpg',
+				welcomeCarouselCreditCard: 'ag/agasown/img/BANNER-4.jpg',
 				welcomeNews: 'ag/agasown/img/newsletter_footer.jpeg',
 				facebook: 'ag/agasown/img/Facebook.png',
 				youtube: 'ag/agasown/img/youtube.png',
