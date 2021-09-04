@@ -6,9 +6,39 @@
 .sapMShellBrandingBar{
   background-color: #3F183B;
 }
+/*Search*/
+.agasown .sapMSFB{
+  color:#fff;
+  background:  #DF3165 0% 0% no-repeat padding-box;
+}
+/*Category*/
+ .categoryBox {
+  position: relative;
+}
+ .categoryBoxText{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  opacity: 1;
+  background:  #DF3165;
+  width: 90%;
+  height: 30px;
+  line-height: 25px;
+}
+/*panl Tile*/
+.agasown .panelTitle{
+text-align: left;
+color: #3F183B;
+text-transform: uppercase;
+opacity: 1;
+}
 
-.sapUiRootBackground, .sapMShellGlobalOuterBackground{
-  background: linear-gradient(to bottom, #3F183B, #e7ecf0);
+.agasown .sapUiRootBackground, .sapMShellGlobalOuterBackground{
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(63,24,59,1) 100%, rgba(255,255,255,1) 100%);
 }
 .agasown .sapMBtnIcon{
   color: #3F183B;
@@ -91,20 +121,14 @@
 	width: 100%;
 	text-shadow: 0 0 0.125rem black;
 }
-.agasown .categories{
-  border-radius: 15px;
-  padding-bottom: 20px;
-  margin: 15px;
-}
+
 .agasown .images{
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   height: 200px;
 }
 
-.agasown .images:hover{
-    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
+
 
 .agasown .imageLink{
     text-align: center;

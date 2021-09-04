@@ -10,10 +10,16 @@
 		</customHeader>
 		<content>
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Carousel" type="XML" />
+			<HBox renderType="Bare" justifyContent="Center"> 
+					<SearchField width="50%" />
+				</HBox>
 			<Panel id="panelCategory" backgroundDesign="Transparent" class="sapUiNoContentPadding">
+			
 				<headerToolbar>
 					<Toolbar>
-						<Title text="Beliebte Kategorien" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+						<Title text="Popular Categories" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
 				<Carousel pages="{
@@ -24,32 +30,25 @@
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
-					<VBox >
+					<VBox renderType="Bare" >
 						<Image src="{path: 'oDataCategory>picture',
 											formatter : '.formatter.jsonPictureUrl'
-											}" width="100%" class="imageDisplayBlock" press="onCategoryLinkPress"/>
-						<HBox class="sapUiSmallMargin" justifyContent="Center" alignItems="Center" visible="{= ${onlyImage} ? false : true }">
-							<VBox>
-								<Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
-							</VBox>
-						</HBox>
+											}"  class="categoryBox imageDisplayBlock" press="onCategoryLinkPress"/>
+						<Text textAlign="Center" text="{oDataCategory>category_name}" class="categoryBoxText"/>					
 					</VBox>
 
 				</Carousel>
 			</Panel>
 			<Panel>
-				<headerToolbar>
-					<Toolbar>
-						<Title text="Shop Banner" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
-					</Toolbar>
-				</headerToolbar>
 				<core:Fragment fragmentName="ag.agasown.view.fragment.ShopCarousel" type="XML" />
 			</Panel>
 
 			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
-						<Title text="Promoted Item" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+						<Title text="Promoted Items" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
 				<Carousel pages="{path: 'oDataProducts>/',
@@ -83,18 +82,15 @@
 			</Panel>
 
 			<Panel>
-				<headerToolbar>
-					<Toolbar>
-						<Title text="Social Banner" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
-					</Toolbar>
-				</headerToolbar>
 				<core:Fragment fragmentName="ag.agasown.view.fragment.SocialCarousel" type="XML" />
 			</Panel>
 
 			<Panel id="panelSale" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
-						<Title text="Most sale Item" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+						<Title text="Items On Sale" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
 				<Carousel pages="{path: 'oDataProducts>/',
