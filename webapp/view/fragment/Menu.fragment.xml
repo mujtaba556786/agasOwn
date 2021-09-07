@@ -2,9 +2,6 @@
     xmlns:f="sap.f"
     xmlns:core="sap.ui.core">
     <ResponsivePopover showArrow="false" showHeader="false" id="myPopover" class="sapUiPopupWithPadding" placement="Bottom">
-        <beginButton>
-            <Button icon="sap-icon://sys-cancel" press="handleCloseMenu" />
-        </beginButton>
         <content>
             <HBox>
                 <List id="mainCategoryList" items="{
@@ -14,7 +11,6 @@
                     }" showSeparators="None">
                     <CustomListItem>
                         <HBox alignItems="Center" justifyContent="SpaceBetween">
-                            <Avatar displaySize="M" src="{oDataCategory>picture}" press="onCategoryLinkPress"/>
                             <Link class="menuLinks" text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
                             <Button type="Transparent" icon="sap-icon://navigation-right-arrow" press="handleMenuCategory" ariaLabelledBy="editButtonLabel"/>
                         </HBox>
@@ -28,7 +24,6 @@
                     }" showSeparators="None">
                         <CustomListItem>
                             <HBox alignItems="Center" justifyContent="SpaceBetween">
-                                 <Avatar displaySize="M" src="{oDataCategory>picture}" press="onCategoryLinkPress"/>
                                 <Link text="{oDataCategory>category_name}" target="{ProductPicUrl}" press="onCategoryLinkPress"/>
                             </HBox>
                         </CustomListItem>

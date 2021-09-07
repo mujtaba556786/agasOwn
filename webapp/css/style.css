@@ -1,10 +1,49 @@
 /* Enter your custom styles here */
 .agasown .sapMPageHeader{
-  background: rgb(243,218,156);
-  background: linear-gradient(191deg, rgba(243,218,156,1) 0%, rgba(219,168,43,0.44021358543417366) 54%, rgba(213,177,103,1) 100%);
+  background: transparent linear-gradient(0deg, #D5B167 0%, #F3DA9C 47%, #E5B644 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
 }
 .sapMShellBrandingBar{
   background-color: #3F183B;
+}
+/*text*/
+.agasown .sapMTitle{
+  color: #3F183B;
+  text-align: center;
+  letter-spacing: 1.2px;
+  opacity: 1;
+}
+
+/*currency number*/
+.agasown .sapMObjectNumber{
+  color: #3F183B;
+  opacity: 1;
+}
+
+/*newlletter*/
+.agasown .newsletter{
+  position: relative;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  opacity: 0.73;
+}
+.agasown .newsletterBox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.agasown .newsletterButton .sapMBtnInner{
+  background-color: #3F183B;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  width: 115px;
+}
+
+.agasown .newsltterEmail .sapMInputBaseInner{
+  width: 750px;
 }
 /*Search*/
 .agasown .sapMSFB{
@@ -30,7 +69,7 @@
 }
 /*panl Tile*/
 .agasown .panelTitle{
-text-align: left;
+text-align: center;
 color: #3F183B;
 text-transform: uppercase;
 opacity: 1;
@@ -56,7 +95,7 @@ opacity: 1;
 .sapUiIcon, 
 .sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>
 .sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnBack .sapUiIcon, .sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnGhost .sapUiIcon{
-  color: #363032;
+  color: #DF3165;
   background: transparent;
 }
 
@@ -87,7 +126,7 @@ opacity: 1;
     border-right: solid ;
 }
 .agasown .menuLinks{
-    color: black;
+    color:#3F183B;
     display: block;
     height: 32px;
     line-height: 32px;
@@ -96,19 +135,17 @@ opacity: 1;
 }
 
 .agasown .menuLinks:active {
-    background: #fea31d;
-    color: #FFF;
+    color:#DF3165;
 }
 .agasown .menuLinks:hover{
-    background: #fea31d;
-    color: #FFF;
+    color: #3F183B;
 }
 .agasown .icon{
-    color: black;
+    color: #3F183B;
 }
 
 .agasown .icon:hover{
-    color: black;
+    color: #DF3165;
 }
 
 .agasown .welcomeCarouselText {
