@@ -2,24 +2,24 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
-        <FlexBox alignItems="Start">
-            <List backgroundDesign="Transparent" headerText="Agas own" showSeparators="None">
-                <CustomListItem>
-                    <VBox class="">
-                        <Link text="About Us" press="onPressImprint"/>
-                        <Link text="Contact" press="onPressImprint"/>
-                        <Link text="Imprint" press="onPressImprint"/>
-                        <Link text="Terms of Services" press="onPressImprint"/>
-                        <Link text="Privacy Policy" press="onPressImprint"/>
-                        <Link text="GDPR" press="onPressImprint"/>
-                    </VBox>
-                </CustomListItem>
-                <layoutData>
-                    <FlexItemData growFactor="1" />
-                </layoutData>
-            </List>
-            <List backgroundDesign="Transparent" headerText="Social" showSeparators="None">
-                <CustomListItem>
+        <HBox class="footter" alignItems="Center" alignContent="Center"  justifyContent="SpaceBetween">
+        <VBox>
+           <Image src="{
+            path: 'view>/welcomeLogo',
+			formatter : '.formatter.pictureUrl'
+		}" width="300px">
+         </Image>
+        </VBox>
+        <VBox class="">
+            <Text text="Information"/>
+            <Link text="About Us" press="onPressImprint"/>
+            <Link text="Contact" press="onPressImprint"/>
+            <Link text="Imprint" press="onPressImprint"/>
+            <Link text="Terms of Services" press="onPressImprint"/>
+            <Link text="Privacy Policy" press="onPressImprint"/>
+            <Link text="GDPR" press="onPressImprint"/>
+        </VBox>                                   
+           
                     <HBox>
                         <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
                         formatter : '.formatter.pictureUrl'
@@ -34,11 +34,7 @@
                         formatter : '.formatter.pictureUrl'
                         }" />
                     </HBox>
-                </CustomListItem>
-                <layoutData>
-                    <FlexItemData growFactor="1" />
-                </layoutData>
-            </List>
+               
 
             <List backgroundDesign="Transparent" headerText="Categories" items="{
                         path: 'oDataCategory>/',
@@ -52,9 +48,6 @@
                         </VBox>
                     </HBox>
                 </CustomListItem>
-                <layoutData>
-                    <FlexItemData growFactor="1" />
-                </layoutData>
             </List>
-        </FlexBox>
+              </HBox>
 </core:FragmentDefinition>

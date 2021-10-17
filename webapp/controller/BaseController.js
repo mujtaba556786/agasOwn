@@ -221,20 +221,6 @@ sap.ui.define([
 		onToggleCart: function (oEvent) {
 			this.getRouter().navTo("cart");
 
-			//TODO: create popover check later
-			/*var oMenu = oEvent.getSource();
-			if (!this._oPopoverCart) {
-				Fragment.load({
-					name: "ag.agasown.view.fragment.Cart",
-					controller: this
-				}).then(function (pPopover) {
-					this._oPopoverCart = pPopover;
-					this.getView().addDependent(this._oPopoverCart);
-					this._oPopoverCart.openBy(oMenu);
-				}.bind(this));
-			} else {
-				this._oPopoverCart.openBy(oMenu);
-			}*/
 		},
 		onNavBack: function () {
 			var oHistory = History.getInstance();
