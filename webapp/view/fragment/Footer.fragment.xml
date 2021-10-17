@@ -2,15 +2,15 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
-        <HBox class="footter" alignItems="Center" alignContent="Center"  justifyContent="SpaceBetween">
+    <HBox class="footter" alignItems="Center" alignContent="Center" justifyContent="SpaceBetween">
         <VBox>
-           <Image src="{
+            <Image src="{
             path: 'view>/welcomeLogo',
 			formatter : '.formatter.pictureUrl'
 		}" width="300px">
-         </Image>
+            </Image>
         </VBox>
-        <VBox class="">
+        <VBox alignItems="Center">
             <Text text="Information"/>
             <Link text="About Us" press="onPressImprint"/>
             <Link text="Contact" press="onPressImprint"/>
@@ -18,36 +18,36 @@
             <Link text="Terms of Services" press="onPressImprint"/>
             <Link text="Privacy Policy" press="onPressImprint"/>
             <Link text="GDPR" press="onPressImprint"/>
-        </VBox>                                   
-           
-                    <HBox>
-                        <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
-                        formatter : '.formatter.pictureUrl'
-                        }" />
-                        <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
-                        formatter : '.formatter.pictureUrl'
-                        }" />
-                        <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
-                        formatter : '.formatter.pictureUrl'
-                        }" />
-                        <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
-                        formatter : '.formatter.pictureUrl'
-                        }" />
-                    </HBox>
-               
+        </VBox>
 
-            <List backgroundDesign="Transparent" headerText="Categories" items="{
+        <VBox alignItems="Center">
+            <Text text="Social"/>
+
+            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
+                        formatter : '.formatter.pictureUrl'
+                        }" />
+            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
+                        formatter : '.formatter.pictureUrl'
+                        }" />
+            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
+                        formatter : '.formatter.pictureUrl'
+                        }" />
+            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
+                        formatter : '.formatter.pictureUrl'
+                        }" />
+        </VBox>
+
+
+        <List backgroundDesign="Transparent" headerText="Categories" items="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
                     }" showSeparators="None">
-                <CustomListItem>
-                    <HBox>
-                        <VBox class="">
-                            <Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
-                        </VBox>
-                    </HBox>
-                </CustomListItem>
-            </List>
-              </HBox>
+            <CustomListItem>
+                <VBox alignItems="Center">
+                    <Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
+                </VBox>
+            </CustomListItem>
+        </List>
+    </HBox>
 </core:FragmentDefinition>

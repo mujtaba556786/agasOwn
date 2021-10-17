@@ -26,6 +26,12 @@
   font-size: 1.875rem;
   border-bottom:none;
 }
+.footter .sapFAvatarImageCover{
+  color: #3F183B;
+}
+.footter .sapFAvatarImageCover:hover{
+  color: #DF3165;
+}
 .sapMShellBrandingBar{
   background-color: #3F183B;
 }

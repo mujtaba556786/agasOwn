@@ -80,9 +80,27 @@ sap.ui.define([
 		 * @param {*} oCollection1 
 		 * @param {*} oCollection2 
 		 */
-		jsonPictureUrl: function (sUrl) {
+		  jsonPictureUrl: async function (sUrl) {
 			return sUrl;
 		},
+
+
+		/**
+		 * 
+		 * @param {*} oCollection1 
+		 * @param {*} oCollection2 
+		 */
+		 jsonPictureProductUrl: async function (sUrl) {
+			var http = new XMLHttpRequest();
+			http.open('HEAD', sUrl, false);
+			await http.send();
+		   var defaultUrl = "ag/agasown/img/LOGO-HQ.png";
+		   if (http.status === 404) {
+				return sap.ui.require.toUrl(defaultUrl);
+		   } else {
+			   return sap.ui.require.toUrl(sUrl);
+		   }
+	   },
 
 		/**
 		 * Checks if one of the collections contains items.
