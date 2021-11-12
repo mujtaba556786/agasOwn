@@ -3,7 +3,11 @@
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
         <FlexBox alignItems="Start">
-            <List backgroundDesign="Transparent" headerText="Agas own" showSeparators="None">
+         <Image class="imageFotter" src="{path: 'view>/welcomeLogo',
+                        formatter : '.formatter.pictureUrl'
+                        }" press="onNavBackHome" >
+            </Image>
+           <!-- <List backgroundDesign="Transparent" headerText="Agas own" showSeparators="None">
                 <CustomListItem>
                     <VBox class="">
                         <Link text="About Us" press="onPressImprint"/>
@@ -17,7 +21,7 @@
                 <layoutData>
                     <FlexItemData growFactor="1" />
                 </layoutData>
-            </List>
+            </List>-->
             <List backgroundDesign="Transparent" headerText="Social" showSeparators="None">
                 <CustomListItem>
                     <HBox>

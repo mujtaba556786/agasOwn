@@ -220,3 +220,11 @@ opacity: 1;
     height: 300px;
     display: none;
   }
+  .agasown .fotter{
+    background: transparent 
+    linear-gradient(180deg, #D5B167 0%, #F3DA9C 47%, #E5B644 100%) 0% 0% no-repeat padding-box;
+  }
+
+  .agasown .fotter .imageFotter{
+    height: fit-content;
+  }
