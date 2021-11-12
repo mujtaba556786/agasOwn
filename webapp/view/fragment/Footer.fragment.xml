@@ -3,11 +3,7 @@
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
         <FlexBox alignItems="Start">
-         <Image class="imageFotter" src="{path: 'view>/welcomeLogo',
-                        formatter : '.formatter.pictureUrl'
-                        }" press="onNavBackHome" >
-            </Image>
-           <!-- <List backgroundDesign="Transparent" headerText="Agas own" showSeparators="None">
+            <List backgroundDesign="Transparent" headerText="Agas own" showSeparators="None">
                 <CustomListItem>
                     <VBox class="">
                         <Link text="About Us" press="onPressImprint"/>
@@ -21,35 +17,44 @@
                 <layoutData>
                     <FlexItemData growFactor="1" />
                 </layoutData>
-            </List>-->
+            </List>
             <List backgroundDesign="Transparent" headerText="Social" showSeparators="None">
                 <CustomListItem>
                     <HBox>
                         <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
                         formatter : '.formatter.pictureUrl'
                         }" />
-            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
+                        <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
                         formatter : '.formatter.pictureUrl'
                         }" />
-            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
+                        <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
                         formatter : '.formatter.pictureUrl'
                         }" />
-            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
+                        <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
                         formatter : '.formatter.pictureUrl'
                         }" />
-        </VBox>
+                    </HBox>
+                </CustomListItem>
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+            </List>
 
-
-        <List backgroundDesign="Transparent" headerText="Categories" items="{
+            <List backgroundDesign="Transparent" headerText="Categories" items="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: null}],
                         sorter: {path: 'id'}
                     }" showSeparators="None">
-            <CustomListItem>
-                <VBox alignItems="Center">
-                    <Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
-                </VBox>
-            </CustomListItem>
-        </List>
-    </HBox>
-</core:FragmentDefinition>
+                <CustomListItem>
+                    <HBox>
+                        <VBox class="">
+                            <Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
+                        </VBox>
+                    </HBox>
+                </CustomListItem>
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+            </List>
+        </FlexBox>
+</core:FragmentDefinition> 
