@@ -10,7 +10,7 @@ sap.ui.define([
 
 	return BaseController.extend("ag.agasown.controller.Home", {
 		_iCarouselTimeout: 0, // a pointer to the current timeout
-		_iCarouselLoopTime: 8000, // loop to next picture after 8 seconds
+		_iCarouselLoopTime: 5000, // loop to next picture after 8 seconds
 
 		onInit: function () {
 		

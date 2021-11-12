@@ -30,7 +30,7 @@
 					<VBox >
 						<Image src="{
 											path: 'oDataProducts>picture',
-											formatter : '.formatter.jsonPictureUrl'
+											formatter : '.formatter.jsonPictureProductUrl'
 											}" width="100%" height="295px"  press="onProductItemPress"/>
 						<HBox  class="sapUiSmallMargin" alignItems="Center">
 							<VBox>

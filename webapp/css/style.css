@@ -3,6 +3,35 @@
   background: transparent linear-gradient(0deg, #D5B167 0%, #F3DA9C 47%, #E5B644 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
 }
+.footter{
+  background: transparent linear-gradient(
+0deg, #D5B167 0%, #F3DA9C 47%, #E5B644 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+
+}
+
+.footter .sapMLnk{
+  color: #3F183B;
+}
+.footter .sapMLnk:hover{
+  color: #DF3165;
+  border-bottom: none;
+}
+.footter .sapMText{
+  margin-bottom: 25px;
+  font-size: 1.875rem;
+}
+.footter .sapMListHdrText{
+  margin-bottom: 25px;
+  font-size: 1.875rem;
+  border-bottom:none;
+}
+.footter .sapFAvatarImageCover{
+  color: #3F183B;
+}
+.footter .sapFAvatarImageCover:hover{
+  color: #DF3165;
+}
 .sapMShellBrandingBar{
   background-color: #3F183B;
 }
