@@ -61,7 +61,7 @@ sap.ui.define([
 		
 		onExit: function () {
 			if (this._oPopover) {
-				this._oPopover.destroy();
+				this._oPopover.close();
 			}
 		}	
 

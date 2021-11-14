@@ -7,7 +7,9 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "../model/formatter",
     "sap/ui/core/routing/History",
-], function(Controller, UIComponent, JSONModel, Device, cart, Fragment, formatter, History) {
+    "ag/agasown/service/Service",
+    "sap/m/MessageBox"
+], function(Controller, UIComponent, JSONModel, Device, cart, Fragment, formatter, History, Service, MessageBox)  {
     "use strict";
 
     return Controller.extend("ag.agasown.controller.BaseController", {
@@ -20,6 +22,10 @@ sap.ui.define([
          */
         getRouter: function() {
             return UIComponent.getRouterFor(this);
+        },
+        getService: function(){
+            return Service;
+
         },
 
         setHeaderModel: function() {
@@ -55,21 +61,17 @@ sap.ui.define([
 
         onShowCategories: function(oEvent) {
             var oMenu = oEvent.getSource();
-
             // create popover
-            if (!this._oPopover) {
                 Fragment.load({
                     name: "ag.agasown.view.fragment.Menu",
                     controller: this
                 }).then(function(pPopover) {
                     this._oPopover = pPopover;
                     this.getView().addDependent(this._oPopover);
-                    //this._oPopover.bindElement("/ProductCollection/0");
                     this._oPopover.openBy(oMenu);
                 }.bind(this));
-            } else {
-                this._oPopover.openBy(oMenu);
-            }
+
+            
         },
 
         /**
@@ -152,7 +154,7 @@ sap.ui.define([
 
         onExit: function() {
             if (this._oPopover) {
-                this._oPopover.destroy();
+                this._oPopover.close();
             }
         },
 
@@ -243,6 +245,22 @@ sap.ui.define([
         onPressFaceBook: function() {
             alert("Oh Crap!!! this function is not ready yet!!!!");
         },
+        onLogin: function(){
+            var _sUrl = "http://localhost:8000/login/";
+            var _sLoginEmail = this.byId("loginEmailInput").getValue();
+            var _sLoginPassword = this.byId("loginPasswordInput").getValue();
+            var oData = {
+                    "email": _sLoginEmail,
+                    "password": _sLoginPassword,
+            }
+            this.getService().onPost(_sUrl, oData)
+				.then((oSuccess) => {
+					MessageBox.success(oSuccess.detail);
+				})
+				.catch((oError) => {
+					MessageBox.error(oError.responseText)
+				})
+        }
 
     });
 });

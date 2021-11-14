@@ -5,14 +5,14 @@
     <Dialog id="loginDialog" titleAlignment="Center" title="Login"  showReset="true" reset="onReset" class="sapUiSizeCompact">
         <content>
             <VBox class="sapUiSmallMargin">
-                <Label text="E-mail" labelFor="emailInput" />
-                <Input id="emailInput" class="sapUiSmallMarginBottom" type="Email" 
+                <Label text="E-mail" labelFor="loginEmailInput" />
+                <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" 
                     placeholder="Enter email" valueStateText="E-mail must be a valid email address."
                 />
-                <Label text="Password" labelFor="passwordInput"/>
-                <Input type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
+                <Label text="Password" labelFor="loginPasswordInput"/>
+                <Input id="loginPasswordInput" type="Password"  class="sapUiSmallMarginBottom" placeholder="Enter password" />
 
-                <Button text="Submit" press=".onSubmit" />
+                <Button text="Submit" press=".onLogin" />
                 <Link text="Password forget" press="onPasswordForgot" />
             </VBox>
 

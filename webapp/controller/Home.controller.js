@@ -31,7 +31,7 @@ sap.ui.define([
 
 		onExit: function () {
 			if (this._oPopover) {
-				this._oPopover.destroy();
+				this._oPopover.close();
 			}
 		},
 
@@ -67,7 +67,7 @@ sap.ui.define([
 			}
 
 			// update list binding
-			var oList = sap.ui.getCore().byId("mainCategoryList");
+			//var oList = sap.ui.getCore().byId("mainCategoryList");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilters, "Application");
 		}
