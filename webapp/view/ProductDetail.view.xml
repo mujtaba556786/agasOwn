@@ -74,7 +74,7 @@
 							<VBox>
 								<Text text="Product Description" />
 								<Text text="{oGlobalModel>/detailProduct/note}"/>
-								<Text text="{oGlobalModel>/detailProduct/unit_price} EUR"/>
+								<Text text="{oGlobalModel>/detailProduct/price} EUR"/>
 								<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip" />
 								<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
 								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
