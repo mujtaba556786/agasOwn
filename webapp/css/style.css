@@ -271,3 +271,6 @@ opacity: 1;
 .agasown .priceStatusBox{
   border-bottom: 1px solid black;
 }
+.agasown .productStatus{
+  color: #FF0000;
+}
