@@ -257,3 +257,11 @@ opacity: 1;
   .agasown .fotter .imageFotter{
     height: fit-content;
   }
+  .agasown .sapMDialog .sapMIBar{
+    background: transparent 
+    linear-gradient(180deg, #D5B167 0%, #F3DA9C 47%, #E5B644 100%) 0% 0% no-repeat padding-box;
+  }
+  .agasown .sapMDialog  .sapMDialogSection{
+    background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(63,24,59,1) 100%, rgba(255,255,255,1) 100%);
+}

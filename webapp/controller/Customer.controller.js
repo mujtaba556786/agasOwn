@@ -5,7 +5,7 @@ sap.ui.define([
 
 	return BaseController.extend("ag.agasown.controller.Customer", {
 		onInit: function () {
-			this.setHeaderModel();
+			
 		}
 	});
 });

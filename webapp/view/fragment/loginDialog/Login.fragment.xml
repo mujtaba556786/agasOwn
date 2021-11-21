@@ -2,27 +2,23 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
-    <Dialog id="loginDialog" titleAlignment="Center" title="Login"  showReset="true" reset="onReset" class="sapUiSizeCompact">
+    <Dialog id="loginDialog" titleAlignment="Center" title="Login" class="sapUiSizeCompact">
         <content>
             <VBox class="sapUiSmallMargin">
                 <Label text="E-mail" labelFor="loginEmailInput" />
-                <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" 
-                    placeholder="Enter email" valueStateText="E-mail must be a valid email address."
-                />
+                <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
                 <Label text="Password" labelFor="loginPasswordInput"/>
-                <Input id="loginPasswordInput" type="Password"  class="sapUiSmallMarginBottom" placeholder="Enter password" />
+                <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
 
                 <Button text="Submit" press=".onLogin" />
                 <Link text="Password forget" press="onPasswordForgot" />
-            </VBox>
 
-            <VBox class="sapUiSmallMargin">
                 <Label text="New Registration"/>
                 <Button text="Registration" press=".onPressRegistration" />
             </VBox>
         </content>
         <endButton>
-                <Button icon="sap-icon://sys-cancel" press=".onLoginClose" />
+            <Button icon="sap-icon://sys-cancel" press=".onLoginClose" />
         </endButton>
     </Dialog>
 </core:FragmentDefinition>

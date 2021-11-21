@@ -9,7 +9,7 @@ sap.ui.define([
     "sap/ui/core/routing/History",
     "ag/agasown/service/Service",
     "sap/m/MessageBox"
-], function(Controller, UIComponent, JSONModel, Device, cart, Fragment, formatter, History, Service, MessageBox)  {
+], function (Controller, UIComponent, JSONModel, Device, cart, Fragment, formatter, History, Service, MessageBox) {
     "use strict";
 
     return Controller.extend("ag.agasown.controller.BaseController", {
@@ -20,15 +20,15 @@ sap.ui.define([
          * @public
          * @returns {sap.ui.core.routing.Router} the router for this component
          */
-        getRouter: function() {
+        getRouter: function () {
             return UIComponent.getRouterFor(this);
         },
-        getService: function(){
+        getService: function () {
             return Service;
 
         },
 
-        setHeaderModel: function() {
+        setHeaderModel: function () {
             var iPagesCount = 1;
 
             if (Device.system.desktop) {
@@ -59,31 +59,30 @@ sap.ui.define([
 
         },
 
-        onShowCategories: function(oEvent) {
+        onShowCategories: function (oEvent) {
             var oMenu = oEvent.getSource();
             // create popover
-                Fragment.load({
-                    name: "ag.agasown.view.fragment.Menu",
-                    controller: this
-                }).then(function(pPopover) {
-                    this._oPopover = pPopover;
-                    this.getView().addDependent(this._oPopover);
-                    this._oPopover.openBy(oMenu);
-                }.bind(this));
+            Fragment.load({
+                name: "ag.agasown.view.fragment.Menu",
+                controller: this
+            }).then(function (pPopover) {
+                this._oPopover = pPopover;
+                this.getView().addDependent(this._oPopover);
+                this._oPopover.openBy(oMenu);
+            }.bind(this));
 
-            
+
         },
 
         /**
          * Always navigates back to home
          * @override
          */
-        onNavBackHome: function() {
+        onNavBackHome: function () {
             this.getRouter().navTo("home");
-            location.reload();
         },
 
-        handleMenuCategory: function(oEvent) {
+        handleMenuCategory: function (oEvent) {
             var categoryId = sap.ui.getCore().byId("subCategoryList");
             var categoryDetails = sap.ui.getCore().byId("categoryDetails");
             var oSelectedItem = oEvent.getSource();
@@ -109,13 +108,13 @@ sap.ui.define([
             }
         },
 
-        onCategoryLinkPress: function(oEvent) {
+        onCategoryLinkPress: function (oEvent) {
             var sCurrentRouteName = this.getView().getModel("oGlobalModel").getProperty("/currentRouteName");
             var oSelectedItem = oEvent.getSource();
             var oContext = oSelectedItem.getBindingContext("oDataCategory");
             var sValue1 = oContext.getProperty("id");
 
-            var fnFilterCategory = function(item) {
+            var fnFilterCategory = function (item) {
                 return item.parent === sValue1;
             }
 
@@ -136,7 +135,7 @@ sap.ui.define([
 
         },
 
-        onProductItemPress: function(oEvent) {
+        onProductItemPress: function (oEvent) {
             var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
             var spath = oBndngCtxt.getPath();
             var selectedPath = oBndngCtxt.getProperty(spath);
@@ -152,13 +151,13 @@ sap.ui.define([
             this.onExit();
         },
 
-        onExit: function() {
+        onExit: function () {
             if (this._oPopover) {
                 this._oPopover.close();
             }
         },
 
-        handleCloseMenu: function(oEvent) {
+        handleCloseMenu: function (oEvent) {
             // note: We don't need to chain to the _pPopover promise, since this event-handler
             // is only called from within the loaded dialog itself.
             //this.byId("myMenu").close();
@@ -171,7 +170,7 @@ sap.ui.define([
          * Saves the product, the i18n bundle, and the cart model and hands them to the <code>addToCart</code> function
          * @public
          */
-        onAddToCart: function(oEvent) {
+        onAddToCart: function (oEvent) {
             var sGoToCardId = this.byId("goToCart");
             var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
             var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
@@ -184,28 +183,39 @@ sap.ui.define([
             }
         },
 
-        onLoginOpen: function(oEvent) {
-            var oView = this.getView();
+        onLoginOpen: function (oEvent) {
+            var oCustomer = this.getView().getModel("oGlobalModel").getProperty("/customer");
 
+            if (oCustomer !== undefined) {
+                this.handleLogout(oEvent);
+            } else {
+                this.handleLogin();
+            }
+
+        },
+        handleLogin: function () {
+            var oView = this.getView();
             // creates requested dialog if not yet created
-            if (!this._mDialogs) {
-                this._mDialogs = Fragment.load({
+            if (!this._mLoginDialog) {
+                this._mLoginDialog = Fragment.load({
                     id: oView.getId(),
                     name: "ag.agasown.view.fragment.loginDialog.Login",
                     controller: this
-                }).then(function(oDialog) {
+                }).then(function (oDialog) {
                     oView.addDependent(oDialog);
                     return oDialog;
                 });
             }
-            this._mDialogs.then(function(oDialog) {
+            this._mLoginDialog.then(function (oDialog) {
                 // opens the requested dialog
                 oDialog.open();
             });
         },
 
-        onLoginClose: function() {
-            this.byId("loginDialog").close();
+        onLoginClose: function () {
+            this._mLoginDialog.then(function (oDialog) {
+                oDialog.close();
+            });
         },
 
         /**
@@ -213,18 +223,18 @@ sap.ui.define([
          * @public
          * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
          */
-        getResourceBundle: function() {
+        getResourceBundle: function () {
             return this.getOwnerComponent().getModel("i18n").getResourceBundle();
         },
         /** 
          * Navigate to the generic cart view
          * @param {sap.ui.base.Event} @param oEvent the button press event
          */
-        onToggleCart: function(oEvent) {
+        onToggleCart: function (oEvent) {
             this.getRouter().navTo("cart");
 
         },
-        onNavBack: function() {
+        onNavBack: function () {
             var oHistory = History.getInstance();
             var oPrevHash = oHistory.getPreviousHash();
             if (oPrevHash !== undefined) {
@@ -234,32 +244,78 @@ sap.ui.define([
             }
         },
 
-        onPressImprint: function() {
+        onPressImprint: function () {
             this.getRouter().navTo("information");
-
         },
-        onPressRegistration: function() {
+
+        onPressRegistration: function () {
             this.getRouter().navTo("registration");
         },
 
-        onPressFaceBook: function() {
+        onPressFaceBook: function () {
             alert("Oh Crap!!! this function is not ready yet!!!!");
         },
-        onLogin: function(){
+
+        onLogin: function () {
             var _sUrl = "http://localhost:8000/login/";
             var _sLoginEmail = this.byId("loginEmailInput").getValue();
             var _sLoginPassword = this.byId("loginPasswordInput").getValue();
             var oData = {
-                    "email": _sLoginEmail,
-                    "password": _sLoginPassword,
+                "email": _sLoginEmail,
+                "password": _sLoginPassword,
             }
             this.getService().onPost(_sUrl, oData)
-				.then((oSuccess) => {
-					MessageBox.success(oSuccess.detail);
-				})
-				.catch((oError) => {
-					MessageBox.error(oError.responseText)
-				})
+                .then((oSuccess) => {
+                    this.onLoginSucces(oSuccess);
+                })
+                .catch((oError) => {
+                    MessageBox.error(oError.responseText)
+                })
+        },
+        onLoginSucces: function (oData) {
+            var oGlobalModel = this.getView().getModel("oGlobalModel");
+            oGlobalModel.setProperty("/customer", oData);
+            this.onNavToCustomer();
+        },
+        onNavToCustomer: function () {
+            this.getRouter().navTo("customer");
+        },
+        onLogout: function () {
+            var _sUrl = "http://localhost:8000/logout/";
+            var oGlobalModel = this.getView().getModel("oGlobalModel");
+            var oCustomer = oGlobalModel.getData().customer;
+            var oData = {
+                user_id: oCustomer.id,
+                access_token: oCustomer.token.access_token
+            };
+            this.getService().onPost(_sUrl, oData)
+                .then((oSuccess) => {
+                    console.log("oSucess", oSuccess);
+                    oGlobalModel.setProperty("/customer", "");
+                })
+                .catch((oError) => {
+                    MessageBox.error(oError.responseText)
+                })
+        },
+
+        handleLogout: function (oEvent) {
+            var oButton = oEvent.getSource(),
+                oView = this.getView();
+
+            // create popover
+            if (!this._pLogoutPopover) {
+                this._pLogoutPopover = Fragment.load({
+                    id: oView.getId(),
+                    name: "ag.agasown.view.fragment.loginDialog.Logout",
+                    controller: this
+                }).then(function (oPopover) {
+                    oView.addDependent(oPopover);
+                    return oPopover;
+                });
+            }
+            this._pLogoutPopover.then(function (oPopover) {
+                oPopover.openBy(oButton);
+            });
         }
 
     });

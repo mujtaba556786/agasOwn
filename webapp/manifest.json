@@ -137,6 +137,11 @@
 					"pattern": "registration",
 					"name": "registration",
 					"target": ["registration"]
+				},
+        {
+					"pattern": "customer",
+					"name": "customer",
+					"target": ["customer"]
 				}
       ],
       "targets": {
@@ -184,6 +189,11 @@
           "viewType": "XML",
 					"viewName": "Registration",
 					"viewId": "registration"
+				},
+        "customer": {
+          "viewType": "XML",
+					"viewName": "Customer",
+					"viewId": "customer"
 				}
       }
     }
