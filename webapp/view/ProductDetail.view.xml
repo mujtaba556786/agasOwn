@@ -57,8 +57,6 @@
 								</VBox>
 							</HBox>
 							<Button class="productBuyNow" width="100%" text="Buy it Now"  press=".onAddToCartDetails"/>
-							<Label text="Description" labelFor="product_description" />
-							<Text id="product_description" text="{oGlobalModel>/detailProduct/note}"/>
 
 							<layoutData>
 								<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
