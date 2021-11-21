@@ -64,7 +64,7 @@
 						}"
 						title="{oDataProducts>product_name}"
 						number="{
-							path : 'oDataProducts>unit_price',
+							path : 'oDataProducts>price',
 							formatter : '.formatter.price'
 						}"
 						numberUnit="EUR"
@@ -121,7 +121,7 @@
 						}"
 						title="{oDataProducts>product_name}"
 						number="{
-							path : 'oDataProducts>unit_price',
+							path : 'oDataProducts>price',
 							formatter : '.formatter.price'
 						}"
 						numberUnit="EUR"

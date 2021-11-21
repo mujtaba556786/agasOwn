@@ -17,40 +17,6 @@ sap.ui.define([
 		 * @param {Object} oCartModel Cart model
 		 */
 		addToCart: function (oBundle, oProduct, oCartModel) {
-			// Items to be added from the welcome view have it's content inside product object
-			/*if (oProduct.Product !== undefined) {
-				oProduct = oProduct.Product;
-			}
-			switch (oProduct.Status) {
-				case "D":
-					//show message dialog
-					MessageBox.show(
-						oBundle.getText("productStatusDiscontinuedMsg"), {
-							icon: MessageBox.Icon.ERROR,
-							titles: oBundle.getText("productStatusDiscontinuedTitle"),
-							actions: [MessageBox.Action.CLOSE]
-						});
-					break;
-				case "O":
-					// show message dialog
-					MessageBox.show(
-						oBundle.getText("productStatusOutOfStockMsg"), {
-							icon: MessageBox.Icon.QUESTION,
-							title: oBundle.getText("productStatusOutOfStockTitle"),
-							actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
-							onClose: function (oAction) {
-								// order
-								if (MessageBox.Action.OK === oAction) {
-									this._updateCartItem(oBundle, oProduct, oCartModel);
-								}
-							}.bind(this)
-						});
-					break;
-				case "A":
-				default:
-					this._updateCartItem(oBundle, oProduct, oCartModel);
-					break;
-			}*/
 			this._updateCartItem(oBundle, oProduct, oCartModel);
 		},
 

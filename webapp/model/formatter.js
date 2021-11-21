@@ -39,7 +39,7 @@ sap.ui.define([
 
 				Object.keys(oCartEntries).forEach(function (sProductId) {
 					var oProduct = oCartEntries[sProductId];
-					fTotalPrice += parseFloat(oProduct.unit_price) * oProduct.Quantity;
+					fTotalPrice += parseFloat(oProduct.price) * oProduct.Quantity;
 				});
 				return oBundle.getText("cartTotalPrice", [formatter.price(fTotalPrice)]);
 			}
