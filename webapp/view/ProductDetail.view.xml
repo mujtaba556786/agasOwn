@@ -29,9 +29,11 @@
 							</layoutData>
 						</HBox>
 						<VBox>
-							<Text id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
-
-							<Text id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
+							<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
+							<HBox class="priceStatusBox" justifyContent="SpaceBetween">
+								<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
+								<Text class="productStatus" id="product_status" text="InStock"/>
+							</HBox>
 
 							<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="false"/>
 
@@ -44,7 +46,7 @@
 							<HBox justifyContent="SpaceBetween">
 								<VBox>
 									<Label text="Size" labelFor="RI_default"/>
-									<Select forceSelection="false" selectedKey="{/SelectedProduct}">
+									<Select forceSelection="false" selectedKey="">
 										<core:Item key="S" text="Small" />
 										<core:Item key="M" text="Medium" />
 										<core:Item key="L" text="Large" />
