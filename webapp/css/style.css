@@ -274,3 +274,9 @@ opacity: 1;
 .agasown .productStatus{
   color: #FF0000;
 }
+.agasown .productCart .sapMBtnInner{
+  background-color: #DF3165;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+}

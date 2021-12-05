@@ -50,7 +50,7 @@
 									<StepInput value="{detailView>/value}" min="{detailView>/min}" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
 								</VBox>
 								<VBox>
-									<Button class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
+									<Button type="Transparent" class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
 								</VBox>
 								<VBox>
 									<Button class="productFavourite" icon="sap-icon://favorite" press=".onAddToCartDetails"/>
