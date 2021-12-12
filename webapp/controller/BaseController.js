@@ -114,7 +114,6 @@ sap.ui.define([
         },
 
         onCategoryLinkPress: function (oEvent) {
-            var sCurrentRouteName = this.getView().getModel("oGlobalModel").getProperty("/currentRouteName");
             var oSelectedItem = oEvent.getSource();
             var oContext = oSelectedItem.getBindingContext("oDataCategory");
             var sValue1 = oContext.getProperty("id");

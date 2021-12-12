@@ -280,3 +280,12 @@ opacity: 1;
   border-radius: 25px;
   color: #fff;
 }
+
+.slideshow {
+  width: 50%;
+}
+
+.slideshow .big img{
+  height : 360px;
+  width: 615px;
+}

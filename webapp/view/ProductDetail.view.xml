@@ -15,19 +15,24 @@
 						<Title text="Product Detail" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
-				<l:VerticalLayout class="sapUiContentPadding equalColumns" width="100%">
-					<FlexBox class="columns">
-						<HBox>
-							<Carousel class="sapUiContentPadding" loop="true">
-								<Image src="{oGlobalModel>/detailProduct/picture}" width="100%" visible="{= ${onlyImage} ? true : false }" class="imageDisplayBlock" backgroundSize="contain" backgroundPosition="center center"/>
-								<Image src="{img>/products/pic2}" alt="Example picture of USB flash drive" />
-								<Image src="{img>/products/pic3}" alt="Example picture of spotlight" />
-								<Image src="{img>/products/screw}" alt="Example picture of screw" />
+				<l:VerticalLayout class="sapUiContentPadding equalColumns">
+					<FlexBox>
+						<VBox class="slideshow">
+							<HBox class="big">
+									<Image id="bigImg" src="{oGlobalModel>/detailProduct/picture}"/>
+							</HBox>
+							<Carousel showPageIndicator="false" class="thumb" loop="true">
+								<customLayout>
+									<CarouselLayout visiblePagesCount="4" />
+								</customLayout>
+								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" press="handleImagePress"/>
+								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-2.jpg" press="handleImagePress"/>
+								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-3.jpg" press="handleImagePress"/>
+								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-4.jpg" press="handleImagePress"/>
+								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-5.jpg" press="handleImagePress"/>
+								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-6.jpg" press="handleImagePress"/>
 							</Carousel>
-							<layoutData>
-								<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
-							</layoutData>
-						</HBox>
+						</VBox>
 						<VBox justifyContent="SpaceAround">
 							<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
 							<HBox class="priceStatusBox" justifyContent="SpaceBetween">
@@ -35,7 +40,7 @@
 								<Text class="productStatus" id="product_status" text="InStock"/>
 							</HBox>
 							<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="false"/>
-							<HBox alignItems="Baseline" >
+							<HBox alignItems="Baseline">
 								<Label text="Color" labelFor="product_color" />
 								<Text id="product_color" text="{oGlobalModel>/detailProduct/color}"/>
 							</HBox>
@@ -56,8 +61,7 @@
 									<Button class="productFavourite" icon="sap-icon://favorite" press=".onAddToCartDetails"/>
 								</VBox>
 							</HBox>
-							<Button class="productBuyNow" width="100%" text="Buy it Now"  press=".onAddToCartDetails"/>
-
+							<Button class="productBuyNow" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
 							<layoutData>
 								<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
 							</layoutData>
