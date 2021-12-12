@@ -57,13 +57,7 @@ sap.ui.define([
 			var oSelectedPath = this.getView().getModel("oGlobalModel").getData().detailProduct;
 			var oDataProducts = this.getView().getModel("oDataProducts");
 			cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
-		},
-		
-		onExit: function () {
-			if (this._oPopover) {
-				this._oPopover.close();
-			}
-		}	
+		}
 
 	});
 });

@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m"
     xmlns:f="sap.f"
     xmlns:core="sap.ui.core">
-    <ResponsivePopover showArrow="false" showHeader="false" id="myPopover" class="sapUiPopupWithPadding" placement="Bottom">
+    <ResponsivePopover showArrow="false" showHeader="false" class="sapUiPopupWithPadding" placement="Bottom">
         <content>
             <HBox>
                 <List items="{
@@ -12,23 +12,9 @@
                     <CustomListItem>
                         <HBox alignItems="Center" justifyContent="SpaceBetween">
                             <Link class="menuLinks" text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
-                            <Button type="Transparent" icon="sap-icon://navigation-right-arrow" press="handleMenuCategory" ariaLabelledBy="editButtonLabel"/>
                         </HBox>
                     </CustomListItem>
                 </List>
-                <VBox id="categoryDetails" visible="false">
-                    <List headerText="{view>/category_name}" items="{
-                        path: 'oDataCategory>/',
-                        filters: [{path: 'parent', operator: 'EQ', value1: '11'}],
-                        sorter: {path: 'id'}
-                    }" showSeparators="None">
-                        <CustomListItem>
-                            <HBox alignItems="Center" justifyContent="SpaceBetween">
-                                <Link text="{oDataCategory>category_name}" target="{ProductPicUrl}" press="onCategoryLinkPress"/>
-                            </HBox>
-                        </CustomListItem>
-                    </List>
-                </VBox>
             </HBox>
         </content>
     </ResponsivePopover>

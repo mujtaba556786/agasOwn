@@ -61,17 +61,22 @@ sap.ui.define([
 
         onShowCategories: function (oEvent) {
             var oMenu = oEvent.getSource();
+            var oView = this.getView();
+
             // create popover
-            Fragment.load({
-                name: "ag.agasown.view.fragment.Menu",
-                controller: this
-            }).then(function (pPopover) {
-                this._oPopover = pPopover;
-                this.getView().addDependent(this._oPopover);
-                this._oPopover.openBy(oMenu);
-            }.bind(this));
-
-
+            if (!this._oPopover) {
+                this._oPopover = Fragment.load({
+                    id: oView.getId(),
+                    name: "ag.agasown.view.fragment.Menu",
+                    controller: this
+                }).then(function (oPopover) {
+                    oView.addDependent(oPopover);
+                    return oPopover;
+                });
+            }
+            this._oPopover.then(function (oPopover) {
+                oPopover.openBy(oMenu);
+            });
         },
 
         /**
@@ -125,10 +130,6 @@ sap.ui.define([
                 "detailCategory": selectedCategory,
             });
 
-            if (sCurrentRouteName === "home") {
-                this.onExit();
-            }
-
             this.getRouter().navTo("product", {
                 productPath: sValue1
             });
@@ -148,13 +149,6 @@ sap.ui.define([
             this.getRouter().navTo("productDetail", {
                 "detailObj": selectedPath.id
             });
-            this.onExit();
-        },
-
-        onExit: function () {
-            if (this._oPopover) {
-                this._oPopover.close();
-            }
         },
 
         handleCloseMenu: function (oEvent) {

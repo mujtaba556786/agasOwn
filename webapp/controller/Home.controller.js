@@ -29,12 +29,6 @@ sap.ui.define([
 			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
 		},
 
-		onExit: function () {
-			if (this._oPopover) {
-				this._oPopover.close();
-			}
-		},
-
 		/**
 		 * lifecycle hook that will initialize the welcome carousel
 		 */
