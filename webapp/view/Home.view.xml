@@ -103,7 +103,7 @@
 				</Carousel>
 			</Panel>
 
-			<Panel class="newsletter" >
+			<Panel class="newsletter">
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
@@ -111,41 +111,18 @@
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
-					<Image src="{
+				<Image src="{
 							path: 'view>/welcomeNews',
 							formatter : '.formatter.pictureUrl'
 						}" width="100%">
-					</Image>
-					<HBox class="newsletterBox"> 
+				</Image>
+				<HBox class="newsletterBox">
 
-						<Input class="newsltterEmail" id="passwordInput" type="Email" placeholder="Enter Email" />
-						<Button class="newsletterButton" text="Subscribe"  press="onPress"/>
+					<Input class="newsltterEmail" id="passwordInput" type="Email" placeholder="Enter Email" />
+					<Button class="newsletterButton" text="Subscribe" press="onPress"/>
 
-					</HBox>
+				</HBox>
 
-				<!--<FlexBox class="columns">
-					<Image src="{
-							path: 'view>/welcomeNews',
-							formatter : '.formatter.pictureUrl'
-						}" width="100%">
-						<layoutData>
-							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
-						</layoutData>
-					</Image>
-					<VBox>
-						<Text text="Newsletter-Lesser sind immer up to date"/>
-
-						<Input id="passwordInput" type="Email" placeholder="Enter Email" />
-						<Button type="Accept" text="Subscribe" width="100%" press="onPress"/>
-
-						<Text text="Newsletter von Agasown. Abmelden ist jederzeit möglich"/>
-						<Link text="Datenschutzerklärung" press="handleLinkPress" />
-						<layoutData>
-							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
-						</layoutData>
-					</VBox>
-
-				</FlexBox>-->
 			</Panel>
 
 			<Panel class="fotter">

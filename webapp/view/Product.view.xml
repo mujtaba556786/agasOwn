@@ -1,6 +1,7 @@
 <mvc:View controllerName="ag.agasown.controller.Product"
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m"
+	xmlns:grid="sap.ui.layout.cssgrid"
 	xmlns:f="sap.f"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
@@ -8,52 +9,40 @@
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
-			<IconTabBar select=".onFilterSelect"  expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">
+			<IconTabBar select=".onFilterSelect" expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>id}">
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
 
-			<Panel id="productDetailPanel" backgroundDesign="Transparent" class="sapUiNoContentPadding">
-				<headerToolbar>
-					<Toolbar>
-						<Title text="Most sale Item" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
-					</Toolbar>
-				</headerToolbar>
+			<Panel id="panelForGridList">
+				<HBox renderType="Bare" justifyContent="Center">
+					<SearchField width="50%" />
+				</HBox>
 
-				<Carousel  id="productDetailCarousel" height="auto" pages="{path: 'oDataProducts>/'}">
-					<customLayout>
-						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
-					</customLayout>
+				<f:GridList id="gridList" items="{oDataProducts>/}" growing="true" growingThreshold="4">
+					<f:customLayout>
+						<grid:GridBoxLayout />
+					</f:customLayout>
 
-					<VBox >
-						<Image src="{
-											path: 'oDataProducts>picture',
-											formatter : '.formatter.jsonPictureProductUrl'
-											}" width="100%" height="295px"  press="onProductItemPress"/>
-						<HBox  class="sapUiSmallMargin" alignItems="Center">
-							<VBox>
-								<Title text="{oDataProducts>product_name}" wrapping="true" />
-								<HBox justifyContent="SpaceBetween" alignItems="Baseline">
-									<Button tooltip="{i18n>addToCart}" press=".onAddToCart" icon="sap-icon://cart-3" type="Emphasized"/>
-									<ObjectListItem class="welcomePrice" number="{
-											parts:[
-												{path:'oDataProducts>price'},
-												{path:'view>/Currency'}
-											],
-											type:'sap.ui.model.type.Currency',
-											formatOptions:{showMeasure: false}
-										}" numberUnit="{view>/Currency}">
-									</ObjectListItem>
-								</HBox>
-							</VBox>
-						</HBox>
-					</VBox>
-				</Carousel>
-				
+					<f:GridListItem>
+						<VBox class="sapUiSmallMargin">
+							<layoutData>
+								<FlexItemData growFactor="1" shrinkFactor="0" />
+							</layoutData>
+							<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress"/>
+							<Title text="{oDataProducts>product_name}" wrapping="true" />
+							<ObjectNumber class="sapUiSmallMarginBottom" binding="{/ProductCollection/0}" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+						</VBox>
+					</f:GridListItem>
+				</f:GridList>
 			</Panel>
-			<Panel>
+			<Panel class="fotter">
 				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
 			</Panel>
 		</content>

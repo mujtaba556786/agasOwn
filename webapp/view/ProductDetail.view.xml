@@ -19,12 +19,13 @@
 					<FlexBox>
 						<VBox class="slideshow">
 							<HBox class="big">
-									<Image id="bigImg" src="{oGlobalModel>/detailProduct/picture}"/>
+								<Image id="bigImg" src="{oGlobalModel>/detailProduct/picture}"/>
 							</HBox>
 							<Carousel showPageIndicator="false" class="thumb" loop="true">
 								<customLayout>
 									<CarouselLayout visiblePagesCount="4" />
 								</customLayout>
+								<Image src="{oGlobalModel>/detailProduct/picture}" press="handleImagePress"/>
 								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" press="handleImagePress"/>
 								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-2.jpg" press="handleImagePress"/>
 								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-3.jpg" press="handleImagePress"/>
@@ -61,22 +62,23 @@
 									<Button class="productFavourite" icon="sap-icon://favorite" press=".onAddToCartDetails"/>
 								</VBox>
 							</HBox>
-							<Button class="productBuyNow" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
+							<Button class="productBuyNow" type="Transparent" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
 							<layoutData>
 								<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
 							</layoutData>
 						</VBox>
 					</FlexBox>
 				</l:VerticalLayout>
-				<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
-					<items>
-						<IconTabFilter text="Description" key="description">
-							<VBox>
-								<Text text="Product Description" />
-								<Text text="{oGlobalModel>/detailProduct/note}"/>
-								<Text text="{oGlobalModel>/detailProduct/price} EUR"/>
-								<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip" />
-								<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
+			</Panel>
+			<Panel backgroundDesign="Transparent" class="productDescription">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Product Description" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
 								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
 								At vero eos et accusam et justo duo dolores et ea rebum. 
 								Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
@@ -84,18 +86,52 @@
 								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
 								sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
 								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
-							</VBox>
-						</IconTabFilter>
-						<IconTabFilter text="Information" key="information">
-							<Text text="Information go here ..." />
-						</IconTabFilter>
-						<IconTabFilter text="Reviews" key="reviews">
-							<Text text="Reviews go here ..." />
-						</IconTabFilter>
-					</items>
-				</IconTabBar>
 			</Panel>
-			<Panel>
+			<Panel backgroundDesign="Transparent" class="">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Reviews" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+								At vero eos et accusam et justo duo dolores et ea rebum. 
+								Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+								sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+			</Panel>
+			<Panel backgroundDesign="Transparent" class="">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Reviews" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Carousel pages="{path: 'oDataProducts>/',
+                        filters: [{path: 'ranking', operator: 'EQ', value1: 'best_seller'}],
+                        sorter: {path: 'id'}}">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+
+					<VBox class="sapUiSmallMargin" alignItems="Center">
+						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress"/>
+						<Title text="{oDataProducts>product_name}" wrapping="true" />
+						<ObjectNumber class="sapUiSmallMarginBottom" binding="{/ProductCollection/0}" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+
+					</VBox>
+				</Carousel>
+			</Panel>
+			<Panel class="fotter">
 				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
 			</Panel>
 		</content>

@@ -289,3 +289,19 @@ opacity: 1;
   height : 360px;
   width: 615px;
 }
+.productBuyNow{
+  color: #fff;
+  background-color: #000;
+  border-radius: 30px;
+}
+.productBuyNow:hover{
+  background-color: none;
+  color: none;
+}
+.productBuyNow .sapMBtnTransparent{
+  background-color: none;
+  color: #fff;
+}
+.productFavourite{
+  border-radius: 30px;
+}
