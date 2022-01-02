@@ -116,7 +116,7 @@ sap.ui.define([
         onCategoryLinkPress: function (oEvent) {
             var oSelectedItem = oEvent.getSource();
             var oContext = oSelectedItem.getBindingContext("oDataCategory");
-            var sValue1 = oContext.getProperty("id");
+            var sValue1 = oContext.getProperty("_id");
 
             var fnFilterCategory = function (item) {
                 return item.parent === sValue1;
@@ -139,14 +139,10 @@ sap.ui.define([
             var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
             var spath = oBndngCtxt.getPath();
             var selectedPath = oBndngCtxt.getProperty(spath);
-            //To load detail controller
-            this.getRouter().navTo("product", {
-                productPath: selectedPath.id
-            });
-
+           
             this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
             this.getRouter().navTo("productDetail", {
-                "detailObj": selectedPath.id
+                "detailObj": selectedPath._id
             });
         },
 
