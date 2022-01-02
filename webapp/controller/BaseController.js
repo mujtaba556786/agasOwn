@@ -39,6 +39,7 @@ sap.ui.define([
 
             var oViewModel = new JSONModel({
                 welcomeLogo: 'ag/agasown/img/LOGO-HQ.png',
+                welcomeLogoVertical:'ag/agasown/img/Vertical-HQ.png',
                 welcomeCarouselShipping: 'ag/agasown/img/BANNER-1.jpg',
                 welcomeCarouselInviteFriend: 'ag/agasown/img/BANNER-2.jpg',
                 welcomeCarouselTablet: 'ag/agasown/img/BANNER-3.jpg',

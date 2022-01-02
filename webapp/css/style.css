@@ -115,6 +115,27 @@ opacity: 1;
   width: 10%;
   object-fit: cover;
 }
+.fotterImage{
+  width: 200px; 
+  height: 150px;
+  background-position:center;
+  object-fit: cover;
+  margin:-10% -128px -10% 0px;
+}
+.fotterLink .sapMLnk,
+.fotterLink .sapMText{
+  color: #3F183B;
+}
+.fotterLink .sapMLnk:hover{
+  color: #DF3165;
+}
+.fotterAvatar .sapFAvatar{
+  border: none;
+}
+.fotterAvatar .sapFAvatar:hover{
+  color: #3F183B;
+}
+
 .agasown .sapMFocusable:hover{
   color: #0c0004;
 }
