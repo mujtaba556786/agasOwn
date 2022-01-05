@@ -24,7 +24,7 @@
 				</headerToolbar>
 				<Carousel pages="{
                         path: 'oDataCategory>/',
-                        filters: [{path: 'parent', operator: 'EQ', value1: null}],
+                        filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
                         sorter: {path: 'id'}
                     }" showPageIndicator="false" loop="true">
 					<customLayout>

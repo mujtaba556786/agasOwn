@@ -6,8 +6,8 @@
             <HBox>
                 <List items="{
                         path: 'oDataCategory>/',
-                        filters: [{path: 'parent', operator: 'EQ', value1: null}],
-                        sorter: {path: 'id'}
+                        filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
+                        sorter: {path: '_id'}
                     }" showSeparators="None">
                     <CustomListItem>
                         <HBox alignItems="Center" justifyContent="SpaceBetween">
