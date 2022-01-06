@@ -104,10 +104,6 @@ text-transform: uppercase;
 opacity: 1;
 }
 
-.agasown .sapUiRootBackground, .sapMShellGlobalOuterBackground{
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(63,24,59,1) 100%, rgba(255,255,255,1) 100%);
-}
 .agasown .sapMBtnIcon{
   color: #3F183B;
 }

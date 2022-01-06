@@ -15,60 +15,52 @@
 						<Title text="Product Detail" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
-				<l:VerticalLayout class="sapUiContentPadding equalColumns">
-					<FlexBox>
-						<VBox class="slideshow">
-							<HBox class="big">
-								<Image id="bigImg" src="{oGlobalModel>/detailProduct/picture}"/>
-							</HBox>
-							<Carousel showPageIndicator="false" class="thumb" loop="true">
-								<customLayout>
-									<CarouselLayout visiblePagesCount="4" />
-								</customLayout>
-								<Image src="{oGlobalModel>/detailProduct/picture}" press="handleImagePress"/>
-								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-1.jpg" press="handleImagePress"/>
-								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-2.jpg" press="handleImagePress"/>
-								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-3.jpg" press="handleImagePress"/>
-								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-4.jpg" press="handleImagePress"/>
-								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-5.jpg" press="handleImagePress"/>
-								<Image src="https://sachinchoolur.github.io/lightslider/img/cS-6.jpg" press="handleImagePress"/>
-							</Carousel>
-						</VBox>
-						<VBox justifyContent="SpaceAround">
-							<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
-							<HBox class="priceStatusBox" justifyContent="SpaceBetween">
-								<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
-								<Text class="productStatus" id="product_status" text="InStock"/>
-							</HBox>
-							<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="false"/>
-							<HBox alignItems="Baseline">
-								<Label text="Color" labelFor="product_color" />
-								<Text id="product_color" text="{oGlobalModel>/detailProduct/color}"/>
-							</HBox>
+				<HBox justifyContent="SpaceBetween">
+					<VBox class="slideshow">
+						<HBox class="big">
+							<Image id="bigImg" src="{oGlobalModel>/detailProduct/picture}"/>
+						</HBox>
+						<Carousel pages="{oGlobalModel>/detailProduct/product_image}" showPageIndicator="false" class="thumb" loop="true">
+							<customLayout>
+								<CarouselLayout visiblePagesCount="4" />
+							</customLayout>
+							<Image src="{oGlobalModel>image}" press="handleImagePress"/>
+						</Carousel>
+					</VBox>
+					<VBox justifyContent="SpaceAround">
+						<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
+						<HBox class="priceStatusBox" justifyContent="SpaceBetween">
+							<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
+							<Text class="productStatus" id="product_status" text="InStock"/>
+						</HBox>
+						<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="false"/>
+						<HBox alignItems="Baseline">
+							<Label text="Color" labelFor="product_color" />
+							<Text id="product_color" text="{oGlobalModel>/detailProduct/color}"/>
+						</HBox>
 
-							<HBox alignItems="Baseline">
-								<Label text="Dimension" labelFor="product_dimension" />
-								<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
-							</HBox>
+						<HBox alignItems="Baseline">
+							<Label text="Dimension" labelFor="product_dimension" />
+							<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
+						</HBox>
 
-							<HBox justifyContent="SpaceBetween">
-								<VBox>
-									<StepInput value="{detailView>/value}" min="{detailView>/min}" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
-								</VBox>
-								<VBox>
-									<Button type="Transparent" class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
-								</VBox>
-								<VBox>
-									<Button class="productFavourite" icon="sap-icon://favorite" press=".onAddToCartDetails"/>
-								</VBox>
-							</HBox>
-							<Button class="productBuyNow" type="Transparent" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
-							<layoutData>
-								<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
-							</layoutData>
-						</VBox>
-					</FlexBox>
-				</l:VerticalLayout>
+						<HBox justifyContent="SpaceBetween">
+							<VBox>
+								<StepInput value="{detailView>/value}" min="{detailView>/min}" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
+							</VBox>
+							<VBox>
+								<Button type="Transparent" class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
+							</VBox>
+							<VBox>
+								<Button class="productFavourite" icon="sap-icon://favorite" press=".onAddToCartDetails"/>
+							</VBox>
+						</HBox>
+						<Button class="productBuyNow" type="Transparent" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
+						<layoutData>
+							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+						</layoutData>
+					</VBox>
+				</HBox>
 			</Panel>
 			<Panel backgroundDesign="Transparent" class="productDescription">
 				<headerToolbar>
