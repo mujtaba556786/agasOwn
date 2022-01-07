@@ -14,7 +14,7 @@ sap.ui.define([
 		onInit: function () {
 			this.oView = this.getView();
 			this._bDescendingSort = false;
-			this.oProductDetail = this.oView.byId("productDetailCarousel");
+			this.oGridList = this.oView.byId("gridList");
 
 			this.setHeaderModel();
 
@@ -27,9 +27,6 @@ sap.ui.define([
 			var sCategoryId = oEvent.getParameter("arguments").productPath;
 			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
 
-		
-			//var oProductSearchState = [new Filter("category_id", FilterOperator.EQ, sCategoryId)];
-			//this.oProductDetail.getBinding("pages").filter(oProductSearchState, "Application");
 			this.onProductFilter();
 		},
 
@@ -72,14 +69,14 @@ sap.ui.define([
 		},
 
 		onProductFilter: function(){
-			var oBinding = this.oProductDetail.getBinding("pages");
+			var oBinding = this.oGridList;
 			var aSelectedProduct = [];
 			var aDetailCategory = this.getView().getModel("oGlobalModel").getData().detailCategory;
 			var oDataProducts = this.getView().getModel("oDataProducts").getData();
 
-			var fnFilterCategory = function (item) {
+			var fnFilterCategory = function () {
 				aDetailCategory.forEach(element => {
-					var filter = new Filter("category_id", FilterOperator.EQ, element.id);
+					var filter = new Filter("category_id", FilterOperator.EQ, element._id);
 					aSelectedProduct.push(filter);			
 				});
 			}

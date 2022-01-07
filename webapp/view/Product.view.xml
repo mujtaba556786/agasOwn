@@ -1,7 +1,7 @@
 <mvc:View controllerName="ag.agasown.controller.Product"
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m"
-	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:cssgrid="sap.ui.layout.cssgrid"
 	xmlns:f="sap.f"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
@@ -23,17 +23,16 @@
 
 				<f:GridList id="gridList" items="{oDataProducts>/}" growing="true" growingThreshold="4">
 					<f:customLayout>
-						<grid:GridBoxLayout />
+						<cssgrid:GridBasicLayout gridAutoRows="5rem" gridTemplateColumns="repeat(auto-fill, minmax(9rem, 1fr))" gridGap="0.5rem"></cssgrid:GridBasicLayout>
 					</f:customLayout>
-
 					<f:GridListItem>
-						<VBox class="sapUiSmallMargin">
-							<layoutData>
-								<FlexItemData growFactor="1" shrinkFactor="0" />
-							</layoutData>
-							<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress"/>
+						<f:layoutData>
+							<cssgrid:GridItemLayoutData gridRow="span 3" gridColumn="span 2" />
+						</f:layoutData>
+						<VBox alignItems="Center" class="sapUiSmallMargin">
+							<Image src="{oDataProducts>picture}" height="155px" press="onProductItemPress"/>
 							<Title text="{oDataProducts>product_name}" wrapping="true" />
-							<ObjectNumber class="sapUiSmallMarginBottom" binding="{/ProductCollection/0}" number="{
+							<ObjectNumber class="sapUiSmallMarginBottom" number="{
 						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
