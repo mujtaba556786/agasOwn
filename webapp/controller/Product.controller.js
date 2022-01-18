@@ -4,9 +4,8 @@ sap.ui.define([
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
 	'sap/ui/model/Sorter',
-	'sap/m/MessageBox',
-	'sap/f/library'
-], function (JSONModel, BaseController, Filter, FilterOperator, Sorter, MessageBox, fioriLibrary) {
+	'sap/m/MessageBox'
+], function (JSONModel, BaseController, Filter, FilterOperator, Sorter, MessageBox) {
 	"use strict";
 
 	return BaseController.extend("ag.agasown.controller.Product", {
@@ -28,14 +27,14 @@ sap.ui.define([
 		},
 
 		onSearch: function (oEvent) {
-			var oTableSearchState = [],
+			var oProductSearchState = [],
 				sQuery = oEvent.getParameter("query");
 
 			if (sQuery && sQuery.length > 0) {
-				oTableSearchState = [new Filter("product_name", FilterOperator.Contains, sQuery)];
+				oProductSearchState = [new Filter("product_name", FilterOperator.Contains, sQuery)];
 			}
 
-			this.oProductDetail.getBinding("items").filter(oTableSearchState, "Application");
+			this.oGridList.getBinding("items").filter(oProductSearchState, "Application");
 		},
 
 		onAdd: function () {
@@ -44,7 +43,7 @@ sap.ui.define([
 
 		onSort: function () {
 			this._bDescendingSort = !this._bDescendingSort;
-			var oBinding = this.oProductDetail.getBinding("pages"),
+			var oBinding = this.oGridList.getBinding("pages"),
 				oSorter = new Sorter("product_name", this._bDescendingSort);
 
 			oBinding.sort(oSorter);
