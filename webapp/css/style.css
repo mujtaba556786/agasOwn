@@ -104,9 +104,6 @@ text-transform: uppercase;
 opacity: 1;
 }
 
-.agasown .sapMBtnIcon{
-  color: #3F183B;
-}
 .headerBar .sapMImg{
   width: 10%;
   object-fit: cover;
@@ -134,15 +131,6 @@ opacity: 1;
 
 .agasown .sapMFocusable:hover{
   color: #0c0004;
-}
-.agasown 
-.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>
-.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnDefault 
-.sapUiIcon, 
-.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>
-.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnBack .sapUiIcon, .sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnGhost .sapUiIcon{
-  color: #DF3165;
-  background: transparent;
 }
 
 .agasown .sapMBtnIcon:active {
@@ -274,14 +262,7 @@ opacity: 1;
   .agasown .fotter .imageFotter{
     height: fit-content;
   }
-  .agasown .sapMDialog .sapMIBar{
-    background: transparent 
-    linear-gradient(180deg, #D5B167 0%, #F3DA9C 47%, #E5B644 100%) 0% 0% no-repeat padding-box;
-  }
-  .agasown .sapMDialog  .sapMDialogSection{
-    background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(63,24,59,1) 100%, rgba(255,255,255,1) 100%);
-}
+
 .agasown .productName{
   font-size: 15px;
 }
@@ -321,4 +302,32 @@ opacity: 1;
 }
 .productFavourite{
   border-radius: 30px;
+}
+.loginDialog .loginCloseBtn{
+    background: white;
+    border: none;
+}
+.loginDialog .loginCloseBtn .sapMBtnIcon{
+  color:lightslategrey;
+  cursor: pointer;
+}
+
+.loginDialog .loginText{
+  color: #3F183B;
+  font-size: larger;
+}
+.loginDialog .loginSubmit{
+  background-color: #3F183B;
+  color: #fff;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  border: none;
+}
+
+.loginDialog .loginPasswordForget{
+  background-color:#DF3165;
+  color: #fff;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  border: none;
 }

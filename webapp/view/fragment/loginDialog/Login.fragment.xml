@@ -2,23 +2,22 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
-    <Dialog id="loginDialog" titleAlignment="Center" title="Login" class="sapUiSizeCompact">
-        <content>
-            <VBox class="sapUiSmallMargin">
-                <Label text="E-mail" labelFor="loginEmailInput" />
-                <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
-                <Label text="Password" labelFor="loginPasswordInput"/>
-                <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
+    <Dialog id="loginDialog" class="loginDialog" showHeader="false">
+        <VBox alignItems="End" class="sapUiSmallMargin">
+            <Button class="loginCloseBtn" icon="sap-icon://sys-cancel" press=".onLoginClose" type="Unstyled"/>
+        </VBox>
+        <VBox class="sapUiSmallMargin">
+            <Text class="loginText sapUiSmallMarginBottom" text="Customer Login"/>
+            <Label text="E-mail" labelFor="loginEmailInput" />
+            <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
+            <Label text="Password" labelFor="loginPasswordInput"/>
+            <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
 
-                <Button text="Submit" press=".onLogin" />
-                <Link text="Password forget" press="onPasswordForgot" />
-
-                <Label text="New Registration"/>
-                <Button text="Registration" press=".onPressRegistration" />
-            </VBox>
-        </content>
-        <endButton>
-            <Button icon="sap-icon://sys-cancel" press=".onLoginClose" />
-        </endButton>
+            <HBox class="sapUiSmallMarginBottom">
+                <Button class="loginSubmit sapUiSmallMarginEnd" text="Submit" press=".onLogin" type="Unstyled" />
+                <Button class="loginPasswordForget" text="Password forget" press="onPasswordForgot" type="Unstyled"  />
+            </HBox>
+            <Link class="loginSignUp" text="Sign Up" press=".onPressRegistration" />
+        </VBox>
     </Dialog>
 </core:FragmentDefinition>
