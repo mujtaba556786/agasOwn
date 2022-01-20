@@ -308,11 +308,11 @@ opacity: 1;
     border: none;
 }
 .loginDialog .loginCloseBtn .sapMBtnIcon{
-  color: #C6C6C6;
+  color: #3F183B;
   cursor: pointer;
 }
 .loginDialog .loginCloseBtn .sapMBtnIcon:hover{
-  color: #8C8C8C
+  color: #DF3165
 }
 
 .loginDialog .loginText{
@@ -322,15 +322,19 @@ opacity: 1;
 .loginDialog .loginLabel{
   color: #C6C6C6;
 }
-.loginDialog  .sapMInputBaseInner{
-  color:#8C8C8C;
-}
+
 .loginDialog .loginSubmit{
   background-color: #3F183B;
   color: #fff;
   border-radius: 0.2rem;
   cursor: pointer;
   border: none;
+}
+.loginDialog .loginSubmit:hover{
+  color:#DF3165;
+}
+.loginDialog .loginPasswordForget:hover{
+  color: #3F183B;
 }
 
 .loginDialog .loginPasswordForget{
@@ -341,10 +345,10 @@ opacity: 1;
   border: none;
 }
 .loginDialog .loginSignUp{
-  color: #C6C6C6;
+  color: #3F183B;
 }
 .loginDialog .sapMLnk:hover:not(.sapMLnkDsbl) {
-    color: #8C8C8C
+    color:#DF3165;
 }
 /**************
 *  Login Dialog End
