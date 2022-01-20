@@ -129,9 +129,6 @@ opacity: 1;
   color: #3F183B;
 }
 
-.agasown .sapMFocusable:hover{
-  color: #0c0004;
-}
 
 .agasown .sapMBtnIcon:active {
   color: #DF3165;
@@ -303,18 +300,30 @@ opacity: 1;
 .productFavourite{
   border-radius: 30px;
 }
+/**************
+*  Login Dialog Begin
+***************/
 .loginDialog .loginCloseBtn{
     background: white;
     border: none;
 }
 .loginDialog .loginCloseBtn .sapMBtnIcon{
-  color:lightslategrey;
+  color: #C6C6C6;
   cursor: pointer;
+}
+.loginDialog .loginCloseBtn .sapMBtnIcon:hover{
+  color: #8C8C8C
 }
 
 .loginDialog .loginText{
   color: #3F183B;
   font-size: larger;
+}
+.loginDialog .loginLabel{
+  color: #C6C6C6;
+}
+.loginDialog  .sapMInputBaseInner{
+  color:#8C8C8C;
 }
 .loginDialog .loginSubmit{
   background-color: #3F183B;
@@ -331,3 +340,12 @@ opacity: 1;
   cursor: pointer;
   border: none;
 }
+.loginDialog .loginSignUp{
+  color: #C6C6C6;
+}
+.loginDialog .sapMLnk:hover:not(.sapMLnkDsbl) {
+    color: #8C8C8C
+}
+/**************
+*  Login Dialog End
+***************/

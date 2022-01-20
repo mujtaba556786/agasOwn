@@ -8,9 +8,9 @@
         </VBox>
         <VBox class="sapUiSmallMargin">
             <Text class="loginText sapUiSmallMarginBottom" text="Customer Login"/>
-            <Label text="E-mail" labelFor="loginEmailInput" />
+            <Label class="loginLabel" text="E-mail" labelFor="loginEmailInput" />
             <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
-            <Label text="Password" labelFor="loginPasswordInput"/>
+            <Label class="loginLabel" text="Password" labelFor="loginPasswordInput"/>
             <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
 
             <HBox class="sapUiSmallMarginBottom">
