@@ -8,12 +8,13 @@ sap.ui.define([
         "use strict";
         var agService = {
             
-            onPost: function (url, oData) {
+            onPost: function (url, oData, oHeaderToken) {
                 return new Promise((resolve, reject) => {
                     $.ajax({
                         url: url,
                         type: 'POST',
                         data: oData,
+                        headers: oHeaderToken,
                         success: function (data) {
                             resolve(data)
                         },

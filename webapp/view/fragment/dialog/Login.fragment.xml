@@ -4,20 +4,20 @@
     xmlns:mvc="sap.ui.core.mvc">
     <Dialog id="loginDialog" class="loginDialog" showHeader="false">
         <VBox alignItems="End" class="sapUiSmallMargin">
-            <Button class="loginCloseBtn" icon="sap-icon://sys-cancel" press=".onLoginClose" type="Unstyled"/>
+            <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onLoginClose" type="Unstyled"/>
         </VBox>
         <VBox class="sapUiSmallMargin">
-            <Text class="loginText sapUiSmallMarginBottom" text="Customer Login"/>
-            <Label class="loginLabel" text="E-mail" labelFor="loginEmailInput" />
+            <Text class="dialogTitle sapUiSmallMarginBottom" text="Customer Login"/>
+            <Label class="dialogLabel" text="E-mail" labelFor="loginEmailInput" />
             <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
-            <Label class="loginLabel" text="Password" labelFor="loginPasswordInput"/>
+            <Label class="dialogLabel" text="Password" labelFor="loginPasswordInput"/>
             <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
 
             <HBox class="sapUiSmallMarginBottom">
-                <Button class="loginSubmit sapUiSmallMarginEnd" text="Submit" press=".onLogin" type="Unstyled" />
+                <Button class="dialogSubmit sapUiSmallMarginEnd" text="Submit" press=".onLoginSubmit" type="Unstyled" />
                 <Button class="loginPasswordForget" text="Password forget" press="onPasswordForgot" type="Unstyled"  />
             </HBox>
-            <Link class="loginSignUp" text="Sign Up" press=".onPressRegistration" />
+            <Link class="loginSignUp" text="Sign Up" press=".handleRegistration" />
         </VBox>
     </Dialog>
 </core:FragmentDefinition>

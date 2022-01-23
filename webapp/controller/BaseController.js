@@ -39,7 +39,7 @@ sap.ui.define([
 
             var oViewModel = new JSONModel({
                 welcomeLogo: 'ag/agasown/img/LOGO-HQ.png',
-                welcomeLogoVertical:'ag/agasown/img/Vertical-HQ.png',
+                welcomeLogoVertical: 'ag/agasown/img/Vertical-HQ.png',
                 welcomeCarouselShipping: 'ag/agasown/img/BANNER-1.jpg',
                 welcomeCarouselInviteFriend: 'ag/agasown/img/BANNER-2.jpg',
                 welcomeCarouselTablet: 'ag/agasown/img/BANNER-3.jpg',
@@ -140,7 +140,7 @@ sap.ui.define([
             var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
             var spath = oBndngCtxt.getPath();
             var selectedPath = oBndngCtxt.getProperty(spath);
-           
+
             this.getView().getModel("oGlobalModel").setProperty("/", { "detailProduct": selectedPath });
             this.getRouter().navTo("productDetail", {
                 "detailObj": selectedPath._id
@@ -183,30 +183,6 @@ sap.ui.define([
             }
 
         },
-        handleLogin: function () {
-            var oView = this.getView();
-            // creates requested dialog if not yet created
-            if (!this._mLoginDialog) {
-                this._mLoginDialog = Fragment.load({
-                    id: oView.getId(),
-                    name: "ag.agasown.view.fragment.loginDialog.Login",
-                    controller: this
-                }).then(function (oDialog) {
-                    oView.addDependent(oDialog);
-                    return oDialog;
-                });
-            }
-            this._mLoginDialog.then(function (oDialog) {
-                // opens the requested dialog
-                oDialog.open();
-            });
-        },
-
-        onLoginClose: function () {
-            this._mLoginDialog.then(function (oDialog) {
-                oDialog.close();
-            });
-        },
 
         /**
          * Getter for the resource bundle.
@@ -246,8 +222,8 @@ sap.ui.define([
             alert("Oh Crap!!! this function is not ready yet!!!!");
         },
 
-        onLogin: function () {
-            var _sUrl = "http://localhost:8000/login/";
+        onLoginSubmit: function () {
+            var _sUrl = "http://18.194.155.205:8000/login/";
             var _sLoginEmail = this.byId("loginEmailInput").getValue();
             var _sLoginPassword = this.byId("loginPasswordInput").getValue();
             var oData = {
@@ -271,21 +247,45 @@ sap.ui.define([
             this.getRouter().navTo("customer");
         },
         onLogout: function () {
-            var _sUrl = "http://localhost:8000/logout/";
+            var _sUrl = "http://18.194.155.205:8000/logout/";
             var oGlobalModel = this.getView().getModel("oGlobalModel");
             var oCustomer = oGlobalModel.getData().customer;
-            var oData = {
-                user_id: oCustomer.id,
-                access_token: oCustomer.token.access_token
+            var oHeaderToken = {
+                Authorization: "Bearer "+oCustomer.token.access_token
             };
-            this.getService().onPost(_sUrl, oData)
+            this.getService().onPost(_sUrl, "", oHeaderToken)
                 .then((oSuccess) => {
                     console.log("oSucess", oSuccess);
+                    MessageBox.success(oSuccess)
                     oGlobalModel.setProperty("/customer", "");
                 })
                 .catch((oError) => {
                     MessageBox.error(oError.responseText)
                 })
+        },
+        handleLogin: function () {
+            var oView = this.getView();
+            // creates requested dialog if not yet created
+            if (!this._mLoginDialog) {
+                this._mLoginDialog = Fragment.load({
+                    id: oView.getId(),
+                    name: "ag.agasown.view.fragment.dialog.Login",
+                    controller: this
+                }).then(function (oDialog) {
+                    oView.addDependent(oDialog);
+                    return oDialog;
+                });
+            }
+            this._mLoginDialog.then(function (oDialog) {
+                // opens the requested dialog
+                oDialog.open();
+            });
+        },
+
+        onLoginClose: function () {
+            this._mLoginDialog.then(function (oDialog) {
+                oDialog.close();
+            });
         },
 
         handleLogout: function (oEvent) {
@@ -296,7 +296,7 @@ sap.ui.define([
             if (!this._pLogoutPopover) {
                 this._pLogoutPopover = Fragment.load({
                     id: oView.getId(),
-                    name: "ag.agasown.view.fragment.loginDialog.Logout",
+                    name: "ag.agasown.view.fragment.dialog.Logout",
                     controller: this
                 }).then(function (oPopover) {
                     oView.addDependent(oPopover);
@@ -306,6 +306,53 @@ sap.ui.define([
             this._pLogoutPopover.then(function (oPopover) {
                 oPopover.openBy(oButton);
             });
+        },
+        handleRegistration: function () {
+            this.onLoginClose();
+            var oView = this.getView();
+            // creates requested dialog if not yet created
+            if (!this._mRegistrationDialog) {
+                this._mRegistrationDialog = Fragment.load({
+                    id: oView.getId(),
+                    name: "ag.agasown.view.fragment.dialog.Registration",
+                    controller: this
+                }).then(function (oDialog) {
+                    oView.addDependent(oDialog);
+                    return oDialog;
+                });
+            }
+            this._mRegistrationDialog.then(function (oDialog) {
+                oDialog.open();
+            });
+
+        },
+        handleRegistrationClose: function () {
+            this._mRegistrationDialog.then(function (oDialog) {
+                oDialog.close();
+            });
+        },
+        onSubmit: function (oEvent) {
+            var _sUrl = "http://18.194.155.205:8000/sign-up/";
+            var _sfirstName = this.byId("firstNameInput").getValue();
+            var _slastName = this.byId("lastNameInput").getValue();
+            var _sEmail = this.byId("emailInput").getValue();
+            var _sPasswordInput = this.byId("passwordInput").getValue();
+            var _sConfirmPasswordInput = this.byId("confirmPasswordInput").getValue();
+
+            var oData = {
+                "first_name": _sfirstName,
+                "last_name": _slastName,
+                "email": _sEmail,
+                "password": _sPasswordInput,
+                "confirm_password": _sConfirmPasswordInput
+            }
+            this.getService().onPost(_sUrl, oData)
+                .then((oSuccess) => {
+                    MessageBox.success(oSuccess.detail);
+                })
+                .catch((oError) => {
+                    MessageBox.error(oError.responseJSON.detail)
+                })
         }
 
     });

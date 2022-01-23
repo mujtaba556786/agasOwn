@@ -118,7 +118,7 @@
 				</Image>
 				<HBox class="newsletterBox">
 
-					<Input class="newsltterEmail" id="passwordInput" type="Email" placeholder="Enter Email" />
+					<Input class="newsltterEmail"  type="Email" placeholder="Enter Email" />
 					<Button class="newsletterButton" text="Subscribe" press="onPress"/>
 
 				</HBox>

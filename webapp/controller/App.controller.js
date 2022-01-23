@@ -4,7 +4,7 @@ sap.ui.define([
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (Controller) {
+	function (Controller, Registration) {
 		"use strict";
 
 		return Controller.extend("ag.agasown.controller.App", {

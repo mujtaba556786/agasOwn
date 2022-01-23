@@ -300,39 +300,40 @@ opacity: 1;
 .productFavourite{
   border-radius: 30px;
 }
-/**************
-*  Login Dialog Begin
-***************/
-.loginDialog .loginCloseBtn{
+
+ .dialogCloseBtn{
     background: white;
     border: none;
 }
-.loginDialog .loginCloseBtn .sapMBtnIcon{
+ .dialogCloseBtn .sapMBtnIcon{
   color: #3F183B;
   cursor: pointer;
 }
-.loginDialog .loginCloseBtn .sapMBtnIcon:hover{
+.dialogCloseBtn .sapMBtnIcon:hover{
   color: #DF3165
 }
-
-.loginDialog .loginText{
+.dialogTitle{
   color: #3F183B;
   font-size: larger;
 }
-.loginDialog .loginLabel{
+.dialogLabel{
   color: #C6C6C6;
 }
-
-.loginDialog .loginSubmit{
+.dialogSubmit{
   background-color: #3F183B;
   color: #fff;
   border-radius: 0.2rem;
   cursor: pointer;
   border: none;
 }
-.loginDialog .loginSubmit:hover{
+.dialogSubmit:hover{
   color:#DF3165;
 }
+
+/**************
+*  Login Dialog Begin
+***************/
+
 .loginDialog .loginPasswordForget:hover{
   color: #3F183B;
 }
