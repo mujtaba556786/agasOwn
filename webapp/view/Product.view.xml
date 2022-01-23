@@ -11,7 +11,7 @@
 		<content>
 			<IconTabBar select=".onFilterSelect" expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>id}">
+					<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>_id}">
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
