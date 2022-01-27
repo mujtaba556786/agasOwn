@@ -25,7 +25,7 @@
 				<Carousel pages="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
-                        sorter: {path: 'id'}
+                        sorter: {path: '_id'}
                     }" showPageIndicator="false" loop="true">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
@@ -53,7 +53,7 @@
 				</headerToolbar>
 				<Carousel pages="{path: 'oDataProducts>/',
                         filters: [{path: 'ranking', operator: 'EQ', value1: 'promoted'}],
-                        sorter: {path: 'id'}}">
+                        sorter: {path: '_id'}}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>

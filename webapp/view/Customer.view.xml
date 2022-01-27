@@ -1,44 +1,39 @@
 <mvc:View xmlns="sap.m"
 	xmlns:core="sap.ui.core"
-	xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:tnt="sap.tnt"
 	xmlns:f="sap.f" controllerName="ag.agasown.controller.Customer">
 	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
 		<customHeader>
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
-			<Panel headerText="Customer Registration" class="sapUiNoContentPadding">
-				<headerToolbar>
+			<HBox>
+				<VBox>
+					<tnt:SideNavigation id="customerNavigation" selectedKey="overview" itemSelect="onCustomerNavigationSelect">
+						<tnt:NavigationList>
+							<tnt:NavigationListItem text="Eisa Account" icon="sap-icon://employee">
+								<tnt:NavigationListItem text="Overview" id="overview" key="Overview"/>
+								<tnt:NavigationListItem text="Order" id="order" key="Order"/>
+								<tnt:NavigationListItem text="Newsletter" id="newsletter" key="Newsletter" />
+								<tnt:NavigationListItem text="Vouchers" id="vouchers" key="Vouchers"/>
+								<tnt:NavigationListItem text="Wishlist" id="wishlist" key="Wishlist"/>
+								<tnt:NavigationListItem text="Personal Details" id="personalDetails" key="personalDetails"/>
+							</tnt:NavigationListItem>
+						</tnt:NavigationList>
+						<tnt:fixedItem>
+							<tnt:NavigationList>
+								<tnt:NavigationListItem text="Help FAQ" icon="sap-icon://employee" />
+								<tnt:NavigationListItem text="Contact Us" icon="sap-icon://building" />
+							</tnt:NavigationList>
+						</tnt:fixedItem>
+					</tnt:SideNavigation>
+				</VBox>
+				<VBox id="customerContent">
+					
+				</VBox>
+			</HBox>
 
-				</headerToolbar>
-				<l:VerticalLayout class="sapUiContentPadding" width="100%">
-					<FlexBox direction="Column" width="100%">
-						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center" class="sapUiSmallMargin">
-
-						</VBox>
-						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
-							<Label text="First Name" labelFor="customerfNameInput" />
-							<Input id="customerfNameInput" placeholder="First Name"></Input>
-
-							<Label text="Last Name" labelFor="customerlNameInput" />
-							<Input id="customerlNameInput" placeholder="Last Name"></Input>
-
-
-							<Button width="12rem" text="Login" type="Emphasized" press="onCustomerSubmit"></Button>
-						</VBox>
-                        <VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center" class="sapUiSmallMargin">
-
-						</VBox>
-						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
-                            <Text text="customer payment list" />
-						
-						</VBox>
-					</FlexBox>
-				</l:VerticalLayout>
-
-			</Panel>
 		</content>
 		<footer>
 

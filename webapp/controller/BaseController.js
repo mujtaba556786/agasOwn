@@ -49,7 +49,7 @@ sap.ui.define([
                 youtube: 'ag/agasown/img/youtube.svg',
                 instagram: 'ag/agasown/img/instagram.svg',
                 pinterest: 'ag/agasown/img/pinterest.svg',
-                category_name: "",
+                ShoppingBags: "ag/agasown/img/ShoppingBags.jpg",
                 Promoted: [],
                 Viewed: [],
                 Favorite: [],

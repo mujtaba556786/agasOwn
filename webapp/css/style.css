@@ -354,3 +354,6 @@ opacity: 1;
 /**************
 *  Login Dialog End
 ***************/
+.overviewCustomerImage{
+  object-fit: cover;
+}
