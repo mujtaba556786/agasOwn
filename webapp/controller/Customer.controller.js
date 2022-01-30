@@ -11,13 +11,11 @@ sap.ui.define([
 		},
 		onCustomerNavigationSelect: function (oEvent) {
 			var oCustomerLayout = this.getView().byId("customerContent");
-			var selectedKey = oEvent.getSource().getSelectedKey();
+			var selectedKey = oEvent.getSource().getText();
+			
 			var oFragment = sap.ui.xmlfragment("ag.agasown.view.fragment.customer." + selectedKey, this);
 			oCustomerLayout.destroyItems();
 			oCustomerLayout.addItem(oFragment);
-		},
-		fragmentName: function (selectedKey) {
-			return "ag.agasown.view.fragment.customer." + selectedKey;
 		}
 	});
 });

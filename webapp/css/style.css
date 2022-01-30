@@ -354,6 +354,29 @@ opacity: 1;
 /**************
 *  Login Dialog End
 ***************/
-.overviewCustomerImage{
+.overviewImage{
   object-fit: cover;
+}
+.overviewHeader{
+  font-size: xx-large;
+  color: black;
+}
+.overviewHeader{
+  color:black;
+}
+.sideNav{
+  width: 25%;
+}
+.sideNavText{
+  columns: #000;
+  font-size: large;
+}
+.sideNavBtn{
+  background:transparent;
+  color: #3F183B;
+  border: none;
+  cursor: pointer;
+}
+.sideNavBtn:hover{
+  color: #DF3165;
 }

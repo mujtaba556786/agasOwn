@@ -8,29 +8,22 @@
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
-			<HBox>
-				<VBox>
-					<tnt:SideNavigation id="customerNavigation" selectedKey="overview" itemSelect="onCustomerNavigationSelect">
-						<tnt:NavigationList>
-							<tnt:NavigationListItem text="Eisa Account" icon="sap-icon://employee">
-								<tnt:NavigationListItem text="Overview" id="overview" key="Overview"/>
-								<tnt:NavigationListItem text="Order" id="order" key="Order"/>
-								<tnt:NavigationListItem text="Newsletter" id="newsletter" key="Newsletter" />
-								<tnt:NavigationListItem text="Vouchers" id="vouchers" key="Vouchers"/>
-								<tnt:NavigationListItem text="Wishlist" id="wishlist" key="Wishlist"/>
-								<tnt:NavigationListItem text="Personal Details" id="personalDetails" key="personalDetails"/>
-							</tnt:NavigationListItem>
-						</tnt:NavigationList>
-						<tnt:fixedItem>
-							<tnt:NavigationList>
-								<tnt:NavigationListItem text="Help FAQ" icon="sap-icon://employee" />
-								<tnt:NavigationListItem text="Contact Us" icon="sap-icon://building" />
-							</tnt:NavigationList>
-						</tnt:fixedItem>
-					</tnt:SideNavigation>
+			<HBox class="sapUiLargeMargin" justifyContent="SpaceBetween">
+				<VBox class="sideNav">
+					<Text class="sideNavText" text="Your Account"></Text>
+					<Button class="sideNavBtn" text="Overview" id="overview" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" text="Order" id="order" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" text="Newsletter" id="newsletter" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" text="Vouchers" id="vouchers" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" text="Wishlist" id="wishlist" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" text="Personal Details" id="personalDetails" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Text class="sideNavText" text="More"></Text>
+					<Button class="sideNavBtn" text="Help FAQ" id="helpFaq" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" text="Request and Delete" id="reqDel" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" text="ContactUs" id="contactUs" press="onCustomerNavigationSelect" type="Unstyled"></Button>
 				</VBox>
 				<VBox id="customerContent">
-					
+
 				</VBox>
 			</HBox>
 
