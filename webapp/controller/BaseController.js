@@ -50,6 +50,7 @@ sap.ui.define([
                 instagram: 'ag/agasown/img/instagram.svg',
                 pinterest: 'ag/agasown/img/pinterest.svg',
                 ShoppingBags: "ag/agasown/img/ShoppingBags.jpg",
+                ShoppingCart:"ag/agasown/img/ShoppingCart.jpg",
                 Promoted: [],
                 Viewed: [],
                 Favorite: [],
