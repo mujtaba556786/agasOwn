@@ -2,11 +2,11 @@
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
    <VBox>
-      <VBox class="sapUiSmallMargin" alignItems="Center">
+      <VBox class="sapUiSmallMargin" >
          <Text class="overviewHeader" text="Your Account" />
          <Text class="overviewText" text="Welcome to private corner of agasown. you can manage your orders, returns and accounts" />
       </VBox>
-      <VBox class="sapUiSmallMargin" renderType="Bare" justifyContent="Center" alignItems="Center">
+      <VBox class="sapUiSmallMargin" renderType="Bare">
          <Image class="overviewImage sapUiSmallMarginBottom" src="{path: 'view>/ShoppingBags',
          formatter : '.formatter.pictureUrl'
 			}" width="25%"/>

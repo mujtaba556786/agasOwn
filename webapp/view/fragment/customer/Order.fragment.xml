@@ -2,11 +2,11 @@
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
    <VBox>
-      <VBox class="sapUiSmallMargin" alignItems="Center">
+      <VBox class="sapUiSmallMargin">
          <Text class="overviewHeader" text="Order" />
          <Text text="You have'nt Shop with us"/>
       </VBox>
-      <VBox class="sapUiSmallMargin" renderType="Bare" justifyContent="Center" alignItems="Center">
+      <VBox class="sapUiSmallMargin" renderType="Bare">
          <Image class="overviewImage sapUiSmallMarginBottom" src="{path: 'view>/ShoppingCart',
          formatter : '.formatter.pictureUrl'
 			}" width="25%"/>

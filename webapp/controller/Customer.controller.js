@@ -11,9 +11,9 @@ sap.ui.define([
 		},
 		onCustomerNavigationSelect: function (oEvent) {
 			var oCustomerLayout = this.getView().byId("customerContent");
-			var selectedKey = oEvent.getSource().getText();
+			var _sFragmentName = oEvent.getSource().data("fragmentName");
 			
-			var oFragment = sap.ui.xmlfragment("ag.agasown.view.fragment.customer." + selectedKey, this);
+			var oFragment = sap.ui.xmlfragment("ag.agasown.view.fragment.customer." + _sFragmentName, this);
 			oCustomerLayout.destroyItems();
 			oCustomerLayout.addItem(oFragment);
 		}
