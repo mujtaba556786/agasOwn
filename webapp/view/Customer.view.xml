@@ -21,9 +21,9 @@
 					<Button class="sideNavBtn" app:fragmentName="HelpFaq" text="Help FAQ" id="helpFaq" press="onCustomerNavigationSelect" type="Unstyled"></Button>
 					<Button class="sideNavBtn" app:fragmentName="ContactUs" text="ContactUs" id="contactUs" press="onCustomerNavigationSelect" type="Unstyled"></Button>
 				</VBox>
-				<VBox id="customerContent">
+				<Panel id="customerContent">
 
-				</VBox>
+				</Panel>
 			</HBox>
 		</content>
 		<footer>

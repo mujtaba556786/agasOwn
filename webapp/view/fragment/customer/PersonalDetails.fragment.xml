@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
-   <VBox class="sapUiSmallMargin">
+   <VBox>
       <Text class="overviewHeader" text="Personal Details"/>
          <Text text="Name"/>
          <Input editable="false" value="Mujtaba"/>
@@ -13,6 +13,6 @@
          <Input editable="false" value="test@gmail.com"/>
           <Text text="Password"/>
          <Input type="password" editable="false" value=""/>
-         <Button width="100%" class="dialogSubmit sapUiSmallMarginEnd" text="Edit" press=".onEditPersonalDetails" type="Unstyled" />
+         <Button width="100%" class="dialogSubmit" text="Edit" press=".onEditPersonalDetails" type="Unstyled" />
    </VBox>
 </core:FragmentDefinition>
