@@ -1,8 +1,6 @@
 sap.ui.define([
-	"sap/m/MessageBox",
 	"sap/m/MessageToast"
 ], function (
-	MessageBox,
 	MessageToast) {
 	"use strict";
 
@@ -32,13 +30,13 @@ sap.ui.define([
 		_updateCartItem: function (oBundle, oProductToBeAdded, oCartModel) {
 			// find existing entry for product
 			var oCollectionEntries = Object.assign({}, oCartModel.getData()["cartEntries"]);
-			var oCartEntry =  oCollectionEntries[oProductToBeAdded.id];
+			var oCartEntry = oCollectionEntries[oProductToBeAdded._id];
 
 			if (oCartEntry === undefined) {
 				// create new entry
 				oCartEntry = Object.assign({}, oProductToBeAdded);
 				oCartEntry.Quantity = 1;
-				oCollectionEntries[oProductToBeAdded.id] = oCartEntry;
+				oCollectionEntries[oProductToBeAdded._id] = oCartEntry;
 			} else {
 				// update existing entry
 				oCartEntry.Quantity += 1;
@@ -46,7 +44,7 @@ sap.ui.define([
 			//update the cart model
 			oCartModel.setProperty("/cartEntries", Object.assign({}, oCollectionEntries));
 			oCartModel.refresh(true);
-			MessageToast.show(oBundle.getText("productMsgAddedToCart", [oProductToBeAdded.product_name] ));
+			MessageToast.show(oBundle.getText("productMsgAddedToCart", [oProductToBeAdded.product_name]));
 		}
 	};
 });

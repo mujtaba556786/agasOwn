@@ -11,7 +11,7 @@
             </Image>
         </contentMiddle>
         <contentRight>
-            <Button id="goToCart" enabled="false" class="icon" icon="sap-icon://cart" press=".onToggleCart"/>
+            <Button id="goToCart" class="icon" icon="sap-icon://cart" press=".onToggleCart"/>
             <Button type="" class="icon" icon="sap-icon://customer" press=".onLoginOpen"/>
         </contentRight>
     </Bar>

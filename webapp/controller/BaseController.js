@@ -50,7 +50,7 @@ sap.ui.define([
                 instagram: 'ag/agasown/img/instagram.svg',
                 pinterest: 'ag/agasown/img/pinterest.svg',
                 ShoppingBags: "ag/agasown/img/ShoppingBags.jpg",
-                ShoppingCart:"ag/agasown/img/ShoppingCart.jpg",
+                ShoppingCart: "ag/agasown/img/ShoppingCart.jpg",
                 Promoted: [],
                 Viewed: [],
                 Favorite: [],
@@ -198,7 +198,24 @@ sap.ui.define([
          * @param {sap.ui.base.Event} @param oEvent the button press event
          */
         onToggleCart: function (oEvent) {
-            this.getRouter().navTo("cart");
+            //this.getRouter().navTo("cart");
+            var oMenu = oEvent.getSource();
+            var oView = this.getView();
+
+            // create popover
+            if (!this._oPopoverCart) {
+                this._oPopoverCart = Fragment.load({
+                    id: oView.getId(),
+                    name: "ag.agasown.view.fragment.Cart",
+                    controller: this
+                }).then(function (oPopover) {
+                    oView.addDependent(oPopover);
+                    return oPopover;
+                });
+            }
+            this._oPopoverCart.then(function (oPopover) {
+                oPopover.openBy(oMenu);
+            });
 
         },
         onNavBack: function () {
@@ -252,7 +269,7 @@ sap.ui.define([
             var oGlobalModel = this.getView().getModel("oGlobalModel");
             var oCustomer = oGlobalModel.getData().customer;
             var oHeaderToken = {
-                Authorization: "Bearer "+oCustomer.token.access_token
+                Authorization: "Bearer " + oCustomer.token.access_token
             };
             this.getService().onPost(_sUrl, "", oHeaderToken)
                 .then((oSuccess) => {

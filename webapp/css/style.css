@@ -380,3 +380,24 @@ opacity: 1;
 .sideNavBtn:hover{
   color: #DF3165;
 }
+/***Cart CSS***/
+.cartButtonCheckOut{
+  background-color:#DF3165;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.cartButtonCheckOut:hover{
+  color:#3F183B
+}
+.cartButton{
+  border: none;
+  background-color: #3F183B;
+}
+.cartButton .sapMBtnIcon{
+  color: #fff;
+  cursor: pointer;
+}
+.cartButton .sapMBtnIcon:hover{
+  color:#DF3165
+}
