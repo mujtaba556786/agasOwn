@@ -9,22 +9,22 @@
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
-			<Panel headerText="Product Detail" class="sapUiNoContentPadding">
+			<Panel headerText="Product Detail" class="sapUiNoContentPadding  sapUiLargeMarginTop">
 				<headerToolbar>
 					<Toolbar>
 						<Title text="Product Detail" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
-				<HBox justifyContent="SpaceBetween">
+				<HBox justifyContent="SpaceBetween" class="sapUiLargeMarginTop">
 					<VBox class="slideshow">
 						<HBox class="big">
 							<Image id="bigImg" src="{oGlobalModel>/detailProduct/picture}"/>
 						</HBox>
-						<Carousel pages="{oGlobalModel>/detailProduct/product_image}" showPageIndicator="false" class="thumb" loop="true">
+						<Carousel pages="{oGlobalModel>/detailProduct/product_image}" showPageIndicator="false" class="thumb car-images" loop="true">
 							<customLayout>
 								<CarouselLayout visiblePagesCount="4" />
 							</customLayout>
-							<Image src="{oGlobalModel>image}" press="handleImagePress"/>
+							<Image class="c-img" src="{oGlobalModel>image}" press="handleImagePress"/>
 						</Carousel>
 					</VBox>
 					<VBox justifyContent="SpaceAround">
@@ -33,26 +33,27 @@
 							<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
 							<Text class="productStatus" id="product_status" text="InStock"/>
 						</HBox>
-						<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="false"/>
+						<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="true"/>
+
 						<HBox alignItems="Baseline">
-							<Label text="Color" labelFor="product_color" />
+							<Label text="Color :" labelFor="product_color" />
 							<Text id="product_color" text="{oGlobalModel>/detailProduct/color}"/>
 						</HBox>
 
 						<HBox alignItems="Baseline">
-							<Label text="Dimension" labelFor="product_dimension" />
+							<Label text="Dimension :" labelFor="product_dimension" />
 							<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
 						</HBox>
 
 						<HBox justifyContent="SpaceBetween">
 							<VBox>
-								<StepInput value="{detailView>/value}" min="{detailView>/min}" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
+								<StepInput value="{detailView>/value}" min="{detailView>/min}" textAlign="Center" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
 							</VBox>
 							<VBox>
-								<Button type="Transparent" class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
+								<Button type="Transparent" width="200px" class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
 							</VBox>
 							<VBox>
-								<Button class="productFavourite" icon="sap-icon://favorite" press=".onAddToCartDetails"/>
+								<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToCartDetails"/>
 							</VBox>
 						</HBox>
 						<Button class="productBuyNow" type="Transparent" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
@@ -62,7 +63,7 @@
 					</VBox>
 				</HBox>
 			</Panel>
-			<Panel backgroundDesign="Transparent" class="productDescription">
+			<Panel backgroundDesign="Transparent" class="productDescription ">
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
