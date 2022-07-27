@@ -1,0 +1,169 @@
+<mvc:View xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="ag.agasown.controller.Cart">
+	<Page
+		id="page"
+		title="{cfg>/pageTitle}"
+		backgroundDesign="Solid"
+		showNavButton="true"
+		navButtonPress=".onNavBack"
+		showFooter="true">
+		<headerContent>
+			<Button
+				id="editButton"
+				icon="sap-icon://edit"
+				enabled="{parts: [
+					{path: 'oDataProducts>/cartEntries'},
+					{path: 'oDataProducts>/savedForLaterEntries'}
+				 ], formatter : '.formatter.hasItems'}"
+				visible="{cfg>/notInDelete}"
+				press=".onEditOrDoneButtonPress"
+				tooltip="{i18n>cartEditButtonTooltip}"/>
+		</headerContent>
+		<footer>
+			<Toolbar>
+				<Text
+					id="totalPriceText"
+					text="{
+						path : 'oDataProducts>/cartEntries',
+						formatter : '.formatter.totalPrice'
+					} EUR"
+					class="sapUiTinyMarginBegin"/>
+				<ToolbarSpacer/>
+				<Button
+					id="proceedButton"
+					type="Accept"
+					text="{i18n>cartProceedButtonText}"
+					enabled="{
+						path: 'oDataProducts>/cartEntries',
+						formatter: '.formatter.hasItems'
+					}"
+					visible="{cfg>/notInDelete}"
+					press=".onProceedButtonPress"/>
+				<Button
+					id="doneButton"
+					text="{i18n>cartDoneButtonText}"
+					enabled="true"
+					visible="{cfg>/inDelete}"
+					press=".onEditOrDoneButtonPress"/>
+			</Toolbar>
+		</footer>
+		<content>
+			<List
+				delete=".onCartEntriesDelete"
+				id="entryList"
+				items="{
+					path : 'oDataProducts>/cartEntries',
+					sorter : {
+						path : 'Name',
+						descending : false
+					}
+				}"
+				mode="{cfg>/listMode}"
+				noDataText="{i18n>cartNoData}"
+				selectionChange=".onEntryListSelect">
+				<headerToolbar>
+					<Toolbar>
+						<Title
+							level="H6"
+							text="{i18n>Cart_contentLabel}"
+							titleStyle="H6"/>
+					</Toolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem
+						intro="{oDataProducts>Quantity} x"
+						type="{cfg>/listItemType}"
+						icon="{
+							path : 'oDataProducts>picture',
+							formatter : '.formatter.picture'
+						}"
+						title="{oDataProducts>product_name}"
+						number="{
+							path : 'oDataProducts>price',
+							formatter : '.formatter.price'
+						}"
+						numberUnit="EUR"
+						press=".onProductItemPress"
+						iconDensityAware="false">
+						<attributes>
+							<ObjectAttribute
+								active="true"
+								press=".onSaveForLater"
+								text="{i18n>cartSaveForLaterLinkText}"/>
+						</attributes>
+						<firstStatus>
+							<ObjectStatus
+								text="{
+									path : 'oDataProducts>Status',
+									formatter : '.formatter.statusText'
+								}"
+								state="{
+									path : 'oDataProducts>Status',
+									formatter : '.formatter.statusState'
+								}"/>
+						</firstStatus>
+					</ObjectListItem>
+				</items>
+			</List>
+			<List
+				delete=".onSaveForLaterDelete"
+				id="saveForLaterList"
+				items="{
+					path : 'oDataProducts>/savedForLaterEntries',
+					sorter : {
+						path : 'Name',
+						descending : false
+					}
+				}"
+				mode="{cfg>/listMode}"
+				noDataText="{i18n>cartNoItemsSavedForLater}"
+				selectionChange=".onEntryListSelect">
+				<headerToolbar>
+					<Toolbar>
+						<Title
+							level="H6"
+							text="{i18n>cartItemsSavedForLater}"
+							titleStyle="H6"/>
+					</Toolbar>
+				</headerToolbar>
+				<items>
+					<ObjectListItem
+						intro="{oDataProducts>Quantity} x"
+						type="{cfg>/listItemType}"
+						icon="{
+							path : 'oDataProducts>picture',
+							formatter : '.formatter.picture'
+						}"
+						title="{oDataProducts>product_name}"
+						number="{
+							path : 'oDataProducts>price',
+							formatter : '.formatter.price'
+						}"
+						numberUnit="EUR"
+						press=".onEntryListPress"
+						iconDensityAware="false">
+						<attributes>
+							<ObjectAttribute
+								active="true"
+								press=".onAddBackToBasket"
+								text="{i18n>cartAddToCartLinkText}"/>
+						</attributes>
+						<firstStatus>
+							<ObjectStatus
+								text="{
+									path : 'oDataProducts>Status',
+									formatter : '.formatter.statusText'
+								}"
+								state="{
+									path : 'oDataProducts>Status',
+									formatter : '.formatter.statusState'
+								}"/>
+						</firstStatus>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

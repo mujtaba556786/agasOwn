@@ -1,0 +1,622 @@
+/* Enter your custom styles here */
+.agasown .sapMPageHeader {
+  background: transparent
+    linear-gradient(0deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+}
+/* ------------menu hover-------------- */
+.menu{
+  background-color: transparent;
+  border: none;
+
+}
+ .menu .sapMBtnIcon {
+  color: #3f183b;
+  cursor: pointer;
+}
+.menu .sapMBtnIcon:hover{
+  color: #df3165;
+} 
+
+/* .menu1:hover .Menu2 {
+  background-color: rebeccapurple;
+} */
+/*//! Hover pop up function */
+/* #container-agasown---home--target-img{
+  color: #3f183b;
+  cursor: pointer;
+}
+#container-agasown---home--target-img:hover{
+  color: red !important;
+  cursor: pointer;
+} */
+/*//! CUSTOM CSS USER INPUT  */
+.sapMBarRight,
+.sapMBarPH {
+  padding-right: 2.25rem;
+  text-transform: uppercase;
+  color: green !important;
+}
+.sapMBarRight > .sapMBarChild:not(.sapMTB) {
+  color: green !important;
+  cursor: pointer;
+}
+#__button0 {
+  margin-right: 0 !important;
+}
+#__button1 {
+  margin-left: 0;
+}
+#__button1-content {
+  text-transform: capitalize;
+}
+/* ------------menu hover--end---------------- */
+
+/*-------------------- footer css------------ */
+.footter {
+  background: transparent
+    linear-gradient(0deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0% no-repeat
+    padding-box;
+  opacity: 1;
+}
+.fotter #__panel8-content {
+  padding: 2% 7%;
+}
+.footer-hbox #__image21 {
+  height: 90%;
+}
+
+.footter .sapMLnk {
+  color: #3f183b;
+}
+.footter .sapMLnk:hover {
+  color: #df3165;
+  border-bottom: none;
+}
+.footter .sapMText {
+  margin-bottom: 25px;
+  font-size: 1.875rem;
+}
+.footter .sapMListHdrText {
+  margin-bottom: 25px;
+  font-size: 1.875rem;
+  border-bottom: none;
+}
+.footter .sapFAvatarImageCover {
+  color: #3f183b;
+}
+.footter .sapFAvatarImageCover:hover {
+  color: #df3165;
+}
+/*-----------------footer css end ------------*/
+
+.sapMShellBrandingBar {
+  background-color: #3f183b;
+}
+/*text*/
+.agasown .sapMTitle {
+  color: #3f183b;
+  text-align: center;
+  letter-spacing: 1.2px;
+  opacity: 1;
+}
+
+/*currency number*/
+.agasown .sapMObjectNumber {
+  color: #3f183b;
+  opacity: 1;
+}
+
+/*newlletter*/
+.agasown .newsletter {
+  position: relative;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 0.73;
+}
+.agasown .newsletterBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.agasown .newsletterButton .sapMBtnInner {
+  background-color: #3f183b;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  width: 115px;
+}
+
+.agasown .newsltterEmail .sapMInputBaseInner {
+  width: 750px;
+}
+
+/* --------------home css start------------------ */
+
+/*Search*/
+.agasown .sapMSFB {
+  color: #fff;
+  background: #df3165 0% 0% no-repeat padding-box;
+}
+/*Category*/
+.categoryBox {
+  position: relative;
+  box-sizing: border-box;
+  transition: all ease-in-out 0.2s;
+}
+.categoryBox:hover {
+  transform: scale(1.1, 1.1);
+}
+.categoryBoxText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  text-transform: uppercase;
+  opacity: 1;
+  background: #df3165;
+  width: 90%;
+  height: 30px;
+  line-height: 25px;
+}
+.vbox-c-home {
+  position: relative;
+}
+.vbox-c-home div:nth-child(1) img {
+  box-sizing: border-box;
+  transition: all ease-in-out 0.5s;
+}
+.vbox-c-home div:nth-child(1) img:hover {
+  transform: scale(1.1, 1.1);
+}
+.vbox-c-home div:nth-child(4) {
+  position: absolute;
+  top: 36%;
+  display: none;
+}
+
+.vbox-c-home div:nth-child(4) button span {
+  background-color: #3f183b;
+  color: #f1f1f1;
+}
+.vbox-c-home:hover div:nth-child(4) {
+  display: inline-block;
+}
+.vbox-c-home:hover div:nth-child(4) button span {
+  background-color: #3f183b;
+  color: #f1f1f1;
+}
+
+/*------------------ home css end---------------- */
+/*panl Tile*/
+.agasown .panelTitle {
+  text-align: center;
+  color: #3f183b;
+  text-transform: uppercase;
+  opacity: 1;
+}
+/*---------------- header fragment css start ------------------ */
+/* my code ... */
+.headerBar {
+height: 95px;
+}
+.sapMBarPH {
+  height: 100%;
+}
+.headerBar .sapMImg {
+  width: 150px;
+  height: 60px;
+  object-fit: cover;
+}
+/*---------------- header fragment css end ------------------ */
+
+/* ------------------product detail start--------- */
+#__hbox4 {
+  justify-content: center;
+}
+
+#container-agasown---productDetail--bigImg {
+  width: 82%;
+}
+
+#__carousel3 {
+  width: 65% !important;
+  height: 150px !important;
+
+  margin: 3px 0px;
+  margin-left: 11%;
+}
+#__image19-__carousel3-0,
+#__image19-__carousel3-1,
+#__image19-__carousel3-2,
+#__image19-__carousel3-3 {
+  width: 67%;
+  height: 120px;
+  object-fit: contain;
+  transition: all 1s;
+}
+#__image19-__carousel3-0:hover,
+#__image19-__carousel3-1:hover,
+#__image19-__carousel3-2:hover,
+#__image19-__carousel3-3:hover {
+  width: 100%;
+  height: 150px;
+}
+#__hbox6,
+#__hbox7 {
+  align-items: start;
+}
+#__label0,
+#__label1 {
+  font-weight: 900;
+}
+#container-agasown---productDetail--product_color,
+#container-agasown---productDetail--product_dimension {
+  margin-left: 3px;
+}
+
+.vbox-abs {
+  height: 295px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.vbox-abs .image-abs {
+  height: 100%;
+  transition: all ease-in-out 2s;
+}
+.vbox-abs:hover .image-abs {
+  transform: scale(1.2, 1.1);
+}
+.vbox-abs div:nth-child(2),
+.vbox-abs div:nth-child(2),
+.vbox-abs div:nth-child(2) {
+  position: absolute;
+
+  bottom: 41%;
+  left: 39%;
+  display: none;
+}
+
+.vbox-abs:hover div:nth-child(2),
+.vbox-abs:hover div:nth-child(2),
+.vbox-abs:hover div:nth-child(2) {
+  display: inline-block;
+}
+/* .vbox-abs:hover #__button5-__carousel1-0 {
+  display: inline-block;
+} */
+.vbox-abs #container-agasown---productDetail--btn-abs-__carousel4-0-inner,
+.vbox-abs #container-agasown---productDetail--btn-abs-__carousel4-1-inner,
+.vbox-abs #container-agasown---productDetail--btn-abs-__carousel4-2-inner {
+  background-color: #3f183b;
+  color: #f1f1f1;
+}
+.btn-abs {
+  color: white;
+  background-color: #3f183b;
+}
+.checkoutSteps .sapMWizardProgressNavStepCircle{
+  background-color: #3f183b;
+
+}
+/* checkout page nav bar */
+.sapMWizardProgressNav {
+  padding: 1rem 0.5rem;
+  margin-top: 46px;
+}
+/* ------------------product detail end--------- */
+
+.fotterImage {
+  width: 200px;
+  height: 150px;
+  background-position: center;
+  object-fit: cover;
+  margin: -10% -128px -10% 0px;
+}
+.fotterLink .sapMLnk,
+.fotterLink .sapMText {
+  color: #3f183b;
+}
+.fotterLink .sapMLnk:hover {
+  color: #df3165;
+}
+.fotterAvatar .sapFAvatar {
+  border: none;
+}
+.fotterAvatar .sapFAvatar:hover {
+  color: #3f183b;
+}
+
+.agasown .sapMBtnIcon:active {
+  color: #df3165;
+  background: transparent;
+}
+.agasown .menusapMBtnIcon:hover {
+  color: #df3165;
+  background: transparent;
+}
+
+.agasown .logo .sapMImg {
+  width: 150px;
+  height: fit-content;
+  object-fit: contain;
+}
+.agasown .categoryLogo .sapMImg {
+  width: 150px;
+  height: fit-content;
+  object-fit: contain;
+}
+.agasown .categoryLogo .sapMImageContent {
+  width: 6rem;
+}
+
+.agasown .menuBorder {
+  border-right: solid;
+}
+.agasown .menuLinks {
+  color: #3f183b;
+  display: block;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px 0 0 16px;
+  font-size: 14px !important;
+}
+
+.agasown .menuLinks:active {
+  color: #df3165;
+}
+.agasown .menuLinks:hover {
+  color: #3f183b;
+}
+.agasown .icon {
+  color: #3f183b;
+}
+
+.agasown .icon:hover {
+  color: #df3165;
+}
+
+.agasown .welcomeCarouselText {
+  color: white;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+  font-size: 1.5rem;
+  width: 100%;
+  text-shadow: 0 0 0.125rem black;
+}
+
+.agasown .images {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 200px;
+}
+
+.agasown .imageLink {
+  text-align: center;
+  color: black;
+  font-size: 1rem;
+}
+
+.agasown .imageLink:hover {
+  text-align: center;
+  color: black;
+}
+
+/* Style the tab */
+.agasown .tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 300px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.agasown .tab a {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Change background color of buttons on hover */
+.agasown .tab a:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.agasown .tab a.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.agasown .tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 300px;
+  display: none;
+}
+.agasown .fotter {
+  background: transparent
+    linear-gradient(180deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0%
+    no-repeat padding-box;
+}
+
+.agasown .fotter .imageFotter {
+  height: fit-content;
+}
+
+.agasown .productName {
+  font-size: 15px;
+}
+.agasown .priceStatusBox {
+  border-bottom: 1px solid black;
+}
+.agasown .productStatus {
+  color: #ff0000;
+}
+.agasown .productCart .sapMBtnInner {
+  background-color: #df3165;
+
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+}
+
+.slideshow {
+  width: 50%;
+}
+
+.slideshow .big img {
+  height: 360px;
+  width: 615px;
+}
+.productBuyNow {
+  color: #fff;
+  background-color: #000;
+  border-radius: 30px;
+}
+.productBuyNow:hover {
+  background-color: none;
+  color: none;
+}
+.productBuyNow .sapMBtnTransparent {
+  background-color: none;
+  color: #fff;
+}
+.productFavourite {
+  border-radius: 30px;
+}
+
+.dialogCloseBtn {
+  background: white;
+  border: none;
+}
+.dialogCloseBtn .sapMBtnIcon {
+  color: #3f183b;
+  cursor: pointer;
+}
+.dialogCloseBtn .sapMBtnIcon:hover {
+  color: #df3165;
+}
+.dialogTitle {
+  color: #3f183b;
+  font-size: larger;
+}
+.dialogLabel {
+  color: #c6c6c6;
+}
+.dialogLabel1 {
+  color: #666;
+}
+.dialogSubmit {
+  background-color: #3f183b;
+  color: #fff;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  border: none;
+}
+.dialogSubmit:hover {
+  color: #df3165;
+}
+
+/**************
+*  Login Dialog Begin
+***************/
+
+.loginDialog .loginPasswordForget:hover {
+  color: #3f183b;
+}
+
+.loginDialog .loginPasswordForget {
+  background-color: #df3165;
+  color: #fff;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  border: none;
+}
+.loginDialog .loginSignUp {
+  color: #3f183b;
+}
+.loginDialog .sapMLnk:hover:not(.sapMLnkDsbl) {
+  color: #df3165;
+}
+/**************
+*  Login Dialog End
+***************/
+.overviewImage {
+  object-fit: cover;
+}
+.overviewHeader {
+  font-size: xx-large;
+  color: black;
+}
+.overviewHeader {
+  color: black;
+}
+.sideNav {
+  width: 25%;
+}
+.sideNavText {
+  columns: #000;
+  font-size: large;
+}
+.sideNavBtn {
+  background: transparent;
+  color: #3f183b;
+  border: none;
+  cursor: pointer;
+}
+.sideNavBtn:hover {
+  color: #df3165;
+}
+/***Cart CSS***/
+.cartButtonCheckOut {
+  background-color: #df3165;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.cartButtonCheckOut:hover {
+  color: #3f183b;
+}
+.cartButton {
+  border: none;
+  background-color: #3f183b;
+}
+.cartButton .sapMBtnIcon {
+  color: #fff;
+  cursor: pointer;
+}
+.cartButton .sapMBtnIcon:hover {
+  color: #df3165;
+}
+.logerName{
+  margin-left: 40px;
+}
+#container-agasown---checkout--orderSummaryStep-nextButton{
+  display: none !important;
+}
+/* #__hbox37{
+  display: flex !important;
+  flex-direction: column !important;
+} */
+.hbox5{
+  display: flex !important;
+  flex-direction: column !important;
+}

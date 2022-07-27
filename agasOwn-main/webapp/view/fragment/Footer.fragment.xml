@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc">
+    <HBox justifyContent="SpaceBetween" class="footer-hbox">
+        <HBox class="sapUiSmallMarginTopBottom">
+            <Image class="fotterImage" src="{path: 'view>/welcomeLogoVertical',
+                        formatter : '.formatter.pictureUrl'
+                        }" press="onNavBackHome">
+            </Image>
+        </HBox>
+
+        <VBox class="fotterLink">
+            <Text text="INFORMATION" class="sapUiSmallMarginTopBottom"/>
+            <Link text="About Us" press="onPressImprint"/>
+            <Link text="Contact" press="onPressImprint"/>
+            <Link text="Imprint" press="onPressImprint"/>
+            <Link text="Terms of Services" press="onPressImprint"/>
+            <Link text="Privacy Policy" press="onPressImprint"/>
+            <Link text="GDPR" press="onPressImprint"/>
+        </VBox>
+
+        <VBox class="fotterAvatar">
+            <Text text="SOCIAL" class="sapUiSmallMarginTopBottom"/>
+            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
+                        formatter : '.formatter.pictureUrl'
+                        }" />
+            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
+                        formatter : '.formatter.pictureUrl'
+                        }" />
+            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
+                        formatter : '.formatter.pictureUrl'
+                        }" />
+            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
+                        formatter : '.formatter.pictureUrl'
+                        }" />
+        </VBox>
+        <VBox>
+            <Text text="CATEGORY" class="sapUiSmallMarginTopBottom"/>
+            <VBox class="fotterLink" items="{
+                        path: 'oDataCategory>/',
+                        filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
+                        sorter: {path: 'id'}
+                    }">
+                <Link text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
+            </VBox>
+        </VBox>
+    </HBox>
+
+
+</core:FragmentDefinition> 

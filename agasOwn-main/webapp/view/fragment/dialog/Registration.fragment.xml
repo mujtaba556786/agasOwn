@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m" controllerName="ag.agasown.controller.Registration"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Dialog id="registrationDialog" class="registrationDialog" showHeader="false">
+        <VBox alignItems="End" class="sapUiSmallMargin">
+            <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".handleRegistrationClose" type="Unstyled"/>
+        </VBox>
+        <VBox fitContainer="true" class="sapUiSmallMargin">
+            <Text class="dialogTitle sapUiSmallMarginBottom" text="Register New Account"/>
+            <Label class="dialogLabel" text="First Name" labelFor="firstNameInput" />
+            <Input id="firstNameInput" placeholder="First Name"></Input>
+
+            <Label class="dialogLabel" text="Last Name" labelFor="lastNameInput" />
+            <Input id="lastNameInput" placeholder="Last Name"></Input>
+
+            <Label class="dialogLabel" text="E-mail" labelFor="emailInput" />
+            <Input id="emailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." value="{
+							path: '/email',
+							type: '.customEMailType'
+						}" />
+
+            <Label class="dialogLabel" text="Password" labelFor="passwordInput"/>
+            <Input id="passwordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
+
+            <Label class="dialogLabel" text="Confirm Password" labelFor="confirmPasswordInput"/>
+            <Input id="confirmPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
+
+            <CheckBox width="350px" wrapping="true" id="newsLetter" text="Ja, ich möchte per E-Mail Newsletter über Trends, Aktionen 
+						 Gutscheine informiert werden. Abmeldung jederzeit möglich. (optional)" />
+
+            <CheckBox width="350px" wrapping="true" id="readData" text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
+						 von Zalando sowie einer Bonitätsprüfung zu.* *" />
+            <HBox justifyContent="Center" alignItems="Center" alignContent="Center" >
+                <Button width="12rem" class="dialogSubmit" text="Sign up" type="Unstyled" press="onSubmit"></Button>
+            </HBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,152 @@
+<mvc:View xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f" controllerName="ag.agasown.controller.ProductDetail">
+	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
+		<customHeader>
+			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
+		</customHeader>
+		<content>
+			<Panel headerText="Product Detail" class="sapUiNoContentPadding  sapUiLargeMarginTop">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Product Detail" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
+					</Toolbar>
+				</headerToolbar>
+				<HBox justifyContent="SpaceBetween" class="sapUiLargeMarginTop">
+					<VBox class="slideshow">
+						<HBox class="big">
+							<Image id="bigImg" 
+							src="{path: 'oGlobalModel>/detailProduct/picture',formatter : '.formatter.jsonPictureUrl'}"
+							
+							/>
+						</HBox>
+						<Carousel pages="{oGlobalModel>/detailProduct/product_image}" showPageIndicator="false" class="thumb car-images" loop="true">
+							<customLayout>
+								<CarouselLayout visiblePagesCount="4" />
+							</customLayout>
+							<Image class="c-img" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="handleImagePress"/>
+							
+						</Carousel>
+					</VBox>
+					<VBox justifyContent="SpaceAround">
+						<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
+						<HBox class="priceStatusBox" justifyContent="SpaceBetween">
+							<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
+							<Text class="productStatus" id="product_status" text="InStock"/>
+						</HBox>
+						<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="true"/>
+
+						<HBox alignItems="Baseline">
+							<Label text="Color :" labelFor="product_color" />
+							<Text id="product_color" text="{oGlobalModel>/detailProduct/color}"/>
+						</HBox>
+
+						<HBox alignItems="Baseline">
+							<Label text="Dimension :" labelFor="product_dimension" />
+							<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
+						</HBox>
+
+						<HBox justifyContent="SpaceBetween">
+							<VBox>
+								<StepInput value="{detailView>/value}" min="{detailView>/min}" textAlign="Center" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
+							</VBox>
+							<VBox>
+								<Button type="Transparent" width="200px" class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
+							</VBox>
+							<VBox>
+								<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToCartDetails"/>
+							</VBox>
+						</HBox>
+						<Button class="productBuyNow" type="Transparent" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
+						<layoutData>
+							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+						</layoutData>
+					</VBox>
+				</HBox>
+			</Panel>
+			<Panel backgroundDesign="Transparent" class="productDescription ">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Product Description" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+								At vero eos et accusam et justo duo dolores et ea rebum. 
+								Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+								sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+			</Panel>
+			<Panel backgroundDesign="Transparent" class="">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Reviews" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+								At vero eos et accusam et justo duo dolores et ea rebum. 
+								Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
+								sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
+			</Panel>
+			<Panel backgroundDesign="Transparent" class="">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Reviews" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Carousel pages="{path: 'oDataProducts>/',
+                        filters: [{path: 'ranking', operator: 'EQ', value1: 'best_seller'}],
+                        sorter: {path: 'id'}}">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+
+					<VBox class="sapUiSmallMargin" alignItems="Center">
+
+						<VBox
+						  class="vbox-abs">
+						<Image class="image-abs" src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%"  press="onProductItemPress"/>
+							<Button
+								text="Buy Now"
+								id="btn-abs"
+							>
+								
+							</Button>	
+						</VBox>
+						
+
+
+						<Title text="{oDataProducts>product_name}" wrapping="true" />
+						<ObjectNumber class="sapUiSmallMarginBottom" binding="{/ProductCollection/0}" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+
+					</VBox>
+				</Carousel>
+			</Panel>
+			<Panel class="fotter">
+				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
+			</Panel>
+		</content>
+		<footer>
+
+		</footer>
+	</Page>
+</mvc:View>

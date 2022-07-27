@@ -1,0 +1,54 @@
+<mvc:View 
+	controllerName="ag.agasown.controller.Product"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:cssgrid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f"
+	
+	xmlns:mvc="sap.ui.core.mvc">
+	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
+		<customHeader>
+			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
+		</customHeader>
+		<content>
+			<IconTabBar select=".onFilterSelect" expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>_id}">
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+
+			<Panel id="panelForGridList">
+				<HBox renderType="Bare" justifyContent="Center">
+					<SearchField width="50%" />
+				</HBox>
+
+				<f:GridList id="gridList" items="{oDataProducts>/}" growing="true" growingThreshold="4">
+					<f:customLayout>
+						<cssgrid:GridBasicLayout gridAutoRows="5rem" gridTemplateColumns="repeat(auto-fill, minmax(9rem, 1fr))" gridGap="0.5rem"></cssgrid:GridBasicLayout>
+					</f:customLayout>
+					<f:GridListItem>
+						<f:layoutData>
+							<cssgrid:GridItemLayoutData gridRow="span 3" gridColumn="span 2" />
+						</f:layoutData>
+						<VBox alignItems="Center" class="sapUiSmallMargin">
+							<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
+							
+							<Title text="{oDataProducts>product_name}" wrapping="true" />
+							<ObjectNumber class="sapUiSmallMarginBottom" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+						</VBox>
+					</f:GridListItem>
+				</f:GridList>
+			</Panel>
+			<Panel class="fotter">
+				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
+			</Panel>
+		</content>
+		<footer>
+		</footer>
+	</Page>
+</mvc:View>

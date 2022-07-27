@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.f" controllerName="ag.agasown.controller.Cart"
+	xmlns:core="sap.ui.core">
+	<Popover contentWidth="20%" showArrow="false" showHeader="false" id="myCart" placement="Left">
+		<List delete=".onCartEntriesDelete" id="entryList" items="{
+
+					path : 'oDataProducts>/cartEntries',
+					sorter : {
+						path : 'Name',
+						descending : false
+					}
+				}" noDataText="{i18n>cartNoData}">
+			<CustomListItem>
+				<HBox class="sapUiSmallMargin" justifyContent="SpaceBetween" alignItems="Center">
+					<Avatar displaySize="M" src="{
+							path : 'oDataProducts>picture',
+							formatter : '.formatter.picture'
+						}"/>
+					<VBox>
+						<Text text="{oDataProducts>Quantity} x"/>
+						<Label text="{oDataProducts>product_name}"/>
+					</VBox>
+					<ObjectNumber number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}"/>
+				</HBox>
+				<HBox class="sapUiSmallMargin" justifyContent="SpaceBetween" alignItems="Center">
+					<Button class="cartButton" icon="sap-icon://favorite" press="" type="Unstyled" />
+					<Button class="cartButton" icon="sap-icon://delete" press="" type="Unstyled" />
+				</HBox>
+			</CustomListItem>
+		</List>
+		<HBox class="sapUiSmallMargin" justifyContent="SpaceBetween" alignItems="Center">
+			<Button class="cartButtonCheckOut" text="Go To Checkout" press="onNavToCheckout" type="Unstyled" />
+			<Text text="{path : 'oDataProducts>/cartEntries',
+						formatter : '.formatter.totalPrice'
+					} EUR"/>
+		</HBox>
+	</Popover>
+</core:FragmentDefinition>
