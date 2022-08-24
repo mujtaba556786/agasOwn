@@ -1,0 +1,51 @@
+<mvc:View
+    controllerName="ag.agasown.controller.Information" 
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="home">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button class="icon" icon="sap-icon://nav-back" press=".onNavBack"/>
+                    <ImageContent class="logo" src="{path: 'view>/welcomeLogo',
+                        formatter : '.formatter.pictureUrl'
+                        }" description="Logo" press="onNavBackHome">
+                    </ImageContent>
+                </contentLeft>
+                <contentMiddle>
+                </contentMiddle>
+                <contentRight>
+
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter text="About Us" key="aboutUs">
+                        <core:Fragment fragmentName="ag.agasown.view.fragment.information.AboutUs" type="XML" />
+                    </IconTabFilter>
+                    <IconTabFilter text="Contact" key="contact">
+                        <core:Fragment fragmentName="ag.agasown.view.fragment.information.Contact" type="XML" />
+                    </IconTabFilter>
+                    <IconTabFilter text="Imprint" key="imprint">
+                        <core:Fragment fragmentName="ag.agasown.view.fragment.information.Imprint" type="XML" />
+                    </IconTabFilter>
+                    <IconTabFilter text="Terms and Service" key="terms">
+                        <core:Fragment fragmentName="ag.agasown.view.fragment.information.Terms" type="XML" />
+                    </IconTabFilter>
+                    <IconTabFilter text="Privacy Policy" key="privacy">
+                        <core:Fragment fragmentName="ag.agasown.view.fragment.information.Privacy" type="XML" />
+                    </IconTabFilter>
+                    <IconTabFilter text="GDPR" key="gdpr">
+                        <core:Fragment fragmentName="ag.agasown.view.fragment.information.Gdpr" type="XML" />
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+            <Panel>
+				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
+			</Panel>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,16 @@
+<core:FragmentDefinition 
+xmlns="sap.m" 
+xmlns:f="sap.f" 
+controllerName="ag.agasown.controller.Registration"
+xmlns:core="sap.ui.core">
+    <ResponsivePopover showArrow="false" showHeader="false" class="sapUiPopupWithPadding" placement="Bottom">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <!-- //!CUSTOM CODE FOR USER NAME  -->
+                <Button type="Transparent" text="{view10>/myName}" icon="sap-icon://employee" press=".onNavToCustomer" class="logerName"/>
+                <Button type="Transparent" text="Go to Customer" press=".onNavToCustomer" />
+                <Button type="Transparent" text="Logout" icon="sap-icon://log" press=".onLogout" />
+            </VBox>
+        </content>
+    </ResponsivePopover>
+</core:FragmentDefinition>

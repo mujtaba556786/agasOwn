@@ -1,0 +1,212 @@
+{
+  "_version": "",
+  "sap.app": {
+    "id": "ag.agasown",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "",
+    "description": "",
+    "resources": "resources.json",
+    "ach": "ach",
+    "dataSources": {
+      "product_data_alias":{
+        "uri": "http://18.194.155.205:8000/products/?$format=json",
+				"type": "Json"
+      },
+      "category_data_alias":{
+        "uri": "http://18.194.155.205:8000/category/?$format=json",
+				"type": "Json"
+      }
+		}
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://task",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "ag.agasown.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    },
+    "dependencies": {
+      "minUI5Version": "1.66.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ag.agasown.i18n.i18n"
+        }
+      },
+      "oDataProducts": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "product_data_alias"
+			},
+      "oDataCategory": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "category_data_alias"
+			}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+      
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "ag.agasown.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "pattern": "",  
+          "name": "home",
+          "target": ["home"]
+        },
+        {
+          "pattern": "product/{productPath}",  
+          "name": "product",
+          "target": ["product"]
+        },
+        {
+          "pattern": "productDetail/{detailObj}",  
+          "name": "productDetail",
+          "target": ["productDetail"]
+        },
+        {
+					"pattern": "cart",
+					"name": "cart",
+					"target": ["cart"]
+				},
+        {
+					"pattern": "notFound",
+					"name": "notFound",
+					"target": ["notFound"]
+				},
+        {
+					"pattern": "checkout",
+					"name": "checkout",
+					"target": ["checkout"]
+				},
+        {
+					"pattern": "OrderCompleted",
+					"name": "OrderCompleted",
+					"target": ["OrderCompleted"]
+				},
+        {
+					"pattern": "information",
+					"name": "information",
+					"target": ["information"]
+				},
+        {
+					"pattern": "registration",
+					"name": "registration",
+					"target": ["registration"]
+				},
+        {
+          "pattern": "payment",
+          "name": "payment",
+          "target": ["payment"]
+        },
+        {
+					"pattern": "customer",
+					"name": "customer",
+					"target": ["customer"]
+				}
+      ],
+      "targets": {
+        "home": {
+          "viewType": "XML",
+          "viewId": "home",
+          "viewName": "Home"
+        },
+        "product": {
+          "viewType": "XML",
+          "viewId": "product",
+          "viewName": "Product"
+        },
+        "productDetail": {
+          "viewType": "XML",
+          "viewId": "productDetail",
+          "viewName": "ProductDetail"
+        },
+        "cart": {
+          "viewType": "XML",
+					"viewName": "Cart",
+					"viewId": "cartView"
+				},
+        "notFound": {
+          "viewType": "XML",
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				},
+        "checkout": {
+          "viewType": "XML",
+					"viewName": "Checkout",
+					"viewId": "checkout"
+				},
+        "orderCompleted": {
+          "viewType": "XML",
+					"viewName": "OrderCompleted",
+					"viewId": "orderCompleted"
+				},
+        "information": {
+          "viewType": "XML",
+					"viewName": "Information",
+					"viewId": "information"
+				},
+        "registration": {
+          "viewType": "XML",
+					"viewName": "Registration",
+					"viewId": "registration"
+				},
+        "payment":{
+          "viewType":"XML",
+          "viewName":"Payment",
+          "viewId":"payment"
+        },
+        "customer": {
+          "viewType": "XML",
+					"viewName": "Customer",
+					"viewId": "customer"
+				}
+      }
+    }
+  }
+}

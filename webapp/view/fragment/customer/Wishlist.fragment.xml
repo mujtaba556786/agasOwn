@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m"
+   xmlns:f="sap.f"
+   xmlns:cssgrid="sap.ui.layout.cssgrid"
+   xmlns:core="sap.ui.core">
+   <f:GridList id="gridList" items="{oDataProducts>/}" growing="true" growingThreshold="4">
+      <f:customLayout>
+         <cssgrid:GridBasicLayout gridAutoRows="5rem" gridTemplateColumns="repeat(auto-fill, minmax(9rem, 1fr))" gridGap="0.5rem"></cssgrid:GridBasicLayout>
+      </f:customLayout>
+      <f:GridListItem>
+         <f:layoutData>
+            <cssgrid:GridItemLayoutData gridRow="span 3" gridColumn="span 2" />
+         </f:layoutData>
+         <VBox alignItems="Center" class="sapUiSmallMargin">
+            <Image src="{oDataProducts>picture}" height="155px" press="onProductItemPress"/>
+            <Title text="{oDataProducts>product_name}" wrapping="true" />
+            <ObjectNumber class="sapUiSmallMarginBottom" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+         </VBox>
+      </f:GridListItem>
+   </f:GridList>
+
+</core:FragmentDefinition>

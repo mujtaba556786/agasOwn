@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+   xmlns:f="sap.f"
+   xmlns:core="sap.ui.core">
+   <VBox>
+      <VBox class="sapUiSmallMargin">
+         <Text class="overviewHeader" text="Order" />
+         <Text text="You have'nt Shop with us"/>
+      </VBox>
+      <VBox class="sapUiSmallMargin" renderType="Bare">
+         <Image class="overviewImage sapUiSmallMarginBottom" src="{path: 'view>/ShoppingCart',
+         formatter : '.formatter.pictureUrl'
+			}" width="25%"/>
+          <Text text="Check our latest product"/>
+         <Button width="25%" class="dialogSubmit" text="Continue Shopping" press=".onLoginSubmit" type="Unstyled" />
+      </VBox>
+   </VBox>
+</core:FragmentDefinition>

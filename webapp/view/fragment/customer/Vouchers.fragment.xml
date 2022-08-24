@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m"
+   xmlns:f="sap.f"
+   xmlns:core="sap.ui.core">
+   <VBox class="sapUiSmallMargin">
+      <Text class="overviewHeader" text="Voucher"/>
+         <Text text="Your Credit: 0,00$ "/>
+         <Text text="You can used your vouchers for future order"/>
+         	
+            <Input placeholder="First Name" value=""/>
+            <Input placeholder="Last Name" value=""/>
+            <Input type="Email" placeholder="E-Mail" value=""/>
+         
+         <Button width="100%" class="dialogSubmit sapUiSmallMarginEnd" text="Send Message" press=".onEditPersonalDetails" type="Unstyled" />
+   </VBox>
+</core:FragmentDefinition>

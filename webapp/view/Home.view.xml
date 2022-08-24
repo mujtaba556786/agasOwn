@@ -1,0 +1,138 @@
+<mvc:View xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f" 
+	controllerName="ag.agasown.controller.Home">
+
+	<Page id="home">
+		
+		<customHeader>
+			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
+		</customHeader>
+		<content>
+			<core:Fragment class="sapUiLargeMarginTop" fragmentName="ag.agasown.view.fragment.Carousel" type="XML" />
+			<HBox class="sapUiLargeMarginTop" renderType="Bare" justifyContent="Center">
+				<SearchField width="50%" />
+			</HBox>
+			<Panel id="panelCategory" backgroundDesign="Transparent" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Popular Categories" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Carousel pages="{
+                        path: 'oDataCategory>/',
+                        filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
+                        sorter: {path: '_id'}
+                    }" showPageIndicator="false" loop="true">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+					<VBox class="sapUiResponsiveContentPadding" renderType="Bare">
+
+						<Image src="{path: 'oDataCategory>picture',
+											formatter : '.formatter.jsonPictureUrl'
+											}" class="categoryBox imageDisplayBlock" press="onCategoryLinkPress"/>
+						<Text textAlign="Center" text="{oDataCategory>category_name}" class="categoryBoxText"/>
+
+					</VBox>
+
+				</Carousel>
+			</Panel>
+			<Panel>
+				<core:Fragment fragmentName="ag.agasown.view.fragment.ShopCarousel" type="XML" />
+			</Panel>
+
+			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Promoted Items" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Carousel pages="{path: 'oDataProducts>/',
+                        filters: [{path: 'ranking', operator: 'EQ', value1: 'promoted'}],
+                        sorter: {path: '_id'}}">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+
+					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
+						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress" />
+						<Title text="{oDataProducts>product_name}" wrapping="true" />
+						<ObjectNumber class="sapUiSmallMarginBottom" binding="{/ProductCollection/0}" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
+					</VBox>
+				</Carousel>
+			</Panel>
+
+			<Panel>
+				<core:Fragment fragmentName="ag.agasown.view.fragment.SocialCarousel" type="XML" />
+			</Panel>
+
+			<Panel id="panelSale" backgroundDesign="Transparent" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Items On Sale" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Carousel pages="{path: 'oDataProducts>/',
+                        filters: [{path: 'ranking', operator: 'EQ', value1: 'best_seller'}],
+                        sorter: {path: 'id'}}">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+
+					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
+						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress"/>
+						<Title text="{oDataProducts>product_name}" wrapping="true" />
+						<ObjectNumber class="sapUiSmallMarginBottom" binding="{/ProductCollection/0}" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+						<Button text="Buy Now" class="btn-abs-home" />
+
+					</VBox>
+				</Carousel>
+			</Panel>
+
+			<Panel class="newsletter">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="Newsletter" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Image src="{
+							path: 'view>/welcomeNews',
+							formatter : '.formatter.pictureUrl'
+						}" width="100%">
+				</Image>
+				<HBox class="newsletterBox">
+
+					<Input class="newsltterEmail" type="Email" placeholder="Enter Email" />
+					<Button type="Unstyled" class="newsletterButton" text="Subscribe" press="onPress"/>
+
+				</HBox>
+
+			</Panel>
+
+			<Panel class="fotter">
+				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

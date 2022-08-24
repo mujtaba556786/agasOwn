@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m"
+   xmlns:f="sap.f"
+   xmlns:core="sap.ui.core">
+   <VBox>
+      <Text class="overviewHeader" text="Personal Details"/>
+         <Text text="Name"/>
+         <Input editable="false" value="Mujtaba"/>
+         <Text type="Tel" text="Mobile Number"/>
+         <Input editable="false" value="01765550985"/>
+         <Text text="Date of Birth"/>
+         <Input editable="false" value="16.07.1982"/>
+          <Text type="Email" text="E-Mail"/>
+         <Input editable="false" value="test@gmail.com"/>
+          <Text text="Password"/>
+         <Input type="password" editable="false" value=""/>
+         <Button width="100%" class="dialogSubmit" text="Edit" press=".onEditPersonalDetails" type="Unstyled" />
+   </VBox>
+</core:FragmentDefinition>
