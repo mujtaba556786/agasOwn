@@ -14,7 +14,7 @@
 					<Text class="sideNavText" text="Your Account"></Text>
 					<Button class="sideNavBtn" app:fragmentName="Overview" text="Overview" id="overview" press="onCustomerNavigationSelect" type="Unstyled"></Button>
 					<Button class="sideNavBtn" app:fragmentName="Order" text="Order" id="order" press="onCustomerNavigationSelect" type="Unstyled"></Button>
-					<Button class="sideNavBtn" app:fragmentName="Wishlist" text="Wishlist" id="wishlist" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" app:fragmentName="Wishlist" text="Wishlist" id="wishlist" press="onCustomerNavigationWishlistSelect" type="Unstyled"></Button>
 					<Button class="sideNavBtn" app:fragmentName="Vouchers" text="Vouchers" id="vouchers" press="onCustomerNavigationSelect" type="Unstyled"></Button>
 					<Button class="sideNavBtn" app:fragmentName="PersonalDetails" text="Personal Details" id="personalDetails" press="onCustomerNavigationSelect" type="Unstyled"></Button>
 					<Text class="sideNavText" text="More"></Text>

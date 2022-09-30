@@ -11,14 +11,15 @@
             <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
             <HBox class="sapUiSmallMarginBottom">
                 <Button class="sapUiTinyMargin dialogSubmit" text="Submit" press=".onLoginSubmit" type="Unstyled" />
-                <Button class="sapUiTinyMargin loginPasswordForget" text="Password forget" press="onPasswordForgot" type="Unstyled" />
+                <Button class="sapUiTinyMargin loginPasswordForget" text="Password forget" press="onForgotOpen" type="Unstyled" />
             </HBox>
              <HBox class="sapUiSmallMarginBottom">
              <Button class="withSubmit sapUiTinyMargin " text="Google+" press=".onLoginGoogleOpen" type="Unstyled"  />
-              <Button class="withSubmit sapUiTinyMargin" text="Facebook+" press=".onLoginFBOpen" type="Unstyled"  />
+        
                <Button class="withSubmit sapUiTinyMargin" text="Guest+" press=".onLoginGuestOpen" type="Unstyled"  />
                </HBox>
-            <Link class="loginSignUp" text="Sign Up" press=".handleRegistration" />
+
+            <Link class="loginSignUp sapUiTinyMargin" text="Sign Up" press=".onRegisterOpen" />
         </VBox>
     </Dialog>
 </core:FragmentDefinition>

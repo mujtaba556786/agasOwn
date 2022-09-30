@@ -1,15 +1,32 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
-   <VBox class="sapUiSmallMargin">
-      <Text class="overviewHeader" text="Voucher"/>
-         <Text text="Your Credit: 0,00$ "/>
-         <Text text="You can used your vouchers for future order"/>
-         	
-            <Input placeholder="First Name" value=""/>
-            <Input placeholder="Last Name" value=""/>
-            <Input type="Email" placeholder="E-Mail" value=""/>
-         
-         <Button width="100%" class="dialogSubmit sapUiSmallMarginEnd" text="Send Message" press=".onEditPersonalDetails" type="Unstyled" />
-   </VBox>
+   <HBox class="widthso">
+      <VBox class="voucher">
+         <VBox class="downLine">
+            <Text class="overviewHeaderBold" text="Vouchers"/>
+
+            <Text text="Your Credit: 0,00$ " class="voucherCredit"/>
+            <Text text="You can use your vouchers for future orders." class="voucherText"/>
+         </VBox>
+         <VBox class="upLine">
+            <Text text="Do you want to redeem a Gift Card?" class="giftCard"/>
+            <Text text="Enter your gift card code to redeem the credit" class="giftCardCode"/>
+            <HBox class="redeem">
+               <Input value="" class="giftCard_input" id="gift_card" required="true"/>
+               <Button width="100%" class="redeemButton" text="Redeem" press=".onEditPersonalDetails" type="Unstyled" />
+            </HBox>
+         </VBox>
+      </VBox>
+
+      <VBox visible="false" backgroundDesign="Solid" class="proImage">
+         <Image src="{
+											path: 'view>/Goyna',
+											formatter : '.formatter.pictureUrl'
+											}" width="100%" height="100%" class="aboutUs mt4"/>
+
+         <Text text="Check our latest products" class="latestProducts"/>
+         <Button width="50%" class="continue_shopping continueShopping" text="Continue Shopping" press=".onContinueShopping" type="Unstyled" />
+      </VBox>
+   </HBox>
 </core:FragmentDefinition>

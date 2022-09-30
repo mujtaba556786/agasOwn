@@ -65,7 +65,7 @@
 					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
 						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress" />
 						<Title text="{oDataProducts>product_name}" wrapping="true" />
-						<ObjectNumber class="sapUiSmallMarginBottom" binding="{/ProductCollection/0}" number="{
+						<ObjectNumber class="sapUiSmallMarginBottom" number="{
 						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
@@ -88,22 +88,21 @@
 					</Toolbar>
 				</headerToolbar>
 				<Carousel pages="{path: 'oDataProducts>/',
-                        filters: [{path: 'ranking', operator: 'EQ', value1: 'best_seller'}],
-                        sorter: {path: 'id'}}">
+                        filters: [{path: 'ranking', operator: 'EQ', value1: 'promoted'}],
+                        sorter: {path: '_id'}}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
 
 					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
-						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress"/>
+						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress" />
 						<Title text="{oDataProducts>product_name}" wrapping="true" />
-						<ObjectNumber class="sapUiSmallMarginBottom" binding="{/ProductCollection/0}" number="{
+						<ObjectNumber class="sapUiSmallMarginBottom" number="{
 						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" unit="{view>/Currency}" textAlign="Center"/>
-						<Button text="Buy Now" class="btn-abs-home" />
-
+						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
 			</Panel>
@@ -116,17 +115,16 @@
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
-				<Image src="{
+				<Panel class="newsletter-btn-wrap">
+				<HBox class="newsLetterSection">
+					<Button type="Unstyled" class="newsLetterButton newsLetterEmailButton" text="Click here to Subscribe us" press="handleNewsLetter"/>
+				</HBox>
+				<Image class="newsletterImage" src="{
 							path: 'view>/welcomeNews',
 							formatter : '.formatter.pictureUrl'
 						}" width="100%">
 				</Image>
-				<HBox class="newsletterBox">
-
-					<Input class="newsltterEmail" type="Email" placeholder="Enter Email" />
-					<Button type="Unstyled" class="newsletterButton" text="Subscribe" press="onPress"/>
-
-				</HBox>
+				</Panel>
 
 			</Panel>
 

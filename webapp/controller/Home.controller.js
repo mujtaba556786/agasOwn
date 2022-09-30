@@ -78,7 +78,15 @@ sap.ui.define([
 			//var oList = sap.ui.getCore().byId("mainCategoryList");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilters, "Application");
-		}
+		},
+		onPress: function(oEvent){
+			alert("POPO");
+		},
+
+		
+
+
+
 
 	});
 });

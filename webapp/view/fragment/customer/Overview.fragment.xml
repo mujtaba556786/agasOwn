@@ -1,17 +1,95 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
-   <VBox>
-      <VBox class="sapUiSmallMargin" >
-         <Text class="overviewHeader" text="Your Account" />
+   <!-- <VBox>
+      <VBox class="sapUiSmallMargin">
+         <Text class="overviewHeaderBolds" text="Checkout" />
+         <List delete=".onCartEntriesDelete"   items="{
+
+					path : 'oDataProducts>/cartEntries',
+					sorter : {
+						path : 'Name',
+						descending : false,
+                  noData : true
+					}
+				}" noDataText= "true">
          <Text class="overviewText" text="Welcome to private corner of agasown. you can manage your orders, returns and accounts" />
       </VBox>
-      <VBox class="sapUiSmallMargin" renderType="Bare">
+      <VBox class="sapUiSmallMargin marginleft" renderType="Bare">
          <Image class="overviewImage sapUiSmallMarginBottom" src="{path: 'view>/ShoppingBags',
          formatter : '.formatter.pictureUrl'
 			}" width="25%"/>
-         <Text text="Check our latest product"/>
-         <Button width="25%" class="dialogSubmit" text="Continue Shopping" press=".onLoginSubmit" type="Unstyled" />
+         <Text text="Check our latest product" class="latest_pro"/>
+         <Button width="25%" class="continue_shoppings" text="Continue Shopping" press=".onLoginSubmit" type="Unstyled" />
       </VBox>
-   </VBox>
+   </VBox> -->
+
+   <HBox>
+      <VBox class="sapUiSmallMargin bcEF">
+         <Text class="overviewHeaderBolds" text="Checkout" />
+         <List delete=".onCartEntriesDelete"   items="{
+
+					path : 'oDataProducts>/cartEntries',
+					sorter : {
+						path : 'Name',
+						descending : false,
+                  noData : false
+					}
+				}" noDataText="You have not purchased any products yet">
+            <CustomListItem class="bcEF">
+               <HBox>
+                  <Text text="`${oDataProducts}`" />
+               </HBox>
+               <HBox class="sapUiSmallMargin overallHBox" justifyContent="SpaceBetween" alignItems="Center">
+               <VBox class="avatarVBox">
+                  <Avatar displaySize="S" src="{
+							path : 'oDataProducts>picture',
+							formatter : '.formatter.picture'
+						}" class="avatar"/>
+                  </VBox>
+                  <VBox class="detailsSec">
+                     <Label text="{oDataProducts>product_name}" class="product_title"/>
+                     <Text class="product_color" text="{oGlobalModel>/detailProduct/color}"/>
+                     <Text class="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
+                     <HBox class="tryIt">
+                        <Button class="specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
+                        <Label class="buttonTexts" text="Remove |"/>
+                        <Button class="specialButtons" icon="sap-icon://heart-2" press="" type="Unstyled" />
+                        <Label class="buttonTexts" text=" Add to wishlist"/>
+                     </HBox>
+
+                  </VBox>
+                  <VBox class="addDetailsSec">
+                  <Text text="{oDataProducts>Quantity}" class="product_quantity"/>
+                  <ObjectNumber number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" class="product_price"/>
+               <Text text="You save 10%" class="price_discount"/>
+               </VBox>
+               </HBox>
+               
+            </CustomListItem>
+         </List>
+      </VBox>
+      <!-- <VBox class="upVBox">
+         <VBox visible="true" backgroundDesign="Solid" class="sideVBox">
+            <Text text="Total" class="totalText"/>
+            <HBox class="freeDelivery">
+               <Text text="Delivery" class="deliveryText"/>
+               <Text text="free" class="freeText"/>
+            </HBox>
+            <HBox class="totalVat">
+               <Text class="vatText" text="Total (VAT included)"/>
+               <Text class="priceText" text="164.00$"/>
+            </HBox>
+            <Button width="50%" class="continue_shopping continueShopping" text="Go To Checkout" press=".onContinueShopping" type="Unstyled" />
+         </VBox>
+         <VBox class="addVoucher">
+            <Text class="add_Vtext" text="Add a voucher(Optional)"/>
+         </VBox>
+      </VBox> -->
+   </HBox>
+
 </core:FragmentDefinition>

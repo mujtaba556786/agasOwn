@@ -14,7 +14,7 @@
 				<HBox class="sapUiSmallMargin" justifyContent="SpaceBetween" alignItems="Center">
 					<Avatar displaySize="M" src="{
 							path : 'oDataProducts>picture',
-							formatter : '.formatter.picture'
+							formatter : '.formatter.jsonPictureUrl'
 						}"/>
 					<VBox>
 						<Text text="{oDataProducts>Quantity} x"/>

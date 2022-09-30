@@ -36,36 +36,36 @@ sap.ui.define(
 
       onInit: function () {
         var oModel = new JSONModel({
-            SelectedPayment: "Credit Card",
-            SelectedDeliveryMethod: "Standard Delivery",
-            DifferentDeliveryAddress: false,
-            CashOnDelivery: {
-              FirstName: "",
-              LastName: "",
-              PhoneNumber: "",
-              Email: "",
-            },
-            InvoiceAddress: {
-              Address: "",
-              City: "",
-              ZipCode: "",
-              Country: "",
-              Note: "",
-            },
-            DeliveryAddress: {
-              Address: "",
-              Country: "",
-              City: "",
-              ZipCode: "",
-              Note: "",
-            },
-            CreditCard: {
-              Name: "",
-              CardNumber: "",
-              SecurityCode: "",
-              Expire: "",
-            },
-          }),
+          SelectedPayment: "Credit Card",
+          SelectedDeliveryMethod: "Standard Delivery",
+          DifferentDeliveryAddress: false,
+          CashOnDelivery: {
+            FirstName: "",
+            LastName: "",
+            PhoneNumber: "",
+            Email: "",
+          },
+          InvoiceAddress: {
+            Address: "",
+            City: "",
+            ZipCode: "",
+            Country: "",
+            Note: "",
+          },
+          DeliveryAddress: {
+            Address: "",
+            Country: "",
+            City: "",
+            ZipCode: "",
+            Note: "",
+          },
+          CreditCard: {
+            Name: "",
+            CardNumber: "",
+            SecurityCode: "",
+            Expire: "",
+          },
+        }),
           oReturnToShopButton = this.byId("returnToShopButton");
 
         this.getView().setModel(oModel);
@@ -85,7 +85,7 @@ sap.ui.define(
         // switch to single column view for checout process
         this.getRouter()
           .getRoute("checkout")
-          .attachMatched(function () {}.bind(this));
+          .attachMatched(function () { }.bind(this));
         // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         // console.log(oRouter)
         // oRouter.stop();
@@ -322,6 +322,12 @@ sap.ui.define(
           "invoiceAddressCountry",
         ]);
       },
+      newFunction:function(){
+        $(".sapMSegBBtnInner").click(function(){
+          $('.sapMSegBBtnInner').not(this).removeClass("activate");
+          $(this).addClass("activate");
+        });
+      },
 
       /**
        * Validates the delivery address step initially and after each input
@@ -508,20 +514,23 @@ sap.ui.define(
         oNavContainer.to(this.byId("wizardContentPage"));
       },
 
-      handleWizardSubmitss: function (oEvent) {
+      handleWizardSubmitss: async function (oEvent) {
         var selectedKey = this.getView()
           .getModel()
           .getProperty("/SelectedPayment");
         var total_Price2 = this.byId("totalPricefinal").getText();
         var total_Price1 = total_Price2.split(" ");
-        var total_price = total_Price1[1].split(",").join("");
-        // console.log(cardNumber);
-        // console.log(cardNumber1);
-        // console.log(total_price);
+        var total_price0 = total_Price1[1].split(",");
+        var total_price = total_price0[0];
+        console.log(total_Price2);
+        console.log(total_Price1);
+        console.log(total_price0);
+        console.log(total_price);
 
         var expDate = this.byId("creditCardExpirationDate").getValue();
         var expDate1 = expDate.slice(0, 2);
         var expYear = expDate.slice(3);
+        console.log
         // product details
         var oCartModels = this.getView()
           .getModel("oDataProducts")
@@ -540,39 +549,71 @@ sap.ui.define(
 
         if (selectedKey == "Credit Card" || selectedKey == "Dedit Card") {
           var formdata = new FormData();
-
-          formdata.append(
-            "card_number",
-            this.byId("creditCardNumber").getValue()
-          );
+          formdata.append("card_number", this.byId("creditCardNumber").getValue());
           formdata.append("exp_month", expDate1);
           formdata.append("exp_year", expYear);
-          formdata.append(
-            "cvc",
-            this.byId("creditCardSecurityNumber").getValue()
-          );
-          formdata.append("description", this.byId("noteArea").getValue());
+          formdata.append("cvc",this.byId("creditCardSecurityNumber").getValue());
+          formdata.append("description", "dsvdcv");
           formdata.append("name", this.byId("creditCardHolderName").getValue());
-          formdata.append("email", this.byId("loginEmailInput").getValue());
-          formdata.append("amount", total_price);
-          formdata.append("currency", "eur");
+          formdata.append("email",this.byId("loginEmailInput").getValue());
+          formdata.append("amount",total_price);
+          formdata.append("currency", "EUR");
+          
           var requestOptions = {
-            method: "POST",
+            method: 'POST',
             body: formdata,
-            redirect: "follow",
+            redirect: 'follow'
           };
-
-          fetch("http://127.0.0.1:8000/stripe/", requestOptions)
-            .then((response) => response.text())
-            .then(function (result) {
-              if (result == "payment Successful") {
-                window.location.replace("index.html#/payment");
-                alert("Payment Succesful");
-              } else {
-                alert("Payment Unsuccessful!");
-              }
+          
+          let resp = await fetch("http://127.0.0.1:8000/stripe/", requestOptions)
+            .then(response => {
+              return response.status
             })
-            .catch((error) => console.log("error", error));
+            // .then(result => {
+            //   return result.status
+            // })
+            .catch(error => alert('error', error));
+
+        console.log("popo",resp)
+        if(resp === 200){
+            var address = this.byId("invoiceAddressAddress").getValue();
+            var city = this.byId("invoiceAddressCity").getValue();
+            var state = this.byId("invoiceAddressCountry").getValue();
+            var zip = this.byId("invoiceAddressZip").getValue();
+            var email_id = this.byId("loginEmailInput").getValue();
+            var note = this.byId("noteArea").getValue();
+            var name = this.byId("cashOnDeliveryName").getValue();
+  
+  
+            var temParks = {
+              email_id: email_id,
+              mail_sender: "AgasOwn Marketing Team",
+              state: state,
+              city: city,
+              zip: zip,
+              address: address,
+              note: note,
+              name: name,
+              message_a: pro_Quantity,
+              message_b: total_price,
+              message_c: product_name,
+              message: product_price,
+              payment: "Payment dpne via Card"
+            };
+            emailjs.send('service_mr4cg1j', 'template_a7z62ad', temParks).then(function (res) {
+              console.log("success", res.status);
+              if (res.status === 200) {
+                alert("Order Accepted!");
+                window.location.replace("index.html#/payment");
+  
+              }
+              else {
+                alert("Error")
+              }
+            });
+        }else{
+          alert('order not accepted')
+        }
         } else if (selectedKey == "PayPal") {
           var formdata = new FormData();
           formdata.append("product_name", product_name);
@@ -586,9 +627,9 @@ sap.ui.define(
             redirect: "follow",
           };
 
-          fetch("http://127.0.0.1:8000/paypal-payment/", requestOptions)
+          fetch("http://127.0.0.1:8000/paypal/payment/", requestOptions)
             .then((response) => response.text())
-            .then((result) => window.open(result, "_blank"))
+            .then((result) => window.open(result, "_self"))
             .catch((error) => console.log("error", error));
 
         } else if (selectedKey == "Bank Transfer") {
@@ -617,10 +658,48 @@ sap.ui.define(
           };
           fetch("http://127.0.0.1:8000/stripe/sofort/", requestOptions)
             .then((response) => response.text())
-            .then((result) => window.open(result, "_blajnkjhjug"))
+            .then((result) => window.open(result, "_self"))
             .catch((error) => console.log("error", error));
+        }
+        else {
+          var address = this.byId("invoiceAddressAddress").getValue();
+          var city = this.byId("invoiceAddressCity").getValue();
+          var state = this.byId("invoiceAddressCountry").getValue();
+          var zip = this.byId("invoiceAddressZip").getValue();
+          var email_id = this.byId("loginEmailInput").getValue();
+          var note = this.byId("noteArea").getValue();
+          var name = this.byId("cashOnDeliveryName").getValue();
+
+
+          var temParks = {
+            email_id: email_id,
+            mail_sender: "AgasOwn Marketing Team",
+            state: state,
+            city: city,
+            zip: zip,
+            address: address,
+            note: note,
+            name: name,
+            message_a: pro_Quantity,
+            message_b: total_price,
+            message_c: product_name,
+            message: product_price,
+            payment: "Cash on Delivery"
+          };
+          emailjs.send('service_mr4cg1j', 'template_a7z62ad', temParks).then(function (res) {
+            console.log("success", res.status);
+            if (res.status === 200) {
+              alert("Order Accepted!");
+              window.location.replace("index.html#/payment");
+
+            }
+            else {
+              alert("Error")
+            }
+          });
         }
       },
     });
   }
 );
+

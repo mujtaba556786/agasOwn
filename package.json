@@ -33,5 +33,13 @@
     "emailjs": "4.0.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mujtaba556786/agasOwn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mujtaba556786/agasOwn/issues"
+  },
+  "homepage": "https://github.com/mujtaba556786/agasOwn#readme"
 }

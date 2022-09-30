@@ -1,17 +1,78 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
-   <VBox>
+  <!-- <VBox>
       <VBox class="sapUiSmallMargin">
-         <Text class="overviewHeader" text="Order" />
-         <Text text="You have'nt Shop with us"/>
+         <Text class="overviewHeaderBold" text="Orders" />
       </VBox>
-      <VBox class="sapUiSmallMargin" renderType="Bare">
+      <VBox class="sapUiSmallMargin leftSpace" renderType="Bare">
          <Image class="overviewImage sapUiSmallMarginBottom" src="{path: 'view>/ShoppingCart',
          formatter : '.formatter.pictureUrl'
-			}" width="25%"/>
-          <Text text="Check our latest product"/>
-         <Button width="25%" class="dialogSubmit" text="Continue Shopping" press=".onLoginSubmit" type="Unstyled" />
+			}" width="20%"/>
+     
+<Text text="You haven't shopped with us yet." class="shoppingText"/>
+
+          <Text text="Check our latest products" class="checkText"/>
+         <Button width="25%" class="continue_shopping" text="Continue Shopping" press=".onContinueShopping" type="Unstyled" />
       </VBox>
-   </VBox>
+   </VBox> -->
+
+   <HBox>
+      <VBox class="sapUiSmallMargin bcEF">
+         <Text class="overviewHeaderBolds" text="Your Orders" />
+         <List delete=".onCartEntriesDelete"   items="{
+					path : 'oDataProducts>/cartEntries',
+					sorter : {
+						path : 'Name',
+						descending : false,
+                  noData : false
+					}
+				}" noDataText="Your Cart is empty!">
+            <CustomListItem class="bcEF">
+               <HBox>
+                  <Text text="`${oDataProducts}`" />
+               </HBox>
+               <HBox class="sapUiSmallMargin overallHBox" justifyContent="SpaceBetween" alignItems="Center">
+               <VBox class="avatarVBox">
+                  <Avatar displaySize="S" src="{
+							path : 'oDataProducts>picture',
+							formatter : '.formatter.picture'
+						}" class="avatar"/>
+                  </VBox>
+                  <VBox class="detailsSec">
+                     <Label text="{oDataProducts>product_name}" class="product_title"/>
+                     <Text class="product_color" text="{oGlobalModel>/detailProduct/color}"/>
+                     <Text class="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
+                     <HBox class="tryIt">
+                        <Button class="specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
+                        <Label class="buttonTexts" text="Remove |"/>
+                        <Button class="specialButtons" icon="sap-icon://heart-2" press="" type="Unstyled" />
+                        <Label class="buttonTexts" text=" Add to wishlist"/>
+                     </HBox>
+                     
+
+                  </VBox>
+                  <VBox class="addDetailsSec">
+                  <Text text="{oDataProducts>Quantity}" class="product_quantity"/>
+                  <Text text="{path : 'oDataProducts>/cartEntries',
+						formatter : '.formatter.totalPrice'
+					}" class="product_price"/>
+               <Text text="Dispatched" class="price_discount"/>
+               </VBox>
+               </HBox>
+               
+            </CustomListItem>
+         </List>
+      </VBox>
+      <VBox visible="false" backgroundDesign="Solid" class="proImage">
+               <Image src="{
+											path: 'view>/Goyna',
+											formatter : '.formatter.pictureUrl'
+											}" width="100%" height="100%" class="aboutUs mt4"/>
+
+               <Text text="Check our latest products" class="latestProducts"/>
+               <Button width="50%" class="continue_shopping continueShopping" text="Continue Shopping" press=".onContinueShopping" type="Unstyled" />
+            </VBox>
+   </HBox>
+
 </core:FragmentDefinition>

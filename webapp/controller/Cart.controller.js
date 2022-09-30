@@ -23,6 +23,7 @@ sap.ui.define([
 		formatter: formatter,
 
 		onInit: function () {
+			
 			this._oRouter = this.getRouter();
 			this._oRouter.getRoute("cart").attachPatternMatched(this._routePatternMatched, this);
 			//this._oRouter.getRoute("productCart").attachPatternMatched(this._routePatternMatched, this);

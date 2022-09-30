@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Dialog id="ForgotDialog" class="ForgotDialog" showHeader="false">
+        <VBox alignItems="End" class="sapUiSmallMargin">
+            <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onForgotClose" type="Unstyled"/>
+        </VBox>
+        <VBox fitContainer="true" class="sapUiSmallMargin">
+            <Text class="dialogTitle sapUiSmallMarginBottom" text="Forgot Password?"/>
+            <Label class="dialogLabel" text="Email address" labelFor="EmailAddressInput" />
+            <Input  class="sapUiTinyMargin inputEntry" id="emailInput" placeholder="sampleemail.com"></Input>           
+            <HBox >
+                <Button width="12rem" class="dialogSubmit" text="Submit" type="Unstyled" press=".emailvalidate"></Button>
+            </HBox>
+        <HBox>
+            <Link class="loginSignUp sapUiTinyMargin" text="Sign Up" press=".onRegisterOpen" />
+            
+       <Link class="loginSignUp sapUiTinyMargin" text="Login" press=".onLoginOpen" />
+
+       </HBox>
+        </VBox>
+        
+
+    </Dialog>
+
+</core:FragmentDefinition>

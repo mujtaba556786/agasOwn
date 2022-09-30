@@ -13,7 +13,7 @@
     "ach": "ach",
     "dataSources": {
       "product_data_alias":{
-        "uri": "http://18.194.155.205:8000/products/?$format=json",
+        "uri": "http://127.0.0.1:8000/products/?$format=json",
 				"type": "Json"
       },
       "category_data_alias":{
@@ -145,6 +145,16 @@
           "target": ["payment"]
         },
         {
+          "pattern": "wishlist",
+          "name": "wishlist",
+          "target": ["wishlist"]
+        },
+        {
+          "pattern": "newpassword?token={relativeLink}",
+          "name": "newpassword",
+          "target": ["newpassword"]
+        },
+        {
 					"pattern": "customer",
 					"name": "customer",
 					"target": ["customer"]
@@ -200,6 +210,16 @@
           "viewType":"XML",
           "viewName":"Payment",
           "viewId":"payment"
+        },
+        "wishlist":{
+          "viewType":"XML",
+          "viewName":"Wishlist",
+          "viewId":"wishlist"
+        },
+        "newpassword":{
+          "viewType":"XML",
+          "viewName":"Newpassword",
+          "viewId":"newpassword"
         },
         "customer": {
           "viewType": "XML",

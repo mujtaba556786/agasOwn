@@ -1,23 +1,24 @@
 /* Enter your custom styles here */
 .agasown .sapMPageHeader {
-  background: transparent
-    linear-gradient(0deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0% no-repeat
-    padding-box;
+  background: transparent linear-gradient(0deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
 }
+
 /* ------------menu hover-------------- */
-.menu{
+.menu {
   background-color: transparent;
   border: none;
 
 }
- .menu .sapMBtnIcon {
+
+.menu .sapMBtnIcon {
   color: #3f183b;
   cursor: pointer;
 }
-.menu .sapMBtnIcon:hover{
+
+.menu .sapMBtnIcon:hover {
   color: #df3165;
-} 
+}
 
 /* .menu1:hover .Menu2 {
   background-color: rebeccapurple;
@@ -38,31 +39,36 @@
   text-transform: uppercase;
   color: green !important;
 }
-.sapMBarRight > .sapMBarChild:not(.sapMTB) {
+
+.sapMBarRight>.sapMBarChild:not(.sapMTB) {
   color: green !important;
   cursor: pointer;
 }
+
 #__button0 {
   margin-right: 0 !important;
 }
+
 #__button1 {
   margin-left: 0;
 }
+
 #__button1-content {
   text-transform: capitalize;
 }
+
 /* ------------menu hover--end---------------- */
 
 /*-------------------- footer css------------ */
 .footter {
-  background: transparent
-    linear-gradient(0deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0% no-repeat
-    padding-box;
+  background: transparent linear-gradient(0deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
 }
+
 .fotter #__panel8-content {
   padding: 2% 7%;
 }
+
 .footer-hbox #__image21 {
   height: 90%;
 }
@@ -70,30 +76,37 @@
 .footter .sapMLnk {
   color: #3f183b;
 }
+
 .footter .sapMLnk:hover {
   color: #df3165;
   border-bottom: none;
 }
+
 .footter .sapMText {
   margin-bottom: 25px;
   font-size: 1.875rem;
 }
+
 .footter .sapMListHdrText {
   margin-bottom: 25px;
   font-size: 1.875rem;
   border-bottom: none;
 }
+
 .footter .sapFAvatarImageCover {
   color: #3f183b;
 }
+
 .footter .sapFAvatarImageCover:hover {
   color: #df3165;
 }
+
 /*-----------------footer css end ------------*/
 
 .sapMShellBrandingBar {
   background-color: #3f183b;
 }
+
 /*text*/
 .agasown .sapMTitle {
   color: #3f183b;
@@ -108,12 +121,13 @@
   opacity: 1;
 }
 
-/*newlletter*/
+/*newsletter*/
 .agasown .newsletter {
   position: relative;
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 0.73;
 }
+
 .agasown .newsletterBox {
   position: absolute;
   top: 50%;
@@ -141,15 +155,18 @@
   color: #fff;
   background: #df3165 0% 0% no-repeat padding-box;
 }
+
 /*Category*/
 .categoryBox {
   position: relative;
   box-sizing: border-box;
   transition: all ease-in-out 0.2s;
 }
+
 .categoryBox:hover {
   transform: scale(1.1, 1.1);
 }
+
 .categoryBoxText {
   position: absolute;
   top: 50%;
@@ -163,16 +180,20 @@
   height: 30px;
   line-height: 25px;
 }
+
 .vbox-c-home {
   position: relative;
 }
+
 .vbox-c-home div:nth-child(1) img {
   box-sizing: border-box;
   transition: all ease-in-out 0.5s;
 }
+
 .vbox-c-home div:nth-child(1) img:hover {
   transform: scale(1.1, 1.1);
 }
+
 .vbox-c-home div:nth-child(4) {
   position: absolute;
   top: 36%;
@@ -183,9 +204,11 @@
   background-color: #3f183b;
   color: #f1f1f1;
 }
+
 .vbox-c-home:hover div:nth-child(4) {
   display: inline-block;
 }
+
 .vbox-c-home:hover div:nth-child(4) button span {
   background-color: #3f183b;
   color: #f1f1f1;
@@ -199,19 +222,23 @@
   text-transform: uppercase;
   opacity: 1;
 }
+
 /*---------------- header fragment css start ------------------ */
 /* my code ... */
 .headerBar {
-height: 95px;
+  height: 95px;
 }
+
 .sapMBarPH {
   height: 100%;
 }
+
 .headerBar .sapMImg {
   width: 150px;
   height: 60px;
   object-fit: cover;
 }
+
 /*---------------- header fragment css end ------------------ */
 
 /* ------------------product detail start--------- */
@@ -230,6 +257,7 @@ height: 95px;
   margin: 3px 0px;
   margin-left: 11%;
 }
+
 #__image19-__carousel3-0,
 #__image19-__carousel3-1,
 #__image19-__carousel3-2,
@@ -239,6 +267,7 @@ height: 95px;
   object-fit: contain;
   transition: all 1s;
 }
+
 #__image19-__carousel3-0:hover,
 #__image19-__carousel3-1:hover,
 #__image19-__carousel3-2:hover,
@@ -246,14 +275,17 @@ height: 95px;
   width: 100%;
   height: 150px;
 }
+
 #__hbox6,
 #__hbox7 {
   align-items: start;
 }
+
 #__label0,
 #__label1 {
   font-weight: 900;
 }
+
 #container-agasown---productDetail--product_color,
 #container-agasown---productDetail--product_dimension {
   margin-left: 3px;
@@ -269,9 +301,11 @@ height: 95px;
   height: 100%;
   transition: all ease-in-out 2s;
 }
+
 .vbox-abs:hover .image-abs {
   transform: scale(1.2, 1.1);
 }
+
 .vbox-abs div:nth-child(2),
 .vbox-abs div:nth-child(2),
 .vbox-abs div:nth-child(2) {
@@ -287,6 +321,7 @@ height: 95px;
 .vbox-abs:hover div:nth-child(2) {
   display: inline-block;
 }
+
 /* .vbox-abs:hover #__button5-__carousel1-0 {
   display: inline-block;
 } */
@@ -296,19 +331,33 @@ height: 95px;
   background-color: #3f183b;
   color: #f1f1f1;
 }
+
 .btn-abs {
   color: white;
   background-color: #3f183b;
 }
-.checkoutSteps .sapMWizardProgressNavStepCircle{
-  background-color: #3f183b;
+
+.checkoutSteps .sapMWizardProgressNavStepCircle {
+  background-color: orange;
+  border: orange 2px;
+  color: white !important;
 
 }
+
+.checkoutSteps .sapMWizardProgressNavStepCircle {
+  background-color: orange;
+  border: orange 2px;
+  color: white !important;
+  background-color: rgba(255, 165, 0, 0.966);
+}
+
 /* checkout page nav bar */
 .sapMWizardProgressNav {
   padding: 1rem 0.5rem;
   margin-top: 46px;
+  background-color: rgb(254, 253, 252) !important;
 }
+
 /* ------------------product detail end--------- */
 
 .fotterImage {
@@ -318,16 +367,20 @@ height: 95px;
   object-fit: cover;
   margin: -10% -128px -10% 0px;
 }
+
 .fotterLink .sapMLnk,
 .fotterLink .sapMText {
   color: #3f183b;
 }
+
 .fotterLink .sapMLnk:hover {
   color: #df3165;
 }
+
 .fotterAvatar .sapFAvatar {
   border: none;
 }
+
 .fotterAvatar .sapFAvatar:hover {
   color: #3f183b;
 }
@@ -336,6 +389,7 @@ height: 95px;
   color: #df3165;
   background: transparent;
 }
+
 .agasown .menusapMBtnIcon:hover {
   color: #df3165;
   background: transparent;
@@ -346,11 +400,13 @@ height: 95px;
   height: fit-content;
   object-fit: contain;
 }
+
 .agasown .categoryLogo .sapMImg {
   width: 150px;
   height: fit-content;
   object-fit: contain;
 }
+
 .agasown .categoryLogo .sapMImageContent {
   width: 6rem;
 }
@@ -358,6 +414,7 @@ height: 95px;
 .agasown .menuBorder {
   border-right: solid;
 }
+
 .agasown .menuLinks {
   color: #3f183b;
   display: block;
@@ -370,9 +427,11 @@ height: 95px;
 .agasown .menuLinks:active {
   color: #df3165;
 }
+
 .agasown .menuLinks:hover {
   color: #3f183b;
 }
+
 .agasown .icon {
   color: #3f183b;
 }
@@ -451,10 +510,9 @@ height: 95px;
   height: 300px;
   display: none;
 }
+
 .agasown .fotter {
-  background: transparent
-    linear-gradient(180deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0%
-    no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0% no-repeat padding-box;
 }
 
 .agasown .fotter .imageFotter {
@@ -464,12 +522,15 @@ height: 95px;
 .agasown .productName {
   font-size: 15px;
 }
+
 .agasown .priceStatusBox {
   border-bottom: 1px solid black;
 }
+
 .agasown .productStatus {
   color: #ff0000;
 }
+
 .agasown .productCart .sapMBtnInner {
   background-color: #df3165;
 
@@ -486,19 +547,23 @@ height: 95px;
   height: 360px;
   width: 615px;
 }
+
 .productBuyNow {
   color: #fff;
   background-color: #000;
   border-radius: 30px;
 }
+
 .productBuyNow:hover {
   background-color: none;
   color: none;
 }
+
 .productBuyNow .sapMBtnTransparent {
   background-color: none;
   color: #fff;
 }
+
 .productFavourite {
   border-radius: 30px;
 }
@@ -507,23 +572,29 @@ height: 95px;
   background: white;
   border: none;
 }
+
 .dialogCloseBtn .sapMBtnIcon {
   color: #3f183b;
   cursor: pointer;
 }
+
 .dialogCloseBtn .sapMBtnIcon:hover {
   color: #df3165;
 }
+
 .dialogTitle {
   color: #3f183b;
   font-size: larger;
 }
+
 .dialogLabel {
   color: #c6c6c6;
 }
+
 .dialogLabel1 {
   color: #666;
 }
+
 .dialogSubmit {
   background-color: #3f183b;
   color: #fff;
@@ -536,6 +607,7 @@ height: 95px;
 .dialogSubmit:hover {
   color: #df3165;
 }
+
 .withSubmit {
   background-color: #df3165;
   width: 100px;
@@ -566,41 +638,51 @@ height: 95px;
   cursor: pointer;
   border: none;
 }
+
 .loginDialog .loginSignUp {
   color: #3f183b;
 }
+
 .loginDialog .sapMLnk:hover:not(.sapMLnkDsbl) {
   color: #df3165;
 }
+
 /**************
 *  Login Dialog End
 ***************/
 .overviewImage {
   object-fit: cover;
+  padding: 0 70px;
 }
-.overviewHeader {
-  font-size: xx-large;
-  color: black;
-}
+
 .overviewHeader {
   color: black;
+  font-size: 40px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
+
 .sideNav {
   width: 25%;
 }
+
 .sideNavText {
   columns: #000;
   font-size: large;
 }
+
 .sideNavBtn {
   background: transparent;
   color: #3f183b;
   border: none;
   cursor: pointer;
 }
+
 .sideNavBtn:hover {
   color: #df3165;
 }
+
 /***Cart CSS***/
 .cartButtonCheckOut {
   background-color: #df3165;
@@ -608,31 +690,934 @@ height: 95px;
   color: #fff;
   cursor: pointer;
 }
+
 .cartButtonCheckOut:hover {
   color: #3f183b;
 }
+
 .cartButton {
   border: none;
   background-color: #3f183b;
 }
+
 .cartButton .sapMBtnIcon {
   color: #fff;
   cursor: pointer;
 }
+
 .cartButton .sapMBtnIcon:hover {
   color: #df3165;
 }
-.logerName{
+
+.logerName {
   margin-left: 40px;
 }
-#container-agasown---checkout--orderSummaryStep-nextButton{
+
+#container-agasown---checkout--orderSummaryStep-nextButton {
   display: none !important;
 }
+
 /* #__hbox37{
   display: flex !important;
   flex-direction: column !important;
 } */
-.hbox5{
+.hbox5 {
   display: flex !important;
   flex-direction: column !important;
+}
+
+/* Registration Fragment.xml */
+
+#container-agasown---home--registrationDialog-cont {
+  width: 50rem !important;
+}
+
+.registrationText {
+  color: #DF3165 !important;
+  font-size: 25px;
+}
+
+.div {
+  width: 100% !important;
+  position: relative;
+}
+
+.lnLabel,
+.cpLabel {
+  width: 48% !important;
+  left: 52% !important;
+  position: absolute !important;
+  bottom: 3.2rem;
+}
+
+.cpLabel {
+  bottom: 4rem !important;
+}
+
+.fnLabel,
+.fnInput,
+.pwLabel,
+.pwInput {
+  width: 48% !important;
+}
+
+.lnInput,
+.cpInput {
+  width: 48% !important;
+  left: 52% !important;
+  position: absolute !important;
+  bottom: 32% !important;
+}
+
+.dialogSubmitNew {
+  background-color: #df3165;
+  color: #fff;
+  border-radius: 2.2rem;
+  width: 163px;
+  cursor: pointer;
+  border: none;
+  font-size: 20px !important;
+}
+
+.dialogSubmitNew:hover {
+  color: #df3165;
+  background-color:#3F183B;
+}
+#container-agasown---home--NewsLetterDialog{
+  width: 40% !important;
+}
+@media only screen and (max-device-width: 1100px) {
+  #container-agasown---home--NewsLetterDialog{
+    width: 70% !important;
+  }
+}
+@media only screen and (max-device-width: 610px) {
+  #container-agasown---home--NewsLetterDialog{
+    width: 100% !important;
+  }
+}
+
+.lastBox {
+  margin-top: 1rem;
+}
+
+.returnCustomer {
+  color: #ABABAB !important;
+  padding-left: 5px !important;
+}
+
+.loginButton {
+  padding-left: 2px !important;
+  color: #637ED6 !important;
+}
+
+/* AboutUs Page  */
+.aboutUs {
+  border: 1px solid #707070;
+}
+
+
+.AboutUs {
+  padding: 30px 0;
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.AboutUs_text {
+  line-height: 25px;
+  font-size: 15px;
+  /* word-spacing: 1px; */
+  font-weight: 400;
+  color: #1A1A1A;
+  letter-spacing: 1px;
+  text-align: left;
+  font-family: "Poppins";
+}
+
+.centerVBox {
+  width: 370rem;
+}
+
+.lastVBox {
+  width: 160%;
+}
+
+.continue_shopping {
+  color: white;
+  width: 100%;
+  min-width: 2.25rem;
+  background-color: #1A1A1A;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  border: 1px solid #1A1A1A;
+  font-size: 15px;
+}
+
+.continue_shopping:hover {
+  color: #fafafa;
+  background-color: #df3165;
+  border: 1px solid #df3165;
+}
+
+.latestProducts {
+  font-size: 15px;
+  padding-top: 60px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center !important;
+}
+
+.mt4 {
+  margin-top: 40px !important;
+}
+
+.firstVBox {
+  width: 150%;
+  padding-top: 85px;
+}
+
+.moreText {
+  margin-top: 20px;
+}
+
+/* Personal Details  */
+.distance {
+  padding: 0px 20px;
+}
+
+.semifinal {
+  justify-content: left !important;
+}
+
+.final {
+  justify-content: left !important;
+  margin-left: 82px !important;
+}
+
+.VBox_PD {
+  width: 50rem;
+}
+
+.baton {
+  padding: 0 110px;
+  margin-top: 20px;
+  background-color: white;
+  border: 2px solid black;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.baton:hover {
+  background-color: #b2b2b2;
+  font-weight: 600;
+}
+
+.email_left {
+  left: 20px;
+}
+
+.EditButton {
+  left: 267px !important;
+}
+
+.topBottom {
+  margin-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.topBottoms {
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+.testtwo {
+  border: khaki;
+}
+
+/* ContactUs Page  */
+.send_message {
+  color: white;
+  width: 21.5%;
+  min-width: 8.5rem !important;
+  background-color: #1A1A1A;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  border: 1px solid #1A1A1A;
+  font-size: 15px;
+}
+
+.f_Hbox {
+  justify-content: space-between !important;
+  display: flex !important;
+}
+
+@media only screen and (max-device-width: 1180px) {
+  .f_Hbox {
+    justify-content: space-between !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .textArea_ContactUs {
+    width: 100% !important;
+  }
+
+  .ln_contactUs,
+  .on_contactUs {
+    right: 0px !important;
+  }
+
+  .fn_contactUs,
+  .em_contactUs {
+    min-width: auto !important;
+  }
+}
+
+.centerVBox_ContactUs {
+  padding: 0 100px !important;
+}
+
+.ln_contactUs,
+.on_contactUs {
+  width: 100% !important;
+  min-width: auto !important;
+  /* right: 40px; */
+}
+
+.fn_contactUs,
+.em_contactUs {
+  width: 100% !important;
+  min-width: auto !important;
+}
+
+/* Order Page  */
+.continueShopping {
+  background-color: #3F183B;
+  color: white;
+  width: 75% !important;
+  min-width: 7rem !important;
+  margin: 2% 12% !important;
+
+}
+
+.overviewHeaderBold {
+  text-align: left;
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.leftSpace {
+  padding: 0 30px;
+}
+
+.shoppingText {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.checkText {
+  padding: 8px 75px;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.extra_cs {
+  width: 25% !important;
+  min-width: 10rem !important;
+  margin: 2px 53px !important;
+}
+
+.bcEF {
+  background-color: #EFEFEF;
+  width: 40vw;
+  border: 1px solid #efefef;
+  border-radius: 20px;
+}
+
+.proImage {
+  width: 15vw;
+}
+
+/* Voucher CSS  */
+.widthso {
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+#__data21 {
+  width: 100% !important;
+}
+
+.voucher {
+  width: 100%;
+  padding: 0px 15px;
+}
+
+.voucherText {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 16px 0;
+  margin-bottom: 25px !important;
+}
+
+.voucherCredit {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin: 7px 0;
+}
+
+.downLine {
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 5px;
+}
+
+.upLine {
+  padding: 20px 0;
+}
+
+.giftCard {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px 0px;
+}
+
+.giftCardCode {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding-bottom: 20px;
+}
+
+.redeem {
+  justify-content: start !important;
+}
+
+.giftCard_input {
+  width: 120% !important;
+  min-width: 3rem !important;
+  border: 1px solid #a1a1a1;
+}
+
+.redeemButton {
+  width: 100%;
+  min-width: 2.25rem;
+  height: 40px;
+  top: 3px;
+  margin-left: 80px !important;
+  padding: 0 20px;
+  background: #1A1A1A;
+  border: 1px solid #1A1A1A;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+}
+
+.redeemButton:hover {
+  background-color: #3f183b;
+}
+
+@media only screen and (max-device-width: 898px) {
+  .redeem {
+    flex-direction: column;
+  }
+
+  .redeemButton {
+    width: 50% !important;
+    min-width: 5.25rem !important;
+    margin-left: 0 !important;
+  }
+
+  .giftCard_input {
+    width: 50% !important;
+  }
+}
+
+/* Overview CSS  */
+.continue_shoppings {
+  left: 7%;
+  min-width: 10rem !important;
+  color: white;
+  background-color: #1A1A1A;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  border: 1px solid #1A1A1A;
+  font-size: 15px;
+}
+
+.continue_shoppings:hover {
+  color: #fafafa;
+  background-color: #df3165;
+  border: 1px solid #df3165;
+}
+
+.latest_pro {
+  left: 10%;
+}
+
+.marginleft {
+  margin-left: 10% !important;
+}
+
+.addVoucher {
+  background-color: #efefef;
+  border: 1px solid #efefef;
+  border-radius: 30px;
+  padding: 5px 30px;
+  letter-spacing: 0.5px;
+  font-size: 20px;
+  font-weight: 500;
+  width: 20vw;
+}
+
+.sideVBox {
+  min-width: 20vw;
+  border: 1px solid #efefef;
+  background-color: #efefef;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.totalText {
+  padding: 30px;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+}
+
+.freeDelivery,
+.totalVat {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.deliveryText {
+  font-size: 20px;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+
+.vatText {
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.priceText {
+  font-weight: 600;
+  color: #000000;
+}
+
+.overviewHeaderBolds {
+  letter-spacing: 0.5px;
+  font-size: 30px;
+  padding: 30px;
+  color: #1a1a1a;
+}
+
+.avatarVBox {
+  border: 1px solid #707070;
+  padding: 40px 30px;
+  margin: 0 25px;
+  border-radius: 10px;
+}
+
+.product_title {
+  text-align: left;
+  font-size: 15px;
+  font-weight: 900;
+  margin: 20px 0;
+  padding-top: 5px;
+}
+.overallHBox{
+  display: flex;
+    justify-content: start;
+}
+.detailsSec{
+  padding: 0 20px;
+}
+.product_dimension,.product_color{
+  text-align: left;
+    font-size: 13px;
+    color: #989898;
+    font-weight: 500;
+    padding: 5px 0;
+}
+.product_color{
+    font-size: 12px !important;
+}
+.tryIt{
+  padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.specialButtons, .buttonTexts{
+  border: none;
+  color: #989898;
+}
+.product_quantity{
+  text-align: left;
+    border: 1px solid #989898;
+    padding: 10px 50px;
+    margin: 15px 0;
+}
+@media only screen and (max-device-width: 452px) and (min-device-width: 320px){
+  .section_one_data .product_quantity{
+      border: 1px solid #989898;
+      padding: 10px 20px;
+      margin: 15px 0;
+      text-align: center !important;
+  }
+  .section_one_data .addDetailsSec{
+    text-align: center !important;
+  }
+  .section_one_data .product_price{
+    text-align: center !important;
+  }
+  .section_one_data .product_overall_details{
+    flex-direction: column;
+  }
+}
+@media only screen and (max-device-width: 452px) and (min-device-width: 320px){
+  .panel .product_overall_details{
+    flex-direction: column;
+    margin-right: 20px
+    }
+    .panel .product_quantity{
+      padding: 10px 20px !important;
+    }
+    .exact_right{
+      top: 0px !important;
+    }
+    .panel .mimimum_list{
+      width: 81vw !important;
+    }
+
+}
+.addDetailsSec{
+  display: flex;
+    margin: 0 75px;
+    text-align: right;
+}
+.product_price{
+  text-align: right;
+  color: #ff3a3a !important;
+  padding: 1px 0!important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+}
+.price_discount{
+  font-size: 9px !important;
+  text-align: right !important;
+  color: #ff3a3a !important;
+  font-weight: 600 !important;
+}
+.upVBox{
+  top: 15px !important;
+}
+
+/* Checkout Page  */
+.product_overall_details{
+  display: flex;
+  justify-content: space-between;
+  width: 100% !important;
+}
+.totalprice_bar{
+  background-color:#df3165 !important;
+}
+#container-agasown---checkout--totalPricefinal{
+  color: white !important;
+}
+.totalPrice_final{
+  color: white !important;
+}
+.pal_payment{
+  display: flex !important;
+  justify-content:space-evenly;
+  padding: 25px !important;
+}
+#container-agasown---checkout--payViaCC-button,#container-agasown---checkout--payViaDC-button,#container-agasown---checkout--payViaBank-button, #container-agasown---checkout--payViaCOD-button,#container-agasown---checkout--payViaPayPal-button{
+  width: 35vw !important;
+  min-width: 150px !important;
+}
+#container-agasown---checkout--payViaCC-button,#container-agasown---checkout--payViaDC-button,#container-agasown---checkout--payViaBank-button, #container-agasown---checkout--payViaCOD-button,#container-agasown---checkout--payViaPayPal-button{
+  width:auto !important;
+}
+#container-agasown---checkout--paymentMethodSelection{
+  display: flex;
+    flex-direction: column;
+    /* width: 15.7vw !important; */
+}
+.step_left{
+  /* background-color: #df3165;
+  border: 1px solid #df3165; */
+  border-radius: 30px; 
+  display: flex;
+}
+.pal_pay{
+  border: 2px solid #efefef;
+    background-color: #efefef;
+    padding: 2vw;
+    margin: 5px;
+    border-radius: 30px;
+    width: 40vw;
+    height: 38vh;
+    min-width: 200px !important;
+}
+.sapMSegBBtnInner{
+  border: 1px solid #df3165 !important;
+  border-radius: 20px !important;
+  background-color: #df3165 !important;
+  margin: 0.5%;
+  font-weight: 600 !important;
+  color: #3F183B !important;
+ 
+}
+.sapMSegBBtnInner:hover{
+  border: 1px solid #3F183B !important;
+  border-radius: 20px !important;
+  background-color: #3F183B !important;
+  color: white !important;
+  margin: 0.5%;
+}
+.activate{
+  color: pink !important;
+  background-color: black !important;
+  border: 2px solid black !important;
+}
+.bankDetails{
+  border-radius: 30px;
+  color: #3F183B !important;
+  background-color: #efefef;
+}
+#__panel10-content{
+  border-bottom: none !important
+}
+.colorBlack{
+  color: #3F183B !important;
+  font-weight: 900 !important
+}
+.colorWhite{
+  color: #3F183B;
+}
+.deliveryAddress_form{
+    border-radius: 30px;
+    padding: 0 18vw;
+}
+@media only screen and (max-device-width: 629px) {
+  .deliveryAddress_form{
+    padding: 0 !important;
+  }
+}
+
+.form_data{
+  border: 5px solid #DF3165;
+  background-color: #efefef;
+  padding: 2vw;
+  border-radius: 30px;
+  width: 40vw;
+}
+.colorwhite{
+  color: #efefef !important;
+}
+.wrong_title{
+  background-color: red;
+}
+.mimimun_list,.deliveryType{
+  width: 100%;
+    border: 2px solid #DF3165 !important;
+    background-color: #DF3165 !important;
+    border-radius: 20px;
+    color: #3F183B !important;
+}
+.deliveryTypetext{
+  padding: 10px !important;
+  margin: 1px !important;
+  background-color: #EFEFEF !important;
+  color: #df3165 !important;
+  border-radius: 20px !important;
+  border: 1px solid #EFEFEF;
+}
+.amantil{
+  width: 299px !important;
+}
+.mimimum_list{
+  width: 40vw !important;
+  border: 2px solid #df3165 !important;
+    background-color: #df3165 !important;
+    border-radius: 20px;
+    padding: 2px 8px;
+}
+.section_one_data{
+  background-color: #efefef !important;
+  border: 1px solid #efefef !important;
+  border-radius: 20px !important;
+  margin-top: 1px;
+}
+.overHBox{
+  background-color: #efefef !important;
+  border-radius: 30px !important;
+  
+}
+@media only screen and (max-device-width: 629px) {
+  .overHBox{
+    flex-direction: column !important;
+  }
+}
+#__list2-nodata{
+  background-color: #efefef;
+  border:1px solid #efefef !important;
+  border-radius: 20px;
+}
+#container-agasown---checkout--creditCardNumber,#container-agasown---checkout--creditCardSecurityNumber{
+  width: 100% !important;
+}
+.deliveryType_Text{
+  border: 1px solid #efefef;
+    background-color: #efefef;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Order Summary  */
+
+.topHori{
+  display: flex;
+  flex-direction: column;
+}
+.final_checkOut{
+  display: flex;
+  justify-content: space-between;
+}
+.exact_right{
+  top: 65px;
+}
+.superSpecialButtons{
+  border-radius: 33% !important;
+}
+.image_pro{
+  background-color: #efefef;
+  border: 1px solid #efefef;
+  border-radius: 20px;
+}
+.product_show{
+  background-color: #efefef;
+    border-radius: 20px;
+    border: 1px solid #efefef;
+    margin: 10px 0;
+}
+.summaryBar{
+  display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+#container-agasown---checkout--submitOrder-inner{
+  color: greenyellow;
+  background-color: green !important;
+  border: 1px solid greenyellow !important;
+  border-radius: 20px;
+}
+#container-agasown---checkout--submitOrder-inner:hover{
+  background-color: white !important;
+  border: 1px solid green !important;
+}
+#container-agasown---checkout--cancelOrder-inner{
+  border-radius: 30px !important;
+    border: 1px solid rgb(236, 76, 76) !important;
+    color: white !important;
+    background-color: red !important;
+}
+#container-agasown---checkout--cancelOrder-inner:hover{
+    background-color:white !important;
+}
+@media only screen and (max-device-width: 970px) {
+  .final_checkOut{
+    display: flex;
+    flex-direction: column !important;
+  }
+  .mimimum_list{
+    width: 90vw !important;
+  }
+}
+@media only screen and (max-device-width: 1289px) {
+  .pal_payment{
+    flex-direction: column;
+  }
+  .pal_pay{
+    width: 100% !important;
+  }
+  .sideVBox{
+    width: 100% !important;
+    min-width: 200px !important;
+  }
+}
+@media only screen and (max-device-width: 380px) and (min-device-width:320px){
+  .pal_pay{
+    /* background-color: #3F183B !important; */
+    height: 268px !important;
+  }
+}
+/* @media only screen and (max-device-width: 1289px) and (min-device-width: 1112px){
+  .pal_pay{
+    min-height:36vh;
+    width: 100%;
+  }
+}
+@media only screen and (max-device-width: 2560px) and (min-device-width: 1290px){
+  .pal_pay{
+    min-height:37vh;
+  }
+}
+@media only screen and (max-device-width: 1111px) and (min-device-width: 421px){
+  .pal_pay{
+    min-height:35vh !important;
+  }
+} */
+/* Newsletter section  */
+.newsLetterSection{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  padding: 10px;
+  position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%,-50%) !important;
+}
+.newsletter-btn-wrap{
+  position: relative;
+}
+#container-agasown---home--newsLetterEmail-content{
+ border: none !important;
+}
+.newsLetteEmail{
+  border-radius: 30px !important;
+  border: 1px solid red !important;  
+  padding: 0 20px !important;
+  
+}
+.newsLetterEmailButton{
+  left: 10px !important;
+  border: 1px solid darkgrey;
+  background-color: black;
+  border-radius: 10px;
+  margin: 2px;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.newsLetterEmailButton:hover{
+  border:1px solid rgb(34, 85, 34) !important;
+  background-color: green !important;
 }

@@ -65,6 +65,8 @@ sap.ui.define(
           pinterest: "ag/agasown/img/pinterest.svg",
           ShoppingBags: "ag/agasown/img/ShoppingBags.jpg",
           ShoppingCart: "ag/agasown/img/ShoppingCart.jpg",
+          AboutUs: "ag/agasown/img/AboutUsPage.jpg",
+          Goyna: "ag/agasown/img/goyna.jpg",
           Promoted: [],
           Viewed: [],
           Favorite: [],
@@ -173,12 +175,12 @@ sap.ui.define(
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-console.log(selectedPath._id);
+        console.log(selectedPath._id);
         this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { detailProduct: selectedPath });
         this.getRouter().navTo("productDetail", {
-          detailObj: selectedPath._id,
+          detailObj: selectedPath.product_name,
         });
       },
 
@@ -208,26 +210,22 @@ console.log(selectedPath._id);
           sGoToCardId.setEnabled(true);
           cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
         }
-
       },
 
       onLoginOpen: function (oEvent) {
-// login log out fragment show
-          var uid = sessionStorage.getItem("uid");
-          var Guid = sessionStorage.getItem("Guid");
+        // login log out fragment show
+        var uid = sessionStorage.getItem("uid");
+        var Guid = sessionStorage.getItem("Guid");
         var oData = {
-          "uid": uid,
-          "Guid": Guid,
+          uid: uid,
+          Guid: Guid,
         };
         if (oData.uid == null && oData.Guid == null) {
           this.handleLogin(oEvent);
-        }else {
-        
+        } else {
           this.handleLogout(oEvent);
         }
       },
-
-  
 
       /**
        * Getter for the resource bundle.
@@ -261,27 +259,49 @@ console.log(selectedPath._id);
           oPopover.openBy(oMenu);
         });
       },
+      onWishlistShow: function (oEvent) {
+        //this.getRouter().navTo("cart");
+        var oMenu = oEvent.getSource();
+        var oView = this.getView();
+
+        // create popover
+        if (!this._oPopoverCart) {
+          this._oPopoverCart = Fragment.load({
+            id: oView.getId(),
+            name: "ag.agasown.view.fragment.Wishlist",
+            controller: this,
+          }).then(function (oPopover) {
+            oView.addDependent(oPopover);
+            return oPopover;
+          });
+        }
+        this._oPopoverCart.then(function (oPopover) {
+          oPopover.openBy(oMenu);
+        });
+      },
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
-        
+
         var uid = sessionStorage.getItem("uid");
+        var pid  =sessionStorage.getItem("single");
         var oData = {
-          "uid": uid,
+          uid: uid,
+          pid: pid
         };
 
-        if ( oData.uid !== null) {
+        if (oData.uid !== null && oData.pid!==null) {
           this.getRouter().navTo("checkout");
-        }
-        else if (oData.uid === null) {
+        } else if (oData.uid === null) {
           this.getRouter().navTo("home");
           MessageToast.show("You must login first!");
         }
-     
-        else {
+        else if (oData.pid === null) {
+          this.getRouter().navTo("home");
+          MessageToast.show("You must add some item!");
+        } else {
           this.getRouter().navTo("#");
           MessageToast.show("You must add some item");
         }
-
       },
       onNavBack: function () {
         var oHistory = History.getInstance();
@@ -306,7 +326,7 @@ console.log(selectedPath._id);
       },
 
       onLoginSubmit: function () {
-        var _sUrl = "http://18.194.155.205:8000/login/";
+        var _sUrl = "http://127.0.0.1:8000/login/";
         var _sLoginEmail = this.byId("loginEmailInput").getValue();
         var _sLoginPassword = this.byId("loginPasswordInput").getValue();
         var oData = {
@@ -317,18 +337,18 @@ console.log(selectedPath._id);
           .onPost(_sUrl, oData)
           .then((oSuccess) => {
             this.onLoginSucces(oSuccess);
+            this.getRouter().navTo("customer");
           })
           .catch((oError) => {
             MessageBox.error(oError.responseText);
           });
 
-          const myUniversallyUniqueID = globalThis.crypto.randomUUID();
-          var oData = {
-            uid: myUniversallyUniqueID,
-          };
-          sessionStorage.setItem("uid", myUniversallyUniqueID);
+        // const myUniversallyUniqueID = globalThis.crypto.randomUUID();
+        // var oData = {
+        //   uid: myUniversallyUniqueID,
+        // };
+        // sessionStorage.setItem("uid", myUniversallyUniqueID);
       },
-      //CUSTOM CODE FOR USER NAME
 
       onLoginSucces: function (oData) {
         var oGlobalModel = this.getView().getModel("oGlobalModel");
@@ -337,70 +357,71 @@ console.log(selectedPath._id);
         this.myName = oData.first_name;
         var oViewModel = new JSONModel({ myName: this.myName });
         this.getView().setModel(oViewModel, "view10");
-
-
+        var req_id = oData.id;
+        var _sUrl = "http://127.0.0.1:8000/customers";
+        this.getService()
+          .onGet(_sUrl)
+          .then((oSuccess) => {
+            var this_id = oSuccess[req_id - 1]._id;
+            sessionStorage.setItem("uid",this_id);
+          })
+          .catch((oError) => {
+            MessageBox.error(oError.responseText);
+          });
       },
 
-      onLoginGoogleOpen:function(e) {
+      onLoginGoogleOpen: function (e) {
         //open in same window
         window.location.href = "http://localhost:5000/auth/google";
         //open in new window
         // window.open("http://localhost:5000/auth/google");
-      
+
         window.onbeforeunload = function () {
-          return  "Are you sure want to LOGOUT the session ?";
-      }; 
-      const myUniversallyUniqueID = globalThis.crypto.randomUUID();
-      sessionStorage.setItem("uid", myUniversallyUniqueID);
-     },
-  //    onLoginFBOpen:function(e) {
-  //     var iNumber = e.getSource();
-  //     //open in same window
-  //     window.location.href = "http://localhost:3000/auth/facebook";
-  //     //open in new window
-  //     // window.open("http://localhost:5000/google/callback"+iNumber);
-  //     const myUniversallyUniqueID = globalThis.crypto.randomUUID();
-  //     sessionStorage.setItem("uid", myUniversallyUniqueID);
-  //  },
+          return "Are you sure want to LOGOUT the session ?";
+        };
+        const myUniversallyUniqueID = globalThis.crypto.randomUUID();
+        sessionStorage.setItem("uid", myUniversallyUniqueID);
+      },
+      //    onLoginFBOpen:function(e) {
+      //     var iNumber = e.getSource();
+      //     //open in same window
+      //     window.location.href = "http://localhost:3000/auth/facebook";
+      //     //open in new window
+      //     // window.open("http://localhost:5000/google/callback"+iNumber);
+      //     const myUniversallyUniqueID = globalThis.crypto.randomUUID();
+      //     sessionStorage.setItem("uid", myUniversallyUniqueID);
+      //  },
 
-
-  onLoginGuestOpen:function() {
-    const myUniversallyUniqueIDG = globalThis.crypto.randomUUID();
-    sessionStorage.setItem("Guid", myUniversallyUniqueIDG);
-    this._mLoginDialog.then(function (oDialog) {
-      oDialog.close();
-    });
-    window.onbeforeunload = function () {
-      return  "Are you sure want to LOGOUT the session ?";
-  }; 
-  MessageBox.success(
-		"You are successfully logged in", {
-			icon: MessageBox.Icon.INFORMATION,
-			title: "GUEST USER",
-			actions: [MessageBox.Action.OK],
-			emphasizedAction: MessageBox.Action.YES,
-		}
-	);
-21
-
-
-
-
- },
+      onLoginGuestOpen: function () {
+        const myUniversallyUniqueIDG = globalThis.crypto.randomUUID();
+        sessionStorage.setItem("Guid", myUniversallyUniqueIDG);
+        this._mLoginDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+        window.onbeforeunload = function () {
+          return "Are you sure want to LOGOUT the session ?";
+        };
+        MessageBox.success("You are successfully logged in", {
+          icon: MessageBox.Icon.INFORMATION,
+          title: "GUEST USER",
+          actions: [MessageBox.Action.OK],
+          emphasizedAction: MessageBox.Action.YES,
+        });
+      },
 
       onNavToCustomer: function () {
         var uid = sessionStorage.getItem("uid");
         var Guid = sessionStorage.getItem("Guid");
-        if ( uid !== null) {
+        if (uid !== null) {
           this.getRouter().navTo("customer");
-        } else if( Guid !== null) {
+        } else if (Guid !== null) {
           MessageToast.show("You must login first!");
-        }else{
+        } else {
           this.getRouter().navTo("home");
         }
       },
       onLogout: function () {
-        var _sUrl = "http://18.194.155.205:8000/logout/";
+        var _sUrl = "http://127.0.0.1:8000/logout/";
         var oGlobalModel = this.getView().getModel("oGlobalModel");
         var oCustomer = oGlobalModel.getData().customer;
 
@@ -411,6 +432,7 @@ console.log(selectedPath._id);
         sessionStorage.removeItem("uid");
         sessionStorage.removeItem("Guid");
         sessionStorage.removeItem("myvalue5");
+        sessionStorage.removeItem("single");
         var oCustomer = oGlobalModel.getData().customer;
         var oHeaderToken = {
           Authorization: "Bearer " + oCustomer.token.access_token,
@@ -444,10 +466,58 @@ console.log(selectedPath._id);
           oDialog.open();
         });
       },
-     
 
       onLoginClose: function () {
         this._mLoginDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+      },
+
+      handleNewsLetter: function () {
+        var oView = this.getView();
+        // creates requested dialog if not yet created
+        if (!this._mNewsLetterDialog) {
+          this._mNewsLetterDialog = Fragment.load({
+            id: oView.getId(),
+            name: "ag.agasown.view.fragment.dialog.Newsletter",
+            controller: this,
+          }).then(function (oDialog) {
+            oView.addDependent(oDialog);
+            return oDialog;
+          });
+        }
+        this._mNewsLetterDialog.then(function (oDialog) {
+          oDialog.open();
+        });
+      },
+
+      onNewsLetter: function () {
+        this._mNewsLetterDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+      },
+      handleForgot: function () {
+        this.onLoginClose();
+        var oView = this.getView();
+        // creates requested dialog if not yet created
+        if (!this._mForgotDialog) {
+          this._mForgotDialog = Fragment.load({
+            id: oView.getId(),
+            name: "ag.agasown.view.fragment.dialog.Forgot",
+            controller: this,
+          }).then(function (oDialog) {
+            oView.addDependent(oDialog);
+            return oDialog;
+          });
+        }
+        this._mForgotDialog.then(function (oDialog) {
+          // opens the requested dialog
+          oDialog.open();
+        });
+      },
+
+      onForgotClose: function () {
+        this._mForgotDialog.then(function (oDialog) {
           oDialog.close();
         });
       },
@@ -462,11 +532,10 @@ console.log(selectedPath._id);
             id: oView.getId(),
             name: "ag.agasown.view.fragment.dialog.Logout",
             controller: this,
-          })
-            .then(function (oPopover) {
-              oView.addDependent(oPopover);
-              return oPopover;
-            });
+          }).then(function (oPopover) {
+            oView.addDependent(oPopover);
+            return oPopover;
+          });
         }
         this._pLogoutPopover.then(function (oPopover) {
           oPopover.openBy(oButton);
@@ -490,13 +559,251 @@ console.log(selectedPath._id);
           oDialog.open();
         });
       },
+
+      //Shawan
+      onLoginPage: function (oEvent) {
+        this.handleLogin(oEvent);
+        this._mRegistrationDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+      },
+      onContinueShopping: function () {
+        this.getRouter().navTo("home");
+      },
+      onSendMessage: function () {
+        var text = this.byId("text_cu").getValue();
+        var fname = this.byId("fn_cu").getValue();
+        var lname = this.byId("ln_cu").getValue();
+        var email = this.byId("email_cu").getValue();
+        var order = this.byId("on_cu").getValue();
+        var oDataNew = {
+          text: text,
+          fname: fname,
+          lname: lname,
+          email: email,
+          order: order,
+        };
+        var text_clear = this.getView().byId("text_cu");
+        var fn_clear = this.getView().byId("fn_cu");
+        var ln_clear = this.getView().byId("ln_cu");
+        var email_clear = this.getView().byId("email_cu");
+        var order_clear = this.getView().byId("on_cu");
+        text_clear.setValue("");
+        fn_clear.setValue("");
+        ln_clear.setValue("");
+        email_clear.setValue("");
+        order_clear.setValue("");
+        if (
+          oDataNew.email &&
+          oDataNew.text &&
+          oDataNew.lname &&
+          oDataNew.fname &&
+          oDataNew.order
+        ) {
+          var tempParams = {
+            from_name: oDataNew.fname,
+            last: oDataNew.lname,
+            to_name: "Agas'Own Marketing Team",
+            message: oDataNew.text,
+            email_id: oDataNew.email,
+            order_id: oDataNew.order,
+          };
+          emailjs
+            .send("service_mr4cg1j", "template_yxbawkk", tempParams)
+            .then(function (res) {
+              console.log("success", res.status);
+              if (res.status === 200) {
+                MessageToast.show(
+                  "We received your queries, We will contact you soon!"
+                );
+              } else {
+                MessageToast.show(
+                  `${oDataNew.fname} , Sorry! You are not connected with us.`
+                );
+              }
+            });
+        } else {
+          MessageToast.show("All Fields are mandatory!");
+        }
+      },
+
+      onCustomerNavigationSelect: function (oEvent) {
+        var uid = sessionStorage.getItem("uid");
+        var Guid = sessionStorage.getItem("Guid");
+        if (uid !== null) {
+          this.getRouter().navTo("customer");
+        } else if (Guid !== null) {
+          MessageToast.show("You must login first!");
+        } else {
+          MessageToast.show("You must login first!");
+          this.getRouter().navTo("home");
+        }
+      },
+      // Shawan ends
+
       handleRegistrationClose: function () {
         this._mRegistrationDialog.then(function (oDialog) {
           oDialog.close();
         });
       },
+      //reset password
+      emailvalidate: function () {
+        // alert("forgot click!!")
+        var email = this.getView().byId("emailInput").getValue();
+
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+
+        if (!mailregex.test(email)) {
+          alert(email + " is not a valid email address");
+
+          this.getView()
+            .byId("emailInput")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          this.getView()
+            .byId("emailInput")
+            .setValueState(sap.ui.core.ValueState.None);
+          alert("email send!");
+          var formdata = new FormData();
+          formdata.append("email", this.byId("emailInput").getValue());
+          var requestOptions = {
+            method: "POST",
+            body: formdata,
+            redirect: "follow",
+          };
+
+          fetch("http://127.0.0.1:8000/request_reset_email/", requestOptions)
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log("error", error));
+          this._mForgotDialog.then(function (oDialog) {
+            oDialog.close();
+          });
+        }
+      },
+      onReturnToShopButtonPress: function () {
+        this.getRouter().navTo("home");
+      },
+      //
+      onPasswordSubmit: function (oEvent) {
+        var _sPasswordInput1 = this.byId("passwordInput1").getValue();
+        var _sConfirmPasswordInput1 = this.byId(
+          "confirmPasswordInput1"
+        ).getValue();
+
+        // var relative_link = document.location.hash.split("=")[1].split("Q")[1];
+        var uidb64 = document.location.hash.split("=")[1].split("_")[1];
+        var token = document.location.hash.split("=")[1].split("_")[2];
+        alert(uidb64);
+        alert(token);
+
+        if (!_sPasswordInput1 || !_sConfirmPasswordInput1) {
+          location.reload();
+          alert("Enter valid password");
+          this.getView()
+            .byId("passwordInput1")
+            .setValueState(sap.ui.core.ValueState.Error);
+          this.getView()
+            .byId("_sConfirmPasswordInput1")
+            .setValueState(sap.ui.core.ValueState.Error);
+          // alert("field is empty!");
+        } else if (_sPasswordInput1 != _sConfirmPasswordInput1) {
+          location.reload();
+          alert("not match");
+          this.getView()
+            .byId("passwordInput1")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          var formdata = new FormData();
+          formdata.append(
+            "password",
+            this.byId("confirmPasswordInput1").getValue()
+          );
+          formdata.append("uidb64", uidb64);
+          formdata.append("token", token);
+
+          var requestOptions = {
+            method: "PATCH",
+            body: formdata,
+            redirect: "follow",
+          };
+          fetch("http://127.0.0.1:8000/reset_password/", requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+              // location.reload();
+              MessageToast.show("Reset Password Done!");
+            })
+            .catch((error) => console.log("error", error));
+        }
+      },
+      onForgotOpen: function (oEvent) {
+        this.handleForgot(oEvent);
+      },
+      onRegisterOpen: function (oEvent) {
+        this.handleRegistration(oEvent);
+      },
+      EmailJs: async function () {
+        var _nwUrl = "http:///127.0.0.1:8000/newsletter/";
+        var _nwfirstName = this.byId("firstNameInput1").getValue();
+        var _nwlastName = this.byId("lastNameInput1").getValue();
+        var _nwEmail = this.byId("emailInput1").getValue();
+        let exist_emails = new Array();
+
+        await this.getService()
+          .onGet(_nwUrl)
+          .then((oSuccess) => {
+            var i = oSuccess.length;
+            for (var input = 0; input < i; input++) {
+              var req_ans = oSuccess[input]?.email;
+              exist_emails.push(req_ans.toLowerCase().trim());
+            };
+          });
+        var oDataa = {
+          salutation: "Mr.",
+          first_name: _nwfirstName,
+          last_name: _nwlastName,
+          email: _nwEmail,
+          data_acceptance: true,
+
+          agasown: "Aga'sOwn Marketing Team",
+          message: "You subscribe to Aga'sOwn Shopping Site",
+          text: "Testing",
+          user_email: "dhirenderrawat@forcebolt.com",
+        };
+        if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
+          this.getService()
+            .onPost(_nwUrl, oDataa)
+            .then((oSuccess) => {
+              MessageBox.success("Successfully subscribed!");
+
+            })
+            .catch((oError) => {
+              console.log(oError);
+              MessageBox.error("Hey! Mail id already exist!");
+            });
+        }
+        else {
+          MessageToast.show("Mail id already exist!");
+          MessageBox.error("Hey! Mail id already exist!");
+        }
+        // Send mail through EmailJs
+        // emailjs
+        //   .send("service_iqmgnpc", "template_um2rjon", oDataa)
+        //   .then(function (res) {
+        //     console.log("success", res.status);
+        //     if (res.status === 200) {
+        //       alert(`Heya ${oDataa.first_name}, Subscription added!`);
+        //       MessageToast.show(
+        //         "You will receive mail soon regarding your subscription!"
+        //       );
+        //     } else {
+        //       alert("Error");
+        //     }
+        //   });
+      },
+
       onSubmit: function (oEvent) {
-        var _sUrl = "http://18.194.155.205:8000/sign-up/";
+        var _sUrl = "http:///127.0.0.1:8000/sign-up/";
         var _sfirstName = this.byId("firstNameInput").getValue();
         var _slastName = this.byId("lastNameInput").getValue();
         var _sEmail = this.byId("emailInput").getValue();
@@ -515,7 +822,9 @@ console.log(selectedPath._id);
         this.getService()
           .onPost(_sUrl, oData)
           .then((oSuccess) => {
+            console.log(oSuccess.detail);
             MessageBox.success(oSuccess.detail);
+
           })
           .catch((oError) => {
             MessageBox.error(oError.responseJSON.detail);

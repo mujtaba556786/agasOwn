@@ -1,14 +1,37 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f"
-   xmlns:core="sap.ui.core">
-   <VBox class="sapUiSmallMargin">
-      <Text class="overviewHeader" text="Conatct Us"/>
-         <Text text="How can we help?"/>
-         	<TextArea placeholder="Write your message" value="" rows="8" cols="30"/>
-            <Input placeholder="First Name" value=""/>
-            <Input placeholder="Last Name" value=""/>
-            <Input type="Email" placeholder="E-Mail" value=""/>
-         
-         <Button width="100%" class="dialogSubmit sapUiSmallMarginEnd" text="Send Message" press=".onEditPersonalDetails" type="Unstyled" />
-   </VBox>
+   xmlns:core="sap.ui.core"
+   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+   <HBox>
+
+      <!-- <VBox backgroundDesign="Solid" class="sapUiSmallMargin centerVBox centerVBox_ContactUs">
+         <Text text="Contact Us" class="AboutUs"/>
+         <Text text="How can we help?" class="AboutUs_text"/>
+         <TextArea width="100%" rows="8" placeholder="Write Your Message" value="" class="sapUiTinyMargin textArea_ContactUs" id="text_cu" required="true">
+         </TextArea>
+         <HBox class="f_Hbox">
+         <Input placeholder="First Name" value="" class="sapUiTinyMargin fn_contactUs" id="fn_cu" type="text" required="true"/>
+         <Input placeholder="Last Name" value="" class="sapUiTinyMargin ln_contactUs" id="ln_cu" type="text" required="true"/>
+         </HBox>
+         <HBox class="f_Hbox">
+         <Input placeholder="Email" value="" class="sapUiTinyMargin em_contactUs" id="email_cu" required="true"/>
+         <Input placeholder="Order Number" value="" class="sapUiTinyMargin on_contactUs" id="on_cu" required="true"/>
+         </HBox>
+         <Button class="sapUiTinyMargin send_message" text="Send Message" press=".onSendMessage" type="Unstyled" />
+
+      </VBox>
+
+      <VBox visible="true" backgroundDesign="Solid" class="categories sapUiSmallMargin lastVBox">
+         <Image src="{
+											path: 'view>/Goyna',
+											formatter : '.formatter.pictureUrl'
+											}" width="100%" height="100%" class="aboutUs mt4"/>
+
+         <Text text="Check our latest products" class="latestProducts"/>
+         <Button width="100%" class="continue_shopping" text="Continue Shopping" press=".onContinueShopping" type="Unstyled" />
+
+
+      </VBox> -->
+   </HBox>
 </core:FragmentDefinition>
