@@ -563,9 +563,21 @@
   background-color: none;
   color: #fff;
 }
-
-.productFavourite {
-  border-radius: 30px;
+/* span#__button12-inner{
+  background-color:#EB4B77 !important ;
+} */
+/* .productFavourite{ */
+  /* background-color: transparent !important; */
+/* } */
+.bgcol span:first-child{
+  /* border-radius: 30px; */
+  background-color: #EB4B77;
+  border: none;
+}
+.bgcol span:first-child:hover{
+  /* border-radius: 30px !important; */
+  background-color: #EB4B77 !important;
+  border: none;
 }
 
 .dialogCloseBtn {

@@ -94,6 +94,7 @@ sap.ui.define(
         cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
       },
       onAddToWishList: function (oEvent) {
+       
         var login_id = sessionStorage.getItem("uid");
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
@@ -128,49 +129,104 @@ sap.ui.define(
 
           fetch("http://64.227.115.243:8080/wishlist/", requestOptions)
             .then((response) => response.text())
-            .then((result) =>  MessageToast.show(JSON.parse(result).message))
-            .catch((error) => console.log("error", error));
-        }
-      },
-      onDeleteFromWishList: function (oEvent) {
-        var login_id = sessionStorage.getItem("uid");
-        var oSelectedPath = this.getView()
-          .getModel("oGlobalModel")
-          .getData().detailProduct;
-        var product_id = oSelectedPath._id;
-        console.log("product_id", product_id);
-        var customer_id = sessionStorage.getItem("uid");
-
-        if (!login_id) {
-          MessageToast.show("You have to login first");
-          var uid = sessionStorage.getItem("uid");
-          var Guid = sessionStorage.getItem("Guid");
-          var oData = {
-            uid: uid,
-            Guid: Guid,
-          };
-          if (oData.uid == null && oData.Guid == null) {
-            this.handleLogin(oEvent);
-          } else {
-            this.handleLogout(oEvent);
+            .then((result) => {
+              console.log(result);
+              // MessageToast.show(JSON.parse(result).message)
+             
+            if(JSON.parse(result).message ==="Product already exists")
+              {
+               
+                var login_id = sessionStorage.getItem("uid");
+                var oSelectedPath = this.getView()
+                  .getModel("oGlobalModel")
+                  .getData().detailProduct;
+                var product_id = oSelectedPath._id;
+                console.log("product_id", product_id);
+                var customer_id = sessionStorage.getItem("uid");
+        
+                if (!login_id) {
+                  MessageToast.show("You have to login first");
+                  var uid = sessionStorage.getItem("uid");
+                  var Guid = sessionStorage.getItem("Guid");
+                  var oData = {
+                    uid: uid,
+                    Guid: Guid,
+                  };
+                  if (oData.uid == null && oData.Guid == null) {
+                    this.handleLogin(oEvent);
+                  } else {
+                    this.handleLogout(oEvent);
+                  }
+                } else {
+                  var formdata = new FormData();
+                  formdata.append("customer_id", customer_id);
+                  formdata.append("product_id", product_id);
+        
+                  var requestOptions = {
+                    method: "DELETE",
+                    body: formdata,
+                    redirect: "follow",
+                  };
+        
+                  fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
+                    .then((response) => response.text())
+                    .then((result) => MessageToast.show(JSON.parse(result).message))
+                    .catch((error) => console.log("error", error));
+                }
+                $(".productFavourite").click(function(){
+                  $(this).addClass("bgcol");
+                });
+              }else{
+                $(".productFavourite").click(function(){
+                  $(this).removeClass("bgcol");
+                });
+                MessageToast.show("Added Successfully")
+              }
+              
+              })
+              .catch((error) => console.log("error", error));
           }
-        } else {
-          var formdata = new FormData();
-          formdata.append("customer_id", customer_id);
-          formdata.append("product_id", product_id);
-
-          var requestOptions = {
-            method: "DELETE",
-            body: formdata,
-            redirect: "follow",
-          };
-
-          fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
-            .then((response) => response.text())
-            .then((result) => MessageToast.show(JSON.parse(result).message))
-            .catch((error) => console.log("error", error));
-        }
+            
       },
+      // onDeleteFromWishList: function (oEvent) {
+      //   var login_id = sessionStorage.getItem("uid");
+      //   var oSelectedPath = this.getView()
+      //     .getModel("oGlobalModel")
+      //     .getData().detailProduct;
+      //   var product_id = oSelectedPath._id;
+      //   console.log("product_id", product_id);
+      //   var customer_id = sessionStorage.getItem("uid");
+
+      //   if (!login_id) {
+      //     MessageToast.show("You have to login first");
+      //     var uid = sessionStorage.getItem("uid");
+      //     var Guid = sessionStorage.getItem("Guid");
+      //     var oData = {
+      //       uid: uid,
+      //       Guid: Guid,
+      //     };
+      //     if (oData.uid == null && oData.Guid == null) {
+      //       this.handleLogin(oEvent);
+      //     } else {
+      //       this.handleLogout(oEvent);
+      //     }
+      //   } else {
+      //     var formdata = new FormData();
+      //     formdata.append("customer_id", customer_id);
+      //     formdata.append("product_id", product_id);
+
+      //     var requestOptions = {
+      //       method: "DELETE",
+      //       body: formdata,
+      //       redirect: "follow",
+      //     };
+
+      //     fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
+      //       .then((response) => response.text())
+      //       .then((result) => MessageToast.show(JSON.parse(result).message))
+      //       .catch((error) => console.log("error", error));
+      //   }
+      // },
     });
   }
 );

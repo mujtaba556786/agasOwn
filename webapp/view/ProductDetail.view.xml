@@ -59,9 +59,9 @@
 							<VBox>
 								<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
 							</VBox>
-							<VBox>
+							<!-- <VBox>
 								<Button class="productFavourite" icon="sap-icon://delete" press=".onDeleteFromWishList"/>
-							</VBox>
+							</VBox> -->
 						</HBox>
 						<Button class="productBuyNow" type="Transparent" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
 						<layoutData>
