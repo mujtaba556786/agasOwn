@@ -72,6 +72,7 @@ sap.ui.define(
           Favorite: [],
           Currency: "EUR",
           pagesCount: iPagesCount,
+         
         });
         this.getView().setModel(oViewModel, "view");
       },
@@ -326,7 +327,7 @@ sap.ui.define(
       },
 
       onLoginSubmit: function () {
-        var _sUrl = "http://127.0.0.1:8000/login/";
+        var _sUrl = "http://64.227.115.243:8080/login/";
         var _sLoginEmail = this.byId("loginEmailInput").getValue();
         var _sLoginPassword = this.byId("loginPasswordInput").getValue();
         var oData = {
@@ -337,37 +338,74 @@ sap.ui.define(
           .onPost(_sUrl, oData)
           .then((oSuccess) => {
             this.onLoginSucces(oSuccess);
+            var ans = oSuccess?.token?.access_token;
+            sessionStorage.setItem("access_token", ans);
             this.getRouter().navTo("customer");
           })
           .catch((oError) => {
             MessageBox.error(oError.responseText);
           });
-
-        // const myUniversallyUniqueID = globalThis.crypto.randomUUID();
-        // var oData = {
-        //   uid: myUniversallyUniqueID,
-        // };
-        // sessionStorage.setItem("uid", myUniversallyUniqueID);
       },
 
-      onLoginSucces: function (oData) {
-        var oGlobalModel = this.getView().getModel("oGlobalModel");
-        oGlobalModel.setProperty("/customer", oData);
-        this.onNavToCustomer();
+      onLoginSucces: async function (oData) {
+        var access_token = sessionStorage.getItem("access_token");
+        var req_id = oData.id
         this.myName = oData.first_name;
-        var oViewModel = new JSONModel({ myName: this.myName });
-        this.getView().setModel(oViewModel, "view10");
-        var req_id = oData.id;
-        var _sUrl = "http://127.0.0.1:8000/customers";
-        this.getService()
-          .onGet(_sUrl)
+        this.myLastName = oData.last_name;
+        this.myUserName = oData.first_name + oData.last_name;
+        this.email = oData.email;
+        this.credit_card_type_id = "credit_card_type_id";
+        var myHeaders = new Headers();
+        var oHeaderToken = {
+          Authorization: "Bearer " + access_token,
+        };
+        myHeaders.append("Authorization", oHeaderToken.Authorization);
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+          first_name: this.myName,
+          last_name: this.myLastName,
+          username: this.myUserName,
+          email: this.email,
+          credit_card_type_id: this.credit_card_type_id,
+        });
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
+        };
+
+        fetch("http://64.227.115.243:8080/customers/", requestOptions)
+          .then((response) => response.text())
           .then((oSuccess) => {
-            var this_id = oSuccess[req_id - 1]._id;
-            sessionStorage.setItem("uid",this_id);
+            console.log(oSuccess);
           })
-          .catch((oError) => {
-            MessageBox.error(oError.responseText);
-          });
+          .catch((error) => console.log("error", error));
+          //GET Method
+          var headEr = new Headers();
+          var TokenPass = {
+            Authorization: "Bearer " + access_token,
+          };
+          headEr.append("Authorization", TokenPass.Authorization);
+          
+          var req_ans = {
+            method: 'GET',
+            headers: headEr,
+            redirect: 'follow'
+          };
+          
+          await fetch("http://64.227.115.243:8080/customers/", req_ans)
+            .then(response => response.text())
+            .then(result => {
+              const res = JSON.parse(result).filter(data=>data.user === req_id)
+              var new_ans = res[0]?._id;
+              sessionStorage.setItem("uid",new_ans);
+
+
+            })
+            .catch(error => console.log('error', error));
       },
 
       onLoginGoogleOpen: function (e) {
@@ -382,15 +420,6 @@ sap.ui.define(
         const myUniversallyUniqueID = globalThis.crypto.randomUUID();
         sessionStorage.setItem("uid", myUniversallyUniqueID);
       },
-      //    onLoginFBOpen:function(e) {
-      //     var iNumber = e.getSource();
-      //     //open in same window
-      //     window.location.href = "http://localhost:3000/auth/facebook";
-      //     //open in new window
-      //     // window.open("http://localhost:5000/google/callback"+iNumber);
-      //     const myUniversallyUniqueID = globalThis.crypto.randomUUID();
-      //     sessionStorage.setItem("uid", myUniversallyUniqueID);
-      //  },
 
       onLoginGuestOpen: function () {
         const myUniversallyUniqueIDG = globalThis.crypto.randomUUID();
@@ -421,7 +450,7 @@ sap.ui.define(
         }
       },
       onLogout: function () {
-        var _sUrl = "http://127.0.0.1:8000/logout/";
+        var _sUrl = "http://64.227.115.243:8080/logout/";
         var oGlobalModel = this.getView().getModel("oGlobalModel");
         var oCustomer = oGlobalModel.getData().customer;
 
@@ -438,7 +467,7 @@ sap.ui.define(
           Authorization: "Bearer " + oCustomer.token.access_token,
         };
         this.getService()
-          .onPost(_sUrl, "", oHeaderToken)
+          .onPost(_sUrl, "" , oHeaderToken)
           .then((oSuccess) => {
             MessageBox.success(oSuccess);
             oGlobalModel.setProperty("/customer", "");
@@ -672,7 +701,7 @@ sap.ui.define(
             redirect: "follow",
           };
 
-          fetch("http://127.0.0.1:8000/request_reset_email/", requestOptions)
+          fetch("http://64.227.115.243:8080/request_reset_email/", requestOptions)
             .then((response) => response.text())
             .then((result) => console.log(result))
             .catch((error) => console.log("error", error));
@@ -727,7 +756,7 @@ sap.ui.define(
             body: formdata,
             redirect: "follow",
           };
-          fetch("http://127.0.0.1:8000/reset_password/", requestOptions)
+          fetch("http://64.227.115.243:8080/reset_password/", requestOptions)
             .then((response) => response.text())
             .then((result) => {
               // location.reload();
@@ -743,7 +772,7 @@ sap.ui.define(
         this.handleRegistration(oEvent);
       },
       EmailJs: async function () {
-        var _nwUrl = "http:///127.0.0.1:8000/newsletter/";
+        var _nwUrl = "http://64.227.115.243:8080/newsletter/";
         var _nwfirstName = this.byId("firstNameInput1").getValue();
         var _nwlastName = this.byId("lastNameInput1").getValue();
         var _nwEmail = this.byId("emailInput1").getValue();
@@ -803,7 +832,7 @@ sap.ui.define(
       },
 
       onSubmit: function (oEvent) {
-        var _sUrl = "http:///127.0.0.1:8000/sign-up/";
+        var _sUrl = "http://64.227.115.243:8080/sign-up/";
         var _sfirstName = this.byId("firstNameInput").getValue();
         var _slastName = this.byId("lastNameInput").getValue();
         var _sEmail = this.byId("emailInput").getValue();

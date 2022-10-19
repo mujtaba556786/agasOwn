@@ -565,7 +565,7 @@ sap.ui.define(
             redirect: 'follow'
           };
           
-          let resp = await fetch("http://127.0.0.1:8000/stripe/", requestOptions)
+          let resp = await fetch("http://64.227.115.243:8080/stripe/", requestOptions)
             .then(response => {
               return response.status
             })
@@ -627,7 +627,7 @@ sap.ui.define(
             redirect: "follow",
           };
 
-          fetch("http://127.0.0.1:8000/paypal/payment/", requestOptions)
+          fetch("http://64.227.115.243:8080/paypal/payment/", requestOptions)
             .then((response) => response.text())
             .then((result) => window.open(result, "_self"))
             .catch((error) => console.log("error", error));
@@ -656,7 +656,7 @@ sap.ui.define(
             body: formdata,
             redirect: "follow",
           };
-          fetch("http://127.0.0.1:8000/stripe/sofort/", requestOptions)
+          fetch("http://64.227.115.243:8080/stripe/sofort/", requestOptions)
             .then((response) => response.text())
             .then((result) => window.open(result, "_self"))
             .catch((error) => console.log("error", error));

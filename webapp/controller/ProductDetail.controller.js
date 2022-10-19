@@ -126,7 +126,7 @@ sap.ui.define(
             redirect: "follow",
           };
 
-          fetch("http://127.0.0.1:8000/wishlist/", requestOptions)
+          fetch("http://64.227.115.243:8080/wishlist/", requestOptions)
             .then((response) => response.text())
             .then((result) =>  MessageToast.show(JSON.parse(result).message))
             .catch((error) => console.log("error", error));
@@ -165,7 +165,7 @@ sap.ui.define(
             redirect: "follow",
           };
 
-          fetch("http://127.0.0.1:8000/wishlist/delete", requestOptions)
+          fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
             .then((response) => response.text())
             .then((result) => MessageToast.show(JSON.parse(result).message))
             .catch((error) => console.log("error", error));

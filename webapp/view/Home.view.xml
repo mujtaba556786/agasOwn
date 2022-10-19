@@ -79,16 +79,17 @@
 				<core:Fragment fragmentName="ag.agasown.view.fragment.SocialCarousel" type="XML" />
 			</Panel>
 
+		
 			<Panel id="panelSale" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Title text="Items On Sale" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<Title text="{i18n>itemsOnSale}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
 				<Carousel pages="{path: 'oDataProducts>/',
-                        filters: [{path: 'ranking', operator: 'EQ', value1: 'promoted'}],
+                        filters: [{path: 'ranking', operator: 'EQ'}],
                         sorter: {path: '_id'}}">
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />

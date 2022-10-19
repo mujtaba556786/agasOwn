@@ -13,11 +13,11 @@
     "ach": "ach",
     "dataSources": {
       "product_data_alias":{
-        "uri": "http://127.0.0.1:8000/products/?$format=json",
+        "uri": "http://64.227.115.243:8080/products/?$format=json",
 				"type": "Json"
       },
       "category_data_alias":{
-        "uri": "http://18.194.155.205:8000/category/?$format=json",
+        "uri": "http://64.227.115.243:8080/category/?$format=json",
 				"type": "Json"
       }
 		}
