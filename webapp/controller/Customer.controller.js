@@ -53,32 +53,36 @@ sap.ui.define(
 
       onCustomerNavigationWishlistSelect: function (oEvent) {
         var uid = sessionStorage.getItem("uid");
+        var access_token = sessionStorage.getItem("access_token");
         var wishlistItems =[];
-				var _newUrl = `http://127.0.0.1:8000/customers`;
+        var headEr = new Headers();
+          var TokenPass = {
+            Authorization: "Bearer " + access_token,
+          };
+          headEr.append("Authorization", TokenPass.Authorization);
 				var requestOptions = {
+					method: "GET",
+          headers: headEr,
+					redirect: "follow",
+				  };
+				var new_reqestOptions = {
 					method: "GET",
 					redirect: "follow",
 				  };
-				 fetch("http://127.0.0.1:8000/customers", requestOptions)
+				 fetch("http://64.227.115.243:8080/customers", requestOptions)
 				.then((response) => response.text())
 				.then((result) => {
 					const users = JSON.parse(result);
 					let currentUser =users.filter((user)=>user._id == uid)
-					console.log('hghgjh',currentUser)
-					fetch("http://127.0.0.1:8000/products/", requestOptions)
+					fetch("http://64.227.115.243:8080/products/", new_reqestOptions)
 				.then((response) => response.json())
 				.then((res) => {
 					var wishlistProduct = currentUser[0].wishlist;
 					
 					 wishlistItems = res.filter((elem) => wishlistProduct.split(',').find(( id ) => elem._id === id));
-					// console.log("erereerre",r);
+
 					var oViewModel = new JSONModel(wishlistItems);
 				  this.getView().setModel(oViewModel,"wish");
-					// const users = JSON.parse(result);
-					// let currentUser =users.filter((user)=>
-					// 		user._id == uid
-
-					// )
 			})
 				})
 				.catch((error) => console.log("error", error));

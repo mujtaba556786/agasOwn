@@ -10,7 +10,7 @@
   ],
   "main": "webapp/index.html",
   "scripts": {
-    "start": "fiori run --open 'index.html'",
+    "start": "env-cmd fiori run --open 'index.html'",
     "start-local": "fiori run --config ./ui5-local.yaml --open 'index.html'",
     "build": "ui5 build -a --clean-dest",
     "deploy": "fiori verify",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@sap/ux-ui5-tooling": "1",
-    "@ui5/cli": "2.7.1",
+    "@ui5/cli": "2.14.12",
     "@ui5/fs": "2.0.1",
     "@ui5/logger": "2.0.0"
   },
@@ -30,7 +30,9 @@
     ]
   },
   "dependencies": {
-    "emailjs": "4.0.0"
+    "dotenv": "16.0.3",
+    "emailjs": "4.0.0",
+    "env-cmd": "10.1.0"
   },
   "author": "",
   "license": "ISC",
