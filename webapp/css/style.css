@@ -552,6 +552,8 @@
   color: #fff;
   background-color: #000;
   border-radius: 30px;
+  width: 100%;
+  min-width: 30% !important
 }
 
 .productBuyNow:hover {
@@ -1633,3 +1635,28 @@
   border:1px solid rgb(34, 85, 34) !important;
   background-color: green !important;
 }
+.pdpVBox{
+display: flex;
+}
+@media only screen and (max-device-width: 870px) {
+  .pdpVBox{
+    display: flex;
+    flex-direction: column;
+  }
+}
+.mrButtons{
+  display: flex;
+}
+.productCart{
+ left: 50px !important;
+}
+@media only screen and (max-device-width: 460px){
+  .twoButtons{
+    display: flex;
+    flex-direction: column;
+  }
+  /* .productCart{
+    width: 300%!important;
+   } */
+}
+

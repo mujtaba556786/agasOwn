@@ -158,6 +158,9 @@ sap.ui.define(
                     this.handleLogout(oEvent);
                   }
                 } else {
+                //   $(".productFavourite").click(function(){
+                //   $(this).addClass("bgcol");
+                // });
                   var formdata = new FormData();
                   formdata.append("customer_id", customer_id);
                   formdata.append("product_id", product_id);
@@ -176,14 +179,25 @@ sap.ui.define(
                 $(".productFavourite").click(function(){
                   $(this).addClass("bgcol");
                 });
-              }else{
+              }
+              else{
+                
                 $(".productFavourite").click(function(){
                   $(this).removeClass("bgcol");
                 });
                 MessageToast.show("Added Successfully")
               }
-              
-              })
+              // if(JSON.parse(result).message ==="Product already exists"){
+              //   $(".productFavourite").click(function(){
+              //     $(this).removeClass("bgcol");
+              //   });
+              // }else{
+              //   $(".productFavourite").click(function(){
+              //     $(this).addClass("bgcol");
+              //   });
+              // }
+            })
+            
               .catch((error) => console.log("error", error));
           }
             
