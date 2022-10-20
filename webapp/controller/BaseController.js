@@ -260,26 +260,26 @@ sap.ui.define(
           oPopover.openBy(oMenu);
         });
       },
-      onWishlistShow: function (oEvent) {
-        //this.getRouter().navTo("cart");
-        var oMenu = oEvent.getSource();
-        var oView = this.getView();
+      // onWishlistShow: function (oEvent) {
+      //   //this.getRouter().navTo("cart");
+      //   var oMenu = oEvent.getSource();
+      //   var oView = this.getView();
 
-        // create popover
-        if (!this._oPopoverCart) {
-          this._oPopoverCart = Fragment.load({
-            id: oView.getId(),
-            name: "ag.agasown.view.fragment.Wishlist",
-            controller: this,
-          }).then(function (oPopover) {
-            oView.addDependent(oPopover);
-            return oPopover;
-          });
-        }
-        this._oPopoverCart.then(function (oPopover) {
-          oPopover.openBy(oMenu);
-        });
-      },
+      //   // create popover
+      //   if (!this._oPopoverCart) {
+      //     this._oPopoverCart = Fragment.load({
+      //       id: oView.getId(),
+      //       name: "ag.agasown.view.fragment.Wishlist",
+      //       controller: this,
+      //     }).then(function (oPopover) {
+      //       oView.addDependent(oPopover);
+      //       return oPopover;
+      //     });
+      //   }
+      //   this._oPopoverCart.then(function (oPopover) {
+      //     oPopover.openBy(oMenu);
+      //   });
+      // },
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
 
@@ -338,7 +338,7 @@ sap.ui.define(
           .onPost(_sUrl, oData)
           .then((oSuccess) => {
             this.onLoginSucces(oSuccess);
-            var ans = oSuccess?.token?.access_token;
+            var ans = oSuccess.token.access_token;
             sessionStorage.setItem("access_token", ans);
             this.getRouter().navTo("customer");
           })
@@ -400,7 +400,7 @@ sap.ui.define(
             .then(response => response.text())
             .then(result => {
               const res = JSON.parse(result).filter(data=>data.user === req_id)
-              var new_ans = res[0]?._id;
+              var new_ans = res[0]._id;
               sessionStorage.setItem("uid",new_ans);
 
 
@@ -783,7 +783,7 @@ sap.ui.define(
           .then((oSuccess) => {
             var i = oSuccess.length;
             for (var input = 0; input < i; input++) {
-              var req_ans = oSuccess[input]?.email;
+              var req_ans = oSuccess[input].email;
               exist_emails.push(req_ans.toLowerCase().trim());
             };
           });

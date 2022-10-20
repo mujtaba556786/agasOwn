@@ -19,8 +19,8 @@
     "int-tests": "fiori run --open test/integration/opaTests.qunit.html"
   },
   "devDependencies": {
-    "@sap/ux-ui5-tooling": "1",
-    "@ui5/cli": "2.14.12",
+    "@sap/ux-ui5-tooling": "1.7.6",
+    "@ui5/cli": "2.7.1",
     "@ui5/fs": "2.0.1",
     "@ui5/logger": "2.0.0"
   },
@@ -30,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "@sap/generator-fiori": "1.7.6",
     "dotenv": "16.0.3",
     "emailjs": "4.0.0",
     "env-cmd": "10.1.0"

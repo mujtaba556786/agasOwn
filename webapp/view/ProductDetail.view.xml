@@ -15,7 +15,7 @@
 						<Title text="Product Detail" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
 					</Toolbar>
 				</headerToolbar>
-				<HBox justifyContent="SpaceBetween" class="sapUiLargeMarginTop">
+				<HBox justifyContent="SpaceBetween" class="sapUiLargeMarginTop pdpVBox">
 					<VBox class="slideshow">
 						<HBox class="big">
 							<Image id="bigImg" 
@@ -49,21 +49,24 @@
 							<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
 						</HBox>
 
-						<HBox justifyContent="SpaceBetween">
-							<VBox>
-								<StepInput value="{detailView>/value}" min="{detailView>/min}" textAlign="Center" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
+						<HBox justifyContent="SpaceBetween" class="mrButtons">
+						<HBox class="twoButtons">
+							<VBox class="secondBut">
+								<StepInput value="{detailView>/value}" class="productQuant" min="{detailView>/min}" textAlign="Center" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
 							</VBox>
-							<VBox>
+								<VBox class="firstBut">
 								<Button type="Transparent" width="200px" class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
 							</VBox>
-							<VBox>
+							</HBox>
+							<VBox >
 								<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
 							</VBox>
+							
 							<!-- <VBox>
 								<Button class="productFavourite" icon="sap-icon://delete" press=".onDeleteFromWishList"/>
 							</VBox> -->
 						</HBox>
-						<Button class="productBuyNow" type="Transparent" width="100%" text="Buy it Now" press=".onAddToCartDetails"/>
+						<Button class="productBuyNow" type="Transparent" text="Buy it Now" press=".onAddToCartDetails"/>
 						<layoutData>
 							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
 						</layoutData>
