@@ -81,23 +81,8 @@ sap.ui.define([
 		 * @param {*} oCollection2 
 		 */
 		jsonPictureUrl: function (sUrl) {
-			var that = this;
-			this.bUrlExist = false;
-			var request = new XMLHttpRequest();
-			request.open("GET", sUrl, true);
-			request.send();
-			request.onload = function () {
-				status = request.status;
-				if (request.status == 200) //if(statusText == OK)
-				{
-					that.bUrlExist = true;
-				} else {
-					that.bUrlExist = false;
-					
-				}
-			}
-
-			if(!this.bUrlExist){
+			var that = this;			 
+			if(sUrl === null){
 				return sap.ui.require.toUrl('ag/agasown/img/Vertical-HQ.png');
 			} else {
 				return sUrl;
