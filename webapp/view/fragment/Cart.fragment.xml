@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m"
 	xmlns:f="sap.f" controllerName="ag.agasown.controller.Cart"
 	xmlns:core="sap.ui.core">
-	<Popover contentWidth="20%" showArrow="false" showHeader="false" id="myCart" placement="Left">
+	<Popover contentWidth="20%" showArrow="false" showHeader="false" id="myCart" placement="Left" class="productCartdata">
 		<List delete=".onCartEntriesDelete" id="entryList" items="{
 
 					path : 'oDataProducts>/cartEntries',
@@ -11,32 +11,32 @@
 					}
 				}" noDataText="{i18n>cartNoData}">
 			<CustomListItem>
-				<HBox class="sapUiSmallMargin" justifyContent="SpaceBetween" alignItems="Center">
+				<HBox class="sapUiSmallMargin prodductDet" justifyContent="SpaceBetween" alignItems="Center">
 					<Avatar displaySize="M" src="{
 							path : 'oDataProducts>picture',
 							formatter : '.formatter.jsonPictureUrl'
-						}"/>
-					<VBox>
-						<Text text="{oDataProducts>Quantity} x"/>
-						<Label text="{oDataProducts>product_name}"/>
+						}"  class="productIm"/>
+					<VBox class="productQN">
+						<Text text="{oDataProducts>Quantity} x" class="productQuant"/>
+						<Label text="{oDataProducts>product_name}" class="productNam"/>
 					</VBox>
 					<ObjectNumber number="{
 						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
-					}" unit="{view>/Currency}"/>
+					}" unit="{view>/Currency}" class="productPri"/>
 				</HBox>
-				<HBox class="sapUiSmallMargin" justifyContent="SpaceBetween" alignItems="Center">
-					<Button class="cartButton" icon="sap-icon://favorite" press="" type="Unstyled" />
-					<Button class="cartButton" icon="sap-icon://delete" press="" type="Unstyled" />
+				<HBox class="sapUiSmallMargin productBut" justifyContent="SpaceBetween" alignItems="Center">
+					<Button class="cartButton" icon="sap-icon://favorite" type="Unstyled" />
+					<Button class="cartButton" icon="sap-icon://delete" type="Unstyled" />
 				</HBox>
 			</CustomListItem>
 		</List>
-		<HBox class="sapUiSmallMargin" justifyContent="SpaceBetween" alignItems="Center">
+		<HBox class="sapUiSmallMargin productCheck" justifyContent="SpaceBetween" alignItems="Center">
 			<Button class="cartButtonCheckOut" text="Go To Checkout" press="onNavToCheckout" type="Unstyled" />
 			<Text text="{path : 'oDataProducts>/cartEntries',
 						formatter : '.formatter.totalPrice'
-					} EUR"/>
+					} EUR" class="productPr"/>
 		</HBox>
 	</Popover>
 </core:FragmentDefinition>

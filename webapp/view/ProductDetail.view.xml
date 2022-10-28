@@ -55,7 +55,7 @@
 								<StepInput value="{detailView>/value}" class="productQuant" min="{detailView>/min}" textAlign="Center" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
 							</VBox>
 								<VBox class="firstBut">
-								<Button type="Transparent" width="200px" class="productCart" text="Add To Cart" icon="sap-icon://cart" press=".onAddToCartDetails"/>
+								<Button type="Transparent" width="200px" class="productCart" text="{i18n>productAddButtonText}" icon="sap-icon://cart" press=".onAddToCartDetails"/>
 							</VBox>
 							</HBox>
 							<VBox >
@@ -66,7 +66,7 @@
 								<Button class="productFavourite" icon="sap-icon://delete" press=".onDeleteFromWishList"/>
 							</VBox> -->
 						</HBox>
-						<Button class="productBuyNow" type="Transparent" text="Buy it Now" press=".onAddToCartDetails"/>
+						<Button class="productBuyNow" type="Transparent" text="{i18n>buyItNow}" press=".onAddToCartDetails"/>
 						<layoutData>
 							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
 						</layoutData>

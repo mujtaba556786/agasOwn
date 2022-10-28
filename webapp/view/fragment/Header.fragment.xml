@@ -29,13 +29,12 @@
                     </ResponsivePopover>
                 </dependents>
             </Button>
-           
-        
         </contentLeft>
         <contentMiddle>
             <Image class="header-img" src="{path: 'view>/welcomeLogo', formatter : '.formatter.pictureUrl' }" press="onNavBackHome"></Image>
         </contentMiddle>
         <contentRight>
+            <Button type="Unstyled" id="langChang" class="menu" icon="sap-icon://translate" press=".onLanguageSelect" />
             <Button type="Unstyled" id="goToCart" class="menu" icon="sap-icon://cart" press=".onToggleCart" />
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".onLoginOpen"  />
         </contentRight>

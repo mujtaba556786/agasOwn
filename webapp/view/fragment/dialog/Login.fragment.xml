@@ -4,22 +4,22 @@
             <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onLoginClose" type="Unstyled" />
         </VBox>
         <VBox class="sapUiSmallMargin">
-            <Text class="dialogTitle sapUiSmallMarginBottom" text="Customer Login" />
-            <Label class="dialogLabel" text="E-mail" labelFor="loginEmailInput" />
+            <Text class="dialogTitle sapUiSmallMarginBottom" text="{i18n>custLog}" />
+            <Label class="dialogLabel" text="{i18n>Loginemail}" labelFor="loginEmailInput" />
             <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
-            <Label class="dialogLabel" text="Password" labelFor="loginPasswordInput" />
+            <Label class="dialogLabel" text="{i18n>Loginpass}" labelFor="loginPasswordInput" />
             <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
             <HBox class="sapUiSmallMarginBottom">
-                <Button class="sapUiTinyMargin dialogSubmit" text="Submit" press=".onLoginSubmit" type="Unstyled" />
-                <Button class="sapUiTinyMargin loginPasswordForget" text="Password forget" press="onForgotOpen" type="Unstyled" />
+                <Button class="sapUiTinyMargin dialogSubmit" text="{i18n>Loginsub}" press=".onLoginSubmit" type="Unstyled" />
+                <Button class="sapUiTinyMargin loginPasswordForget" text="{i18n>Loginforpass}" press="onForgotOpen" type="Unstyled" />
             </HBox>
              <HBox class="sapUiSmallMarginBottom">
-             <Button class="withSubmit sapUiTinyMargin " text="Google+" press=".onLoginGoogleOpen" type="Unstyled"  />
+             <Button class="withSubmit sapUiTinyMargin " text="{i18n>Logingoo}" press=".onLoginGoogleOpen" type="Unstyled"  />
         
-               <Button class="withSubmit sapUiTinyMargin" text="Guest+" press=".onLoginGuestOpen" type="Unstyled"  />
+               <Button class="withSubmit sapUiTinyMargin" text="{i18n>Loginguest}" press=".onLoginGuestOpen" type="Unstyled"  />
                </HBox>
 
-            <Link class="loginSignUp sapUiTinyMargin" text="Sign Up" press=".onRegisterOpen" />
+            <Link class="loginSignUp sapUiTinyMargin" text="{i18n>Loginsign}" press=".onRegisterOpen" />
         </VBox>
     </Dialog>
 </core:FragmentDefinition>

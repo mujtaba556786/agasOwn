@@ -8,72 +8,27 @@
             <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onNewsLetter" type="Unstyled"/>
         </VBox>
         <VBox fitContainer="true" class="sapUiSmallMargin">
-         <Text class="dialogTitle sapUiSmallMarginBottom registrationText" text="Hi, Subscribe to our newsletter"/>
-         <Text text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it" />
-        <VBox class="div">
-        <HBox>
-        <CheckBox text="Mr." id="random_id"/>
-          <CheckBox text="Mrs." />
-        </HBox>
-         
-                <Label class="dialogLabel fnLabel" text="First Name" labelFor="firstNameInput" required="true"/>
-                <Input id="firstNameInput1" class="fnInput" placeholder="First Name" ></Input>
-
-                <Label class="dialogLabel lnLabel" text="Last Name" labelFor="lastNameInput" />
-                <Input id="lastNameInput1" class="lnInput" placeholder="Last Name" ></Input>
+            <Text class="dialogTitle sapUiSmallMarginBottom registrationText" text="{i18n>subsNews}"/>
+            <Text text="{i18n>subsNewsText}" />
+            <VBox class="div">
+                <HBox>
+                    <CheckBox text="{i18n>mr_salu}" id="random_id"/>
+                    <CheckBox text="{i18n>mrs_salu}"/>
+                </HBox>
+                <Label class="dialogLabel fnLabel" text="{i18n>FN}" labelFor="firstNameInput" required="true"/>
+                <Input id="firstNameInput1" class="fnInput" placeholder="{i18n>FN}" ></Input>
+                <Label class="dialogLabel lnLabel" text="{i18n>LN}" labelFor="lastNameInput" />
+                <Input id="lastNameInput1" class="lnInput" placeholder="{i18n>LN}" ></Input>
             </VBox>
             <VBox class="div">
-            <Label class="dialogLabel emLabel" text="E-mail" labelFor="emailInput" />
-            <Input id="emailInput1" class="sapUiSmallMarginBottom emInput" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." value="{
+                <Label class="dialogLabel emLabel" text="{i18n>mailText}" labelFor="emailInput" />
+                <Input id="emailInput1" class="sapUiSmallMarginBottom emInput" type="Email" placeholder="{i18n>mailText}" valueStateText="E-mail must be a valid email address." value="{
 							path: '/email',
 							type: '.customEMailType'
 						}" />
-                        <CheckBox text="Accept Terms  Conditions Apply*" required="true" />
-         <Button class="dialogSubmitNew" text="Subscribe" type="Unstyled" press="EmailJs"></Button>
-         
-
-
-         	
-
-    </VBox>
+                <CheckBox text="{i18n>TandC}" required="true" />
+                <Button class="dialogSubmitNew" text="{i18n>subscribe}" type="Unstyled" press="EmailJs"></Button>
+            </VBox>
         </VBox>
-
-
-        <!-- <VBox fitContainer="true" class="sapUiSmallMargin">
-            <Text class="dialogTitle sapUiSmallMarginBottom registrationText" text="Newsletter New Account Subscribe"/>
-            <VBox class="div">
-                <Label class="dialogLabel fnLabel" text="First Name" labelFor="firstNameInput" />
-                <Input id="firstNameInput" class="fnInput" placeholder="First Name" ></Input>
-
-                <Label class="dialogLabel lnLabel" text="Last Name" labelFor="lastNameInput" />
-                <Input id="lastNameInput" class="lnInput" placeholder="Last Name" ></Input>
-            </VBox> -->
-
-            <!-- <Label class="dialogLabel emLabel" text="E-mail" labelFor="emailInput" />
-            <Input id="emailInput" class="sapUiSmallMarginBottom emInput" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." value="{
-							path: '/email',
-							type: '.customEMailType'
-						}" />
-<VBox class="div">
-            <Label class="dialogLabel pwLabel" text="Password" labelFor="passwordInput"/>
-            <Input id="passwordInput" type="Password" class="sapUiSmallMarginBottom pwInput" placeholder="Enter password" />
-
-            <Label class="dialogLabel cpLabel" text="Confirm Password" labelFor="confirmPasswordInput"/>
-            <Input id="confirmPasswordInput" type="Password" class="sapUiSmallMarginBottom cpInput" placeholder="Enter password" />
-</VBox>
-            <CheckBox width="350px" wrapping="true" id="newsLetter" text="Ja, ich möchte per E-Mail Newsletter über Trends, Aktionen 
-						 Gutscheine informiert werden. Abmeldung jederzeit möglich. (optional)" />
-
-            <CheckBox width="350px" wrapping="true" id="readData" text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
-						 von Zalando sowie einer Bonitätsprüfung zu.* *" />
-            <HBox>
-                <Button width="12rem" class="dialogSubmitNew" text="Sign up" type="Unstyled" press="onSubmit"></Button>
-            </HBox>
-            <HBox class="lastBox">
-                <Text class="returnCustomer" text="Returning Customer?"/>
-                <Link class="loginButton" text="Login" press="onLoginPage" />
-
-            </HBox>
-        </VBox> -->
     </Dialog>
 </core:FragmentDefinition>

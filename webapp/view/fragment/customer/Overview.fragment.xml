@@ -35,7 +35,7 @@
 						descending : false,
                   noData : false
 					}
-				}" noDataText="You have not purchased any products yet">
+				}" noDataText="{i18n>noProds}">
             <CustomListItem class="bcEF">
                <HBox>
                   <Text text="`${oDataProducts}`" />
@@ -53,9 +53,9 @@
                      <Text class="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
                      <HBox class="tryIt">
                         <Button class="specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
-                        <Label class="buttonTexts" text="Remove |"/>
+                        <Label class="buttonTexts" text="{i18n>remove}"/>
                         <Button class="specialButtons" icon="sap-icon://heart-2" press="" type="Unstyled" />
-                        <Label class="buttonTexts" text=" Add to wishlist"/>
+                        <Label class="buttonTexts" text="{i18n>addToWish}"/>
                      </HBox>
 
                   </VBox>
@@ -66,7 +66,7 @@
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" class="product_price"/>
-               <Text text="You save 10%" class="price_discount"/>
+               <Text text="{i18n>discountText}" class="price_discount"/>
                </VBox>
                </HBox>
                
@@ -84,7 +84,7 @@
                <Text class="vatText" text="Total (VAT included)"/>
                <Text class="priceText" text="164.00$"/>
             </HBox>
-            <Button width="50%" class="continue_shopping continueShopping" text="Go To Checkout" press=".onContinueShopping" type="Unstyled" />
+            <Button width="50%" class="continue_shopping continueShopping" text="{i18n>checkOutText}" press=".onContinueShopping" type="Unstyled" />
          </VBox>
          <VBox class="addVoucher">
             <Text class="add_Vtext" text="Add a voucher(Optional)"/>

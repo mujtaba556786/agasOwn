@@ -2,50 +2,49 @@
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
    <VBox class="VBox_PD">
-      <Text class="overviewHeader" text="Personal Details"/>
-
+<Text class="overviewHeader" text="{i18n>persDeta}"/>
       <VBox class="topBottom">
          <HBox class="semifinal">
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".offLoginOpen" />
             <VBox class="distance">
-               <Text text="First Name"/>
+               <Text text="{i18n>LN}" class="testone"/>
                <Input editable="false" value='oData[email]'/>
             </VBox>
             <VBox class="distance">
-               <Text text="Last Name" class="testone"/>
+               <Text text="{i18n>LN}" class="testone"/>
                <Input editable="false" value="Haruds" class="testtwo"/>
             </VBox>
          </HBox>
          <HBox class="final">
             <VBox class="distance">
-               <Text text="Date of Birth"/>
+               <Text text="{i18n>DOB}"/>
                <Input editable="false" value="16.07.1982"/>
             </VBox>
             <VBox class="distance">
-               <Text type="Tel" text="Mobile Number"/>
+      <Text type="Tel" text="{i18n>mobNum}"/>
                <Input editable="false" value="01765550985"/>
             </VBox>
-            <Button width="100%" class="baton" text="Edit" press=".onEditPersonalDetails" type="Unstyled" />
+          <Button width="100%" class="baton" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
          </HBox>
       </VBox>
       <VBox class="topBottom">
          <HBox>
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://email" press=".offLoginOpen" />
             <VBox class="email_left">
-               <Text type="Email" text="E-Mail"/>
+             <Text type="e-mail" text="{i18n>Loginemail}"/>
                <Input editable="false" value="test@gmail.com"/>
             </VBox>
-            <Button width="100%" class="baton EditButton" text="Edit" press=".onEditPersonalDetails" type="Unstyled" />
+           <Button width="100%" class="baton EditButton" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
          </HBox>
       </VBox>
       <VBox class="topBottoms">
          <HBox>
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://locked" press=".offLoginOpen" />
             <VBox class="email_left">
-               <Text text="Password"/>
+             <Text text="{i18n>Loginpass}"/>
                <Input type="password" editable="false" value=""/>
             </VBox>
-            <Button width="100%" class="baton EditButton" text="Edit" press=".onEditPersonalDetails" type="Unstyled" />
+           <Button width="100%" class="baton EditButton" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
          </HBox>
       </VBox>
    </VBox>
