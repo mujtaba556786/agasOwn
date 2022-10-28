@@ -16,7 +16,7 @@
 							path : 'oDataProducts>picture',
 							formatter : '.formatter.jsonPictureUrl'
 						}"  class="productIm"/>
-					<VBox class="productQN">
+					<VBox>
 						<Text text="{oDataProducts>Quantity} x" class="productQuant"/>
 						<Label text="{oDataProducts>product_name}" class="productNam"/>
 					</VBox>
@@ -24,7 +24,7 @@
 						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
-					}" unit="{view>/Currency}" class="productPri"/>
+					}" unit="{view>/Currency}"/>
 				</HBox>
 				<HBox class="sapUiSmallMargin productBut" justifyContent="SpaceBetween" alignItems="Center">
 					<Button class="cartButton" icon="sap-icon://favorite" type="Unstyled" />
@@ -33,7 +33,7 @@
 			</CustomListItem>
 		</List>
 		<HBox class="sapUiSmallMargin productCheck" justifyContent="SpaceBetween" alignItems="Center">
-			<Button class="cartButtonCheckOut" text="Go To Checkout" press="onNavToCheckout" type="Unstyled" />
+			<Button class="cartButtonCheckOut" text="{i18n>checkOutText}" press="onNavToCheckout" type="Unstyled" />
 			<Text text="{path : 'oDataProducts>/cartEntries',
 						formatter : '.formatter.totalPrice'
 					} EUR" class="productPr"/>

@@ -5,22 +5,20 @@
 	xmlns:grid="sap.ui.layout.cssgrid"
 	xmlns:f="sap.f" 
 	controllerName="ag.agasown.controller.Home">
-
 	<Page id="home">
-		
 		<customHeader>
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
 			<core:Fragment class="sapUiLargeMarginTop" fragmentName="ag.agasown.view.fragment.Carousel" type="XML" />
 			<HBox class="sapUiLargeMarginTop" renderType="Bare" justifyContent="Center">
-				<SearchField width="50%" />
+				<SearchField width="50%" placeholder="{i18n>search}"/>
 			</HBox>
 			<Panel id="panelCategory" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Title text="Popular Categories" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<Title text="{i18n>popularCategory}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
@@ -33,25 +31,21 @@
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
 					<VBox class="sapUiResponsiveContentPadding" renderType="Bare">
-
 						<Image src="{path: 'oDataCategory>picture',
 											formatter : '.formatter.jsonPictureUrl'
 											}" class="categoryBox imageDisplayBlock" press="onCategoryLinkPress"/>
 						<Text textAlign="Center" text="{oDataCategory>category_name}" class="categoryBoxText"/>
-
 					</VBox>
-
 				</Carousel>
 			</Panel>
 			<Panel>
 				<core:Fragment fragmentName="ag.agasown.view.fragment.ShopCarousel" type="XML" />
 			</Panel>
-
 			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Title text="Promoted Items" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<Title text="{i18n>promotedTitle}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
@@ -61,7 +55,6 @@
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
-
 					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
 						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress" />
 						<Title text="{oDataProducts>product_name}" wrapping="true" />
@@ -74,12 +67,9 @@
 					</VBox>
 				</Carousel>
 			</Panel>
-
 			<Panel>
 				<core:Fragment fragmentName="ag.agasown.view.fragment.SocialCarousel" type="XML" />
 			</Panel>
-
-		
 			<Panel id="panelSale" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
@@ -94,7 +84,6 @@
 					<customLayout>
 						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
 					</customLayout>
-
 					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
 						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress" />
 						<Title text="{oDataProducts>product_name}" wrapping="true" />
@@ -103,32 +92,29 @@
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" unit="{view>/Currency}" textAlign="Center"/>
-						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
+						<Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
 			</Panel>
-
 			<Panel class="newsletter">
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Title text="Newsletter" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<Title text="{i18n>newsletter}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
 				<Panel class="newsletter-btn-wrap">
-				<HBox class="newsLetterSection">
-					<Button type="Unstyled" class="newsLetterButton newsLetterEmailButton" text="Click here to Subscribe us" press="handleNewsLetter"/>
-				</HBox>
-				<Image class="newsletterImage" src="{
+					<HBox class="newsLetterSection">
+						<Button type="Unstyled" class="newsLetterButton newsLetterEmailButton" text="{i18n>subsUS}" press="handleNewsLetter"/>
+					</HBox>
+					<Image class="newsletterImage" src="{
 							path: 'view>/welcomeNews',
 							formatter : '.formatter.pictureUrl'
 						}" width="100%">
 				</Image>
 				</Panel>
-
 			</Panel>
-
 			<Panel class="fotter">
 				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
 			</Panel>

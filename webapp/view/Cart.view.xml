@@ -8,7 +8,9 @@
 		backgroundDesign="Solid"
 		showNavButton="true"
 		navButtonPress=".onNavBack"
-		showFooter="true">
+		showFooter="true" 
+		class="hello"
+		>
 		<headerContent>
 			<Button
 				id="editButton"

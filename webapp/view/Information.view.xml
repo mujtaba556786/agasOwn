@@ -23,22 +23,22 @@
         <content>
             <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
                 <items>
-                    <IconTabFilter text="About Us" key="aboutUs">
+                    <IconTabFilter text="{i18n>aboutUs}" key="aboutUs">
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.AboutUs" type="XML" />
                     </IconTabFilter>
-                    <IconTabFilter text="Contact" key="contact">
+                    <IconTabFilter text="{i18n>contact}" key="contact">
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.Contact" type="XML" />
                     </IconTabFilter>
-                    <IconTabFilter text="Imprint" key="imprint">
+                    <IconTabFilter text="{i18n>imprint}" key="imprint">
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.Imprint" type="XML" />
                     </IconTabFilter>
-                    <IconTabFilter text="Terms and Service" key="terms">
+                    <IconTabFilter text="{i18n>Terms}" key="terms">
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.Terms" type="XML" />
                     </IconTabFilter>
-                    <IconTabFilter text="Privacy Policy" key="privacy">
+                    <IconTabFilter text="{i18n>Privacy}" key="privacy">
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.Privacy" type="XML" />
                     </IconTabFilter>
-                    <IconTabFilter text="GDPR" key="gdpr">
+                    <IconTabFilter text="{i18n>GDPR}" key="gdpr">
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.Gdpr" type="XML" />
                     </IconTabFilter>
                 </items>

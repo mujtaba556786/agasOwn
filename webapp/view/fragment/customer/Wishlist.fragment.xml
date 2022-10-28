@@ -19,7 +19,7 @@
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" unit="{wish>/Currency}" textAlign="Center"/>
-               <Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
+               <Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
          </VBox>
    
       </f:GridListItem>

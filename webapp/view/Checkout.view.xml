@@ -20,7 +20,7 @@
 						descending : false,
                   noData : false
 					}
-				}" noDataText="Add miniumum one product" class="mimimun_list">
+				}" noDataText="{i18n>minimumOne}" class="mimimun_list">
 								<CustomListItem class="section_one_data">
 									<HBox class="sapUiSmallMargin overallHBox overHBox" justifyContent="SpaceBetween" alignItems="Center">
 										<VBox class="avatarVBox">
@@ -36,7 +36,7 @@
 												<Text class="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
 												<HBox class="tryIt">
 													<Button class="sapUiSmallMarginEnd specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
-													<Label class="buttonTexts" text="Remove"/>
+													<Label class="buttonTexts" text="{i18n>rem}"/>
 												</HBox>
 											</VBox>
 											<VBox class="addDetailsSec">
@@ -76,14 +76,14 @@
 								<VBox visible="true" backgroundDesign="Solid" class="sideVBox">
 									<Text text="{ path : 'oDataProducts>/cartEntries', formatter : '.formatter.totalPrice' } EUR" class="totalText" />
 									<HBox class="freeDelivery">
-										<Text text="Delivery" class="deliveryText"/>
-										<Text text="free" class="freeText"/>
+										<Text text="{i18n>deliveryText}" class="deliveryText"/>
+										<Text text="{i18n>freeText}" class="freeText"/>
 									</HBox>
 									<HBox class="totalVat">
-										<Text class="vatText" text="Total (VAT included)"/>
+										<Text class="vatText" text="{i18n>vatText}"/>
 										<Text class="priceText" text="164.00$"/>
 									</HBox>
-									<Button width="50%" class="continue_shopping continueShopping" text="Go To Checkout" press=".onContinueShopping" type="Unstyled" />
+									<Button width="50%" class="continue_shopping continueShopping" text="{i18n>checkOutText}" press=".onContinueShopping" type="Unstyled" />
 								</VBox>
 								<!-- <VBox class="addVoucher">
 								<Text class="add_Vtext" text="Add a voucher(Optional)"/>
@@ -254,12 +254,12 @@
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
 								</Input>
-								<Label class="dialogLabel1" text="E-mail" labelFor="invoiceEmailInput" required="true">
+								<Label class="dialogLabel1" text="{i18n>Loginemail}" labelFor="invoiceEmailInput" required="true">
 									<layoutData>
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="loginEmailInput" type="Email" placeholder="Enter email" change="checkInvoiceStep" autocomplete="true">
+								<Input id="loginEmailInput" type="Email" placeholder="{i1n>mailText}" change="checkInvoiceStep" autocomplete="true">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -334,7 +334,9 @@
 						</form:SimpleForm>
 					</WizardStep>
 					<WizardStep id="deliveryTypeStep" title="{i18n>checkoutDeliveryTypeTitle}" icon="sap-icon://insurance-car" nextStep="orderSummaryStep">
-						<HBox class="deliveryType"><Text class="sapUiSmallMarginBottom deliveryTypetext" text="{i18n>checkoutDeliveryTypeText}" /></HBox>
+						<HBox class="deliveryType">
+							<Text class="sapUiSmallMarginBottom deliveryTypetext" text="{i18n>checkoutDeliveryTypeText}" />
+						</HBox>
 						<HBox renderType="Bare" alignItems="Center" justifyContent="Center" width="100%">
 							<SegmentedButton id="deliveryType" selectedKey="{/SelectedDeliveryMethod}" class="amantil">
 								<items renderType="Bare">
@@ -345,8 +347,8 @@
 						</HBox>
 					</WizardStep>
 					<!-- summary page -->
-					<WizardStep id="orderSummaryStep" title="Order Summary" icon="sap-icon://money-bills">
-						<Text class="sapUiSmallMarginBottom" text="Order Summary" />
+					<WizardStep id="orderSummaryStep" title="{i18n>orderSum}" icon="sap-icon://money-bills">
+						<Text class="sapUiSmallMarginBottom" text="{i18n>orderSum}" />
 						<HBox renderType="Bare" width="100%" class="final_checkOut">
 							<HBox class="panel_details">
 								<Panel class="panel">
@@ -359,7 +361,7 @@
 						descending : false,
                   noData : false
 					}
-				}" noDataText="Add miniumum one product" class="mimimum_list">
+				}" noDataText="{i18n>minimumOne}" class="mimimum_list">
 											<CustomListItem class="product_show">
 												<HBox class="sapUiSmallMargin image_pro" justifyContent="SpaceBetween" alignItems="Center">
 													<VBox class="avatarVBox">
@@ -393,7 +395,7 @@
 							<!-- testing  -->
 							<HBox class="topHori">
 								<VBox clas="firstVirt">
-									<form:SimpleForm title="DELIVERY ADDRESS" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="invoiceAddressTitle">
+									<form:SimpleForm title="{i18n>delAdd}" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="invoiceAddressTitle">
 										<form:content>
 											<Label text="{i18n>checkoutInvoiceAddress}" />
 											<Text text="{/InvoiceAddress/Address}" />
@@ -409,14 +411,14 @@
 									</form:SimpleForm>
 								</VBox>
 								<VBox class="secondVirt">
-								<VBox class="notCondition">
-							<form:SimpleForm editable="false" title="BILLING ADDRESS" layout="ResponsiveGridLayout" visible="{= !${/DifferentDeliveryAddress}}" ariaLabelledBy="shippingAddressTitle2">
-								<form:content>
-									<Text text="{i18n>checkoutSummarySameAsInvoice}" />
-								</form:content>
-							</form:SimpleForm>
-							</VBox>
-									<form:SimpleForm title="BILLING ADDRESS" editable="false" layout="ResponsiveGridLayout" visible="{= ${/DifferentDeliveryAddress}}" ariaLabelledBy="shippingAddressTitle1">
+									<VBox class="notCondition">
+										<form:SimpleForm editable="false" title="{i18n>billAdd}" layout="ResponsiveGridLayout" visible="{= !${/DifferentDeliveryAddress}}" ariaLabelledBy="shippingAddressTitle2">
+											<form:content>
+												<Text text="{i18n>checkoutSummarySameAsInvoice}" />
+											</form:content>
+										</form:SimpleForm>
+									</VBox>
+									<form:SimpleForm title="{i18n>billAdd}" editable="false" layout="ResponsiveGridLayout" visible="{= ${/DifferentDeliveryAddress}}" ariaLabelledBy="shippingAddressTitle1">
 										<form:content>
 											<Label text="{i18n>checkoutDeliveryAddressAddress}" />
 											<Text text="{/DeliveryAddress/Address}" />
@@ -432,7 +434,7 @@
 									</form:SimpleForm>
 								</VBox>
 								<VBox class="thirdVirt">
-									<form:SimpleForm title="PAYMENT METHOD" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="toolbarPaymentTitle">
+									<form:SimpleForm title="{i18n>payMet}" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="toolbarPaymentTitle">
 										<form:content>
 											<Label text="{i18n>checkoutSummaryPaymentHeader}" />
 											<Text text="{/SelectedPayment}" />
@@ -490,28 +492,27 @@
 									</form:SimpleForm>
 								</VBox>
 								<VBox class="offline">
-								<form:SimpleForm title="" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="deliveryTypeTitle">
-								<form:content>
-									<Label text="{i18n>checkoutSummaryDeliveryHeader}" />
-									<Text id="selectedDeliveryMethod" text="{/SelectedDeliveryMethod}" />
-								</form:content>
-							</form:SimpleForm>
+									<form:SimpleForm title="" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="deliveryTypeTitle">
+										<form:content>
+											<Label text="{i18n>checkoutSummaryDeliveryHeader}" />
+											<Text id="selectedDeliveryMethod" text="{/SelectedDeliveryMethod}" />
+										</form:content>
+									</form:SimpleForm>
 								</VBox>
 								<form:SimpleForm ariaLabelledBy="totalPriceTitle">
-								<form:toolbar>
-									<Toolbar id="toolbarTotalPrice">
-										<ToolbarSpacer />
-										<Title id="totalPriceTitle" level="H3" titleStyle="H4" text="{ path : 'cartProducts>/cartEntries', formatter : '.formatter.totalPrice' }" />
-									</Toolbar>
-								</form:toolbar>
-							</form:SimpleForm>
-							
+									<form:toolbar>
+										<Toolbar id="toolbarTotalPrice">
+											<ToolbarSpacer />
+											<Title id="totalPriceTitle" level="H3" titleStyle="H4" text="{ path : 'cartProducts>/cartEntries', formatter : '.formatter.totalPrice' }" />
+										</Toolbar>
+									</form:toolbar>
+								</form:SimpleForm>
 							</HBox>
 						</HBox>
 						<HBox class="summaryBar">
-								<Button id="submitOrder" type="Accept" text="Place Your Order" press=".handleWizardSubmitss"></Button>
-								<Button id="cancelOrder" type="Reject" text="Cancel Your Order" press=".handleWizardCancel"></Button>
-							</HBox>
+							<Button id="submitOrder" type="Accept" text="{i18n>placeYourOrder}" press=".handleWizardSubmitss"></Button>
+							<Button id="cancelOrder" type="Reject" text="{i18n>cancelYourOrder}" press=".handleWizardCancel"></Button>
+						</HBox>
 					</WizardStep>
 				</steps>
 			</Wizard>
