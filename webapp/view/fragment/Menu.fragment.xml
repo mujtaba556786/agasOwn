@@ -15,13 +15,6 @@
                         </HBox>
                     </CustomListItem>
                 </List>
-                <List  class="sapUiTinyMarginBegin Menu2 second"   >
-                <CustomListItem>
-                    <HBox alignItems="Center" justifyContent="SpaceBetween">
-                        <Link class="menuLinks" text="sample1" press="onCategoryLinkPress"/>
-                    </HBox>
-                </CustomListItem>
-            </List> 
             </HBox>
         </content>
     </ResponsivePopover>
