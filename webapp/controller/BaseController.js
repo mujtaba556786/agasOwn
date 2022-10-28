@@ -66,7 +66,7 @@ sap.ui.define(
           ShoppingBags: "ag/agasown/img/ShoppingBags.jpg",
           ShoppingCart: "ag/agasown/img/ShoppingCart.jpg",
           AboutUs: "ag/agasown/img/AboutUsPage.jpg",
-          Goyna: "ag/agasown/img/goyna.jpg",
+          Jewel: "ag/agasown/img/goyna.jpg",
           Promoted: [],
           Viewed: [],
           Favorite: [],
@@ -176,7 +176,7 @@ sap.ui.define(
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-        console.log(selectedPath._id);
+        console.log(selectedPath.product_name);
         this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { detailProduct: selectedPath });
@@ -225,6 +225,15 @@ sap.ui.define(
           this.handleLogin(oEvent);
         } else {
           this.handleLogout(oEvent);
+        }
+      },
+      onLanguageSelect: function () {
+        if (document.documentElement.lang.includes("en")) {
+          sap.ui.getCore().getConfiguration().setLanguage("de");
+          MessageToast.show("Switched to German");
+        } else {
+          sap.ui.getCore().getConfiguration().setLanguage("en");
+          MessageToast.show("Switched to English");
         }
       },
 

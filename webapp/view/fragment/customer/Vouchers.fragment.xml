@@ -4,24 +4,24 @@
    <HBox class="widthso">
       <VBox class="voucher">
          <VBox class="downLine">
-            <Text class="overviewHeaderBold" text="Vouchers"/>
+            <Text class="overviewHeaderBold" text="{i18n>voucher}"/>
 
-            <Text text="Your Credit: 0,00$ " class="voucherCredit"/>
-            <Text text="You can use your vouchers for future orders." class="voucherText"/>
+            <Text text="{i18n>creditVoucher}" class="voucherCredit"/>
+            <Text text="{i18n>voucherText}" class="voucherText"/>
          </VBox>
          <VBox class="upLine">
-            <Text text="Do you want to redeem a Gift Card?" class="giftCard"/>
-            <Text text="Enter your gift card code to redeem the credit" class="giftCardCode"/>
+            <Text text="{i18n>wantTo}" class="giftCard"/>
+            <Text text="{i18n>wantToEnter}" class="giftCardCode"/>
             <HBox class="redeem">
                <Input value="" class="giftCard_input" id="gift_card" required="true"/>
-               <Button width="100%" class="redeemButton" text="Redeem" press=".onEditPersonalDetails" type="Unstyled" />
+               <Button width="100%" class="redeemButton" text="{i18n>Redeem}" press=".onEditPersonalDetails" type="Unstyled" />
             </HBox>
          </VBox>
       </VBox>
 
       <VBox visible="false" backgroundDesign="Solid" class="proImage">
          <Image src="{
-											path: 'view>/Goyna',
+											path: 'view>/Jewel',
 											formatter : '.formatter.pictureUrl'
 											}" width="100%" height="100%" class="aboutUs mt4"/>
 

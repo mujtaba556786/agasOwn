@@ -520,8 +520,12 @@ sap.ui.define(
           .getProperty("/SelectedPayment");
         var total_Price2 = this.byId("totalPricefinal").getText();
         var total_Price1 = total_Price2.split(" ");
-        var total_price0 = total_Price1[1].split(",");
+        var total_price0 = total_Price1[1].split(".");
         var total_price = total_price0[0];
+        var total_price3 = total_price.replace(',', '');
+        console.log("price", total_price3);
+
+
         console.log(total_Price2);
         console.log(total_Price1);
         console.log(total_price0);
@@ -549,6 +553,9 @@ sap.ui.define(
 
         if (selectedKey == "Credit Card" || selectedKey == "Dedit Card") {
           var formdata = new FormData();
+
+
+
           formdata.append("card_number", this.byId("creditCardNumber").getValue());
           formdata.append("exp_month", expDate1);
           formdata.append("exp_year", expYear);
@@ -556,7 +563,7 @@ sap.ui.define(
           formdata.append("description", "dsvdcv");
           formdata.append("name", this.byId("creditCardHolderName").getValue());
           formdata.append("email",this.byId("loginEmailInput").getValue());
-          formdata.append("amount",total_price);
+          formdata.append("amount",total_price3);
           formdata.append("currency", "EUR");
           
           var requestOptions = {
@@ -565,55 +572,55 @@ sap.ui.define(
             redirect: 'follow'
           };
           
-          let resp = await fetch("http://64.227.115.243:8080/stripe/", requestOptions)
+          let respo = await fetch("http://64.227.115.243:8080/stripe/", requestOptions)
             .then(response => {
               return response.status
             })
-            // .then(result => {
-            //   return result.status
-            // })
-            .catch(error => alert('error', error));
+            // .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+            console.log(respo)
+            if(respo === 200){
+                var address = this.byId("invoiceAddressAddress").getValue();
+                var city = this.byId("invoiceAddressCity").getValue();
+                var state = this.byId("invoiceAddressCountry").getValue();
+                var zip = this.byId("invoiceAddressZip").getValue();
+                var email_id = this.byId("loginEmailInput").getValue();
+                var note = this.byId("noteArea").getValue();
+                var name = this.byId("creditCardHolderName").getValue();
+      
+      
+                var temParks = {
+                  email_id: email_id,
+                  mail_sender: "AgasOwn Marketing Team",
+                  state: state,
+                  city: city,
+                  zip: zip,
+                  address: address,
+                  note: note,
+                  name: name,
+                  message_a: pro_Quantity,
+                  message_b: total_price,
+                  message_c: product_name,
+                  message: product_price,
+                  payment: "Payment done via Card"
+                };
+                emailjs.send('service_mr4cg1j', 'template_a7z62ad', temParks).then(function (res) {
+                  console.log("success", res.status);
+                  if (res.status === 200) {
+                    alert("Order Accepted!");
+                    window.location.replace("index.html#/payment");
+      
+                  }
+                  else {
+                    alert("Error")
+                  }
+                });
+            }
+            else{
+              alert('order not accepted')
+            }
+    
 
-        console.log("popo",resp)
-        if(resp === 200){
-            var address = this.byId("invoiceAddressAddress").getValue();
-            var city = this.byId("invoiceAddressCity").getValue();
-            var state = this.byId("invoiceAddressCountry").getValue();
-            var zip = this.byId("invoiceAddressZip").getValue();
-            var email_id = this.byId("loginEmailInput").getValue();
-            var note = this.byId("noteArea").getValue();
-            var name = this.byId("cashOnDeliveryName").getValue();
-  
-  
-            var temParks = {
-              email_id: email_id,
-              mail_sender: "AgasOwn Marketing Team",
-              state: state,
-              city: city,
-              zip: zip,
-              address: address,
-              note: note,
-              name: name,
-              message_a: pro_Quantity,
-              message_b: total_price,
-              message_c: product_name,
-              message: product_price,
-              payment: "Payment dpne via Card"
-            };
-            emailjs.send('service_mr4cg1j', 'template_a7z62ad', temParks).then(function (res) {
-              console.log("success", res.status);
-              if (res.status === 200) {
-                alert("Order Accepted!");
-                window.location.replace("index.html#/payment");
-  
-              }
-              else {
-                alert("Error")
-              }
-            });
-        }else{
-          alert('order not accepted')
-        }
         } else if (selectedKey == "PayPal") {
           var formdata = new FormData();
           formdata.append("product_name", product_name);
@@ -648,7 +655,7 @@ sap.ui.define(
             "cus_add_state",
             this.byId("invoiceAddressCountry").getValue()
           );
-          formdata.append("amount", total_price);
+          formdata.append("amount", total_price3);
           formdata.append("currency", "eur");
           formdata.append("country", "DE");
           var requestOptions = {

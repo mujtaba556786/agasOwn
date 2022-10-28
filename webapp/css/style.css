@@ -550,15 +550,15 @@
 
 .productBuyNow {
   color: #fff;
-  background-color: #000;
+  background-color: #3F183B;
   border-radius: 30px;
   width: 100%;
   min-width: 30% !important
 }
 
 .productBuyNow:hover {
-  background-color: none;
-  color: none;
+  background-color: transparent;
+  color: transparent;
 }
 
 .productBuyNow .sapMBtnTransparent {
@@ -1621,8 +1621,8 @@
 }
 .newsLetterEmailButton{
   left: 10px !important;
-  border: 1px solid darkgrey;
-  background-color: black;
+  border: 1px solid #3f183b;
+  background-color: #3F183B;
   border-radius: 10px;
   margin: 2px;
   color: white;
@@ -1632,8 +1632,10 @@
   cursor: pointer;
 }
 .newsLetterEmailButton:hover{
-  border:1px solid rgb(34, 85, 34) !important;
-  background-color: green !important;
+  border:1px solid #df3165 !important;
+  background-color: #df3165 !important;
+  color: #000;
+  font-weight: 500;
 }
 .pdpVBox{
 display: flex;
@@ -1648,15 +1650,86 @@ display: flex;
   display: flex;
 }
 .productCart{
- left: 50px !important;
+ left: 50px;
 }
 @media only screen and (max-device-width: 460px){
   .twoButtons{
     display: flex;
     flex-direction: column;
   }
-  /* .productCart{
-    width: 300%!important;
-   } */
+  .productCart{
+    width: 70vw!important;
+    left: 12vw !important;
+   }
 }
 
+.footer-hbox{
+  display: flex;
+}
+
+
+
+@media(max-width: 767px){
+  .desktop-view-footer .fotterImage {
+    width: 100%;
+    height: 150px;
+    margin: 0;
+    max-width: 100%;
+  }
+}
+
+@media(max-width: 480px){
+  .desktop-view-footer {
+    flex-wrap: wrap;
+  }
+  .desktop-view-footer .fotterImage {
+    height: auto;
+    max-width: 60%;
+  }
+  .f-img-wrap {text-align: center;}
+}
+@media only screen and (max-device-width: 460px){
+  #container-agasown---productDetail--myCart-cont{
+    max-width: 100% !important;
+    width: 100% !important;
+    top: 0!important;
+    left: 10px !important;
+    right: 10px !important;
+  }
+  #container-agasown---home--myCart-scroll{
+    max-width: 100% !important;
+    width: 200px !important;
+    top: 0!important;
+  }
+  .productCartdata{
+    width: 94%;
+    top: 5px!important;
+    left: 10px !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* Continue from tomorrow */
+@media only screen and (max-device-width: 768px) and (min-device-width:461px){
+  #container-agasown---productDetail--myCart-cont{
+    max-width: 100% !important;
+    width: 100% !important;
+    top: 0!important;
+    /* left: 10px !important; */
+    right: 10px !important;
+  }
+  #container-agasown---home--myCart-scroll{
+    max-width: 100% !important;
+    width: 200px !important;
+    top: 0!important;
+  }
+  .productCartdata{
+    width: 94%;
+    top: 5px!important;
+    left: 10px !important;
+    margin-left: 10px !important;
+  }
+}
+#container-agasown---home--myCart-cont{
+  width: 100% !important;
+}
