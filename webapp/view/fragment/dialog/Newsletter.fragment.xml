@@ -2,7 +2,6 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
-    <!-- Shawan -->
     <Dialog id="NewsLetterDialog" class="NewsLetterDialog" showHeader="false">
         <VBox alignItems="End" class="sapUiSmallMargin ">
             <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onNewsLetter" type="Unstyled"/>

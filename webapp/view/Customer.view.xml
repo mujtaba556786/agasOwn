@@ -11,15 +11,15 @@
 		<content>
 			<HBox class="sapUiLargeMargin">
 				<VBox class="sideNav">
-					<Text class="sideNavText" text="Your Account"></Text>
-					<Button class="sideNavBtn" app:fragmentName="Overview" text="Overview" id="overview" press="onCustomerNavigationSelect" type="Unstyled"></Button>
-					<Button class="sideNavBtn" app:fragmentName="Order" text="Order" id="order" press="onCustomerNavigationSelect" type="Unstyled"></Button>
-					<Button class="sideNavBtn" app:fragmentName="Wishlist" text="Wishlist" id="wishlist" press="onCustomerNavigationWishlistSelect" type="Unstyled"></Button>
-					<Button class="sideNavBtn" app:fragmentName="Vouchers" text="Vouchers" id="vouchers" press="onCustomerNavigationSelect" type="Unstyled"></Button>
-					<Button class="sideNavBtn" app:fragmentName="PersonalDetails" text="Personal Details" id="personalDetails" press="onCustomerNavigationSelect" type="Unstyled"></Button>
-					<Text class="sideNavText" text="More"></Text>
-					<Button class="sideNavBtn" app:fragmentName="HelpFaq" text="Help FAQ" id="helpFaq" press="onCustomerNavigationSelect" type="Unstyled"></Button>
-					<Button class="sideNavBtn" app:fragmentName="ContactUs" text="ContactUs" id="contactUs" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Text class="sideNavText" text="{i18n>yourAcc}"></Text>
+					<Button class="sideNavBtn" app:fragmentName="Overview" text="{i18n>overView}" id="overview" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" app:fragmentName="Order" text="{i18n>order}" id="order" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" app:fragmentName="Wishlist" text="{i18n>wishlist}" id="wishlist" press="onCustomerNavigationWishlistSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" app:fragmentName="Vouchers" text="{i18n>vouchers}" id="vouchers" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" app:fragmentName="PersonalDetails" text="{i18n>persDeta}" id="personalDetails" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Text class="sideNavText" text="{i18n>more}"></Text>
+					<Button class="sideNavBtn" app:fragmentName="HelpFaq" text="{i18n>help}" id="helpFaq" press="onCustomerNavigationSelect" type="Unstyled"></Button>
+					<Button class="sideNavBtn" app:fragmentName="ContactUs" text="{i18n>contactUs}" id="contactUs" press="onCustomerNavigationSelect" type="Unstyled"></Button>
 				</VBox>
 				<Panel id="customerContent">
 
