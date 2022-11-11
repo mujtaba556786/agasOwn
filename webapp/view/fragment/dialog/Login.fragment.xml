@@ -9,16 +9,14 @@
             <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
             <Label class="dialogLabel" text="{i18n>Loginpass}" labelFor="loginPasswordInput" />
             <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
-            <HBox class="sapUiSmallMarginBottom">
+            <HBox class="sapUiSmallMarginBottom log_butt">
                 <Button class="sapUiTinyMargin dialogSubmit" text="{i18n>Loginsub}" press=".onLoginSubmit" type="Unstyled" />
                 <Button class="sapUiTinyMargin loginPasswordForget" text="{i18n>Loginforpass}" press="onForgotOpen" type="Unstyled" />
             </HBox>
-             <HBox class="sapUiSmallMarginBottom">
-             <Button class="withSubmit sapUiTinyMargin " text="{i18n>Logingoo}" press=".onLoginGoogleOpen" type="Unstyled"  />
-        
-               <Button class="withSubmit sapUiTinyMargin" text="{i18n>Loginguest}" press=".onLoginGuestOpen" type="Unstyled"  />
-               </HBox>
-
+            <HBox class="sapUiSmallMarginBottom">
+                <Button class="withSubmit sapUiTinyMargin " text="{i18n>Logingoo}" press=".onLoginGoogleOpen" type="Unstyled"  />
+                <Button class="withSubmit sapUiTinyMargin" text="{i18n>Loginguest}" press=".onLoginGuestOpen" type="Unstyled"  />
+            </HBox>
             <Link class="loginSignUp sapUiTinyMargin" text="{i18n>Loginsign}" press=".onRegisterOpen" />
         </VBox>
     </Dialog>

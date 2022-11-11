@@ -11,6 +11,7 @@
 			<Wizard class="checkoutSteps" id="shoppingCartWizard" complete="checkCompleted" enableBranching="true">
 				<steps>
 					<WizardStep id="contentsStep" nextStep="paymentTypeStep" title="{i18n>checkoutContentsTitle}" icon="sap-icon://cart">
+						<HBox class="section1">
 						<VBox class="sapUiSmallMargin section_one">
 							<List delete=".onCartEntriesDelete" items="{
 
@@ -22,7 +23,7 @@
 					}
 				}" noDataText="{i18n>minimumOne}" class="mimimun_list">
 								<CustomListItem class="section_one_data">
-									<HBox class="sapUiSmallMargin overallHBox overHBox" justifyContent="SpaceBetween" alignItems="Center">
+									<HBox class="sapUiSmallMargin overallHBox" justifyContent="SpaceBetween" alignItems="Center">
 										<VBox class="avatarVBox">
 											<Avatar displaySize="S" src="{
 							path : 'oDataProducts>picture',
@@ -38,6 +39,7 @@
 													<Button class="sapUiSmallMarginEnd specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
 													<Label class="buttonTexts" text="{i18n>rem}"/>
 												</HBox>
+												
 											</VBox>
 											<VBox class="addDetailsSec">
 												<Text text="{oDataProducts>Quantity}" class="product_quantity"/>
@@ -47,16 +49,37 @@
 						formatOptions: {showMeasure: false}
 					}" class="product_price"/>
 											</VBox>
+											
 										</HBox>
+										
 									</HBox>
+									
 								</CustomListItem>
 							</List>
 						</VBox>
-						<Bar class="totalprice_bar">
+							<VBox class="upVBox">
+								<VBox visible="true" backgroundDesign="Solid" class="sideVBox">
+									<Text id="totalPricefinal" text="{ path : 'oDataProducts>/cartEntries', formatter : '.formatter.totalPrice' } EUR" class="totalText" />
+									<HBox class="freeDelivery">
+										<Text text="{i18n>deliveryText}" class="deliveryText"/>
+										<Text text="{i18n>freeText}" class="freeText"/>
+									</HBox>
+									<HBox class="totalVat">
+										<Text class="vatText" text="{i18n>vatText}"/>
+										<Text class="priceText" text="164.00$"/>
+									</HBox>
+									<Button width="50%" class="continue_shopping continueShopping" text="{i18n>checkOutText1}" press=".onContinueShopping" type="Unstyled" />
+								</VBox>
+								<!-- <VBox class="addVoucher">
+								<Text class="add_Vtext" text="Add a voucher(Optional)"/>
+							</VBox> -->
+							</VBox>
+							</HBox>
+						<!-- <Bar class="totalprice_bar">
 							<contentRight>
 								<Text class="totalPrice_final" id="totalPricefinal" text="{ path : 'oDataProducts>/cartEntries', formatter : '.formatter.totalPrice' } EUR" />
 							</contentRight>
-						</Bar>
+						</Bar> -->
 					</WizardStep>
 					<WizardStep id="paymentTypeStep" title="{i18n>checkoutPaymentTitle}" subsequentSteps="creditCardStep, bankAccountStep, cashOnDeliveryStep" complete="goToPaymentStep" icon="sap-icon://money-bills">
 						<Text class="sapUiSmallMarginBottom" text="{i18n>checkoutPaymentText}" />
@@ -72,7 +95,7 @@
 									</items>
 								</SegmentedButton>
 							</VBox>
-							<VBox class="upVBox">
+							<!-- <VBox class="upVBox">
 								<VBox visible="true" backgroundDesign="Solid" class="sideVBox">
 									<Text text="{ path : 'oDataProducts>/cartEntries', formatter : '.formatter.totalPrice' } EUR" class="totalText" />
 									<HBox class="freeDelivery">
@@ -83,12 +106,9 @@
 										<Text class="vatText" text="{i18n>vatText}"/>
 										<Text class="priceText" text="164.00$"/>
 									</HBox>
-									<Button width="50%" class="continue_shopping continueShopping" text="{i18n>checkOutText}" press=".onContinueShopping" type="Unstyled" />
+									<Button width="50%" class="continue_shopping continueShopping" text="{i18n>checkOutText1}" press=".onContinueShopping" type="Unstyled" />
 								</VBox>
-								<!-- <VBox class="addVoucher">
-								<Text class="add_Vtext" text="Add a voucher(Optional)"/>
 							</VBox> -->
-							</VBox>
 						</HBox>
 					</WizardStep>
 					<WizardStep id="creditCardStep" title="{i18n>checkoutCreditCardCreditCardInfo}" nextStep="invoiceStep" activate=".onCheckStepActivation" icon="sap-icon://credit-card" validated="false" class="deliveryAddress_step">
@@ -201,7 +221,7 @@
 							</VBox>
 						</form:SimpleForm>
 					</WizardStep>
-					<WizardStep id="invoiceStep" title="{i18n>checkoutInvoiceAddressTitle}" subsequentSteps="deliveryAddressStep, deliveryTypeStep" activate=".onCheckStepActivation" complete="invoiceAddressComplete" icon="sap-icon://sales-quote" validated="true" class="deliveryAddress_step">
+					<WizardStep id="invoiceStep" title="{i18n>checkoutInvoiceAddressTitle}" subsequentSteps="deliveryAddressStep, orderSummaryStep" activate=".onCheckStepActivation" complete="invoiceAddressComplete" icon="sap-icon://sales-quote" validated="true" class="deliveryAddress_step">
 						<form:SimpleForm layout="ResponsiveGridLayout" editable="true" class="deliveryAddress_form">
 							<VBox class="form_data">
 								<Label text="{i18n>checkoutInvoiceAddressDifferentDeliveryAddress}">
@@ -277,7 +297,7 @@
 							</VBox>
 						</form:SimpleForm>
 					</WizardStep>
-					<WizardStep id="deliveryAddressStep" activate=".onCheckStepActivation" validated="false" title="{i18n>checkoutDeliveryAddressTitle}" nextStep="deliveryTypeStep" icon="sap-icon://sales-quote" class="deliveryAddress_step">
+					<WizardStep id="deliveryAddressStep" activate=".onCheckStepActivation" validated="false" title="{i18n>checkoutDeliveryAddressTitle}" nextStep="orderSummaryStep" icon="sap-icon://sales-quote" class="deliveryAddress_step">
 						<form:SimpleForm editable="true" layout="ResponsiveGridLayout" class="deliveryAddress_form">
 							<VBox class="form_data">
 								<Label text="{i18n>checkoutDeliveryAddressAddress}" required="true" labelFor="deliveryAddressAddress">
@@ -333,19 +353,20 @@
 							</VBox>
 						</form:SimpleForm>
 					</WizardStep>
-					<WizardStep id="deliveryTypeStep" title="{i18n>checkoutDeliveryTypeTitle}" icon="sap-icon://insurance-car" nextStep="orderSummaryStep">
-						<HBox class="deliveryType">
+					<!-- product deliveryType   -->
+					<!-- <WizardStep id="deliveryTypeStep" title="{i18n>checkoutDeliveryTypeTitle}" icon="sap-icon://insurance-car" nextStep="orderSummaryStep"> -->
+						<!-- <HBox class="deliveryType">
 							<Text class="sapUiSmallMarginBottom deliveryTypetext" text="{i18n>checkoutDeliveryTypeText}" />
-						</HBox>
-						<HBox renderType="Bare" alignItems="Center" justifyContent="Center" width="100%">
+						</HBox> -->
+						<!-- <HBox renderType="Bare" alignItems="Center" justifyContent="Center" width="100%">
 							<SegmentedButton id="deliveryType" selectedKey="{/SelectedDeliveryMethod}" class="amantil">
 								<items renderType="Bare">
 									<SegmentedButtonItem key="Standard Delivery" text="{i18n>checkoutDeliveryTypeStandard}" renderType="Bare"/>
 									<SegmentedButtonItem id="expressDelivery" key="Express Delivery" text="{i18n>checkoutDeliveryTypeExpress}" renderType="Bare"/>
 								</items>
 							</SegmentedButton>
-						</HBox>
-					</WizardStep>
+						</HBox> -->
+					<!-- </WizardStep> -->
 					<!-- summary page -->
 					<WizardStep id="orderSummaryStep" title="{i18n>orderSum}" icon="sap-icon://money-bills">
 						<Text class="sapUiSmallMarginBottom" text="{i18n>orderSum}" />
@@ -510,8 +531,8 @@
 							</HBox>
 						</HBox>
 						<HBox class="summaryBar">
-							<Button id="submitOrder" type="Accept" text="{i18n>placeYourOrder}" press=".handleWizardSubmitss"></Button>
-							<Button id="cancelOrder" type="Reject" text="{i18n>cancelYourOrder}" press=".handleWizardCancel"></Button>
+							<Button class="place_order_button" text="{i18n>placeYourOrder}" press=".handleWizardSubmitss"></Button>
+							<Button class="order_cancel_button"  text="{i18n>cancelYourOrder}" press=".handleWizardCancel"></Button>
 						</HBox>
 					</WizardStep>
 				</steps>

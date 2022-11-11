@@ -147,9 +147,10 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		};
   
 		if (!this.bUrlExist) {
-		  return sap.ui.require.toUrl("ag/agasown/img/Vertical-HQ.png");
+		//   return sap.ui.require.toUrl("ag/agasown/img/Vertical-HQ.png");
+		return sUrl
 		} else {
-		  return sUrl;
+			return sap.ui.require.toUrl("ag/agasown/img/Vertical-HQ.png");
 		}
 	  },
   

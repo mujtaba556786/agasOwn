@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f" 
-   controllerName="ag.agasown.controller.Cart"
+   controllerName="ag.agasown.controller.Customer"
    xmlns:cssgrid="sap.ui.layout.cssgrid"
    xmlns:core="sap.ui.core">
    <f:GridList id="gridList" items="{wish>/}" growing="true" growingThreshold="4">
@@ -11,18 +11,34 @@
          <f:layoutData>
             <cssgrid:GridItemLayoutData gridRow="span 3" gridColumn="span 2" />
          </f:layoutData>
-         <VBox alignItems="Center" class="sapUiSmallMargin vbox-c-home">
-            <Image src="{path: 'wish>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
-            <Title text="{wish>product_name}" wrapping="true" />
-            <ObjectNumber class="sapUiSmallMarginBottom" number="{
+         
+         <VBox class="slideshow1">
+          <VBox alignItems="End" class="sapUiSmallMargin">
+            <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onAddToWishList11" type="Unstyled" />
+        </VBox>
+            <Carousel  showPageIndicator="true" class="thumb car-images" loop="true">
+               <customLayout>
+               
+                  <CarouselLayout visiblePagesCount="4" />
+               </customLayout>
+              
+               <VBox alignItems="Center" class="sapUiSmallMargin vbox-c-home">
+              
+                  <HBox>
+                     <!-- <Button class="specialButtons" icon="sap-icon://delete" press="onAddToWishList11" type="Unstyled" /> -->
+                     <Image src="{path: 'wish>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
+                  </HBox>
+                  <Title text="{wish>product_name}" wrapping="true" />
+                  <ObjectNumber class="sapUiSmallMarginBottom" number="{
 						parts:[{path:'wish>price'},{path:'wish>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" unit="{wish>/Currency}" textAlign="Center"/>
-               <Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
+                  <Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
+               </VBox>
+            </Carousel>
          </VBox>
-   
+         
       </f:GridListItem>
    </f:GridList>
-
 </core:FragmentDefinition>

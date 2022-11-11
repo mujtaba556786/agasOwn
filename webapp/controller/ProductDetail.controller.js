@@ -10,12 +10,12 @@ sap.ui.define(
   function (JSONModel, BaseController, Sorter, formatter, cart, MessageToast) {
     "use strict";
 
-    return BaseController.extend("ag.agasown.controller.Product", {
+    return BaseController.extend("ag.agasown.controller.ProductDetail", {
       cart: cart,
       formatter: formatter,
 
       onInit: function () {
-       
+
         this.oView = this.getView();
         this._bDescendingSort = false;
         this.oDetailProduct = this.oView.byId("detailProduct");
@@ -53,7 +53,7 @@ sap.ui.define(
       _showPopover: function () {
         this._timeId = setTimeout(() => {
           this.byId("popover").openBy(this.byId("target"));
-        }, 500);
+        });
       },
       _onObjectMatched: function (oEvent) {
         var sCurrentRouteName = oEvent.getParameter("name");
@@ -88,18 +88,52 @@ sap.ui.define(
           .getModel("oGlobalModel")
           .getData().detailProduct;
         var oDataProducts = this.getView().getModel("oDataProducts");
-        var product_id =oSelectedPath._id;
-        sessionStorage.setItem("single",product_id)
-        
+        var product_id = oSelectedPath._id;
+        sessionStorage.setItem("single", product_id)
+
+
         cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
       },
+
       onAddToWishList: function (oEvent) {
-       
+
         var login_id = sessionStorage.getItem("uid");
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
           .getData().detailProduct;
         var product_id = oSelectedPath._id;
+        // var all = []; // Moved up, and replaced with bracket notation.
+        // var a = 1;
+        // for (  var i= 0; i < 4; i++) {
+        //   all.push(product_id);
+        //   // all[i] = product_id;
+        //   // all++;
+        // }
+        // console.log("stord array",all);
+        // var arr = [];
+
+        // for(var i = 0; i < 5; i++){
+
+        // arr.push({valueItem: product_id});
+        // arr.push({valueItem: product_id});
+
+        // }
+        // forEach(( product_id) => {
+        //   arr.push( product_id);
+        // });
+        // var newarr=arr.map(function(isss){
+        //   arr.push(product_id);
+        // });
+        // console.log("==================>",arr)
+        // foreach()
+        var previous_wishlist = sessionStorage.getItem('product_id')
+        console.log("=========>", previous_wishlist);
+        if (previous_wishlist != null) {
+          var temp = previous_wishlist + ';' + product_id
+          sessionStorage.setItem('product_id', temp)
+        } else {
+          sessionStorage.setItem('product_id', ('' + product_id))
+        }
         console.log("product_id", product_id);
         var customer_id = sessionStorage.getItem("uid");
 
@@ -132,10 +166,9 @@ sap.ui.define(
             .then((result) => {
               console.log(result);
               // MessageToast.show(JSON.parse(result).message)
-             
-            if(JSON.parse(result).message ==="Product already exists")
-              {
-               
+
+              if (JSON.parse(result).message === "Product already exists") {
+                // sessionStorage.setItem("product_id");
                 var login_id = sessionStorage.getItem("uid");
                 var oSelectedPath = this.getView()
                   .getModel("oGlobalModel")
@@ -143,7 +176,7 @@ sap.ui.define(
                 var product_id = oSelectedPath._id;
                 console.log("product_id", product_id);
                 var customer_id = sessionStorage.getItem("uid");
-        
+
                 if (!login_id) {
                   MessageToast.show("You have to login first");
                   var uid = sessionStorage.getItem("uid");
@@ -158,89 +191,41 @@ sap.ui.define(
                     this.handleLogout(oEvent);
                   }
                 } else {
-                //   $(".productFavourite").click(function(){
-                //   $(this).addClass("bgcol");
-                // });
                   var formdata = new FormData();
                   formdata.append("customer_id", customer_id);
                   formdata.append("product_id", product_id);
-        
+
                   var requestOptions = {
                     method: "DELETE",
                     body: formdata,
                     redirect: "follow",
                   };
-        
+
                   fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
                     .then((response) => response.text())
-                    .then((result) => MessageToast.show(JSON.parse(result).message))
+                    .then((result) =>
+                      //  MessageToast.show(JSON.parse(result).message)
+                      console.log(result)
+                    )
                     .catch((error) => console.log("error", error));
                 }
-                $(".productFavourite").click(function(){
+                $(".productFavourite").click(function () {
                   $(this).addClass("bgcol");
                 });
               }
-              else{
-                
-                $(".productFavourite").click(function(){
+              else {
+
+                $(".productFavourite").click(function () {
                   $(this).removeClass("bgcol");
                 });
                 MessageToast.show("Added Successfully")
               }
-              // if(JSON.parse(result).message ==="Product already exists"){
-              //   $(".productFavourite").click(function(){
-              //     $(this).removeClass("bgcol");
-              //   });
-              // }else{
-              //   $(".productFavourite").click(function(){
-              //     $(this).addClass("bgcol");
-              //   });
-              // }
             })
-            
-              .catch((error) => console.log("error", error));
-          }
-            
+
+            .catch((error) => console.log("error", error));
+        }
+
       },
-      // onDeleteFromWishList: function (oEvent) {
-      //   var login_id = sessionStorage.getItem("uid");
-      //   var oSelectedPath = this.getView()
-      //     .getModel("oGlobalModel")
-      //     .getData().detailProduct;
-      //   var product_id = oSelectedPath._id;
-      //   console.log("product_id", product_id);
-      //   var customer_id = sessionStorage.getItem("uid");
-
-      //   if (!login_id) {
-      //     MessageToast.show("You have to login first");
-      //     var uid = sessionStorage.getItem("uid");
-      //     var Guid = sessionStorage.getItem("Guid");
-      //     var oData = {
-      //       uid: uid,
-      //       Guid: Guid,
-      //     };
-      //     if (oData.uid == null && oData.Guid == null) {
-      //       this.handleLogin(oEvent);
-      //     } else {
-      //       this.handleLogout(oEvent);
-      //     }
-      //   } else {
-      //     var formdata = new FormData();
-      //     formdata.append("customer_id", customer_id);
-      //     formdata.append("product_id", product_id);
-
-      //     var requestOptions = {
-      //       method: "DELETE",
-      //       body: formdata,
-      //       redirect: "follow",
-      //     };
-
-      //     fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
-      //       .then((response) => response.text())
-      //       .then((result) => MessageToast.show(JSON.parse(result).message))
-      //       .catch((error) => console.log("error", error));
-      //   }
-      // },
     });
   }
 );

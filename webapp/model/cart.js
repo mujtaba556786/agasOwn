@@ -46,5 +46,6 @@ sap.ui.define([
 			oCartModel.refresh(true);
 			MessageToast.show(oBundle.getText("productMsgAddedToCart", [oProductToBeAdded.product_name]));
 		}
+		
 	};
 });

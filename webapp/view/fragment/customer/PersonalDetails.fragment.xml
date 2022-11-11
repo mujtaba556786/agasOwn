@@ -8,21 +8,21 @@
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".offLoginOpen" />
             <VBox class="distance">
                <Text text="{i18n>LN}" class="testone"/>
-               <Input editable="false" value='oData[email]'/>
+               <Input class = "checkVal" editable="false" value='oData[email]'/>
             </VBox>
             <VBox class="distance">
                <Text text="{i18n>LN}" class="testone"/>
-               <Input editable="false" value="Haruds" class="testtwo"/>
+               <Input editable="false" value="Haruds" class="testtwo checkVal"/>
             </VBox>
          </HBox>
          <HBox class="final">
             <VBox class="distance">
                <Text text="{i18n>DOB}"/>
-               <Input editable="false" value="16.07.1982"/>
+               <Input editable="false" class = "checkVal" value="16.07.1982"/>
             </VBox>
             <VBox class="distance">
       <Text type="Tel" text="{i18n>mobNum}"/>
-               <Input editable="false" value="01765550985"/>
+               <Input editable="false" class = "checkVal" value="01765550985"/>
             </VBox>
           <Button width="100%" class="baton" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
          </HBox>
@@ -32,7 +32,7 @@
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://email" press=".offLoginOpen" />
             <VBox class="email_left">
              <Text type="e-mail" text="{i18n>Loginemail}"/>
-               <Input editable="false" value="test@gmail.com"/>
+               <Input editable="false" class = "checkVal" value="test@gmail.com"/>
             </VBox>
            <Button width="100%" class="baton EditButton" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
          </HBox>
@@ -42,7 +42,7 @@
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://locked" press=".offLoginOpen" />
             <VBox class="email_left">
              <Text text="{i18n>Loginpass}"/>
-               <Input type="password" editable="false" value=""/>
+               <Input type="password" class = "checkVal" editable="false" value=""/>
             </VBox>
            <Button width="100%" class="baton EditButton" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
          </HBox>

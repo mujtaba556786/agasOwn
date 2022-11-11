@@ -94,7 +94,7 @@ sap.ui.define(
       _showPopover: function () {
         this._timeId = setTimeout(() => {
           this.byId("popover").openBy(this.byId("target"));
-        }, 500);
+        });
       },
 
       onShowCategories: function (oEvent) {
@@ -184,6 +184,7 @@ sap.ui.define(
           detailObj: selectedPath.product_name,
         });
       },
+    
 
       handleCloseMenu: function (oEvent) {
         // note: We don't need to chain to the _pPopover promise, since this event-handler
@@ -471,6 +472,9 @@ sap.ui.define(
         sessionStorage.removeItem("Guid");
         sessionStorage.removeItem("myvalue5");
         sessionStorage.removeItem("single");
+        
+        sessionStorage.removeItem("product_id");
+        
         var oCustomer = oGlobalModel.getData().customer;
         var oHeaderToken = {
           Authorization: "Bearer " + oCustomer.token.access_token,

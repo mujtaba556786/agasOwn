@@ -105,7 +105,7 @@ sap.ui.define(
       _showPopover: function () {
         this._timeId = setTimeout(() => {
           this.byId("popover").openBy(this.byId("target"));
-        }, 500);
+        });
       },
 
       /**
@@ -209,14 +209,14 @@ sap.ui.define(
 
       /**
        * Called from WizardStep "invoiceStep"
-       * shows next WizardStep "DeliveryAddressStep" or "DeliveryTypeStep" according to user selection
+       * shows next WizardStep "DeliveryAddressStep" or "orderSummaryStep" according to user selection
        */
       invoiceAddressComplete: function () {
         var sNextStepId = this.getView()
           .getModel()
           .getProperty("/DifferentDeliveryAddress")
           ? "deliveryAddressStep"
-          : "deliveryTypeStep";
+          : "orderSummaryStep";
         this.byId("invoiceStep").setNextStep(this.byId(sNextStepId));
       },
 

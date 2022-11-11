@@ -32,7 +32,7 @@
                <HBox>
                   <Text text="`${oDataProducts}`" />
                </HBox>
-               <HBox class="sapUiSmallMargin overallHBox" justifyContent="SpaceBetween" alignItems="Center">
+               <HBox class="sapUiSmallMargin overallHBox"  alignItems="Center">
                <VBox class="avatarVBox">
                   <Avatar displaySize="S" src="{
 							path : 'oDataProducts>picture',

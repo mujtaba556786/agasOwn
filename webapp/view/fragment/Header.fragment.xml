@@ -20,7 +20,7 @@
                                 <List class="sapUiTinyMarginBegin Menu2 second">
                                     <CustomListItem>
                                         <HBox alignItems="Center" justifyContent="SpaceBetween">
-                                            <Link class="menuLinks" text="sample1" press="onCategoryLinkPress" />
+                                            <Link class="menuLinks" press="onCategoryLinkPress" />
                                         </HBox>
                                     </CustomListItem>
                                 </List>

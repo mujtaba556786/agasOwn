@@ -30,40 +30,38 @@
 							<Image class="c-img" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="handleImagePress"/>
 						</Carousel>
 					</VBox>
-					<VBox justifyContent="SpaceAround">
+					<VBox justifyContent="SpaceAround" class="details_sec">
 						<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
 						<HBox class="priceStatusBox" justifyContent="SpaceBetween">
-							<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
-							<Text class="productStatus" id="product_status" text="InStock"/>
+							<Text class="productPrice" id="product_price" text="€{oGlobalModel>/detailProduct/price}"/>
+							<Text class="productStatus" id="product_status" text="In Stock"/>
 						</HBox>
-						<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="5" tooltip="Rating Tooltip" editable="true"/>
 						<HBox alignItems="Baseline">
-							<Label text="{i18n>color}" labelFor="product_color" />
+							<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
 							<Link class="loginSignUp sapUiTinyMargin"   id="product_color" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.variantColor' }" press=".picChange"/>
-							
 						</HBox>
 						<HBox alignItems="Baseline">
-							<Label text="{i18n>dimension}" labelFor="product_dimension" />
-							<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
+							<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
+							<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}" />
 						</HBox>
 						<HBox justifyContent="SpaceBetween" class="mrButtons">
-						<HBox class="twoButtons">
-							<VBox class="secondBut">
-								<StepInput value="{detailView>/value}" class="productQuant" min="{detailView>/min}" textAlign="Center" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
-							</VBox>
+							<HBox class="twoButtons">
+								<VBox class="secondBut">
+									<StepInput value="{detailView>/value}" class="productQuant" min="{detailView>/min}" textAlign="Center" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
+								</VBox>
 								<VBox class="firstBut">
-								<Button type="Transparent" width="200px" class="productCart" text="{i18n>productAddButtonText}" icon="sap-icon://cart" press=".onAddToCartDetails"/>
-							</VBox>
+									<!-- <Button type="Transparent" width="200px" class="productCart" text="{i18n>productAddButtonText}" icon="sap-icon://cart" press=".onAddToCartDetails"/> -->
+									<Button type="Unstyled" width="200px" class="productCart" text="{i18n>productAddButtonText}" press=".onAddToCartDetails"/>
+								</VBox>
 							</HBox>
 							<VBox >
 								<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
 							</VBox>
-							
 							<!-- <VBox>
 								<Button class="productFavourite" icon="sap-icon://delete" press=".onDeleteFromWishList"/>
 							</VBox> -->
 						</HBox>
-						<Button class="productBuyNow" type="Transparent" text="{i18n>buyItNow}" press=".onAddToCartDetails"/>
+						<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onAddToCartDetails"/>
 						<layoutData>
 							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
 						</layoutData>
@@ -74,20 +72,19 @@
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
-						<Title text="{i18n>prodDes}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<Title text="{i18n>prodDes}" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
 				<HBox>
 					<Text text="{i18n>proName}" class="proName"/>
-					</HBox>
-					<HBox>
+				</HBox>
+				<HBox>
 					<Text text="{oGlobalModel>/detailProduct/product_name}" class="productName"/>
-					</HBox>
-				
+				</HBox>
 				<Text id="productDescription" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productDescription' }" class="prodDes"/>
 			</Panel>
-			<Panel backgroundDesign="Transparent" class="productDescription">
+			<!-- <Panel backgroundDesign="Transparent" class="productDescription">
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
@@ -103,7 +100,7 @@
 								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
 								sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
 								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
-			</Panel>
+			</Panel> -->
 			<Panel backgroundDesign="Transparent" class="">
 				<headerToolbar>
 					<Toolbar>

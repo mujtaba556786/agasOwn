@@ -63,6 +63,7 @@ sap.ui.define([
 		onEditOrDoneButtonPress: function () {
 			this._toggleCfgModel();
 		},
+		
 
 		_toggleCfgModel: function () {
 			var oCfgModel = this.getView().getModel("cfg");

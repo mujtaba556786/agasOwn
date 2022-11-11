@@ -25,7 +25,7 @@ sap.ui.define([
 _showPopover: function () {
 	this._timeId = setTimeout(() => {
 	  this.byId("popover").openBy(this.byId("target"));
-	}, 500);
+	});
   },
 		_onObjectMatched: function (oEvent) {
 			var _sId = oEvent.getParameter("arguments").productPath;
