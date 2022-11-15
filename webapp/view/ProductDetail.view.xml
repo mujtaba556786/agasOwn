@@ -101,7 +101,7 @@
 								sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
 								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
 			</Panel> -->
-			<Panel backgroundDesign="Transparent" class="">
+			<!-- <Panel backgroundDesign="Transparent" class="">
 				<headerToolbar>
 					<Toolbar>
 						<ToolbarSpacer/>
@@ -120,8 +120,34 @@
 					<VBox class="sapUiResponsiveContentPadding" renderType="Bare">
 						<Image src="{path: 'oDataCategory>picture',
 											formatter : '.formatter.jsonPictureUrl'
-											}" class="categoryBox imageDisplayBlock" press="onCategoryLinkPress"/>
+											}" class="categoryBox imageDisplayBlock" press="onCategoryLinkPress_PDP"/>
 						<Text textAlign="Center" text="{oDataCategory>category_name}" class="categoryBoxText"/>
+					</VBox>
+				</Carousel>
+			</Panel> -->
+			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="{i18n>relatedProd}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</headerToolbar>
+				<Carousel pages="{path: 'oDataProducts>/',
+                        filters: [{path: 'ranking', operator: 'EQ', value1: 'promoted'}],
+                        sorter: {path: '_id'}}">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
+						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress" />
+						<Title text="{oDataProducts>product_name}" wrapping="true" />
+						<ObjectNumber class="sapUiSmallMarginBottom" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
 			</Panel>

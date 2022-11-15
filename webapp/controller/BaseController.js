@@ -152,6 +152,7 @@ sap.ui.define(
       },
 
       onCategoryLinkPress: function (oEvent) {
+        console.log("categories")
         var oSelectedItem = oEvent.getSource();
         var oContext = oSelectedItem.getBindingContext("oDataCategory");
         var sValue1 = oContext.getProperty("_id");
@@ -171,6 +172,28 @@ sap.ui.define(
           productPath: sValue1,
         });
       },
+      
+      // onCategoryLinkPress_PDP: function (oEvent) {
+      //   console.log("categories at PDP")
+      //   var oSelectedItem = oEvent.getSource();
+      //   var oContext = oSelectedItem.getBindingContext("oDataCategory");
+      //   var sValue1 = oContext.getProperty("_id");
+
+      //   var fnFilterCategory = function (item) {
+      //     return item.parent === sValue1;
+      //   };
+
+      //   var oDataCategory = this.getView().getModel("oDataCategory").getData();
+      //   var selectedCategory = oDataCategory.filter(fnFilterCategory);
+
+      //   this.getView().getModel("oGlobalModel").setProperty("/", {
+      //     detailCategory: selectedCategory,
+      //   });
+
+      //   this.getRouter().navTo("product", {
+      //     productPath: sValue1,
+      //   });
+      // },
 
       onProductItemPress: function (oEvent) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");

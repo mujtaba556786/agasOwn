@@ -456,6 +456,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 
 .agasown .menuLinks:hover {
   color: #df3165;
+  text-decoration: none !important;
 }
 
 .agasown .icon {
@@ -1422,7 +1423,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   }
 }
 
-@media only screen and (max-device-width: 452px) and (min-device-width: 320px) {
+/* @media only screen and (max-device-width: 480px) and (min-device-width: 320px) {
   .panel .product_overall_details {
     flex-direction: column;
     margin-right: 20px
@@ -1443,7 +1444,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   .section1 {
     display: contents;
   }
-}
+} */
 
 .addDetailsSec {
   display: flex;
@@ -1481,7 +1482,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 #container-agasown---checkout--totalPricefinal {
-  color: white !important;
+  color: rgb(5, 5, 5) !important;
 }
 
 .totalPrice_final {
@@ -1541,7 +1542,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   background-color: #df3165 !important;
   margin: 0.5%;
   font-weight: 600 !important;
-  color: #3F183B !important;
+  color: white !important;
 
 }
 
@@ -1554,9 +1555,9 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .activate {
-  color: pink !important;
-  background-color: black !important;
-  border: 2px solid black !important;
+  color: white !important;
+  background-color: #3F183B !important;
+  border: 1px solid #3F183B !important;
 }
 
 .bankDetails {
@@ -1678,7 +1679,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 
 .topHori {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .final_checkOut {
@@ -1789,7 +1790,12 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
     height: 316px !important;
   }
 }
-
+@media only screen and (max-device-width: 450px) and (min-device-width:320px){
+.topHori{
+  display: flex;
+  flex-direction: column !important;
+}
+}
 
 /* Newsletter section  */
 .newsLetterSection {
@@ -2157,6 +2163,9 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   border: 0px;
   width: -webkit-fill-available;
 }
+.go_to_cus .sapMBtnIconLeft{
+  padding: 0px 5px !important;
+}
 
 .sapMWizardProgressNavStep[data-sap-ui-wpn-step-current="true"] .sapMWizardProgressNavStepContainer::after {
   background: #d41b52 !important;
@@ -2354,5 +2363,41 @@ width: 100% !important;
     display: flex;
     flex-direction: column;
     margin-left: 80px;
+  }
+}
+.slideshow1{
+  position: relative;
+}
+.newDialogCloseBtn{
+  position: absolute;
+  left: 6vw;
+  bottom: 0px;
+}
+@media only screen and (max-device-width: 375px) and (min-device-width:320px){
+  .newDialogCloseBtn{
+    position: absolute;
+    left: 29vw;
+    bottom: 0px;
+  }
+}
+@media only screen and (max-device-width: 425px) and (min-device-width:376px){
+  .newDialogCloseBtn{
+    position: absolute;
+    left: 43vw;
+    bottom: 0px;
+  }
+}
+@media only screen and (max-device-width: 768px) and (min-device-width:426px){
+  .newDialogCloseBtn{
+    position: absolute;
+    left: 15vw;
+    bottom: 0px;
+  }
+}
+@media only screen and (max-device-width: 1024px) and (min-device-width:769px){
+  .newDialogCloseBtn{
+    position: absolute;
+    left: 12vw;
+    bottom: 0px;
   }
 }

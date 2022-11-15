@@ -14,7 +14,7 @@
          
          <VBox class="slideshow1">
           <VBox alignItems="End" class="sapUiSmallMargin">
-            <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onAddToWishList11" type="Unstyled" />
+            
         </VBox>
             <Carousel  showPageIndicator="true" class="thumb car-images" loop="true">
                <customLayout>
@@ -35,6 +35,7 @@
 						formatOptions: {showMeasure: false}
 					}" unit="{wish>/Currency}" textAlign="Center"/>
                   <Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
+                  <Button class="dialogCloseBtn newDialogCloseBtn" icon="sap-icon://delete" press=".onAddToWishList11" type="Unstyled" />
                </VBox>
             </Carousel>
          </VBox>

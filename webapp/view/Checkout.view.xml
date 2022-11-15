@@ -431,6 +431,7 @@
 										</form:content>
 									</form:SimpleForm>
 								</VBox>
+								<VBox class="segmentBreak">
 								<VBox class="secondVirt">
 									<VBox class="notCondition">
 										<form:SimpleForm editable="false" title="{i18n>billAdd}" layout="ResponsiveGridLayout" visible="{= !${/DifferentDeliveryAddress}}" ariaLabelledBy="shippingAddressTitle2">
@@ -496,7 +497,8 @@
 										</form:content>
 									</form:SimpleForm>
 								</VBox>
-								<VBox class="invoice_class">
+								</VBox>
+								<!-- <VBox class="invoice_class">
 									<form:SimpleForm title="" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="invoiceAddressTitle">
 										<form:content>
 											<Label text="{i18n>checkoutInvoiceAddress}" />
@@ -511,15 +513,15 @@
 											<Text text="{/InvoiceAddress/Note}" />
 										</form:content>
 									</form:SimpleForm>
-								</VBox>
-								<VBox class="offline">
+								</VBox> -->
+								<!-- <VBox class="offline">
 									<form:SimpleForm title="" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="deliveryTypeTitle">
 										<form:content>
 											<Label text="{i18n>checkoutSummaryDeliveryHeader}" />
 											<Text id="selectedDeliveryMethod" text="{/SelectedDeliveryMethod}" />
 										</form:content>
 									</form:SimpleForm>
-								</VBox>
+								</VBox> -->
 								<form:SimpleForm ariaLabelledBy="totalPriceTitle">
 									<form:toolbar>
 										<Toolbar id="toolbarTotalPrice">
