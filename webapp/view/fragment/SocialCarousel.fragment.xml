@@ -5,7 +5,7 @@
     <l:BlockLayout background="Light">
         <l:BlockLayoutRow>
             <l:BlockLayoutCell class="sapUiNoContentPadding">
-                <Carousel id="welcomeSocial" showPageIndicator="false" loop="true" pageChanged=".onCarouselPageChanged" visible="{=!${device>/system/phone}}" tooltip="{i18n>welcomeDescription}">
+                <Carousel id="welcomeSocial" showPageIndicator="false" loop="true" pageChanged=".onCarouselPageChanged" visible="{=!${device>/system/phone}}" tooltip="">
                     <pages>
                         <VBox renderType="Bare">
                             <Image src="{
