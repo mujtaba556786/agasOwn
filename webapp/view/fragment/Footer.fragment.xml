@@ -23,13 +23,13 @@
             <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/facebook',
                         formatter : '.formatter.pictureUrl'
                         }" />
-            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
+            <!--<Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
+                        formatter : '.formatter.pictureUrl'
+                        }" />-->
+            <Avatar displaySize="XS" showBorder="true" press="onPressInstaGram" class="logo" src="{path: 'view>/instagram',
                         formatter : '.formatter.pictureUrl'
                         }" />
-            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/instagram',
-                        formatter : '.formatter.pictureUrl'
-                        }" />
-            <Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/youtube',
+            <Avatar displaySize="XS" showBorder="true" press="onPressYouTube" class="logo" src="{path: 'view>/youtube',
                         formatter : '.formatter.pictureUrl'
                         }" />
         </VBox>

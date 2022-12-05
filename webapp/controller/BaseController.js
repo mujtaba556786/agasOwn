@@ -356,7 +356,13 @@ sap.ui.define(
       },
 
       onPressFaceBook: function () {
-        alert("Oh Crap!!! this function is not ready yet!!!!");
+        sap.m.URLHelper.redirect("https://www.facebook.com/agasown/",true);
+      },
+      onPressYouTube: function(){
+        sap.m.URLHelper.redirect("https://www.youtube.com/watch?v=-PlZw4RmNGk&ab_channel=Aga%27sOwn",true);
+      },
+      onPressInstaGram: function(){
+        sap.m.URLHelper.redirect("https://www.instagram.com/agasown/?hl=en",true);
       },
 
       onLoginSubmit: function () {
