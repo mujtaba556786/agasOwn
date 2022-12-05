@@ -607,7 +607,10 @@ sap.ui.define(
         });
       },
       handleRegistration: function () {
-        this.onLoginClose();
+        if(this._mLoginDialog !== undefined){
+          this.onLoginClose();
+        }
+        
         var oView = this.getView();
         // creates requested dialog if not yet created
         if (!this._mRegistrationDialog) {

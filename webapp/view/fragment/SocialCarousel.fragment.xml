@@ -11,29 +11,29 @@
                             <Image src="{
 											path: 'view>/welcomeCarouselShipping',
 											formatter : '.formatter.pictureUrl'
-											}" width="100%" height="100%"/>
-                            <Text text="{i18n>welcomeCarouselShipping}" class="welcomeCarouselText"/>
+											}" width="100%" height="100%" press="onRegisterOpen"/>
+                            <Text text="" class="welcomeCarouselText"/>
                         </VBox>
                         <VBox renderType="Bare">
                             <Image src="{
 											path: 'view>/welcomeCarouselInviteFriend',
 											formatter : '.formatter.pictureUrl'
 										}" width="100%" height="100%"/>
-                            <Text text="{i18n>welcomeCarouselInviteFriend}" class="welcomeCarouselText"/>
+                            <Text text="" class="welcomeCarouselText"/>
                         </VBox>
                         <VBox renderType="Bare">
                             <Image src="{
 											path: 'view>/welcomeCarouselTablet',
 											formatter : '.formatter.pictureUrl'
 											}" width="100%" height="100%"/>
-                            <Text text="{i18n>welcomeCarouselTablet}" class="welcomeCarouselText"/>
+                            <Text text="" class="welcomeCarouselText"/>
                         </VBox>
                         <VBox renderType="Bare">
                             <Image src="{
 											path: 'view>/welcomeCarouselCreditCard',
 											formatter : '.formatter.pictureUrl'
 											}" width="100%" height="100%"/>
-                            <Text text="{i18n>welcomeCarouselCreditCard}" class="welcomeCarouselText"/>
+                            <Text text="" class="welcomeCarouselText"/>
                         </VBox>
                     </pages>
                 </Carousel>
