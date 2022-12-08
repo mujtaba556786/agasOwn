@@ -1,6 +1,7 @@
 sap.ui.define(
-  ["./BaseController", "sap/ui/model/json/JSONModel"],
-  function (BaseController, JSONModel) {
+  ["./BaseController",
+   "sap/ui/model/json/JSONModel","sap/m/MessageToast"],
+  function (BaseController, JSONModel,MessageToast) {
     "use strict";
 
     return BaseController.extend("ag.agasown.controller.Customer", {
@@ -57,6 +58,8 @@ sap.ui.define(
         oCustomerLayout.destroyContent();
         oCustomerLayout.addContent(oFragment);
       },
+     
+
 
       onCustomerNavigationWishlistSelect: function (oEvent) {
         var uid = sessionStorage.getItem("uid");
@@ -105,34 +108,28 @@ sap.ui.define(
         }
       },
       onAddToWishList11: function (oEvent) {
-        var product_id = sessionStorage.getItem("product_id").split(";");
-        console.log("product_id======>", product_id);
+        var prod_id = oEvent.getSource().data("itemId");
         var customer_id = sessionStorage.getItem("uid");
-// if(product_id === product_id){
-
           var formdata = new FormData();
           formdata.append("customer_id", customer_id);
-          formdata.append("product_id", product_id);
-
+          formdata.append("product_id", prod_id);
           var requestOptions = {
             method: "DELETE",
             body: formdata,
             redirect: "follow",
           };
-
           fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
             .then((response) => response.text())
-            .then((result) => {console.log(result);
-              // sessionStorage.removeItem("product_id");
+            .then((result) => { 
+              MessageToast.show(JSON.parse(result).message);
+              this.onCustomerNavigationWishlistSelect();
+              
             })
             .catch((error) => {
-              // sessionStorage.removeItem("product_id");
-
-              console.log("error", error)});
+              // MessageToast.show(error)
+            });
             }
     }
-    
-    
     );
   }
 );

@@ -54,8 +54,8 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 	   * @param {string} sStatus product status
 	   * @return {string} the corresponding text if found or the original value
 	   */
-	  productDescription: function (productDetail) {
-		return sap.ui.getCore().getConfiguration().getLanguage().includes("en")
+	   productDescription: function (productDetail) {
+		return sap.ui.getCore().getConfiguration().getLanguage().toLowerCase().includes("en")
 		  ? productDetail["description"]
 		  : productDetail["description_de"];
 	  },
@@ -66,7 +66,7 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		redirect: 'follow'
 	  };
 	  var blank_array =[];
-	  var req_ans;
+	//   var req_ans;
 	   await fetch(`http://64.227.115.243:8080/products/${ans}`, requestOptions)
 		.then(response => response.text())
 		.then(result => JSON.parse(result))
@@ -84,25 +84,14 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		return(blank_array) ;
 	},
 	variantLen: async function(productDetail){
-	  var ans = productDetail["_id"]
-	  var requestOptions = {
-		method: 'GET',
-		redirect: 'follow'
-	  };
-	  var blank_array =[];
-	   await fetch(`http://64.227.115.243:8080/products/${ans}`, requestOptions)
-		.then(response => response.text())
-		.then(result => JSON.parse(result))
-		.then(data=>{
-		  data.product_variant.map(colour=>{
-			var re_ans = colour.color
-			console.log("This is color", re_ans);
-			blank_array.push(re_ans);
-			console.log(blank_array)
-		  })
-		})
-		.catch(error => console.log('error', error));
-		return blank_array.length;
+		var ans = productDetail["quantity"];
+		
+        if(ans> 0){
+          return "In Stock"
+		//   console.log("IS")
+        }else{
+         return "Not Available"
+        }
 	},
 	  /**
 	   * Returns the product state based on the status

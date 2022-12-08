@@ -35,6 +35,7 @@ sap.ui.define(
       formatter: formatter,
 
       onInit: function () {
+
         var oModel = new JSONModel({
           SelectedPayment: "Credit Card",
           SelectedDeliveryMethod: "Standard Delivery",
@@ -65,7 +66,9 @@ sap.ui.define(
             SecurityCode: "",
             Expire: "",
           },
+
         }),
+
           oReturnToShopButton = this.byId("returnToShopButton");
 
         this.getView().setModel(oModel);
@@ -322,8 +325,8 @@ sap.ui.define(
           "invoiceAddressCountry",
         ]);
       },
-      newFunction:function(){
-        $(".sapMSegBBtnInner").click(function(){
+      newFunction: function () {
+        $(".sapMSegBBtnInner").click(function () {
           $('.sapMSegBBtnInner').not(this).removeClass("activate");
           $(this).addClass("activate");
         });
@@ -513,6 +516,44 @@ sap.ui.define(
         console.log("first", oNavContainer);
         oNavContainer.to(this.byId("wizardContentPage"));
       },
+      // onSat: function (oEvent) {
+      //   var data = oEvent.getParameter("newValue");
+      //   if (data.length < 2) {
+      //     this.getView()
+      //       .byId("creditCardHolderName")
+      //       .setValueState(sap.ui.core.ValueState.Error);
+      //   } else if (data.length >= 3) {
+      //     this.getView()
+      //       .byId("creditCardHolderName")
+      //       .setValueState(sap.ui.core.ValueState.Success);
+      //   }
+      // },
+      // onInvoiceAdderess: function (oEvent) {
+      //   var data = oEvent.getParameter("newValue");
+      //   if (data.length < 3) {
+      //     this.getView()
+      //       .byId("creditCardHolderName")
+      //       .setValueState(sap.ui.core.ValueState.Error);
+      //   } else if (data.length >= 4) {
+      //     this.getView()
+      //       .byId("creditCardHolderName")
+      //       .setValueState(sap.ui.core.ValueState.Success);
+      //   }
+      // },
+      // onliveChange: function (oEvent) {
+      //   var data = this.byId("creditCardNumber");
+      //   console.log(data);
+      //   // console.log( data,"dsyggdysagdsyg",this.byId("creditCardNumber"),this.byId('creditCardNumber').previousValue)
+      //   if (data.length < 15) {
+      //     this.getView()
+      //       .byId("creditCardNumber")
+      //       .setValueState(sap.ui.core.ValueState.Error);
+      //   } else if (data.length >= 16) {
+      //     this.getView()
+      //       .byId("creditCardNumber")
+      //       .setValueState(sap.ui.core.ValueState.Success);
+      //   }
+      // },
 
       handleWizardSubmitss: async function (oEvent) {
         var selectedKey = this.getView()
@@ -520,16 +561,17 @@ sap.ui.define(
           .getProperty("/SelectedPayment");
         var total_Price2 = this.byId("totalPricefinal").getText();
         var total_Price1 = total_Price2.split(" ");
+        var total_price5 = total_Price1[1];
         var total_price0 = total_Price1[1].split(".");
         var total_price = total_price0[0];
         var total_price3 = total_price.replace(',', '');
-        console.log("price", total_price3);
+        // console.log("price", total_price3);
 
-
-        console.log(total_Price2);
-        console.log(total_Price1);
-        console.log(total_price0);
-        console.log(total_price);
+        console.log(total_price5);
+        // console.log(total_Price2);
+        // console.log(total_Price1);
+        // console.log(total_price0);
+        // console.log(total_price);
 
         var expDate = this.byId("creditCardExpirationDate").getValue();
         var expDate1 = expDate.slice(0, 2);
@@ -559,67 +601,67 @@ sap.ui.define(
           formdata.append("card_number", this.byId("creditCardNumber").getValue());
           formdata.append("exp_month", expDate1);
           formdata.append("exp_year", expYear);
-          formdata.append("cvc",this.byId("creditCardSecurityNumber").getValue());
-          formdata.append("description", "dsvdcv");
+          formdata.append("cvc", this.byId("creditCardSecurityNumber").getValue());
+          formdata.append("description", "Card_Payment");
           formdata.append("name", this.byId("creditCardHolderName").getValue());
-          formdata.append("email",this.byId("loginEmailInput").getValue());
-          formdata.append("amount",total_price3);
+          formdata.append("email", this.byId("loginEmailInput").getValue());
+          formdata.append("amount", total_price5);
           formdata.append("currency", "EUR");
-          
+
           var requestOptions = {
             method: 'POST',
             body: formdata,
             redirect: 'follow'
           };
-          
+
           let respo = await fetch("http://64.227.115.243:8080/stripe/", requestOptions)
             .then(response => {
               return response.status
             })
             // .then(result => console.log(result))
             .catch(error => console.log('error', error));
-            console.log(respo)
-            if(respo === 200){
-                var address = this.byId("invoiceAddressAddress").getValue();
-                var city = this.byId("invoiceAddressCity").getValue();
-                var state = this.byId("invoiceAddressCountry").getValue();
-                var zip = this.byId("invoiceAddressZip").getValue();
-                var email_id = this.byId("loginEmailInput").getValue();
-                var note = this.byId("noteArea").getValue();
-                var name = this.byId("creditCardHolderName").getValue();
-      
-      
-                var temParks = {
-                  email_id: email_id,
-                  mail_sender: "AgasOwn Marketing Team",
-                  state: state,
-                  city: city,
-                  zip: zip,
-                  address: address,
-                  note: note,
-                  name: name,
-                  message_a: pro_Quantity,
-                  message_b: total_price,
-                  message_c: product_name,
-                  message: product_price,
-                  payment: "Payment done via Card"
-                };
-                emailjs.send('service_mr4cg1j', 'template_a7z62ad', temParks).then(function (res) {
-                  console.log("success", res.status);
-                  if (res.status === 200) {
-                    alert("Order Accepted!");
-                    window.location.replace("index.html#/payment");
-      
-                  }
-                  else {
-                    alert("Error")
-                  }
-                });
-            }
-            else{
-              alert('order not accepted')
-            }
-    
+          console.log(respo)
+          if (respo === 200) {
+            var address = this.byId("invoiceAddressAddress").getValue();
+            var city = this.byId("invoiceAddressCity").getValue();
+            var state = this.byId("invoiceAddressCountry").getValue();
+            var zip = this.byId("invoiceAddressZip").getValue();
+            var email_id = this.byId("loginEmailInput").getValue();
+            var note = this.byId("noteArea").getValue();
+            var name = this.byId("creditCardHolderName").getValue();
+
+
+            var temParks = {
+              email_id: email_id,
+              mail_sender: "AgasOwn Marketing Team",
+              state: state,
+              city: city,
+              zip: zip,
+              address: address,
+              note: note,
+              name: name,
+              message_a: pro_Quantity,
+              message_b: total_price,
+              message_c: product_name,
+              message: product_price,
+              payment: "Payment done via Card"
+            };
+            emailjs.send('service_mr4cg1j', 'template_a7z62ad', temParks).then(function (res) {
+              console.log("success", res.status);
+              if (res.status === 200) {
+                alert("Order Accepted!");
+                window.location.replace("index.html#/payment");
+
+              }
+              else {
+                alert("Error")
+              }
+            });
+          }
+          else {
+            alert('order not accepted')
+          }
+
 
         } else if (selectedKey == "PayPal") {
           var formdata = new FormData();
@@ -655,7 +697,7 @@ sap.ui.define(
             "cus_add_state",
             this.byId("invoiceAddressCountry").getValue()
           );
-          formdata.append("amount", total_price3);
+          formdata.append("amount", total_price5);
           formdata.append("currency", "eur");
           formdata.append("country", "DE");
           var requestOptions = {

@@ -5,24 +5,24 @@
 
    <HBox>
 
-      <!-- <VBox backgroundDesign="Solid" class="sapUiSmallMargin centerVBox centerVBox_ContactUs">
-         <Text text="Contact Us" class="AboutUs"/>
-         <Text text="How can we help?" class="AboutUs_text"/>
+      <VBox backgroundDesign="Solid" class="sapUiSmallMargin centerVBox1 centerVBox_ContactUs1">
+         <Text text="{i18n>contactUs}" class="AboutUs"/>
+         <Text text="{i18n>helpText}" class="AboutUs_text"/>
          <TextArea width="100%" rows="8" placeholder="Write Your Message" value="" class="sapUiTinyMargin textArea_ContactUs" id="text_cu" required="true">
          </TextArea>
          <HBox class="f_Hbox">
-         <Input placeholder="First Name" value="" class="sapUiTinyMargin fn_contactUs" id="fn_cu" type="text" required="true"/>
-         <Input placeholder="Last Name" value="" class="sapUiTinyMargin ln_contactUs" id="ln_cu" type="text" required="true"/>
+         <Input placeholder="{i18n>FN}" value="" class="sapUiTinyMargin fn_contactUs" id="fn_cu" type="text" required="true"/>
+         <Input placeholder="{i18n>LN}" value="" class="sapUiTinyMargin ln_contactUs" id="ln_cu" type="text" required="true"/>
          </HBox>
          <HBox class="f_Hbox">
-         <Input placeholder="Email" value="" class="sapUiTinyMargin em_contactUs" id="email_cu" required="true"/>
-         <Input placeholder="Order Number" value="" class="sapUiTinyMargin on_contactUs" id="on_cu" required="true"/>
+         <Input placeholder="{i18n>Loginemail}" value="" class="sapUiTinyMargin em_contactUs" id="email_cu" required="true"/>
+         <Input placeholder="{i18n>orderNum}" value="" class="sapUiTinyMargin on_contactUs" id="on_cu" required="true"/>
          </HBox>
-         <Button class="sapUiTinyMargin send_message" text="Send Message" press=".onSendMessage" type="Unstyled" />
+         <Button class="sapUiTinyMargin send_message" text="{i18n>sendMess}" press=".onSendMessage" type="Unstyled" />
 
       </VBox>
 
-      <VBox visible="true" backgroundDesign="Solid" class="categories sapUiSmallMargin lastVBox">
+      <!-- <VBox visible="true" backgroundDesign="Solid" class="categories sapUiSmallMargin lastVBox">
          <Image src="{
 											path: 'view>/Jewel',
 											formatter : '.formatter.pictureUrl'

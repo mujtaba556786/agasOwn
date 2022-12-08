@@ -9,25 +9,25 @@
         <VBox fitContainer="true" class="sapUiSmallMargin">
             <Text class="dialogTitle sapUiSmallMarginBottom registrationText" text="{i18n>RegText}"/>
             <VBox class="div">
-                <Label class="dialogLabel fnLabel" text="{i18n>FN}" labelFor="firstNameInput" />
+                <Label class="dialogLabel fnLabel" text="{i18n>FN}" labelFor="firstNameInput" required="true"/>
                 <Input id="firstNameInput" class="fnInput" placeholder="{i18n>FN}" ></Input>
-                <Label class="dialogLabel lnLabel" text="{i18n>LN}" labelFor="lastNameInput" />
+                <Label required="true" class="dialogLabel lnLabel" text="{i18n>LN}" labelFor="lastNameInput" />
                 <Input id="lastNameInput" class="lnInput" placeholder="{i18n>LN}" ></Input>
             </VBox>
-            <Label class="dialogLabel emLabel" text="{i18n>Loginemail}" labelFor="emailInput" />
+            <Label required="true" class="dialogLabel emLabel" text="{i18n>Loginemail}" labelFor="emailInput" />
             <Input id="emailInput" class="sapUiSmallMarginBottom emInput" type="Email" placeholder="{i18n>mailText}" valueStateText="E-mail must be a valid email address." value="{
 							path: '/email',
 							type: '.customEMailType'
 						}" />
             <VBox class="div">
-                <Label class="dialogLabel pwLabel" text="{i18n>Loginpass}" labelFor="passwordInput"/>
+                <Label required="true" class="dialogLabel pwLabel" text="{i18n>Loginpass}" labelFor="passwordInput"/>
                 <Input id="passwordInput" type="Password" class="sapUiSmallMarginBottom pwInput" placeholder="{i18n>Enter}" />
-                <Label class="dialogLabel cpLabel" text="{i18n>confpass}" labelFor="confirmPasswordInput"/>
+                <Label required="true" class="dialogLabel cpLabel" text="{i18n>confpass}" labelFor="confirmPasswordInput"/>
                 <Input id="confirmPasswordInput" type="Password" class="sapUiSmallMarginBottom cpInput" placeholder="{i18n>reEnter}" />
             </VBox>
-            <CheckBox width="350px" wrapping="true" id="newsLetter" text="Ja, ich möchte per E-Mail Newsletter über Trends, Aktionen 
+            <CheckBox required="true" width="350px" wrapping="true" id="newsLetter" text="Ja, ich möchte per E-Mail Newsletter über Trends, Aktionen 
 						 Gutscheine informiert werden. Abmeldung jederzeit möglich. (optional)" />
-            <CheckBox width="350px" wrapping="true" id="readData" text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
+            <CheckBox required="true" width="350px" wrapping="true" id="readData" text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
 						 von Zalando sowie einer Bonitätsprüfung zu. " />
             <HBox>
                 <Button width="12rem" class="dialogSubmitNew" text="{i18n>Loginsign}" type="Unstyled" press="onSubmit"></Button>

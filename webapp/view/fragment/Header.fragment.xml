@@ -14,6 +14,7 @@
                                     <CustomListItem>
                                         <HBox alignItems="Center" justifyContent="SpaceBetween">
                                             <Link class="menuLinks" text="{oDataCategory>category_name}" press="onCategoryLinkPress" />
+                                            <!-- <Link class="menuLinks" text="{oDataCategory>selectedCategory(3)}" press="xyz" /> -->
                                         </HBox>
                                     </CustomListItem>
                                 </List>
@@ -35,7 +36,7 @@
         </contentMiddle>
         <contentRight>
             <Button type="Unstyled" id="langChang" class="menu" icon="sap-icon://translate" press=".onLanguageSelect" />
-            <Button type="Unstyled" id="goToCart" class="menu" icon="sap-icon://cart" press=".onToggleCart" />
+            <Button type="Unstyled" id="goToCart" class="menu" icon="sap-icon://cart" press=".onToggleCart"/>
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".onLoginOpen"  />
         </contentRight>
     </Bar>

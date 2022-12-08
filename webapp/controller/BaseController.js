@@ -72,7 +72,7 @@ sap.ui.define(
           Favorite: [],
           Currency: "EUR",
           pagesCount: iPagesCount,
-         
+
         });
         this.getView().setModel(oViewModel, "view");
       },
@@ -163,6 +163,7 @@ sap.ui.define(
 
         var oDataCategory = this.getView().getModel("oDataCategory").getData();
         var selectedCategory = oDataCategory.filter(fnFilterCategory);
+        console.log("sub_cate", selectedCategory);
 
         this.getView().getModel("oGlobalModel").setProperty("/", {
           detailCategory: selectedCategory,
@@ -172,7 +173,7 @@ sap.ui.define(
           productPath: sValue1,
         });
       },
-      
+
       // onCategoryLinkPress_PDP: function (oEvent) {
       //   console.log("categories at PDP")
       //   var oSelectedItem = oEvent.getSource();
@@ -196,18 +197,20 @@ sap.ui.define(
       // },
 
       onProductItemPress: function (oEvent) {
+
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-        console.log(selectedPath.product_name);
-        this.getView()
+        // console.log(selectedPath.product_name);
+        // console.log(selectedPath.quantity);
+          this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { detailProduct: selectedPath });
         this.getRouter().navTo("productDetail", {
           detailObj: selectedPath.product_name,
         });
       },
-    
+
 
       handleCloseMenu: function (oEvent) {
         // note: We don't need to chain to the _pPopover promise, since this event-handler
@@ -315,15 +318,16 @@ sap.ui.define(
       // },
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
-
+        var gid = sessionStorage.getItem("Guid");
         var uid = sessionStorage.getItem("uid");
-        var pid  =sessionStorage.getItem("single");
+        var pid = sessionStorage.getItem("myvalue5");
         var oData = {
           uid: uid,
-          pid: pid
+          pid: pid,
+          gid: gid
         };
 
-        if (oData.uid !== null && oData.pid!==null) {
+        if (oData.uid !== null && oData.pid !== null ||gid !== null) {
           this.getRouter().navTo("checkout");
         } else if (oData.uid === null) {
           this.getRouter().navTo("home");
@@ -332,7 +336,8 @@ sap.ui.define(
         else if (oData.pid === null) {
           this.getRouter().navTo("home");
           MessageToast.show("You must add some item!");
-        } else {
+        }
+        else {
           this.getRouter().navTo("#");
           MessageToast.show("You must add some item");
         }
@@ -347,12 +352,23 @@ sap.ui.define(
         }
       },
 
-      onPressImprint: function () {
-        this.getRouter().navTo("information");
+      onPressAboutUs: function () {
+        this.getRouter().navTo("about-us");
       },
-
-      onPressRegistration: function () {
-        this.getRouter().navTo("registration");
+      onPressContact: function () {
+        this.getRouter().navTo("contact");
+      },
+      onPressImprint: function () {
+        this.getRouter().navTo("imprint");
+      },
+      onPressTerms: function () {
+        this.getRouter().navTo("terms-and-services");
+      },
+      onPressPrivacy: function () {
+        this.getRouter().navTo("privacy-policy");
+      },
+      onPressGDPR: function () {
+        this.getRouter().navTo("gdpr");
       },
 
       onPressFaceBook: function () {
@@ -422,29 +438,29 @@ sap.ui.define(
             console.log(oSuccess);
           })
           .catch((error) => console.log("error", error));
-          //GET Method
-          var headEr = new Headers();
-          var TokenPass = {
-            Authorization: "Bearer " + access_token,
-          };
-          headEr.append("Authorization", TokenPass.Authorization);
-          
-          var req_ans = {
-            method: 'GET',
-            headers: headEr,
-            redirect: 'follow'
-          };
-          
-          await fetch("http://64.227.115.243:8080/customers/", req_ans)
-            .then(response => response.text())
-            .then(result => {
-              const res = JSON.parse(result).filter(data=>data.user === req_id)
-              var new_ans = res[0]._id;
-              sessionStorage.setItem("uid",new_ans);
+        //GET Method
+        var headEr = new Headers();
+        var TokenPass = {
+          Authorization: "Bearer " + access_token,
+        };
+        headEr.append("Authorization", TokenPass.Authorization);
+
+        var req_ans = {
+          method: 'GET',
+          headers: headEr,
+          redirect: 'follow'
+        };
+
+        await fetch("http://64.227.115.243:8080/customers/", req_ans)
+          .then(response => response.text())
+          .then(result => {
+            const res = JSON.parse(result).filter(data => data.user === req_id)
+            var new_ans = res[0]._id;
+            sessionStorage.setItem("uid", new_ans);
 
 
-            })
-            .catch(error => console.log('error', error));
+          })
+          .catch(error => console.log('error', error));
       },
 
       onLoginGoogleOpen: function (e) {
@@ -461,8 +477,13 @@ sap.ui.define(
       },
 
       onLoginGuestOpen: function () {
-        const myUniversallyUniqueIDG = globalThis.crypto.randomUUID();
-        sessionStorage.setItem("Guid", myUniversallyUniqueIDG);
+        var dt = new Date().getTime();
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = (dt + Math.random()*16)%16 | 0;
+            dt = Math.floor(dt/16);
+            return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+        });
+        sessionStorage.setItem("Guid", uuid);
         this._mLoginDialog.then(function (oDialog) {
           oDialog.close();
         });
@@ -501,15 +522,15 @@ sap.ui.define(
         sessionStorage.removeItem("Guid");
         sessionStorage.removeItem("myvalue5");
         sessionStorage.removeItem("single");
-        
+
         sessionStorage.removeItem("product_id");
-        
+
         var oCustomer = oGlobalModel.getData().customer;
         var oHeaderToken = {
           Authorization: "Bearer " + oCustomer.token.access_token,
         };
         this.getService()
-          .onPost(_sUrl, "" , oHeaderToken)
+          .onPost(_sUrl, "", oHeaderToken)
           .then((oSuccess) => {
             MessageBox.success(oSuccess);
             oGlobalModel.setProperty("/customer", "");
@@ -634,7 +655,6 @@ sap.ui.define(
         });
       },
 
-      //Shawan
       onLoginPage: function (oEvent) {
         this.handleLogin(oEvent);
         this._mRegistrationDialog.then(function (oDialog) {
@@ -817,12 +837,18 @@ sap.ui.define(
         this.handleRegistration(oEvent);
       },
       EmailJs: async function () {
+        var news_check = this.getView().byId("news_check");
+        var data_acceptance = news_check.mProperties.selected;
+        // console.log("=>",news_check.mProperties.selected);
         var _nwUrl = "http://64.227.115.243:8080/newsletter/";
         var _nwfirstName = this.byId("firstNameInput1").getValue();
         var _nwlastName = this.byId("lastNameInput1").getValue();
         var _nwEmail = this.byId("emailInput1").getValue();
         let exist_emails = new Array();
-
+        if(data_acceptance === false){
+         alert("Click to accept T&C")
+        }else{
+         
         await this.getService()
           .onGet(_nwUrl)
           .then((oSuccess) => {
@@ -859,7 +885,9 @@ sap.ui.define(
         else {
           MessageToast.show("Mail id already exist!");
           MessageBox.error("Hey! Mail id already exist!");
-        }
+        } 
+        console.log("Accepted!");
+      }
         // Send mail through EmailJs
         // emailjs
         //   .send("service_iqmgnpc", "template_um2rjon", oDataa)
@@ -877,6 +905,9 @@ sap.ui.define(
       },
 
       onSubmit: function (oEvent) {
+        var readData = this.getView().byId("readData");
+        var data_acceptance = readData.mProperties.selected;
+        console.log(data_acceptance);
         var _sUrl = "http://64.227.115.243:8080/sign-up/";
         var _sfirstName = this.byId("firstNameInput").getValue();
         var _slastName = this.byId("lastNameInput").getValue();
@@ -885,7 +916,9 @@ sap.ui.define(
         var _sConfirmPasswordInput = this.byId(
           "confirmPasswordInput"
         ).getValue();
-
+        if(data_acceptance === false){
+          alert("Click to accept T&C")
+         }else{
         var oData = {
           first_name: _sfirstName,
           last_name: _slastName,
@@ -903,7 +936,7 @@ sap.ui.define(
           .catch((oError) => {
             MessageBox.error(oError.responseJSON.detail);
           });
-      },
+      }},
     });
   }
 );
