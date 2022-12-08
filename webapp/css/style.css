@@ -268,11 +268,15 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 #__hbox4 {
   justify-content: center;
 }
-
+@media only screen and (max-device-width: 974px) {
+  #container-agasown---productDetail--bigImg {
+    padding-left: 21px !important;
+  }
+}
 #container-agasown---productDetail--bigImg {
   width: 100%;
-  min-width: 220px;
-  padding-left: 45px;
+  min-width: 290px;
+  padding-left: 79px;
 }
 
 #__carousel3 {
@@ -450,6 +454,14 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   font-size: 14px !important;
 }
 
+.agasown .menuLinks1 {
+  color: #183f24;
+  display: block;
+  height: 62px;
+  line-height: 32px;
+  border-radius: 16px 0 0 16px;
+  font-size: 14px !important;
+}
 .agasown .menuLinks:active {
   color: #df3165;
 }
@@ -555,7 +567,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .agasown .productStatus {
-  color: #ff0000;
+  color: green;
 }
 
 .productCart {
@@ -570,8 +582,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .productCart:hover {
-  background-color: #3F183B !important;
-  color: #fff !important;
+  /* background-color: #3F183B !important; */
+  color: #3F183B !important;
   cursor: pointer;
 }
 
@@ -595,8 +607,20 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .sapMInputBaseHasEndIcons.sapMInputBaseHasBeginIcons .sapMInputBaseContentWrapper {
   min-width: 8.88rem;
   border-radius: 20px;
+  border: 1px solid #460339;
 }
-
+.sapMInputBaseHasEndIcons.sapMInputBaseHasBeginIcons .sapMInputBaseContentWrapper:hover {
+  border: 1px solid #460339 !important;
+}
+.sapMInputBaseIcon{
+  color: #3F183B;
+}
+.sapMInputBaseIcon:active{
+  background-color: transparent !important;
+}
+.sapMInputBaseIcon:hover{
+  color: #df3165;
+}
 .sapMHBox {
   flex-direction: row;
   /* display: contents; */
@@ -617,8 +641,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .productBuyNow:hover {
-  background-color: #df3165;
-  color: #fff !important;
+  /* background-color: #df3165; */
+  color: #df3165 !important;
   border: 0px;
 }
 
@@ -690,7 +714,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .withSubmit:hover {
-  color: #1d020a;
+  color: #3f183b;
 }
 
 /**************
@@ -699,6 +723,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 
 .loginDialog .loginPasswordForget:hover {
   color: #3f183b;
+
+  
 }
 
 .loginDialog .loginPasswordForget {
@@ -713,9 +739,11 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .loginDialog .loginSignUp {
   color: #3f183b;
 }
-
-.loginDialog .sapMLnk:hover:not(.sapMLnkDsbl) {
+.loginDialog .loginSignUp:hover {
   color: #df3165;
+}
+.loginDialog .sapMLnk:hover:not(.sapMLnkDsbl) {
+  color: #df3165 !important;
 }
 
 /**************
@@ -930,6 +958,10 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .centerVBox {
   width: 370rem;
 }
+.centerVBox1 {
+  width: 100%;
+  /* min-width: 30rem; */
+}
 
 .lastVBox {
   width: 160%;
@@ -1004,9 +1036,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .baton:hover {
-  background-color: #DF3165;
-  border: 1px solid #DF3165;
-  color: white;
+ 
+  color: #df3165;
   font-weight: 700;
   cursor: pointer;
 }
@@ -1076,6 +1107,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .centerVBox_ContactUs {
   padding: 0 100px !important;
 }
+
 
 .ln_contactUs,
 .on_contactUs {
@@ -1212,8 +1244,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   top: 3px;
   margin-left: 80px !important;
   padding: 0 20px;
-  background: #1A1A1A;
-  border: 1px solid #1A1A1A;
+  background: #df3165;
+  border: 1px solid #df3165;
   color: white;
   font-size: 15px;
   font-weight: 500;
@@ -1238,7 +1270,10 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 
 .redeemButton:hover {
   background-color: #3f183b;
+  border: 1px solid #3f183b;
+  /* color: #df3165 !important; */
 }
+
 
 @media only screen and (max-device-width: 898px) {
   .redeem {
@@ -1341,17 +1376,28 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .avatarVBox {
-  border: 1px solid #707070;
-  padding: 40px 30px;
+  /* border: 1px solid #707070; */
+  /* padding: 40px 30px; */
   border-radius: 10px;
   margin: 8px;
 }
+.sapFAvatarS {
+  height: 6rem;
+  width: 5rem;
+  font-size: 1.5rem;
+}
+.sapFAvatarCircle .sapFAvatarImageHolder {
+  border-radius: 12%;
+  -webkit-border-radius: 12%;
+}
+.des_high{
 
+}
 .product_title {
   text-align: left;
   font-size: 15px;
   font-weight: 900;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   padding-top: 5px;
 }
 
@@ -1565,7 +1611,12 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   border-radius: 30px;
   display: flex;
 }
-
+.continue_shopping_link {
+  width: 100%;
+  text-align: right;
+  margin: -13px;
+  color: #df3165;
+}
 .pal_pay {
   border: 2px solid #efefef;
   background-color: #efefef;
@@ -1573,7 +1624,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   margin: 5px;
   border-radius: 30px;
   width: 40vw;
-  height: 36vh;
+  height: 30vh;
   min-width: 200px !important;
 }
 
@@ -1882,7 +1933,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .newsLetterEmailButton:hover {
   border: 1px solid #df3165 !important;
   background-color: #df3165 !important;
-  color: #000;
+  color: #3f183b;
   font-weight: 500;
 }
 
@@ -1910,7 +1961,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .productCart {
-  left: 100px;
+  left: 140px;
 }
 
 .place_order_button .sapMBtnInner {
@@ -2507,3 +2558,27 @@ color: #3F183B;
 .middleText:hover .loginSignUp{
   color: #DF3165;
 } */
+.sapContrast span.sapMBtnInner.sapMBtnEmphasized {
+  background-image: none;
+  background-color: #df3165 !important;
+  border-color: #df3165 !important;
+  color: #fff;
+  text-shadow: 0 0 0.125rem rgb(0 0 0 / 50%);
+}
+.sapContrast span.sapMBtnInner.sapMBtnEmphasized:hover {
+  background-image: none;
+  background-color: #3F183B !important;
+  border-color: #3F183B !important;
+  color: #fff;
+  text-shadow: 0 0 0.125rem rgb(0 0 0 / 50%);
+}
+
+.continue_shopping_link:hover{
+  color: #3F183B;
+}
+.sapMLnk:hover:not(.sapMLnkDsbl) {
+  color: #3F183B;
+}
+.sapMITH {
+  z-index: 0 !important;
+}

@@ -1,0 +1,30 @@
+<mvc:View
+    controllerName="ag.agasown.controller.Information" 
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="home">
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button class="icon" icon="sap-icon://nav-back" press=".onNavBack"/>
+                    <ImageContent class="logo" src="{path: 'view>/welcomeLogo',
+                        formatter : '.formatter.pictureUrl'
+                        }" description="Logo" press="onNavBackHome">
+                    </ImageContent>
+                </contentLeft>
+                <contentMiddle>
+                </contentMiddle>
+                <contentRight>
+
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>       
+        <core:Fragment fragmentName="ag.agasown.view.fragment.information.Privacy" type="XML" />
+            <Panel>
+				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
+			</Panel>
+        </content>
+    </Page>
+</mvc:View>

@@ -21,12 +21,14 @@
             </Bar>
         </customHeader>
         <content>
-            <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+        
+        <core:Fragment fragmentName="ag.agasown.view.fragment.information.AboutUs" type="XML" />
+            <!-- <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
                 <items>
                     <IconTabFilter text="{i18n>aboutUs}" key="aboutUs">
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.AboutUs" type="XML" />
                     </IconTabFilter>
-                    <IconTabFilter text="{i18n>contact}" key="contact">
+                    <IconTabFilter text="{i18n>contact}" key="contact" id="tab1">
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.Contact" type="XML" />
                     </IconTabFilter>
                     <IconTabFilter text="{i18n>imprint}" key="imprint">
@@ -42,7 +44,7 @@
                         <core:Fragment fragmentName="ag.agasown.view.fragment.information.Gdpr" type="XML" />
                     </IconTabFilter>
                 </items>
-            </IconTabBar>
+            </IconTabBar> -->
             <Panel>
 				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
 			</Panel>

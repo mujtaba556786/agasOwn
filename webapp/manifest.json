@@ -130,9 +130,34 @@
 					"target": ["OrderCompleted"]
 				},
         {
-					"pattern": "information",
-					"name": "information",
-					"target": ["information"]
+					"pattern": "about-us",
+					"name": "about-us",
+					"target": ["about-us"]
+				},
+        {
+					"pattern": "contact",
+					"name": "contact",
+					"target": ["contact"]
+				},
+        {
+					"pattern": "imprint",
+					"name": "imprint",
+					"target": ["imprint"]
+				},
+        {
+					"pattern": "terms-and-services",
+					"name": "terms-and-services",
+					"target": ["terms-and-services"]
+				},
+        {
+					"pattern": "privacy-policy",
+					"name": "privacy-policy",
+					"target": ["privacy-policy"]
+				},
+        {
+					"pattern": "gdpr",
+					"name": "gdpr",
+					"target": ["gdpr"]
 				},
         {
 					"pattern": "registration",
@@ -196,10 +221,35 @@
 					"viewName": "OrderCompleted",
 					"viewId": "orderCompleted"
 				},
-        "information": {
+        "about-us": {
           "viewType": "XML",
-					"viewName": "Information",
-					"viewId": "information"
+					"viewName": "AboutUs",
+					"viewId": "about-us"
+				},
+        "contact": {
+          "viewType": "XML",
+					"viewName": "Contact",
+					"viewId": "contact"
+				},
+        "imprint": {
+          "viewType": "XML",
+					"viewName": "Imprint",
+					"viewId": "imprint"
+				},
+        "terms-and-services": {
+          "viewType": "XML",
+					"viewName": "Terms",
+					"viewId": "terms-and-services"
+				},
+        "privacy-policy": {
+          "viewType": "XML",
+					"viewName": "Privacy",
+					"viewId": "privacy-policy"
+				},
+        "gdpr": {
+          "viewType": "XML",
+					"viewName": "GDPR",
+					"viewId": "gdpr"
 				},
         "registration": {
           "viewType": "XML",

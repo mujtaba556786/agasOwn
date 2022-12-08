@@ -2,6 +2,7 @@
    xmlns:f="sap.f" 
    controllerName="ag.agasown.controller.Customer"
    xmlns:cssgrid="sap.ui.layout.cssgrid"
+   xmlns:app ="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
    xmlns:core="sap.ui.core">
    <f:GridList id="gridList" items="{wish>/}" growing="true" growingThreshold="4">
       <f:customLayout>
@@ -22,7 +23,7 @@
                   <CarouselLayout visiblePagesCount="4" />
                </customLayout>
               
-               <VBox alignItems="Center" class="sapUiSmallMargin vbox-c-home">
+               <VBox alignItems="Center" class="sapUiSmallMargin vbox-c-home" >
               
                   <HBox>
                      <!-- <Button class="specialButtons" icon="sap-icon://delete" press="onAddToWishList11" type="Unstyled" /> -->
@@ -35,7 +36,7 @@
 						formatOptions: {showMeasure: false}
 					}" unit="{wish>/Currency}" textAlign="Center"/>
                   <Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
-                  <Button class="dialogCloseBtn newDialogCloseBtn" icon="sap-icon://delete" press=".onAddToWishList11" type="Unstyled" />
+                  <Button class="dialogCloseBtn newDialogCloseBtn" icon="sap-icon://delete" press=".onAddToWishList11" type="Unstyled" app:itemId="{wish>_id}"/>
                </VBox>
             </Carousel>
          </VBox>

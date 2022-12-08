@@ -11,12 +11,12 @@
         </HBox>
         <VBox class="fotterLink">
             <Text text="{i18n>FooterInfo}" class="sapUiSmallMarginTopBottom"/>
-            <Link text="{i18n>aboutUs}" press="onPressImprint"/>
-            <Link text="{i18n>contact}" press="onPressImprint"/>
+            <Link text="{i18n>aboutUs}" press="onPressAboutUs" />
+            <Link text="{i18n>contact}" press="onPressContact" />
             <Link text="{i18n>imprint}" press="onPressImprint"/>
-            <Link text="{i18n>Terms}" press="onPressImprint"/>
-            <Link text="{i18n>Privacy}" press="onPressImprint"/>
-            <Link text="{i18n>GDPR}" press="onPressImprint"/>
+            <Link text="{i18n>Terms}" press="onPressTerms"/>
+            <Link text="{i18n>Privacy}" press="onPressPrivacy"/>
+            <Link text="{i18n>GDPR}" press="onPressGDPR"/>
         </VBox>
         <VBox class="fotterAvatar">
             <Text text="{i18n>FooterSoc}" class="sapUiSmallMarginTopBottom"/>

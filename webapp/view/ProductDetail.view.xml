@@ -9,12 +9,8 @@
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
-			<Panel headerText="{i18n>prodDet}" class="sapUiNoContentPadding  sapUiLargeMarginTop">
-				<headerToolbar>
-					<Toolbar>
-						<Title text="{i18n>prodDet}" level="H3" titleStyle="H2" class="sapUiMediumMarginTopBottom"/>
-					</Toolbar>
-				</headerToolbar>
+			<Panel class="sapUiNoContentPadding  sapUiLargeMarginTop">
+				
 				<HBox justifyContent="SpaceBetween" class="sapUiLargeMarginTop pdpVBox">
 					<VBox class="slideshow">
 						<HBox class="big">
@@ -33,8 +29,8 @@
 					<VBox justifyContent="SpaceAround" class="details_sec">
 						<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
 						<HBox class="priceStatusBox" justifyContent="SpaceBetween">
-							<Text class="productPrice" id="product_price" text="€{oGlobalModel>/detailProduct/price}"/>
-							<Text class="productStatus" id="product_status" text="In Stock"/>
+							<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
+							<Text class="productStatus" id="product_status" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.variantLen' }"/>
 						</HBox>
 						<HBox alignItems="Baseline">
 							<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
@@ -47,9 +43,9 @@
 						<HBox justifyContent="SpaceBetween" class="mrButtons">
 							<HBox class="twoButtons">
 								<VBox class="secondBut">
-									<StepInput value="{detailView>/value}" class="productQuant" min="{detailView>/min}" textAlign="Center" max="{detailView>/max}" width="{detailView>/width}" validationMode="{detailView>/validationMode}" change="onChange"/>
+									<StepInput id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" textAlign="Center" max="{/recipient/max}" width="10px" validationMode="{detailView>/validationMode}" change="onChange"/>
 								</VBox>
-								<VBox class="firstBut">
+								<VBox class="firstBut" width="10px">
 									<!-- <Button type="Transparent" width="200px" class="productCart" text="{i18n>productAddButtonText}" icon="sap-icon://cart" press=".onAddToCartDetails"/> -->
 									<Button type="Unstyled" width="200px" class="productCart" text="{i18n>productAddButtonText}" press=".onAddToCartDetails"/>
 								</VBox>
@@ -61,7 +57,7 @@
 								<Button class="productFavourite" icon="sap-icon://delete" press=".onDeleteFromWishList"/>
 							</VBox> -->
 						</HBox>
-						<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onAddToCartDetails"/>
+						<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onBuyItNow"/>
 						<layoutData>
 							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
 						</layoutData>
@@ -71,18 +67,32 @@
 			<Panel backgroundDesign="Transparent" class="productDescription ">
 				<headerToolbar>
 					<Toolbar>
-						<ToolbarSpacer/>
+						<ToolbarSpacer class="des_high"/>
 						<Title text="{i18n>prodDes}" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom"/>
+						<Title text="Product Highlight" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
 				<HBox>
-					<Text text="{i18n>proName}" class="proName"/>
+					<VBox width="50%">
+						<HBox>
+							<Text text="{i18n>proName}" class="proName"/>
+						</HBox>
+						<HBox>
+							<Text text="{oGlobalModel>/detailProduct/product_name}" class="productName"/>
+						</HBox>
+						<Text id="productDescription" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productDescription' }" class="prodDes"/>
+					</VBox>
+					<VBox width="50%">
+						<HBox>
+							<Text text="{i18n>proName}" class="proName"/>
+						</HBox>
+						<HBox>
+							<Text text="Product Highlight" class="productName"/>
+						</HBox>
+						<Text id="productDescription1" text="hello hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello" class="prodDes"/>
+					</VBox>
 				</HBox>
-				<HBox>
-					<Text text="{oGlobalModel>/detailProduct/product_name}" class="productName"/>
-				</HBox>
-				<Text id="productDescription" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productDescription' }" class="prodDes"/>
 			</Panel>
 			<!-- <Panel backgroundDesign="Transparent" class="productDescription">
 				<headerToolbar>

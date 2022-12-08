@@ -5,7 +5,7 @@ sap.ui.define([
 	'sap/ui/core/Fragment',
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	
+
 ], function (BaseController, JSONModel, Device, Fragment, Filter, FilterOperator) {
 	"use strict";
 
@@ -18,8 +18,8 @@ sap.ui.define([
 			this.byId("target").addEventDelegate({
 				onmouseover: this._showPopover,
 				// onmouseout: this._clearPopover,
-			  }, this);
-		
+			}, this);
+
 			// select random carousel page at start
 			var oWelcomeCarousel = this.byId("welcomeCarousel");
 			var iRandomIndex = Math.floor(Math.abs(Math.random()) * oWelcomeCarousel.getPages().length);
@@ -32,10 +32,10 @@ sap.ui.define([
 		//! Hover function on menu button
 		_showPopover: function () {
 			this._timeId = setTimeout(() => {
-			  this.byId("popover").openBy(this.byId("target"));
+				this.byId("popover").openBy(this.byId("target"));
 			});
-		  },
-		
+		},
+
 		_onObjectMatched: function (oEvent) {
 			var sCurrentRouteName = oEvent.getParameter("name");
 			console.log(sCurrentRouteName)
@@ -52,7 +52,7 @@ sap.ui.define([
 		/**
 		 * clear previous animation and initialize the loop animation of the welcome carousel
 		 */
-		
+
 		onCarouselPageChanged: function () {
 			clearTimeout(this._iCarouselTimeout);
 			this._iCarouselTimeout = setTimeout(function () {
@@ -79,11 +79,11 @@ sap.ui.define([
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilters, "Application");
 		},
-		onPress: function(oEvent){
-			alert("POPO");
+		onPress: function (oEvent) {
+			alert("=====>");
 		},
 
-		
+
 
 
 

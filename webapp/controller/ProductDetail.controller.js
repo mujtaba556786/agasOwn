@@ -15,26 +15,29 @@ sap.ui.define(
       formatter: formatter,
 
       onInit: function () {
-
         this.oView = this.getView();
         this._bDescendingSort = false;
         this.oDetailProduct = this.oView.byId("detailProduct");
-        this.setHeaderModel();
 
+        this.setHeaderModel();
+        //!CUSTOM CODE FOR ADD TO CART
         var aData = {
-          value: 6,
-          min: 1,
-          max: 100,
-          width: "90px",
-          validationMode: "LiveChange",
+          recipient: {
+            value: 1,
+            min: 1,
+            max: 8,
+            width: " 10px",
+            validationMode: "LiveChange",
+          },
         };
         var oModel = new JSONModel(aData);
-        this.getView().setModel(oModel, "detailView");
+        this.getView().setModel(oModel);
 
         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         oRouter
           .getRoute("productDetail")
           .attachPatternMatched(this._onObjectMatched, this);
+
         //! Hover function on menu button
         this.byId("target").addEventDelegate(
           {
@@ -70,9 +73,12 @@ sap.ui.define(
         oBinding.sort(oSorter);
       },
       onChange: function (oEvent) {
-        MessageToast.show(
-          "Value changed to '" + oEvent.getParameter("value") + "'"
-        );
+        var sRecipient = this.getView()
+          .getModel()
+          .getProperty("/recipient/value");
+
+        // show message
+        MessageToast.show("Value changed to " + sRecipient);
       },
 
       /**
@@ -80,19 +86,114 @@ sap.ui.define(
        * Saves the product, the i18n bundle, and the cart model and hands them to the <code>addToCart</code> function
        * @public
        */
+      // onAddToCartDetails: function (oEvent) {
+      //   var oResourceBundle = this.getOwnerComponent()
+      //     .getModel("i18n")
+      //     .getResourceBundle();
+      //   var oSelectedPath = this.getView()
+      //     .getModel("oGlobalModel")
+      //     .getData().detailProduct;
+      //   var oDataProducts = this.getView().getModel("oDataProducts");
+      //   var product_id = oSelectedPath._id;
+      //   sessionStorage.setItem("single", product_id)
+
+
+      //   cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+      // },
       onAddToCartDetails: function (oEvent) {
-        var oResourceBundle = this.getOwnerComponent()
+        var oSelectedPath = this.getView()
+        .getModel("oGlobalModel")
+        .getData().detailProduct;
+      var product_id = oSelectedPath._id;
+      var previous_wishlist = sessionStorage.getItem('product_id')
+      console.log("=========>", previous_wishlist);
+      if (previous_wishlist != null) {
+        var temp = previous_wishlist + ';' + product_id
+        sessionStorage.setItem('product_id', temp)
+      } else {
+        sessionStorage.setItem('product_id', ('' + product_id))
+      }
+      console.log("product_id", product_id);
+        var item_status =this.getView().byId("product_status");
+        var item_exist =  item_status.mProperties.text;
+        if(item_exist==="In Stock"){
+          var oResourceBundle = this.getOwnerComponent()
           .getModel("i18n")
           .getResourceBundle();
+        //!Store Cart data into session storage
+        var sRecipient = this.getView()
+          .getModel()
+          .getProperty("/recipient/value");
+        sessionStorage.setItem("myvalue5", sRecipient);
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
           .getData().detailProduct;
         var oDataProducts = this.getView().getModel("oDataProducts");
-        var product_id = oSelectedPath._id;
-        sessionStorage.setItem("single", product_id)
-
-
         cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+        //   After add item to the cart the default value will be 1
+        this.getView().byId("defaultValue").setValue(1);
+        }else{
+          MessageToast.show("Product is not available!");
+          this.getView().byId("defaultValue").setValue(1);
+        } 
+        
+        var customer_id = sessionStorage.getItem("uid");
+var formdata = new FormData();
+formdata.append("customer_id", customer_id);
+formdata.append("product_id", product_id);
+
+var requestOptions = {
+  method: 'PATCH',
+  body: formdata,
+  redirect: 'follow'
+};
+
+fetch("http://64.227.115.243:8080/checkout/", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+      },
+      onAddToCartDetails_delete: function (oEvent) {
+        var prod_id = oEvent.getSource().data("itemId");
+        var oResourceBundle = this.getOwnerComponent()
+          .getModel("i18n")
+          .getResourceBundle();
+        //!Store Cart data into session storage
+        var sRecipient = this.getView()
+          .getModel()
+          .getProperty("/recipient/value");
+        sessionStorage.setItem("myvalue5", sRecipient);
+        var oSelectedPath = this.getView()
+          .getModel("oGlobalModel")
+          .getData().detailProduct;
+        var oDataProducts = this.getView().getModel("oDataProducts");
+        // var cart_entity = oDataProducts.oData.cartEntries
+        cart.deleteFromCart(oResourceBundle, oSelectedPath, oDataProducts,prod_id);
+      },
+      onBuyItNow: function (){
+        var item_status =this.getView().byId("product_status");
+        var item_exist =  item_status.mProperties.text;
+        if(item_exist==="In Stock"){
+          var oResourceBundle = this.getOwnerComponent()
+          .getModel("i18n")
+          .getResourceBundle();
+        //!Store Cart data into session storage
+        var sRecipient = this.getView()
+          .getModel()
+          .getProperty("/recipient/value");
+        sessionStorage.setItem("myvalue5", sRecipient);
+        var oSelectedPath = this.getView()
+          .getModel("oGlobalModel")
+          .getData().detailProduct;
+        var oDataProducts = this.getView().getModel("oDataProducts");
+        cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+        //   After add item to the cart the default value will be 1
+        this.getView().byId("defaultValue").setValue(1);
+        this.getRouter().navTo("checkout");
+        }else{
+          MessageToast.show("Product is not available!");
+        }
       },
 
       onAddToWishList: function (oEvent) {
@@ -102,39 +203,13 @@ sap.ui.define(
           .getModel("oGlobalModel")
           .getData().detailProduct;
         var product_id = oSelectedPath._id;
-        // var all = []; // Moved up, and replaced with bracket notation.
-        // var a = 1;
-        // for (  var i= 0; i < 4; i++) {
-        //   all.push(product_id);
-        //   // all[i] = product_id;
-        //   // all++;
-        // }
-        // console.log("stord array",all);
-        // var arr = [];
-
-        // for(var i = 0; i < 5; i++){
-
-        // arr.push({valueItem: product_id});
-        // arr.push({valueItem: product_id});
-
-        // }
-        // forEach(( product_id) => {
-        //   arr.push( product_id);
-        // });
-        // var newarr=arr.map(function(isss){
-        //   arr.push(product_id);
-        // });
-        // console.log("==================>",arr)
-        // foreach()
         var previous_wishlist = sessionStorage.getItem('product_id')
-        console.log("=========>", previous_wishlist);
         if (previous_wishlist != null) {
           var temp = previous_wishlist + ';' + product_id
           sessionStorage.setItem('product_id', temp)
         } else {
           sessionStorage.setItem('product_id', ('' + product_id))
         }
-        console.log("product_id", product_id);
         var customer_id = sessionStorage.getItem("uid");
 
         if (!login_id) {
@@ -164,7 +239,6 @@ sap.ui.define(
           fetch("http://64.227.115.243:8080/wishlist/", requestOptions)
             .then((response) => response.text())
             .then((result) => {
-              console.log(result);
               // MessageToast.show(JSON.parse(result).message)
 
               if (JSON.parse(result).message === "Product already exists") {
