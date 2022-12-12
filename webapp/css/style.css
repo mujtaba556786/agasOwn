@@ -398,21 +398,22 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   margin: -10% -128px -10% 0px;
 }
 
-.fotterLink .sapMLnk,
-.fotterLink .sapMText {
+.fotterLink .link{
   color: #3f183b;
 }
 
-.fotterLink .sapMLnk:hover {
+.fotterLink .link:hover{
   color: #df3165;
+  text-decoration: none !important;
 }
 
-.fotterAvatar .sapFAvatar {
+.fotterAvatar .logo {
   border: none;
+  color: #3f183b;
 }
 
-.fotterAvatar .sapFAvatar:hover {
-  color: #3f183b;
+.fotterAvatar .logo:hover {
+  color: #df3165;
 }
 
 .agasown .sapMBtnIcon:active {
@@ -2570,9 +2571,9 @@ color: #3F183B;
 .continue_shopping_link:hover{
   color: #3F183B;
 }
-.sapMLnk:hover:not(.sapMLnkDsbl) {
+/*.sapMLnk:hover:not(.sapMLnkDsbl) {
   color: #3F183B;
-}
+}*/‚
 .sapMITH {
   z-index: 0 !important;
 }

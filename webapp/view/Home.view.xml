@@ -3,17 +3,13 @@
 	xmlns:l="sap.ui.layout"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:grid="sap.ui.layout.cssgrid"
-	xmlns:f="sap.f" 
-	controllerName="ag.agasown.controller.Home">
+	xmlns:f="sap.f" controllerName="ag.agasown.controller.Home">
 	<Page id="home">
 		<customHeader>
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
 			<core:Fragment class="sapUiLargeMarginTop" fragmentName="ag.agasown.view.fragment.Carousel" type="XML" />
-			<!-- <HBox class="sapUiLargeMarginTop" renderType="Bare" justifyContent="Center">
-				<SearchField width="50%" placeholder="{i18n>search}"/>
-			</HBox> -->
 			<Panel id="panelCategory" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
@@ -113,7 +109,7 @@
 							path: 'view>/welcomeNews',
 							formatter : '.formatter.pictureUrl'
 						}" width="100%">
-				</Image>
+					</Image>
 				</Panel>
 			</Panel>
 			<Panel class="fotter">
