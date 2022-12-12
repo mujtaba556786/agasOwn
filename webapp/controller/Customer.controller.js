@@ -47,6 +47,15 @@ sap.ui.define(
             }
           });
       },
+      onProductItemPress: function(oEvent){
+        var oBndngCtxt = oEvent.getSource().getBindingContext("wish");
+        var spath = oBndngCtxt.getPath();
+        var selectedPath = oBndngCtxt.getProperty(spath);
+          this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
+        this.getRouter().navTo("productDetail", {
+          detailObj:selectedPath.product_name,
+        });
+      },
 
       onCustomerNavigationSelect: function (oEvent) {
         var oCustomerLayout = this.getView().byId("customerContent");

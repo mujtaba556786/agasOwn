@@ -78,7 +78,7 @@ sap.ui.define(
           .getProperty("/recipient/value");
 
         // show message
-        MessageToast.show("Value changed to " + sRecipient);
+        // MessageToast.show("Value changed to " + sRecipient);
       },
 
       /**

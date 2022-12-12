@@ -62,6 +62,7 @@
 						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
+				
 			</Panel>
 			<Panel>
 				<core:Fragment fragmentName="ag.agasown.view.fragment.SocialCarousel" type="XML" />

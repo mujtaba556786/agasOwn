@@ -664,6 +664,9 @@ sap.ui.define(
       onContinueShopping: function () {
         this.getRouter().navTo("home");
       },
+      remove_product: function (){
+        alert("hello");
+      },
       onSendMessage: function () {
         var text = this.byId("text_cu").getValue();
         var fname = this.byId("fn_cu").getValue();
@@ -721,6 +724,7 @@ sap.ui.define(
         }
       },
 
+
       onCustomerNavigationSelect: function (oEvent) {
         var uid = sessionStorage.getItem("uid");
         var Guid = sessionStorage.getItem("Guid");
@@ -733,8 +737,6 @@ sap.ui.define(
           this.getRouter().navTo("home");
         }
       },
-      // Shawan ends
-
       handleRegistrationClose: function () {
         this._mRegistrationDialog.then(function (oDialog) {
           oDialog.close();
@@ -875,6 +877,9 @@ sap.ui.define(
             .onPost(_nwUrl, oDataa)
             .then((oSuccess) => {
               MessageBox.success("Successfully subscribed!");
+              this._mNewsLetterDialog.then(function (oDialog) {
+                oDialog.close();
+              });
 
             })
             .catch((oError) => {
@@ -931,6 +936,9 @@ sap.ui.define(
           .then((oSuccess) => {
             console.log(oSuccess.detail);
             MessageBox.success(oSuccess.detail);
+            this._mRegistrationDialog.then(function (oDialog) {
+              oDialog.close();
+            });
 
           })
           .catch((oError) => {
