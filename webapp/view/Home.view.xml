@@ -11,9 +11,9 @@
 		</customHeader>
 		<content>
 			<core:Fragment class="sapUiLargeMarginTop" fragmentName="ag.agasown.view.fragment.Carousel" type="XML" />
-			<HBox class="sapUiLargeMarginTop" renderType="Bare" justifyContent="Center">
+			<!-- <HBox class="sapUiLargeMarginTop" renderType="Bare" justifyContent="Center">
 				<SearchField width="50%" placeholder="{i18n>search}"/>
-			</HBox>
+			</HBox> -->
 			<Panel id="panelCategory" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
@@ -66,6 +66,7 @@
 						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
+				
 			</Panel>
 			<Panel>
 				<core:Fragment fragmentName="ag.agasown.view.fragment.SocialCarousel" type="XML" />

@@ -2208,12 +2208,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
     margin-left: 10px !important;
   }
 }
-
-#container-agasown---home--myCart-cont {
-  width: 100% !important;
-  margin: 0;
-}
-
 @media only screen and (max-device-width: 972px) and (min-device-width:768px) {
   #container-agasown---product--myCart-cont {
     max-width: 100% !important;
@@ -2581,4 +2575,14 @@ color: #3F183B;
 }
 .sapMITH {
   z-index: 0 !important;
+}
+
+.highlight_css{
+  display: flex;
+  align-items: center;
+  padding: 17px;
+  border: #d3cecd 0px 1px 1px 0px  solid;
+}
+.highli_con{
+  /* background-color: red;/ */
 }

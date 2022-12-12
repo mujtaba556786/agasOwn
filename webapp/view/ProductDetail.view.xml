@@ -9,7 +9,7 @@
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
-			<Panel class="sapUiNoContentPadding  sapUiLargeMarginTop">
+			<Panel class="sapUiNoContentPadding  sapUiTinyMargin">
 				
 				<HBox justifyContent="SpaceBetween" class="sapUiLargeMarginTop pdpVBox">
 					<VBox class="slideshow">
@@ -66,15 +66,15 @@
 			</Panel>
 			<Panel backgroundDesign="Transparent" class="productDescription ">
 				<headerToolbar>
-					<Toolbar>
-						<ToolbarSpacer class="des_high"/>
-						<Title text="{i18n>prodDes}" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom"/>
-						<Title text="Product Highlight" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom"/>
+					<Toolbar class="des_high">
+						<ToolbarSpacer />
+						<Title width="50%" text="{i18n>prodDes}" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom"/>
+						<Title width="50%" text="{i18n>prodHigh}" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom highli_con"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
 				<HBox>
-					<VBox width="50%">
+					<VBox width="50%" class="highlight_css">
 						<HBox>
 							<Text text="{i18n>proName}" class="proName"/>
 						</HBox>
@@ -83,58 +83,15 @@
 						</HBox>
 						<Text id="productDescription" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productDescription' }" class="prodDes"/>
 					</VBox>
-					<VBox width="50%">
+					<VBox width="50%" class="highlight_css">
 						<HBox>
-							<Text text="{i18n>proName}" class="proName"/>
+							<Text text="{i18n>proHighDet}" class="proName"/>
 						</HBox>
-						<HBox>
-							<Text text="Product Highlight" class="productName"/>
-						</HBox>
-						<Text id="productDescription1" text="hello hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello" class="prodDes"/>
+						<Text  id="productHighlight" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productHighlight' }" class="prodDes"/>
 					</VBox>
 				</HBox>
 			</Panel>
-			<!-- <Panel backgroundDesign="Transparent" class="productDescription">
-				<headerToolbar>
-					<Toolbar>
-						<ToolbarSpacer/>
-						<Title text="{i18n>reviews}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
-						<ToolbarSpacer/>
-					</Toolbar>
-				</headerToolbar>
-				<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, 
-								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-								At vero eos et accusam et justo duo dolores et ea rebum. 
-								Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-								Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-								sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-								sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat" />
-			</Panel> -->
-			<!-- <Panel backgroundDesign="Transparent" class="">
-				<headerToolbar>
-					<Toolbar>
-						<ToolbarSpacer/>
-						<Title text="{i18n>relatedProd}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
-						<ToolbarSpacer/>
-					</Toolbar>
-				</headerToolbar>
-				<Carousel pages="{
-                        path: 'oDataCategory>/',
-                        filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
-                        sorter: {path: '_id'}
-                    }" showPageIndicator="false" loop="true">
-					<customLayout>
-						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
-					</customLayout>
-					<VBox class="sapUiResponsiveContentPadding" renderType="Bare">
-						<Image src="{path: 'oDataCategory>picture',
-											formatter : '.formatter.jsonPictureUrl'
-											}" class="categoryBox imageDisplayBlock" press="onCategoryLinkPress_PDP"/>
-						<Text textAlign="Center" text="{oDataCategory>category_name}" class="categoryBoxText"/>
-					</VBox>
-				</Carousel>
-			</Panel> -->
+		
 			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
@@ -159,6 +116,25 @@
 					}" unit="{view>/Currency}" textAlign="Center"/>
 						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
+				</Carousel>
+					<Carousel pages="{
+                        path: 'oDataCategory>/',
+                        filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
+                        sorter: {path: '_id'}
+                    }" showPageIndicator="false" loop="true">
+					<customLayout>
+						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
+					</customLayout>
+					<VBox alignItems="Center" class="sapUiSmallMargin">
+							<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
+							
+							<Title text="{oDataProducts>product_name}" wrapping="true" />
+							<ObjectNumber class="sapUiSmallMarginBottom" number="{
+						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" textAlign="Center"/>
+						</VBox>
 				</Carousel>
 			</Panel>
 			<Panel class="fotter">

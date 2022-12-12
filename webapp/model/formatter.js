@@ -58,6 +58,12 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		return sap.ui.getCore().getConfiguration().getLanguage().toLowerCase().includes("en")
 		  ? productDetail["description"]
 		  : productDetail["description_de"];
+		
+	  },
+	  productHighlight: function(productDetail){
+		return sap.ui.getCore().getConfiguration().getLanguage().toLowerCase().includes("en")
+		  ? productDetail["product_highlight"]
+		  : productDetail["product_highlight_de"];
 	  },
 	variantColor: async function(productDetail){
 	  var ans = productDetail["_id"]
