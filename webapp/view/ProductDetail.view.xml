@@ -117,7 +117,7 @@
 						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
-					<Carousel pages="{
+					<!-- <Carousel pages="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
                         sorter: {path: '_id'}
@@ -135,7 +135,7 @@
 						formatOptions: {showMeasure: false}
 					}" unit="{view>/Currency}" textAlign="Center"/>
 						</VBox>
-				</Carousel>
+				</Carousel> -->
 			</Panel>
 			<Panel class="fotter">
 				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />

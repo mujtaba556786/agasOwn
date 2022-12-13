@@ -11,6 +11,7 @@ sap.ui.define(
     "ag/agasown/service/Service",
     "sap/m/MessageBox",
     "sap/m/MessageToast",
+    "sap/ui/model/resource/ResourceModel"
   ],
   function (
     Controller,
@@ -23,7 +24,8 @@ sap.ui.define(
     History,
     Service,
     MessageBox,
-    MessageToast
+    MessageToast,
+    ResourceModel
   ) {
     "use strict";
 
@@ -37,6 +39,33 @@ sap.ui.define(
        */
       getRouter: function () {
         return UIComponent.getRouterFor(this);
+      },
+      onBeforeRendering: function(){
+      console.log("onBeforeRendering");   
+      
+      },
+      onInit: function(){
+        this._initI18n();
+      },
+      _initI18n: function(){
+        var i18n = "i18n";
+        //create bundle descriptor for this controllers i18n resource data
+        var metadata = this.getMetadata(this);
+        var nameParts = metadata.getName().split(".");
+        nameParts.pop();
+        nameParts.push(i18n);
+        nameParts.push(i18n);
+        var bundleData = {bundleName: nameParts.join(".")};
+        //Use the bundledata to create or enhance the i18n model
+        var i18nModel = this.getModel(i18n);
+        if (i18nModel) {
+          i18nModel.enhance(bundleData);
+        }
+        else {
+          i18nModel = new ResourceModel(bundleData);
+        }
+        //set this i18n model.
+        this.setModel(i18nModel, i18n);
       },
       getService: function () {
         return Service;
@@ -255,10 +284,23 @@ sap.ui.define(
         }
       },
       onLanguageSelect: function () {
+        //just for try
+        var i18nModel = new ResourceModel({
+					bundleName: "ag.agasown.i18n.i18n",
+					supportedLocales: ["en", "de"],
+					fallbackLocale: ""
+				});
+				console.log("thumb", i18nModel);
+				this.getView().setModel(i18nModel, "i18n");
+        //try is done
         if (document.documentElement.lang.includes("en")) {
+          console.log("language",sap.ui.getCore().getConfiguration().getLanguage());
+          console.log("language_alter",document.documentElement.lang);
           sap.ui.getCore().getConfiguration().setLanguage("de");
           MessageToast.show("Switched to German");
         } else {
+          console.log("else_language",sap.ui.getCore().getConfiguration().getLanguage());
+          console.log("else_language_alter",document.documentElement.lang);
           sap.ui.getCore().getConfiguration().setLanguage("en");
           MessageToast.show("Switched to English");
         }
