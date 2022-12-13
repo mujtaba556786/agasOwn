@@ -202,10 +202,11 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   line-height: 25px;
 }
 
-.vbox-c-home {
+.sapMCrslItemTableCell .vbox-c-home{
+  top: 0 !important;
   position: relative;
-  top: -34px;
-}
+  }
+  
 
 .vbox-c-home div:nth-child(1) img {
   box-sizing: border-box;
@@ -275,7 +276,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 #container-agasown---productDetail--bigImg {
   width: 100%;
-  min-width: 290px;
+  min-width: 224px;
   padding-left: 79px;
 }
 
