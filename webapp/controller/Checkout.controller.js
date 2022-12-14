@@ -721,6 +721,7 @@ sap.ui.define(
         var selectedKey = this.getView()
           .getModel()
           .getProperty("/SelectedPayment");
+        var customer_id = sessionStorage.getItem("uid");
         var total_Price2 = this.byId("totalPricefinal").getText();
         var total_Price1 = total_Price2.split(" ");
         var total_price5 = total_Price1[1];
@@ -769,6 +770,7 @@ sap.ui.define(
           formdata.append("email", this.byId("loginEmailInput").getValue());
           formdata.append("amount", total_price5);
           formdata.append("currency", "EUR");
+          formdata.append("customer_id",customer_id);
 
           var requestOptions = {
             method: 'POST',
@@ -782,55 +784,20 @@ sap.ui.define(
             })
             // .then(result => console.log(result))
             .catch(error => console.log('error', error));
-          console.log(respo)
           if (respo === 200) {
-            var address = this.byId("invoiceAddressAddress").getValue();
-            var city = this.byId("invoiceAddressCity").getValue();
-            var state = this.byId("invoiceAddressCountry").getValue();
-            var zip = this.byId("invoiceAddressZip").getValue();
-            var email_id = this.byId("loginEmailInput").getValue();
-            var note = this.byId("noteArea").getValue();
-            var name = this.byId("creditCardHolderName").getValue();
-
-
-            var temParks = {
-              email_id: email_id,
-              mail_sender: "AgasOwn Marketing Team",
-              state: state,
-              city: city,
-              zip: zip,
-              address: address,
-              note: note,
-              name: name,
-              message_a: pro_Quantity,
-              message_b: total_price,
-              message_c: product_name,
-              message: product_price,
-              payment: "Payment done via Card"
-            };
-            emailjs.send('service_mr4cg1j', 'template_a7z62ad', temParks).then(function (res) {
-              console.log("success", res.status);
-              if (res.status === 200) {
-                alert("Order Accepted!");
+            alert("Order Accepted!");
                 window.location.replace("index.html#/payment");
-
-              }
-              else {
-                alert("Error")
-              }
-            });
           }
           else {
             alert('order not accepted')
           }
-
-
         } else if (selectedKey == "PayPal") {
           var formdata = new FormData();
           formdata.append("product_name", product_name);
           formdata.append("price", product_price);
           formdata.append("currency", "EUR");
           formdata.append("quantity", pro_Quantity);
+          formdata.append("customer_id",customer_id);
 
           var requestOptions = {
             method: "POST",
@@ -847,6 +814,7 @@ sap.ui.define(
           var formdata = new FormData();
           formdata.append("name", "Test1");
           formdata.append("email", this.byId("loginEmailInput").getValue());
+          formdata.append("customer_id",customer_id);
           formdata.append(
             "cus_add_line1",
             this.byId("invoiceAddressAddress").getValue()
@@ -871,43 +839,6 @@ sap.ui.define(
             .then((response) => response.text())
             .then((result) => window.open(result, "_self"))
             .catch((error) => console.log("error", error));
-        }
-        else {
-          var address = this.byId("invoiceAddressAddress").getValue();
-          var city = this.byId("invoiceAddressCity").getValue();
-          var state = this.byId("invoiceAddressCountry").getValue();
-          var zip = this.byId("invoiceAddressZip").getValue();
-          var email_id = this.byId("loginEmailInput").getValue();
-          var note = this.byId("noteArea").getValue();
-          var name = this.byId("cashOnDeliveryName").getValue();
-
-
-          var temParks = {
-            email_id: email_id,
-            mail_sender: "AgasOwn Marketing Team",
-            state: state,
-            city: city,
-            zip: zip,
-            address: address,
-            note: note,
-            name: name,
-            message_a: pro_Quantity,
-            message_b: total_price,
-            message_c: product_name,
-            message: product_price,
-            payment: "Cash on Delivery"
-          };
-          emailjs.send('service_mr4cg1j', 'template_a7z62ad', temParks).then(function (res) {
-            console.log("success", res.status);
-            if (res.status === 200) {
-              alert("Order Accepted!");
-              window.location.replace("index.html#/payment");
-
-            }
-            else {
-              alert("Error")
-            }
-          });
         }
       },
     });
