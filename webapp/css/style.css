@@ -2590,9 +2590,16 @@ color: #3F183B;
 }
 .imprintHeader{
   color:#450550;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 900
 }
 .imprintContent{
-  font-weight: 500;
+  line-height: 25px;
+    font-size: 15px;
+    /* word-spacing: 1px; */
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: left;
+    font-family: "Poppins";
   color:#450550
 }
