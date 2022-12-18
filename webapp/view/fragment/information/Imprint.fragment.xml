@@ -4,13 +4,13 @@
         <VBox justifyContent="Center" alignItems="Center">
                 <Text class="imprintHeader" text="{i18n>imprintInfoHeader}" />
                 <Text class="imprintContent" text="{i18n>imprintShopName}"/>
-                <Text text="{i18n>imprintOwner}"/>
-                <Text text="{i18n>imprintAddress}" />
-                <Text text="{i18n>imprintOwnerHeader}" />
-                <Text text="{i18n>imprintOwner}"/>
-                <Text text="{i18n>imprintContact}"/>
-                <Text text="{i18n>imprintTelephone}:{i18n>imprintTelNumber}"/>
-                <Text text="{i18n>imprintVat}"/>
-                <Text text="{i18n>imprintVatText}"/>
+                <Text class="imprintHeader" text="{i18n>imprintOwner}"/>
+                <Text class="imprintContent" text="{i18n>imprintAddress}" />
+                <Text class="imprintHeader" text="{i18n>imprintOwnerHeader}" />
+                <Text class="imprintContent" text="{i18n>imprintOwner}"/>
+                <Text class="imprintHeader" text="{i18n>imprintContact}"/>
+                <Text class="imprintContent" text="{i18n>imprintTelephone}{i18n>imprintTelNumber}"/>
+                <Text class="imprintHeader" text="{i18n>imprintVat}"/>
+                <Text class="imprintContent" text="{i18n>imprintVatText}"/>
         </VBox>
 </core:FragmentDefinition>
