@@ -22,7 +22,7 @@
         </customHeader>
         <content>       
         <core:Fragment fragmentName="ag.agasown.view.fragment.information.Imprint" type="XML" />
-            <Panel>
+            <Panel class="fotter">
 				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
 			</Panel>
         </content>

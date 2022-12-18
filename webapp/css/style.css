@@ -2588,3 +2588,11 @@ color: #3F183B;
 .highli_con{
   /* background-color: red;/ */
 }
+.imprintHeader{
+  color:#DF3165;
+  font-weight: 700;
+}
+.imprintContent{
+  font-weight: 500;
+  color:#450550
+}
