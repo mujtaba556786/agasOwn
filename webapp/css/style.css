@@ -2603,3 +2603,8 @@ color: #3F183B;
     font-family: "Poppins";
   color:#450550
 }
+.video{
+  object-fit: cover;
+    display: block;
+    width: 100%;
+}
