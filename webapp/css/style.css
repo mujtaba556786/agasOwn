@@ -41,30 +41,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   text-shadow: 0 0 0.125rem rgb(0 0 0 / 50%);
 }
 
-/* .menu1:hover .Menu2 {
-  background-color: rebeccapurple;
-} */
-/*//! Hover pop up function */
-/* #container-agasown---home--target-img{
-  color: #3f183b;
-  cursor: pointer;
-}
-#container-agasown---home--target-img:hover{
-  color: red !important;
-  cursor: pointer;
-} */
 /*//! CUSTOM CSS USER INPUT  */
-.sapMBarRight,
-.sapMBarPH {
-  padding-right: 2.25rem;
-  text-transform: uppercase;
-  color: green !important;
-}
 
-.sapMBarRight>.sapMBarChild:not(.sapMTB) {
-  color: green !important;
-  cursor: pointer;
-}
 
 #__button0 {
   margin-right: 0 !important;
@@ -86,13 +64,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   opacity: 1;
 }
 
-.fotter #__panel8-content {
-  padding: 2% 7%;
-}
-
-.footer-hbox #__image21 {
-  height: 90%;
-}
 
 .footter .sapMLnk {
   color: #3f183b;
@@ -114,11 +85,11 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   border-bottom: none;
 }
 
-.footter .sapFAvatarImageCover {
+.footter .icon{
   color: #3f183b;
 }
 
-.footter .sapFAvatarImageCover:hover {
+.footter .icon:hover {
   color: #df3165;
 }
 
@@ -259,7 +230,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 
 .headerBar .sapMImg {
   width: 150px;
-  height: 60px;
   object-fit: cover;
 }
 
@@ -271,13 +241,13 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 @media only screen and (max-device-width: 974px) {
   #container-agasown---productDetail--bigImg {
-    padding-left: 21px !important;
+    /*padding-left: 21px !important;*/
   }
 }
 #container-agasown---productDetail--bigImg {
-  width: 100%;
+  /*width: 100%;
   min-width: 224px;
-  padding-left: 79px;
+  padding-left: 79px;*/
 }
 
 #__carousel3 {
@@ -288,7 +258,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   margin-left: 11%;
 }
 
-#__image19-__carousel3-0,
+#__image31-__carousel3-0,
 #__image19-__carousel3-1,
 #__image19-__carousel3-2,
 #__image19-__carousel3-3 {
@@ -457,7 +427,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .agasown .menuLinks1 {
-  color: #183f24;
+  color: #3f183b;
   display: block;
   height: 62px;
   line-height: 32px;
@@ -575,10 +545,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .productCart {
   background-color: #df3165;
   width: inherit;
-  /* left: -30px; */
   border-left-style: outset;
   border: none;
-  /* min-width: 200px; */
   border-radius: 25px;
   color: #fff !important;
 }
@@ -595,12 +563,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   cursor: pointer;
 }
 
-@media only screen and (max-device-width: 460px) {
-  .productCart {
-    width: 72vw !important;
-    left: 12px !important;
-  }
-}
 
 .slideshow {
   width: 50%;

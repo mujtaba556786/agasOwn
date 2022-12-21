@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-    <Bar class="headerBar ">
+    <Bar class="headerBar">
         <contentLeft>
             <Button id="target" press=".onShowCategories" type="Unstyled" class="menu sapUiLargeMarginBegin" icon="sap-icon://menu2">
                 <dependents>
