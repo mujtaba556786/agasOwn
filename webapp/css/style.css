@@ -20,33 +20,8 @@
   color: #df3165;
 }
 
-.sapMWizardProgressNavStep[data-sap-ui-wpn-step-current="true"] .sapMWizardProgressNavStepCircle {
-  background: #450550;
-  color: #fff;
-}
-
-span.sapMBtnInner.sapMBtnEmphasized {
-  background-image: none;
-  background-color: #df3165;
-  border-color: #df3165;
-  color: #fff;
-  text-shadow: 0 0 0.125rem rgb(0 0 0 / 50%);
-}
-
-span.sapMBtnInner.sapMBtnEmphasized:hover {
-  background-image: none;
-  background-color: #450550 !important;
-  border-color: #450550 !important;
-  color: #fff;
-  text-shadow: 0 0 0.125rem rgb(0 0 0 / 50%);
-}
 
 /*//! CUSTOM CSS USER INPUT  */
-
-
-#__button0 {
-  margin-right: 0 !important;
-}
 
 #__button1 {
   margin-left: 0;
@@ -236,19 +211,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 /*---------------- header fragment css end ------------------ */
 
 /* ------------------product detail start--------- */
-#__hbox4 {
-  justify-content: center;
-}
-@media only screen and (max-device-width: 974px) {
-  #container-agasown---productDetail--bigImg {
-    /*padding-left: 21px !important;*/
-  }
-}
-#container-agasown---productDetail--bigImg {
-  /*width: 100%;
-  min-width: 224px;
-  padding-left: 79px;*/
-}
 
 #__carousel3 {
   width: 65% !important;
@@ -544,9 +506,9 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 
 .productCart {
   background-color: #df3165;
-  width: inherit;
   border-left-style: outset;
   border: none;
+  width:120px;
   border-radius: 25px;
   color: #fff !important;
 }
@@ -563,36 +525,8 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   cursor: pointer;
 }
 
-
-.slideshow {
-  width: 50%;
-}
-
-.sapMInputBaseHasEndIcons.sapMInputBaseHasBeginIcons .sapMInputBaseContentWrapper {
-  min-width: 8.88rem;
-  border-radius: 20px;
-  border: 1px solid #460339;
-}
-.sapMInputBaseHasEndIcons.sapMInputBaseHasBeginIcons .sapMInputBaseContentWrapper:hover {
-  border: 1px solid #460339 !important;
-}
-.sapMInputBaseIcon{
-  color: #3F183B;
-}
-.sapMInputBaseIcon:active{
-  background-color: transparent !important;
-}
-.sapMInputBaseIcon:hover{
-  color: #df3165;
-}
-.sapMHBox {
-  flex-direction: row;
-  /* display: contents; */
-}
-
 .slideshow .big img {
   height: 360px;
-  width: 615px;
 }
 
 .productBuyNow {
@@ -605,27 +539,9 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .productBuyNow:hover {
-  /* background-color: #df3165; */
   color: #df3165 !important;
   border: 0px;
 }
-
-
-/* span#__button12-inner{
-  background-color:#EB4B77 !important ;
-} */
-/* .productFavourite{ */
-/* background-color: transparent !important; */
-/* } */
-/* .bgcol span:first-child {
-  background-color: #EB4B77;
-  border: none;
-/* } */
-
-/* .bgcol span:first-child:hover {
-  color: white;
-  border: none;
-}  */
 
 .dialogCloseBtn {
   background: white;
@@ -875,12 +791,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   }
 }
 
-@media only screen and (max-device-width: 610px) {
-  #container-agasown---home--NewsLetterDialog {
-    width: 100% !important;
-  }
-
-}
 
 .lastBox {
   margin-top: 1rem;
@@ -911,7 +821,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 .AboutUs_text {
   line-height: 25px;
   font-size: 15px;
-  /* word-spacing: 1px; */
   font-weight: 400;
   color: #1A1A1A;
   letter-spacing: 1px;
@@ -924,7 +833,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 .centerVBox1 {
   width: 100%;
-  /* min-width: 30rem; */
 }
 
 .lastVBox {
@@ -1046,38 +954,14 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   display: flex !important;
 }
 
-@media only screen and (max-device-width: 1180px) {
-  .f_Hbox {
-    justify-content: space-between !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .textArea_ContactUs {
-    width: 100% !important;
-  }
-
-  .ln_contactUs,
-  .on_contactUs {
-    right: 0px !important;
-  }
-
-  .fn_contactUs,
-  .em_contactUs {
-    min-width: auto !important;
-  }
-}
-
 .centerVBox_ContactUs {
   padding: 0 100px !important;
 }
-
 
 .ln_contactUs,
 .on_contactUs {
   width: 100% !important;
   min-width: auto !important;
-  /* right: 40px; */
 }
 
 .fn_contactUs,
@@ -1895,7 +1779,7 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
 }
 
 .newsLetterEmailButton:hover {
-  border: 1px solid #df3165 !important;
+  border: 1px solid #8b747b !important;
   background-color: #df3165 !important;
   color: #3f183b;
   font-weight: 500;
@@ -1909,24 +1793,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   display: flex;
 }
 
-@media only screen and (max-device-width: 870px) {
-  .pdpVBox {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-.mrButtons {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: space-between !important;
-  align-content: flex-start !important;
-  flex-wrap: nowrap !important;
-}
-
-.productCart {
-  left: 140px;
-}
 
 .place_order_button .sapMBtnInner {
   color: white !important;
@@ -1952,22 +1818,6 @@ span.sapMBtnInner.sapMBtnEmphasized:hover {
   border: 1px solid #450550 !important;
 }
 
-@media only screen and (max-device-width: 460px) {
-  .twoButtons {
-    display: flex;
-    flex-direction: column;
-
-  }
-
-  /* .productCart {
-    width: 70vw !important;
-    left: 40px !important;
-  } */
-
-  /* .mrButtons {
-    align-items: flex-end;
-} */
-}
 
 .des_tilte {
   color: #000;

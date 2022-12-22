@@ -10,23 +10,19 @@
 		</customHeader>
 		<content>
 			<Panel class="sapUiNoContentPadding  sapUiTinyMargin">
-				
-				<HBox justifyContent="SpaceBetween" class="sapUiLargeMarginTop pdpVBox">
+				<HBox class="sapUiTinyMargin">
 					<VBox class="slideshow">
-						<HBox class="big">
-							<Image id="bigImg" 
-							src="{path: 'oGlobalModel>/detailProduct/picture',formatter : '.formatter.jsonPictureUrl'}"
-							
-							/>
+						<HBox justifyContent="Center" class="big">
+							<Image id="bigImg" src="{path: 'oGlobalModel>/detailProduct/picture',formatter : '.formatter.jsonPictureUrl'}" />
 						</HBox>
 						<Carousel pages="{oGlobalModel>/detailProduct/product_image}" showPageIndicator="true" class="thumb car-images" loop="true">
 							<customLayout>
 								<CarouselLayout visiblePagesCount="4" />
 							</customLayout>
-							<Image class="c-img" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="handleImagePress"/>
+							<Image  src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="handleImagePress"/>
 						</Carousel>
 					</VBox>
-					<VBox justifyContent="SpaceAround" class="details_sec">
+					<VBox justifyContent="SpaceAround">
 						<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
 						<HBox class="priceStatusBox" justifyContent="SpaceBetween">
 							<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
@@ -34,28 +30,17 @@
 						</HBox>
 						<HBox alignItems="Baseline">
 							<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
-							<Link class="loginSignUp sapUiTinyMargin"   id="product_color" text="{ path : 'oGlobalModel>/', formatter : '.formatter.variantColor' }" press=".picChange"/>
+							<!--<Link class="loginSignUp sapUiTinyMargin" id="product_color" text="{ path : 'oGlobalModel>/', formatter : '.formatter.variantColor' }" press=".picChange"/>-->
 						</HBox>
 						<HBox alignItems="Baseline">
 							<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
 							<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}" />
 						</HBox>
-						<HBox justifyContent="SpaceBetween" class="mrButtons">
-							<HBox class="twoButtons">
-								<VBox class="secondBut">
-									<StepInput id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" textAlign="Center" max="{/recipient/max}" width="10px" validationMode="{detailView>/validationMode}" change="onChange"/>
-								</VBox>
-								<VBox class="firstBut" width="10px">
-									<!-- <Button type="Transparent" width="200px" class="productCart" text="{i18n>productAddButtonText}" icon="sap-icon://cart" press=".onAddToCartDetails"/> -->
-									<Button type="Unstyled" width="200px" class="productCart" text="{i18n>productAddButtonText}" press=".onAddToCartDetails"/>
-								</VBox>
-							</HBox>
-							<VBox >
-								<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
-							</VBox>
-							<!-- <VBox>
-								<Button class="productFavourite" icon="sap-icon://delete" press=".onDeleteFromWishList"/>
-							</VBox> -->
+						<HBox justifyContent="SpaceBetween">
+							<StepInput  id="defaultValue" value="{/recipient/value}" min="{/recipient/min}"  max="{/recipient/max}" 
+							textAlign="Center" width="100px" validationMode="{detailView>/validationMode}" change="onChange"/>
+							<Button class="productCart" type="Unstyled"  text="{i18n>productAddButtonText}" press=".onAddToCartDetails"/>
+							<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
 						</HBox>
 						<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onBuyItNow"/>
 						<layoutData>
@@ -87,11 +72,11 @@
 						<HBox>
 							<Text text="{i18n>proHighDet}" class="proName"/>
 						</HBox>
-						<Text  id="productHighlight" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productHighlight' }" class="prodDes"/>
+						<Text id="productHighlight" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productHighlight' }" class="prodDes"/>
 					</VBox>
 				</HBox>
 			</Panel>
-		
+
 			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
@@ -117,7 +102,7 @@
 						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
-					<!-- <Carousel pages="{
+				<!-- <Carousel pages="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
                         sorter: {path: '_id'}

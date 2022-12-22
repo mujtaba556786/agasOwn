@@ -203,35 +203,11 @@ sap.ui.define(
         });
       },
 
-      // onCategoryLinkPress_PDP: function (oEvent) {
-      //   console.log("categories at PDP")
-      //   var oSelectedItem = oEvent.getSource();
-      //   var oContext = oSelectedItem.getBindingContext("oDataCategory");
-      //   var sValue1 = oContext.getProperty("_id");
-
-      //   var fnFilterCategory = function (item) {
-      //     return item.parent === sValue1;
-      //   };
-
-      //   var oDataCategory = this.getView().getModel("oDataCategory").getData();
-      //   var selectedCategory = oDataCategory.filter(fnFilterCategory);
-
-      //   this.getView().getModel("oGlobalModel").setProperty("/", {
-      //     detailCategory: selectedCategory,
-      //   });
-
-      //   this.getRouter().navTo("product", {
-      //     productPath: sValue1,
-      //   });
-      // },
-
       onProductItemPress: function (oEvent) {
 
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-        // console.log(selectedPath.product_name);
-        // console.log(selectedPath.quantity);
           this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { detailProduct: selectedPath });
@@ -338,26 +314,7 @@ sap.ui.define(
           oPopover.openBy(oMenu);
         });
       },
-      // onWishlistShow: function (oEvent) {
-      //   //this.getRouter().navTo("cart");
-      //   var oMenu = oEvent.getSource();
-      //   var oView = this.getView();
-
-      //   // create popover
-      //   if (!this._oPopoverCart) {
-      //     this._oPopoverCart = Fragment.load({
-      //       id: oView.getId(),
-      //       name: "ag.agasown.view.fragment.Wishlist",
-      //       controller: this,
-      //     }).then(function (oPopover) {
-      //       oView.addDependent(oPopover);
-      //       return oPopover;
-      //     });
-      //   }
-      //   this._oPopoverCart.then(function (oPopover) {
-      //     oPopover.openBy(oMenu);
-      //   });
-      // },
+  
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
         var gid = sessionStorage.getItem("Guid");

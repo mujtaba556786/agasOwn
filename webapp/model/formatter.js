@@ -65,7 +65,7 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		  ? productDetail["product_highlight"]
 		  : productDetail["product_highlight_de"];
 	  },
-	variantColor: async function(productDetail){
+	/*variantColor: async function(productDetail){
 	  var ans = productDetail["_id"]
 	  var requestOptions = {
 		method: 'GET',
@@ -88,7 +88,7 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		})
 		.catch(error => console.log('error', error));
 		return(blank_array) ;
-	},
+	},*/
 	variantLen: async function(productDetail){
 		var ans = productDetail["quantity"];
 		
