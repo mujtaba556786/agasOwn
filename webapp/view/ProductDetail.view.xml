@@ -32,7 +32,11 @@
 								<VBox justifyContent="SpaceBetween" displayInline="true" fitContainer="true">
 									<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
 									<HBox class="priceStatusBox" justifyContent="SpaceBetween">
-										<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
+										<ObjectNumber class="productPrice sapUiSmallMarginBottom" number="{
+										parts:[{path:'oGlobalModel>/detailProduct/price'},{path:'view>/Currency'}],
+										type: 'sap.ui.model.type.Currency',
+										formatOptions: {showMeasure: false}
+										}" unit="{view>/Currency}" textAlign="Center"/>
 										<Text class="productStatus" id="product_status" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.variantLen' }"/>
 									</HBox>
 									<HBox alignItems="Baseline">

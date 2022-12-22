@@ -1818,7 +1818,6 @@
 }
 
 .productFavourite .sapMBtnDefault:active {
-  /* color: #df3165; */
   background: #df3165;
   color: white !important;
 }
@@ -2035,7 +2034,7 @@
 }
 
 .productPrice {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .mrButtons {
@@ -2365,10 +2364,7 @@ color: #3F183B;
 }
 
 .highlight_css{
-  display: flex;
-  align-items: center;
-  padding: 17px;
-  border: #d3cecd 0px 1px 1px 0px  solid;
+  
 }
 .highli_con{
   /* background-color: red;/ */
