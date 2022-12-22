@@ -10,44 +10,50 @@
 		</customHeader>
 		<content>
 			<Panel class="sapUiNoContentPadding  sapUiTinyMargin">
-				<HBox class="sapUiTinyMargin">
-					<VBox class="slideshow">
-						<HBox justifyContent="Center" class="big">
-							<Image id="bigImg" src="{path: 'oGlobalModel>/detailProduct/picture',formatter : '.formatter.jsonPictureUrl'}" />
-						</HBox>
-						<Carousel pages="{oGlobalModel>/detailProduct/product_image}" showPageIndicator="true" class="thumb car-images" loop="true">
-							<customLayout>
-								<CarouselLayout visiblePagesCount="4" />
-							</customLayout>
-							<Image  src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="handleImagePress"/>
-						</Carousel>
-					</VBox>
-					<VBox justifyContent="SpaceAround">
-						<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
-						<HBox class="priceStatusBox" justifyContent="SpaceBetween">
-							<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
-							<Text class="productStatus" id="product_status" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.variantLen' }"/>
-						</HBox>
-						<HBox alignItems="Baseline">
-							<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
-							<!--<Link class="loginSignUp sapUiTinyMargin" id="product_color" text="{ path : 'oGlobalModel>/', formatter : '.formatter.variantColor' }" press=".picChange"/>-->
-						</HBox>
-						<HBox alignItems="Baseline">
-							<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
-							<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}" />
-						</HBox>
-						<HBox justifyContent="SpaceBetween">
-							<StepInput  id="defaultValue" value="{/recipient/value}" min="{/recipient/min}"  max="{/recipient/max}" 
-							textAlign="Center" width="100px" validationMode="{detailView>/validationMode}" change="onChange"/>
-							<Button class="productCart" type="Unstyled"  text="{i18n>productAddButtonText}" press=".onAddToCartDetails"/>
-							<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
-						</HBox>
-						<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onBuyItNow"/>
-						<layoutData>
-							<FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
-						</layoutData>
-					</VBox>
-				</HBox>
+				<l:VerticalLayout id="productDetailLayout" width="100%">
+					<l:BlockLayout id="productDetailBlockLayout">
+						<l:BlockLayoutRow>
+							<l:BlockLayoutCell >
+								<VBox class="slideshow">
+									<HBox justifyContent="Center" class="big">
+										<Image id="bigImg" src="{path: 'oGlobalModel>/detailProduct/picture',formatter : '.formatter.jsonPictureUrl'}" />
+									</HBox>
+									<HBox >
+										<Carousel pages="{oGlobalModel>/detailProduct/product_image}" showPageIndicator="true" class="thumb car-images" loop="true">
+											<customLayout>
+												<CarouselLayout visiblePagesCount="4" />
+											</customLayout>
+											<Image src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="handleImagePress"/>
+										</Carousel>
+									</HBox>
+								</VBox>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell >
+								<VBox justifyContent="SpaceBetween" displayInline="true" fitContainer="true">
+									<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
+									<HBox class="priceStatusBox" justifyContent="SpaceBetween">
+										<Text class="productPrice" id="product_price" text="{oGlobalModel>/detailProduct/price} EUR"/>
+										<Text class="productStatus" id="product_status" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.variantLen' }"/>
+									</HBox>
+									<HBox alignItems="Baseline">
+										<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
+										<!--<Link class="loginSignUp sapUiTinyMargin" id="product_color" text="{ path : 'oGlobalModel>/', formatter : '.formatter.variantColor' }" press=".picChange"/>-->
+									</HBox>
+									<HBox alignItems="Baseline">
+										<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
+										<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}" />
+									</HBox>
+									<HBox justifyContent="SpaceBetween">
+										<StepInput id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" max="{/recipient/max}" textAlign="Center" width="100px" validationMode="{detailView>/validationMode}" change="onChange"/>
+										<Button class="productCart" type="Unstyled" text="{i18n>productAddButtonText}" press=".onAddToCartDetails"/>
+										<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
+									</HBox>
+									<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onBuyItNow"/>
+								</VBox>
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+					</l:BlockLayout>
+				</l:VerticalLayout>
 			</Panel>
 			<Panel backgroundDesign="Transparent" class="productDescription ">
 				<headerToolbar>
@@ -102,25 +108,6 @@
 						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
-				<!-- <Carousel pages="{
-                        path: 'oDataCategory>/',
-                        filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
-                        sorter: {path: '_id'}
-                    }" showPageIndicator="false" loop="true">
-					<customLayout>
-						<CarouselLayout visiblePagesCount="{view>/pagesCount}" />
-					</customLayout>
-					<VBox alignItems="Center" class="sapUiSmallMargin">
-							<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
-							
-							<Title text="{oDataProducts>product_name}" wrapping="true" />
-							<ObjectNumber class="sapUiSmallMarginBottom" number="{
-						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
-						type: 'sap.ui.model.type.Currency',
-						formatOptions: {showMeasure: false}
-					}" unit="{view>/Currency}" textAlign="Center"/>
-						</VBox>
-				</Carousel> -->
 			</Panel>
 			<Panel class="fotter">
 				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />
