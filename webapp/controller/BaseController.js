@@ -760,7 +760,7 @@ sap.ui.define(
             .setValueState(sap.ui.core.ValueState.None);
           alert("email send!");
           var formdata = new FormData();
-          formdata.append("email", this.byId("emailInput").getValue());
+          formdata.append("email", this.byId("emailInputFrgt").getValue());
           var requestOptions = {
             method: "POST",
             body: formdata,
