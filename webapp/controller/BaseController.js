@@ -744,7 +744,7 @@ sap.ui.define(
       //reset password
       emailvalidate: function () {
         // alert("forgot click!!")
-        var email = this.getView().byId("emailInput").getValue();
+        var email = this.getView().byId("emailInputFrgt").getValue();
 
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
 
@@ -752,11 +752,11 @@ sap.ui.define(
           alert(email + " is not a valid email address");
 
           this.getView()
-            .byId("emailInput")
+            .byId("emailInputFrgt")
             .setValueState(sap.ui.core.ValueState.Error);
         } else {
           this.getView()
-            .byId("emailInput")
+            .byId("emailInputFrgt")
             .setValueState(sap.ui.core.ValueState.None);
           alert("email send!");
           var formdata = new FormData();

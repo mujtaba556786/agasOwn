@@ -9,7 +9,7 @@
         <VBox fitContainer="true" class="sapUiSmallMargin">
             <Text class="dialogTitle sapUiSmallMarginBottom" text="{i18n>Loginforpass}"/>
             <Label class="dialogLabel" text="{i18n>Loginemail}" labelFor="EmailAddressInput" />
-            <Input  class="sapUiTinyMargin inputEntry" id="emailInput" placeholder="{i18n>Enter}"></Input>
+            <Input  class="sapUiTinyMargin inputEntry" id="emailInputFrgt" placeholder="{i18n>Enter}"></Input>
             <HBox >
                 <Button width="12rem" class="dialogSubmit" text="{i18n>Loginsub}" type="Unstyled" press=".emailvalidate"></Button>
             </HBox>
