@@ -47,6 +47,20 @@ sap.ui.define(
           this
         );
       },
+      handleThumbnail: function (oEvent) {
+        var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
+        var aDataProducts = this.getView().getModel("oDataProducts").getData();
+        var spath = oBndngCtxt.getPath();
+        var selectedPath = oBndngCtxt.getProperty(spath);
+			  var sQuery = selectedPath.ean;
+        function filterWithId(value) {
+          return value.ean === sQuery;
+        }
+        var detailProduct =  aDataProducts.filter(filterWithId);			
+        this.getView()
+          .getModel("oGlobalModel")
+          .setProperty("/", { detailProduct: detailProduct[0]});
+      },
       handleImagePress: function (oEvent) {
         var oView = this.getView().byId("bigImg");
         var sImgSrc = oEvent.getSource().getSrc();
@@ -86,72 +100,58 @@ sap.ui.define(
        * Saves the product, the i18n bundle, and the cart model and hands them to the <code>addToCart</code> function
        * @public
        */
-      // onAddToCartDetails: function (oEvent) {
-      //   var oResourceBundle = this.getOwnerComponent()
-      //     .getModel("i18n")
-      //     .getResourceBundle();
-      //   var oSelectedPath = this.getView()
-      //     .getModel("oGlobalModel")
-      //     .getData().detailProduct;
-      //   var oDataProducts = this.getView().getModel("oDataProducts");
-      //   var product_id = oSelectedPath._id;
-      //   sessionStorage.setItem("single", product_id)
-
-
-      //   cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
-      // },
       onAddToCartDetails: function (oEvent) {
-        var oSelectedPath = this.getView()
-        .getModel("oGlobalModel")
-        .getData().detailProduct;
-      var product_id = oSelectedPath._id;
-      var previous_wishlist = sessionStorage.getItem('product_id')
-      console.log("=========>", previous_wishlist);
-      if (previous_wishlist != null) {
-        var temp = previous_wishlist + ';' + product_id
-        sessionStorage.setItem('product_id', temp)
-      } else {
-        sessionStorage.setItem('product_id', ('' + product_id))
-      }
-      console.log("product_id", product_id);
-        var item_status =this.getView().byId("product_status");
-        var item_exist =  item_status.mProperties.text;
-        if(item_exist==="In Stock"){
-          var oResourceBundle = this.getOwnerComponent()
-          .getModel("i18n")
-          .getResourceBundle();
-        //!Store Cart data into session storage
-        var sRecipient = this.getView()
-          .getModel()
-          .getProperty("/recipient/value");
-        sessionStorage.setItem("myvalue5", sRecipient);
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
           .getData().detailProduct;
-        var oDataProducts = this.getView().getModel("oDataProducts");
-        cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
-        //   After add item to the cart the default value will be 1
-        this.getView().byId("defaultValue").setValue(1);
-        }else{
+        var product_id = oSelectedPath._id;
+        var previous_wishlist = sessionStorage.getItem('product_id')
+        console.log("=========>", previous_wishlist);
+        if (previous_wishlist != null) {
+          var temp = previous_wishlist + ';' + product_id
+          sessionStorage.setItem('product_id', temp)
+        } else {
+          sessionStorage.setItem('product_id', ('' + product_id))
+        }
+        console.log("product_id", product_id);
+        var item_status = this.getView().byId("product_status");
+        var item_exist = item_status.mProperties.text;
+        if (item_exist === "In Stock") {
+          var oResourceBundle = this.getOwnerComponent()
+            .getModel("i18n")
+            .getResourceBundle();
+          //!Store Cart data into session storage
+          var sRecipient = this.getView()
+            .getModel()
+            .getProperty("/recipient/value");
+          sessionStorage.setItem("myvalue5", sRecipient);
+          var oSelectedPath = this.getView()
+            .getModel("oGlobalModel")
+            .getData().detailProduct;
+          var oDataProducts = this.getView().getModel("oDataProducts");
+          cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+          //   After add item to the cart the default value will be 1
+          this.getView().byId("defaultValue").setValue(1);
+        } else {
           MessageToast.show("Product is not available!");
           this.getView().byId("defaultValue").setValue(1);
-        } 
-        
+        }
+
         var customer_id = sessionStorage.getItem("uid");
-var formdata = new FormData();
-formdata.append("customer_id", customer_id);
-formdata.append("product_id", product_id);
+        var formdata = new FormData();
+        formdata.append("customer_id", customer_id);
+        formdata.append("product_id", product_id);
 
-var requestOptions = {
-  method: 'PATCH',
-  body: formdata,
-  redirect: 'follow'
-};
+        var requestOptions = {
+          method: 'PATCH',
+          body: formdata,
+          redirect: 'follow'
+        };
 
-fetch("http://64.227.115.243:8080/checkout/", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+        fetch("http://64.227.115.243:8080/checkout/", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
 
       },
       onAddToCartDetails_delete: function (oEvent) {
@@ -169,29 +169,29 @@ fetch("http://64.227.115.243:8080/checkout/", requestOptions)
           .getData().detailProduct;
         var oDataProducts = this.getView().getModel("oDataProducts");
         // var cart_entity = oDataProducts.oData.cartEntries
-        cart.deleteFromCart(oResourceBundle, oSelectedPath, oDataProducts,prod_id);
+        cart.deleteFromCart(oResourceBundle, oSelectedPath, oDataProducts, prod_id);
       },
-      onBuyItNow: function (){
-        var item_status =this.getView().byId("product_status");
-        var item_exist =  item_status.mProperties.text;
-        if(item_exist==="In Stock"){
+      onBuyItNow: function () {
+        var item_status = this.getView().byId("product_status");
+        var item_exist = item_status.mProperties.text;
+        if (item_exist === "In Stock") {
           var oResourceBundle = this.getOwnerComponent()
-          .getModel("i18n")
-          .getResourceBundle();
-        //!Store Cart data into session storage
-        var sRecipient = this.getView()
-          .getModel()
-          .getProperty("/recipient/value");
-        sessionStorage.setItem("myvalue5", sRecipient);
-        var oSelectedPath = this.getView()
-          .getModel("oGlobalModel")
-          .getData().detailProduct;
-        var oDataProducts = this.getView().getModel("oDataProducts");
-        cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
-        //   After add item to the cart the default value will be 1
-        this.getView().byId("defaultValue").setValue(1);
-        this.getRouter().navTo("checkout");
-        }else{
+            .getModel("i18n")
+            .getResourceBundle();
+          //!Store Cart data into session storage
+          var sRecipient = this.getView()
+            .getModel()
+            .getProperty("/recipient/value");
+          sessionStorage.setItem("myvalue5", sRecipient);
+          var oSelectedPath = this.getView()
+            .getModel("oGlobalModel")
+            .getData().detailProduct;
+          var oDataProducts = this.getView().getModel("oDataProducts");
+          cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+          //   After add item to the cart the default value will be 1
+          this.getView().byId("defaultValue").setValue(1);
+          this.getRouter().navTo("checkout");
+        } else {
           MessageToast.show("Product is not available!");
         }
       },

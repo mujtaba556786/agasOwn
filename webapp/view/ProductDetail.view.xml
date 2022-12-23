@@ -41,7 +41,10 @@
 									</HBox>
 									<HBox alignItems="Baseline">
 										<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
-										<!--<Link class="loginSignUp sapUiTinyMargin" id="product_color" text="{ path : 'oGlobalModel>/', formatter : '.formatter.variantColor' }" press=".picChange"/>-->
+										<HBox items="{oGlobalModel>/detailProduct/product_variant}" 
+										displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
+												<Image width="6em" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="handleThumbnail"/>
+										</HBox>
 									</HBox>
 									<HBox alignItems="Baseline">
 										<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>

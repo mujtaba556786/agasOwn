@@ -38,7 +38,6 @@ sap.ui.define([
 
 		_onObjectMatched: function (oEvent) {
 			var sCurrentRouteName = oEvent.getParameter("name");
-			console.log(sCurrentRouteName)
 			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
 		},
 
@@ -81,12 +80,7 @@ sap.ui.define([
 		},
 		onPress: function (oEvent) {
 			alert("=====>");
-		},
-
-
-
-
-
+		}
 
 	});
 });

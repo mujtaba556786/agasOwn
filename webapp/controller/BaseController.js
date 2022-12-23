@@ -40,14 +40,11 @@ sap.ui.define(
       getRouter: function () {
         return UIComponent.getRouterFor(this);
       },
-      onBeforeRendering: function(){
-      console.log("onBeforeRendering");   
-      
-      },
-      onInit: function(){
+      onBeforeRendering: function () {},
+      onInit: function () {
         this._initI18n();
       },
-      _initI18n: function(){
+      _initI18n: function () {
         var i18n = "i18n";
         //create bundle descriptor for this controllers i18n resource data
         var metadata = this.getMetadata(this);
@@ -55,7 +52,7 @@ sap.ui.define(
         nameParts.pop();
         nameParts.push(i18n);
         nameParts.push(i18n);
-        var bundleData = {bundleName: nameParts.join(".")};
+        var bundleData = { bundleName: nameParts.join(".") };
         //Use the bundledata to create or enhance the i18n model
         var i18nModel = this.getModel(i18n);
         if (i18nModel) {
@@ -169,7 +166,6 @@ sap.ui.define(
         var oBinding = categoryId.getBinding("items");
 
         oBinding.filter([new sap.ui.model.Filter(sPath, sOperator, sValue1)]);
-        sap.ui.getCore().byId("myPopover").focus();
         if (oBinding.getLength() !== 0) {
           categoryDetails.setVisible(true);
         } else {
@@ -181,7 +177,6 @@ sap.ui.define(
       },
 
       onCategoryLinkPress: function (oEvent) {
-        console.log("categories")
         var oSelectedItem = oEvent.getSource();
         var oContext = oSelectedItem.getBindingContext("oDataCategory");
         var sValue1 = oContext.getProperty("_id");
@@ -208,7 +203,7 @@ sap.ui.define(
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-          this.getView()
+        this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { detailProduct: selectedPath });
         this.getRouter().navTo("productDetail", {
@@ -262,21 +257,21 @@ sap.ui.define(
       onLanguageSelect: function () {
         //just for try
         var i18nModel = new ResourceModel({
-					bundleName: "ag.agasown.i18n.i18n",
-					supportedLocales: ["en", "de"],
-					fallbackLocale: ""
-				});
-				console.log("thumb", i18nModel);
-				this.getView().setModel(i18nModel, "i18n");
+          bundleName: "ag.agasown.i18n.i18n",
+          supportedLocales: ["en", "de"],
+          fallbackLocale: ""
+        });
+        console.log("thumb", i18nModel);
+        this.getView().setModel(i18nModel, "i18n");
         //try is done
         if (document.documentElement.lang.includes("en")) {
-          console.log("language",sap.ui.getCore().getConfiguration().getLanguage());
-          console.log("language_alter",document.documentElement.lang);
+          console.log("language", sap.ui.getCore().getConfiguration().getLanguage());
+          console.log("language_alter", document.documentElement.lang);
           sap.ui.getCore().getConfiguration().setLanguage("de");
           MessageToast.show("Switched to German");
         } else {
-          console.log("else_language",sap.ui.getCore().getConfiguration().getLanguage());
-          console.log("else_language_alter",document.documentElement.lang);
+          console.log("else_language", sap.ui.getCore().getConfiguration().getLanguage());
+          console.log("else_language_alter", document.documentElement.lang);
           sap.ui.getCore().getConfiguration().setLanguage("en");
           MessageToast.show("Switched to English");
         }
@@ -314,7 +309,7 @@ sap.ui.define(
           oPopover.openBy(oMenu);
         });
       },
-  
+
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
         var gid = sessionStorage.getItem("Guid");
@@ -326,7 +321,7 @@ sap.ui.define(
           gid: gid
         };
 
-        if (oData.uid !== null && oData.pid !== null ||gid !== null) {
+        if (oData.uid !== null && oData.pid !== null || gid !== null) {
           this.getRouter().navTo("checkout");
         } else if (oData.uid === null) {
           this.getRouter().navTo("home");
@@ -371,13 +366,13 @@ sap.ui.define(
       },
 
       onPressFaceBook: function () {
-        sap.m.URLHelper.redirect("https://www.facebook.com/agasown/",true);
+        sap.m.URLHelper.redirect("https://www.facebook.com/agasown/", true);
       },
-      onPressYouTube: function(){
-        sap.m.URLHelper.redirect("https://www.youtube.com/watch?v=-PlZw4RmNGk&ab_channel=Aga%27sOwn",true);
+      onPressYouTube: function () {
+        sap.m.URLHelper.redirect("https://www.youtube.com/watch?v=-PlZw4RmNGk&ab_channel=Aga%27sOwn", true);
       },
-      onPressInstaGram: function(){
-        sap.m.URLHelper.redirect("https://www.instagram.com/agasown/?hl=en",true);
+      onPressInstaGram: function () {
+        sap.m.URLHelper.redirect("https://www.instagram.com/agasown/?hl=en", true);
       },
 
       onLoginSubmit: function () {
@@ -477,10 +472,10 @@ sap.ui.define(
 
       onLoginGuestOpen: function () {
         var dt = new Date().getTime();
-        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            var r = (dt + Math.random()*16)%16 | 0;
-            dt = Math.floor(dt/16);
-            return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          var r = (dt + Math.random() * 16) % 16 | 0;
+          dt = Math.floor(dt / 16);
+          return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
         });
         sessionStorage.setItem("Guid", uuid);
         this._mLoginDialog.then(function (oDialog) {
@@ -633,10 +628,10 @@ sap.ui.define(
         });
       },
       handleRegistration: function () {
-        if(this._mLoginDialog !== undefined){
+        if (this._mLoginDialog !== undefined) {
           this.onLoginClose();
         }
-        
+
         var oView = this.getView();
         // creates requested dialog if not yet created
         if (!this._mRegistrationDialog) {
@@ -663,7 +658,7 @@ sap.ui.define(
       onContinueShopping: function () {
         this.getRouter().navTo("home");
       },
-      remove_product: function (){
+      remove_product: function () {
         alert("hello");
       },
       onSendMessage: function () {
@@ -846,66 +841,53 @@ sap.ui.define(
         var _nwlastName = this.byId("lastNameInput1").getValue();
         var _nwEmail = this.byId("emailInput1").getValue();
         let exist_emails = new Array();
-        if(data_acceptance === false){
-         alert("Click to accept T&C")
-        }else{
-         
-        await this.getService()
-          .onGet(_nwUrl)
-          .then((oSuccess) => {
-            var i = oSuccess.length;
-            for (var input = 0; input < i; input++) {
-              var req_ans = oSuccess[input].email;
-              exist_emails.push(req_ans.toLowerCase().trim());
-            };
-          });
-        var oDataa = {
-          salutation: "Mr.",
-          first_name: _nwfirstName,
-          last_name: _nwlastName,
-          email: _nwEmail,
-          data_acceptance: true,
+        if (data_acceptance === false) {
+          alert("Click to accept T&C")
+        } else {
 
-          agasown: "Aga'sOwn Marketing Team",
-          message: "You subscribe to Aga'sOwn Shopping Site",
-          text: "Testing",
-          user_email: "dhirenderrawat@forcebolt.com",
-        };
-        if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
-          this.getService()
-            .onPost(_nwUrl, oDataa)
+          await this.getService()
+            .onGet(_nwUrl)
             .then((oSuccess) => {
-              MessageBox.success("Successfully subscribed!");
-              this._mNewsLetterDialog.then(function (oDialog) {
-                oDialog.close();
-              });
-
-            })
-            .catch((oError) => {
-              console.log(oError);
-              MessageBox.error("Hey! Mail id already exist!");
+              var i = oSuccess.length;
+              for (var input = 0; input < i; input++) {
+                var req_ans = oSuccess[input].email;
+                exist_emails.push(req_ans.toLowerCase().trim());
+              };
             });
+          var oDataa = {
+            salutation: "Mr.",
+            first_name: _nwfirstName,
+            last_name: _nwlastName,
+            email: _nwEmail,
+            data_acceptance: true,
+
+            agasown: "Aga'sOwn Marketing Team",
+            message: "You subscribe to Aga'sOwn Shopping Site",
+            text: "Testing",
+            user_email: "dhirenderrawat@forcebolt.com",
+          };
+          if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
+            this.getService()
+              .onPost(_nwUrl, oDataa)
+              .then((oSuccess) => {
+                MessageBox.success("Successfully subscribed!");
+                this._mNewsLetterDialog.then(function (oDialog) {
+                  oDialog.close();
+                });
+
+              })
+              .catch((oError) => {
+                console.log(oError);
+                MessageBox.error("Hey! Mail id already exist!");
+              });
+          }
+          else {
+            MessageToast.show("Mail id already exist!");
+            MessageBox.error("Hey! Mail id already exist!");
+          }
+          console.log("Accepted!");
         }
-        else {
-          MessageToast.show("Mail id already exist!");
-          MessageBox.error("Hey! Mail id already exist!");
-        } 
-        console.log("Accepted!");
-      }
-        // Send mail through EmailJs
-        // emailjs
-        //   .send("service_iqmgnpc", "template_um2rjon", oDataa)
-        //   .then(function (res) {
-        //     console.log("success", res.status);
-        //     if (res.status === 200) {
-        //       alert(`Heya ${oDataa.first_name}, Subscription added!`);
-        //       MessageToast.show(
-        //         "You will receive mail soon regarding your subscription!"
-        //       );
-        //     } else {
-        //       alert("Error");
-        //     }
-        //   });
+       
       },
 
       onSubmit: function (oEvent) {
@@ -920,30 +902,31 @@ sap.ui.define(
         var _sConfirmPasswordInput = this.byId(
           "confirmPasswordInput"
         ).getValue();
-        if(data_acceptance === false){
+        if (data_acceptance === false) {
           alert("Click to accept T&C")
-         }else{
-        var oData = {
-          first_name: _sfirstName,
-          last_name: _slastName,
-          email: _sEmail,
-          password: _sPasswordInput,
-          confirm_password: _sConfirmPasswordInput,
-        };
-        this.getService()
-          .onPost(_sUrl, oData)
-          .then((oSuccess) => {
-            console.log(oSuccess.detail);
-            MessageBox.success(oSuccess.detail);
-            this._mRegistrationDialog.then(function (oDialog) {
-              oDialog.close();
-            });
+        } else {
+          var oData = {
+            first_name: _sfirstName,
+            last_name: _slastName,
+            email: _sEmail,
+            password: _sPasswordInput,
+            confirm_password: _sConfirmPasswordInput,
+          };
+          this.getService()
+            .onPost(_sUrl, oData)
+            .then((oSuccess) => {
+              console.log(oSuccess.detail);
+              MessageBox.success(oSuccess.detail);
+              this._mRegistrationDialog.then(function (oDialog) {
+                oDialog.close();
+              });
 
-          })
-          .catch((oError) => {
-            MessageBox.error(oError.responseJSON.detail);
-          });
-      }},
+            })
+            .catch((oError) => {
+              MessageBox.error(oError.responseJSON.detail);
+            });
+        }
+      },
     });
   }
 );

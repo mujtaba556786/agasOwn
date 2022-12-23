@@ -479,6 +479,7 @@
   border: none;
   border-radius: 25px;
   color: #fff !important;
+  width: 150px;
 }
 
 .productCart:hover {
@@ -2022,10 +2023,7 @@
 .prodDes {
 color: #3f183b;
 text-align: left;
-font: normal;
-letter-spacing: 2.3px;
 opacity: 1;
-font-family: Poppins;
 }
 
 
