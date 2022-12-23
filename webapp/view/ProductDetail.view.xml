@@ -28,7 +28,7 @@
 									</HBox>
 								</VBox>
 							</l:BlockLayoutCell>
-							<l:BlockLayoutCell >
+							<l:BlockLayoutCell>
 								<VBox justifyContent="SpaceBetween" displayInline="true" fitContainer="true">
 									<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
 									<HBox class="priceStatusBox" justifyContent="SpaceBetween">
@@ -47,8 +47,8 @@
 										<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
 										<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}" />
 									</HBox>
-									<HBox justifyContent="SpaceBetween">
-										<StepInput id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" max="{/recipient/max}" textAlign="Center" width="100px" validationMode="{detailView>/validationMode}" change="onChange"/>
+									<HBox justifyContent="SpaceBetween" renderType="Bare">
+										<StepInput id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" max="{/recipient/max}" textAlign="Center" width="150px" validationMode="{detailView>/validationMode}" change="onChange"/>
 										<Button class="productCart" type="Unstyled" text="{i18n>productAddButtonText}" press=".onAddToCartDetails"/>
 										<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
 									</HBox>
@@ -59,32 +59,21 @@
 					</l:BlockLayout>
 				</l:VerticalLayout>
 			</Panel>
-			<Panel backgroundDesign="Transparent" class="productDescription ">
+			<Panel backgroundDesign="Transparent" class="productDescription">
 				<headerToolbar>
-					<Toolbar class="des_high">
-						<ToolbarSpacer />
-						<Title width="50%" text="{i18n>prodDes}" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom"/>
-						<Title width="50%" text="{i18n>prodHigh}" level="H3" titleStyle="H2" class="panelTitle1 sapUiMediumMarginTopBottom highli_con"/>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Title text="{i18n>prodDes}" level="H3" titleStyle="H2" class="panelTitle sapUiMediumMarginTopBottom"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
-				<HBox>
-					<VBox width="50%" class="highlight_css">
-						<HBox>
-							<Text text="{i18n>proName}" class="proName"/>
-						</HBox>
-						<HBox>
-							<Text text="{oGlobalModel>/detailProduct/product_name}" class="productName"/>
-						</HBox>
-						<Text id="productDescription" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productDescription' }" class="prodDes"/>
-					</VBox>
-					<VBox width="50%" class="highlight_css">
-						<HBox>
-							<Text text="{i18n>proHighDet}" class="proName"/>
-						</HBox>
-						<Text id="productHighlight" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.productHighlight' }" class="prodDes"/>
-					</VBox>
-				</HBox>
+				<VBox class="sapUiSmallMargin" fitContainer="true" justifyContent="Center">
+					<Text text="{oGlobalModel>/detailProduct/product_name}" class="productName"/>
+					<FormattedText class="prodDes" htmlText="{ path : 'oGlobalModel>/detailProduct', 
+					formatter : '.formatter.productHighlight' }"/>
+					<FormattedText class="prodDes" htmlText="{ path : 'oGlobalModel>/detailProduct', 
+						formatter : '.formatter.productDescription' }"/>
+				</VBox>
 			</Panel>
 
 			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
