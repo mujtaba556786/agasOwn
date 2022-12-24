@@ -47,7 +47,7 @@ sap.ui.define(
           this
         );
       },
-      handleThumbnail: function (oEvent) {
+      onPressVariant: function (oEvent) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
         var aDataProducts = this.getView().getModel("oDataProducts").getData();
         var spath = oBndngCtxt.getPath();

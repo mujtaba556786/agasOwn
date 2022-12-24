@@ -41,14 +41,16 @@
 									</HBox>
 									<HBox alignItems="Baseline">
 										<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
-										<HBox items="{oGlobalModel>/detailProduct/product_variant}" 
-										displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
-												<Image width="6em" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="handleThumbnail"/>
-										</HBox>
+									</HBox>
+									<HBox class="prodThumbBox" items="{oGlobalModel>/detailProduct/product_variant}" displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
+										<Image class="prodThumbnail" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="onPressVariant"/>
 									</HBox>
 									<HBox alignItems="Baseline">
 										<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
-										<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}" />
+									</HBox>
+									<HBox items="{oGlobalModel>/detailProduct/product_variant}" displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
+										<GenericTile width="5em" class="prodThumbnail tileLayout" header="" press="onPressVariant" frameType="OneByHalf" subheader="{oGlobalModel>size}">
+										</GenericTile>
 									</HBox>
 									<HBox justifyContent="SpaceBetween" renderType="Bare">
 										<StepInput id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" max="{/recipient/max}" textAlign="Center" width="150px" validationMode="{detailView>/validationMode}" change="onChange"/>
