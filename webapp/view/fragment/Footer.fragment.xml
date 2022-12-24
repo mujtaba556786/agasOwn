@@ -2,13 +2,11 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
-    <HBox justifyContent="SpaceBetween" class="footer-hbox desktop-view-footer">
-        <HBox class="sapUiSmallMarginTopBottom f-img-wrap">
-            <Image class="fotterImage" src="{path: 'view>/welcomeLogoVertical',
+    <HBox justifyContent="SpaceBetween">
+        <Image width="150px" src="{path: 'view>/welcomeLogoVertical',
                         formatter : '.formatter.pictureUrl'
                         }" press="onNavBackHome">
-            </Image>
-        </HBox>
+        </Image>
         <VBox class="fotterLink">
             <Text text="{i18n>FooterInfo}" class="sapUiSmallMarginTopBottom"/>
             <Link class="link" text="{i18n>aboutUs}" press="onPressAboutUs" />

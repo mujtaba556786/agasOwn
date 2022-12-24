@@ -21,16 +21,6 @@
 }
 
 
-/*//! CUSTOM CSS USER INPUT  */
-
-#__button1 {
-  margin-left: 0;
-}
-
-#__button1-content {
-  text-transform: capitalize;
-}
-
 /* ------------menu hover--end---------------- */
 
 /*-------------------- footer css------------ */
@@ -38,7 +28,11 @@
   background: transparent linear-gradient(0deg, #d5b167 0%, #f3da9c 47%, #e5b644 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
 }
+.footter  .imageLogo{
+  width: 150px;
+  height: 120px;
 
+}
 
 .footter .sapMLnk {
   color: #3f183b;
@@ -60,19 +54,15 @@
   border-bottom: none;
 }
 
-.footter .icon{
+.footter .fotterAvatar .icon{
   color: #3f183b;
 }
 
-.footter .icon:hover {
+.footter .fotterAvatar .icon:hover {
   color: #df3165;
 }
 
 /*-----------------footer css end ------------*/
-
-.sapMShellBrandingBar {
-  background-color: #3f183b;
-}
 
 /*text*/
 .agasown .sapMTitle {
@@ -198,9 +188,6 @@
 .headerBar {
 }
 
-.sapMBarPH {
-  height: 100%;
-}
 
 .headerBar .sapMImg {
   width: 150px;
@@ -211,70 +198,16 @@
 
 /* ------------------product detail start--------- */
 
-
-#__label0,
-#__label1 {
-  font-weight: 900;
-}
-
-#container-agasown---productDetail--product_color,
-#container-agasown---productDetail--product_dimension {
-  margin-left: 3px;
-}
-
-.vbox-abs {
-  height: 295px;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.vbox-abs .image-abs {
-  height: 100%;
-  transition: all ease-in-out 2s;
-}
-
 .vbox-abs:hover .image-abs {
   transform: scale(1.2, 1.1);
 }
 
-.vbox-abs div:nth-child(2),
-.vbox-abs div:nth-child(2),
-.vbox-abs div:nth-child(2) {
-  position: absolute;
-
-  bottom: 41%;
-  left: 39%;
-  display: none;
-}
-
-.vbox-abs:hover div:nth-child(2),
-.vbox-abs:hover div:nth-child(2),
-.vbox-abs:hover div:nth-child(2) {
-  display: inline-block;
-}
-
-/* .vbox-abs:hover #__button5-__carousel1-0 {
-  display: inline-block;
-} */
-.vbox-abs #container-agasown---productDetail--btn-abs-__carousel4-0-inner,
-.vbox-abs #container-agasown---productDetail--btn-abs-__carousel4-1-inner,
-.vbox-abs #container-agasown---productDetail--btn-abs-__carousel4-2-inner {
-  background-color: #3f183b;
-  color: #f1f1f1;
-}
 
 
 .btn-abs {
   color: white;
   background-color: #3f183b;
 }
-
-/* .checkoutSteps .sapMWizardProgressNavStepCircle {
-  background-color: #df3165;
-  border: #df3165 2px;
-  color: white !important;
-
-} */
 
 .checkoutSteps .sapMWizardProgressNavStepCircle {
   background-color: #df3165;
@@ -292,13 +225,6 @@
 
 /* ------------------product detail end--------- */
 
-.fotterImage {
-  width: 200px;
-  height: 150px;
-  background-position: center;
-  object-fit: cover;
-  margin: -10% -128px -10% 0px;
-}
 
 .fotterLink .link{
   color: #3f183b;
@@ -1072,20 +998,6 @@
 
 }
 
-@media only screen and (max-device-width: 444px) {
-  .widthso {
-    margin-right: 0px;
-    padding: 0px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .redeemButton {
-    width: 46% !important;
-    min-width: 13.25rem !important;
-    margin-left: 0 !important;
-  }
-}
 
 .redeemButton:hover {
   background-color: #3f183b;
@@ -1093,22 +1005,6 @@
   /* color: #df3165 !important; */
 }
 
-
-@media only screen and (max-device-width: 898px) {
-  .redeem {
-    flex-direction: column;
-  }
-
-  .redeemButton {
-    width: 50% !important;
-    min-width: 5.25rem !important;
-    margin-left: 0 !important;
-  }
-
-  .giftCard_input {
-    width: 50% !important;
-  }
-}
 
 /* Overview CSS  */
 .continue_shoppings {
@@ -1194,24 +1090,6 @@
   color: #1a1a1a;
 }
 
-.avatarVBox {
-  /* border: 1px solid #707070; */
-  /* padding: 40px 30px; */
-  border-radius: 10px;
-  margin: 8px;
-}
-.sapFAvatarS {
-  height: 6rem;
-  width: 5rem;
-  font-size: 1.5rem;
-}
-.sapFAvatarCircle .sapFAvatarImageHolder {
-  border-radius: 12%;
-  -webkit-border-radius: 12%;
-}
-.des_high{
-
-}
 .product_title {
   text-align: left;
   font-size: 15px;
@@ -1265,43 +1143,12 @@
   margin: 15px 0;
 }
 
-@media only screen and (max-device-width: 1440px) and (min-device-width: 7px) {
-  .sideNav {
-    padding: 30px;
-  }
-
-}
 
 .section_one {
   width: 90%;
 }
 
-@media only screen and (max-device-width: 452px) and (min-device-width: 320px) {
-  .section_one_data .product_quantity {
-    border: 1px solid #989898;
-    padding: 10px 20px;
-    margin: 15px 0;
-    text-align: center !important;
-  }
-
-  .section_one_data .addDetailsSec {
-    text-align: center !important;
-  }
-
-  .section_one_data .product_price {
-    text-align: center !important;
-  }
-
-  .section_one_data .product_overall_details {
-    flex-direction: column;
-  }
-
-  .section1 {
-    display: contents;
-  }
-}
-
-  .exact_left .product_title {
+.exact_left .product_title {
     margin: 0px 23px !important;
   }
 
@@ -1358,9 +1205,6 @@
   background-color: #df3165 !important;
 }
 
-#container-agasown---checkout--totalPricefinal {
-  color: rgb(5, 5, 5) !important;
-}
 
 .totalPrice_final {
   color: white !important;
@@ -1370,29 +1214,6 @@
   display: flex !important;
   justify-content: space-evenly;
   padding: 25px !important;
-}
-
-#container-agasown---checkout--payViaCC-button,
-#container-agasown---checkout--payViaDC-button,
-#container-agasown---checkout--payViaBank-button,
-#container-agasown---checkout--payViaCOD-button,
-#container-agasown---checkout--payViaPayPal-button {
-  width: 35vw !important;
-  min-width: 150px !important;
-}
-
-#container-agasown---checkout--payViaCC-button,
-#container-agasown---checkout--payViaDC-button,
-#container-agasown---checkout--payViaBank-button,
-#container-agasown---checkout--payViaCOD-button,
-#container-agasown---checkout--payViaPayPal-button {
-  width: auto !important;
-}
-
-#container-agasown---checkout--paymentMethodSelection {
-  display: flex;
-  flex-direction: column;
-  /* width: 15.7vw !important; */
 }
 
 .step_left {
@@ -1418,24 +1239,6 @@
   min-width: 200px !important;
 }
 
-.sapMSegBBtnInner {
-  border: 1px solid #df3165 !important;
-  border-radius: 20px !important;
-  background-color: #df3165 !important;
-  margin: 0.5%;
-  font-weight: 600 !important;
-  color: white !important;
-
-}
-
-.sapMSegBBtnInner:hover {
-  border: 1px solid #3F183B !important;
-  border-radius: 20px !important;
-  background-color: #3F183B !important;
-  color: white !important;
-  margin: 0.5%;
-}
-
 .activate {
   color: white !important;
   background-color: #3F183B !important;
@@ -1446,10 +1249,6 @@
   border-radius: 30px;
   color: #3F183B !important;
   background-color: #efefef;
-}
-
-#__panel10-content {
-  border-bottom: none !important
 }
 
 .colorBlack {
@@ -1464,16 +1263,6 @@
 .deliveryAddress_form {
   border-radius: 30px;
   padding: 0 18vw;
-}
-
-@media only screen and (max-device-width: 629px) {
-  .deliveryAddress_form {
-    padding: 0 !important;
-  }
-
-  .section1 {
-    display: contents;
-  }
 }
 
 .form_data {
@@ -1529,26 +1318,6 @@
   margin-top: 1px;
 }
 
-/* .overHBox{
-  background-color: #efefef !important;
-  border-radius: 30px !important;
-  
-}
-@media only screen and (max-device-width: 629px) {
-  .overHBox{
-    flex-direction: column !important;
-  }
-} */
-#__list2-nodata {
-  background-color: #efefef;
-  border: 1px solid #efefef !important;
-  border-radius: 20px;
-}
-
-#container-agasown---checkout--creditCardNumber,
-#container-agasown---checkout--creditCardSecurityNumber {
-  width: 100% !important;
-}
 
 .deliveryType_Text {
   border: 1px solid #efefef;
@@ -1590,94 +1359,6 @@
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
-}
-
-#container-agasown---checkout--submitOrder-inner {
-  color: greenyellow;
-  background-color: green !important;
-  border: 1px solid greenyellow !important;
-  border-radius: 20px;
-}
-
-#container-agasown---checkout--submitOrder-inner:hover {
-  background-color: white !important;
-  border: 1px solid green !important;
-}
-
-#container-agasown---checkout--cancelOrder-inner {
-  border-radius: 30px !important;
-  border: 1px solid rgb(236, 76, 76) !important;
-  color: white !important;
-  background-color: red !important;
-}
-
-#container-agasown---checkout--cancelOrder-inner:hover {
-  background-color: white !important;
-}
-
-@media only screen and (max-device-width: 970px) {
-  .final_checkOut {
-    display: flex;
-    flex-direction: column !important;
-  }
-
-  .mimimum_list {
-    width: 90vw !important;
-  }
-}
-
-@media only screen and (max-device-width: 1289px) {
-  .pal_payment {
-    flex-direction: column;
-  }
-
-  .pal_pay {
-    width: 100% !important;
-    height: 278px !important;
-  }
-
-  .sideVBox {
-    width: 100% !important;
-    min-width: 200px !important;
-  }
-}
-
-@media only screen and (max-device-width: 380px) and (min-device-width:320px) {
-  .pal_pay {
-    /* background-color: #3F183B !important; */
-    height: 278px !important;
-  }
-}
-
-@media only screen and (max-device-width: 425px) and (min-device-width: 380px) {
-  .pal_pay {
-    height: 279px !important;
-  }
-}
-
-@media only screen and (max-device-width: 768px) and (min-device-width:425px) {
-  .pal_pay {
-    height: 298px !important;
-  }
-}
-
-@media only screen and (max-device-width: 1024px) and (min-device-width:768px) {
-  .pal_pay {
-    height: 315px !important;
-  }
-}
-
-@media only screen and (max-device-width: 1890px) and (min-device-width:1024px) {
-  .pal_pay {
-    height: 316px !important;
-  }
-}
-
-@media only screen and (max-device-width: 450px) and (min-device-width:320px) {
-  .topHori {
-    display: flex;
-    flex-direction: column !important;
-  }
 }
 
 /* Newsletter section  */
@@ -1770,214 +1451,13 @@
   color: #000;
   text-transform: uppercase
 }
-
-.productFavourite:hover {
-  background: none;
-  color: none !important;
-}
-
-.productFavourite .sapMBtnDefault {
-  border-radius: 25px;
-}
-
-.productFavourite .sapMBtnDefault:hover {
-  /* color: #df3165; */
-  background: #df3165;
-  color: white !important;
-}
-
-.productFavourite .sapMBtnDefault:active {
-  background: #df3165;
-  color: white !important;
-}
-
-.productFavourite .sapUiIcon {
-  color: gray;
-}
-
-.productFavourite .sapUiIcon:hover {
-  color: white !important;
-}
-
-.footer-hbox {
-  display: flex;
-}
-
-@media(max-width: 767px) {
-  .desktop-view-footer .fotterImage {
-    width: 100%;
-    height: 150px;
-    margin: 0;
-    max-width: 100%;
-  }
-
-  .cus_layout {
-    display: inline;
-  }
-
-  .sideNav {
-    width: 100%;
-  }
-
-  .vbox-c-home {
-    position: relative;
-    display: inline-flex;
-  }
-}
-
-@media(max-width: 480px) {
-  .desktop-view-footer {
-    flex-wrap: wrap;
-  }
-
-  .desktop-view-footer .fotterImage {
-    height: auto;
-    max-width: 100%;
-  }
-
-  .f-img-wrap {
-    text-align: center;
-  }
-}
-
-@media only screen and (max-device-width: 564px) {
-  .overallHBox {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .product_title {
-    text-align: left;
-    font-size: 15px;
-    font-weight: 900;
-    margin: 20px 90px;
-    padding-top: 5px;
-    text-align: center;
-  }
-}
-
-@media only screen and (max-device-width: 460px) {
-  #container-agasown---productDetail--myCart-cont {
-    max-width: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    left: 10px !important;
-    right: 10px !important;
-    /* / margin: 0 35px !important; / */
-  }
-
-  #container-agasown---customer--myCart-scroll {
-    max-width: 100% !important;
-    width: 200px !important;
-    top: 0 !important;
-  }
-
-  #container-agasown---customer--myCart-cont {
-    max-width: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    right: 10px !important;
-  }
-
-  #container-agasown---home--myCart-scroll {
-    max-width: 100% !important;
-    width: 200px !important;
-    top: 0 !important;
-  }
-
-  #container-agasown---home--myCart-cont {
-    margin: 0 35px !important;
-  }
-
-  .productCartdata {
+.productCartdata {
     width: 94%;
     top: 5px !important;
     left: 10px !important;
     margin-left: 0 !important;
   }
-
-  #container-agasown---product--myCart-cont {
-    max-width: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    right: 10px !important;
-  }
-
-  #container-agasown---product--myCart-scroll {
-    max-width: 100% !important;
-    width: 200px !important;
-    top: 0 !important;
-  }
-}
-
-
-@media only screen and (max-device-width: 1300px) and (min-device-width:461px) {
-  #container-agasown---productDetail--myCart-cont {
-    max-width: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    margin: 0 13px !important;
-    right: 10px !important;
-  }
-
-  #container-agasown---home--myCart-cont {
-    margin: 0 35px !important;
-  }
-
-  #container-agasown---home--myCart-scroll {
-    max-width: 100% !important;
-    width: 200px !important;
-    top: 0 !important;
-  }
-
-  #container-agasown---customer--myCart-scroll {
-    max-width: 100% !important;
-    width: 200px !important;
-    top: 0 !important;
-  }
-
-  #container-agasown---customer--myCart-cont {
-    max-width: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    right: 10px !important;
-  }
-
-  #container-agasown---product--myCart-cont {
-    max-width: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    right: 10px !important;
-  }
-
-  #container-agasown---product--myCart-scroll {
-    max-width: 100% !important;
-    width: 200px !important;
-    top: 0 !important;
-  }
-
-  .productCartdata {
-    width: 94%;
-    top: 5px !important;
-    left: 10px !important;
-    margin-left: 10px !important;
-  }
-}
-@media only screen and (max-device-width: 972px) and (min-device-width:768px) {
-  #container-agasown---product--myCart-cont {
-    max-width: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    right: 10px !important;
-  }
-
-  #container-agasown---product--myCart-scroll {
-    max-width: 100% !important;
-    width: 200px !important;
-    top: 0 !important;
-  }
-}
-
+  
 .productName {
   color: #3F183B;
   font-size: 27px !important;
@@ -2029,23 +1509,11 @@ opacity: 1;
   padding: 0px 5px !important;
 }
 
-.sapMWizardProgressNavStep[data-sap-ui-wpn-step-current="true"] .sapMWizardProgressNavStepContainer::after {
-  background: #d41b52 !important;
-  height: 0.25rem;
-}
-
 .go_to_cus:hover {
   background-color: #460339 !important;
   color: white !important;
 }
 
-.sapMBtnBack,
-.sapMBtnTransparent {
-  background-image: none;
-  background-color: transparent;
-  border-color: transparent;
-  color: white;
-}
 
 .go_to_cus1 {
   background-color: rgb(0 0 0 / 10%);
@@ -2060,42 +1528,11 @@ opacity: 1;
   -webkit-font-smoothing: antialiased;
 }
 
-.sapMBtn:not(.sapMBtnDisabled) {
-  border-radius: 10px;
-  cursor: pointer;
-
-}
-
-
-#__button2-BDI-content {
-  color: white;
-}
-
-#__button3-BDI-content {
-  color: white;
-}
-
 .go_to_cus1 .logerName .sapUiIcon::before {
   color: #df3165;
 }
 
-/* #container-agasown---customer--customerContent-content{
-  background-color: #faf8f9;
-border-radius: 12px;
-padding: 8px 6px 1px;
-margin: 10px;
-} */
-/* .cus_layout{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  align-content: stretch;
-} */
 
-.sapMLabelTextWrapper:hover {
-  color: #df3165;
-}
 
 .checkoutSteps .sapMWizardProgressNavStepCircle:hover {
   background-color: pink;
@@ -2105,28 +1542,6 @@ margin: 10px;
   width: fit-content;
 }
 
-@media (max-width: 767px) {
-  .vbox-c-home {
-    right: -14%;
-    position: relative;
-    display: inline-flex;
-  }
-}
-
-@media only screen and (max-device-width: 972px) and (min-device-width:768px) {
-  #container-agasown---product--myCart-cont {
-    max-width: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    right: 10px !important;
-  }
-
-  #container-agasown---product--myCart-scroll {
-    max-width: 100% !important;
-    width: 200px !important;
-    top: 0 !important;
-  }
-}
 
 .mobileRes {
   display: flex;
@@ -2160,169 +1575,10 @@ margin: 10px;
   color: #DF3165;
 }
 
-@media only screen and (max-device-width: 440px) and (min-device-width:320px) {
-  .mobileRes {
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-}
-
-#container-agasown---home--newsLetter-label,
-#container-agasown---home--readData-label {
-  width: 100% !important;
-}
-
-@media only screen and (max-device-width: 972px) and (min-device-width:768px) {
-  .overviewHeader {
-    color: black;
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
-}
-
-@media only screen and (max-device-width: 992px) and (min-device-width:320px) {
-  .overviewHeader {
-    color: black;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
-
-  .final {
-    flex-direction: column;
-    left: 0;
-  }
-
-  .check {
-    width: 80% !important;
-    min-width: 10rem !important;
-  }
-
-  .checkVal {
-    width: 85% !important;
-    min-width: 10rem !important;
-  }
-
-  .baton {
-    width: 20% !important;
-    margin-left: 100px !important;
-    min-width: 10rem !important;
-  }
-}
-
-@media only screen and (max-device-width: 525px) and (min-device-width:320px) {
-  .distance {
-    padding: 0px !important;
-  }
-
-  .semi {
-    right: 80px !important;
-  }
-}
-
-.slideshow1 {
-  position: relative;
-}
-
-.newDialogCloseBtn {
-  position: absolute;
-  left: 6vw;
-  bottom: 0px;
-}
-
-@media only screen and (max-device-width: 375px) and (min-device-width:320px) {
-  .newDialogCloseBtn {
-    position: absolute;
-    left: 29vw;
-    bottom: 0px;
-  }
-}
-
-@media only screen and (max-device-width: 425px) and (min-device-width:376px) {
-  .newDialogCloseBtn {
-    position: absolute;
-    left: 43vw;
-    bottom: 0px;
-  }
-}
-
-@media only screen and (max-device-width: 768px) and (min-device-width:426px) {
-  .newDialogCloseBtn {
-    position: absolute;
-    left: 15vw;
-    bottom: 0px;
-  }
-}
-
-@media only screen and (max-device-width: 1024px) and (min-device-width:769px) {
-  .newDialogCloseBtn {
-    position: absolute;
-    left: 12vw;
-    bottom: 0px;
-  }
-}
-
-/* Login Page Color Change */
-/* .mobileRes{
-  display: flex;
-  justify-content: space-between;
-}
-.middleText{
-  display: flex;
-  justify-content: center;
-  background-color: #DF3165;
-  border: 2px solid #DF3165;
-  border-radius: 4px;
-} 
-.loginSignUp {
-  color: white;
-  font-weight: 600;
-}
-.loginSignUp:hover{
-  color:white !important;
-  text-decoration: none !important;
-}
-.middleText:hover{
-  background-color: #3F183B;
-  border: 2px solid #3F183B;
-}
-.middleText:hover .loginSignUp{
-  color: #DF3165;
-} */
-.sapContrast span.sapMBtnInner.sapMBtnEmphasized {
-  background-image: none;
-  background-color: #df3165 !important;
-  border-color: #df3165 !important;
-  color: #fff;
-  text-shadow: 0 0 0.125rem rgb(0 0 0 / 50%);
-}
-.sapContrast span.sapMBtnInner.sapMBtnEmphasized:hover {
-  background-image: none;
-  background-color: #3F183B !important;
-  border-color: #3F183B !important;
-  color: #fff;
-  text-shadow: 0 0 0.125rem rgb(0 0 0 / 50%);
-}
-
 .continue_shopping_link:hover{
   color: #3F183B;
 }
-/*.sapMLnk:hover:not(.sapMLnkDsbl) {
-  color: #3F183B;
-}*/‚
-.sapMITH {
-  z-index: 0 !important;
-}
 
-.highlight_css{
-  
-}
-.highli_con{
-  /* background-color: red;/ */
-}
 .imprintHeader{
   color:#450550;
   font-size: 20px;

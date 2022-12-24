@@ -8,7 +8,6 @@
         </VBox>
         <VBox fitContainer="true" class="sapUiSmallMargin">
             <Text class="dialogTitle sapUiSmallMarginBottom registrationText" text="{i18n>subsNews}"/>
-            <Text text="{i18n>subsNewsText}" />
             <VBox class="div">
                 <HBox>
                     <CheckBox text="{i18n>mr_salu}" id="random_id"/>
