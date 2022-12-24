@@ -100,16 +100,14 @@
 						<ToolbarSpacer/>
 					</Toolbar>
 				</headerToolbar>
-				<Panel class="newsletter-btn-wrap">
-					<HBox class="newsLetterSection">
-						<Button type="Unstyled" class="newsLetterButton newsLetterEmailButton" text="{i18n>subsUS}" press="handleNewsLetter"/>
-					</HBox>
-					<Image class="newsletterImage" src="{
+				<HBox class="newsletterBox">
+					<Button width="auto" type="Unstyled" class="dialogSubmit" text="{i18n>subsUS}" press="handleNewsLetter"/>
+				</HBox>
+				<Image class="newsletterImage" src="{
 							path: 'view>/welcomeNews',
 							formatter : '.formatter.pictureUrl'
 						}" width="100%">
-					</Image>
-				</Panel>
+				</Image>
 			</Panel>
 			<Panel class="fotter">
 				<core:Fragment fragmentName="ag.agasown.view.fragment.Footer" type="XML" />

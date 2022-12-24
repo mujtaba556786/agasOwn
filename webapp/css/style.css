@@ -101,10 +101,6 @@
   width: 115px;
 }
 
-.agasown .newsltterEmail .sapMInputBaseInner {
-  width: 750px;
-}
-
 /* --------------home css start------------------ */
 
 /*Search*/
@@ -669,24 +665,6 @@
   background-color: #3F183B;
 }
 
-#container-agasown---home--NewsLetterDialog {
-  width: 40% !important;
-}
-
-@media only screen and (max-device-width: 1100px) {
-  #container-agasown---home--NewsLetterDialog {
-    width: 70% !important;
-  }
-}
-
-@media only screen and (max-device-width: 425px) {
-  .bcEF {
-    background-color: #EFEFEF;
-    width: 91%;
-    border: 1px solid #efefef;
-    border-radius: 3px;
-  }
-}
 
 
 .lastBox {
@@ -1362,51 +1340,7 @@
 }
 
 /* Newsletter section  */
-.newsLetterSection {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-  padding: 10px;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
 
-.newsletter-btn-wrap {
-  position: relative;
-}
-
-#container-agasown---home--newsLetterEmail-content {
-  border: none !important;
-}
-
-.newsLetteEmail {
-  border-radius: 30px !important;
-  border: 1px solid red !important;
-  padding: 0 20px !important;
-
-}
-
-.newsLetterEmailButton {
-  left: 10px !important;
-  border: 1px solid #3f183b;
-  background-color: #3F183B;
-  border-radius: 10px;
-  margin: 2px;
-  color: white;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-.newsLetterEmailButton:hover {
-  border: 1px solid #8b747b !important;
-  background-color: #df3165 !important;
-  color: #3f183b;
-  font-weight: 500;
-}
 
 .details_sec {
   padding: 25px;
