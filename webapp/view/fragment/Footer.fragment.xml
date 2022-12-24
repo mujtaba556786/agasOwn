@@ -3,7 +3,7 @@
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
     <HBox justifyContent="SpaceBetween">
-        <Image width="150px" src="{path: 'view>/welcomeLogoVertical',
+        <Image width="10rem" src="{path: 'view>/welcomeLogoVertical',
                         formatter : '.formatter.pictureUrl'
                         }" press="onNavBackHome">
         </Image>

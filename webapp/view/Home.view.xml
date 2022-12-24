@@ -101,7 +101,7 @@
 					</Toolbar>
 				</headerToolbar>
 				<HBox class="newsletterBox">
-					<Button width="auto" type="Unstyled" class="dialogSubmit" text="{i18n>subsUS}" press="handleNewsLetter"/>
+					<Button type="Unstyled" class="dialogSubmit" text="{i18n>subsUS}" press="handleNewsLetter"/>
 				</HBox>
 				<Image class="newsletterImage" src="{
 							path: 'view>/welcomeNews',

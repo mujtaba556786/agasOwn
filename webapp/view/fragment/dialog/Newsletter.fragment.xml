@@ -25,8 +25,6 @@
 							type: '.customEMailType'
 						}" />
                 <CheckBox text="{i18n>TandC}" required="true" id="news_check" selected="true" />
-                <!-- <ui5-checkbox text="Readonly" readonly checked></ui5-checkbox> -->
-
                 <Button class="dialogSubmitNew" text="{i18n>subscribe}" type="Unstyled" press="EmailJs"></Button>
             </VBox>
         </VBox>
