@@ -30,7 +30,11 @@
 							</l:BlockLayoutCell>
 							<l:BlockLayoutCell>
 								<VBox justifyContent="SpaceBetween" displayInline="true" fitContainer="true">
-									<Text class="productName" id="product_name" text="{oGlobalModel>/detailProduct/product_name}"/>
+									
+								<Text class="productName" id="product_name" 
+									text="{ path : 'oGlobalModel>/detailProduct', 
+										formatter : '.formatter.productTitle' }"
+									/>
 									<HBox class="priceStatusBox" justifyContent="SpaceBetween">
 										<ObjectNumber class="productPrice sapUiSmallMarginBottom" number="{
 										parts:[{path:'oGlobalModel>/detailProduct/price'},{path:'view>/Currency'}],
