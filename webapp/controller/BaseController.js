@@ -25,7 +25,8 @@ sap.ui.define(
     Service,
     MessageBox,
     MessageToast,
-    ResourceModel
+    ResourceModel,
+    HoverLink
   ) {
     "use strict";
 
@@ -40,7 +41,7 @@ sap.ui.define(
       getRouter: function () {
         return UIComponent.getRouterFor(this);
       },
-      onBeforeRendering: function () {},
+      onBeforeRendering: function () { },
       onInit: function () {
         this._initI18n();
       },
@@ -101,6 +102,17 @@ sap.ui.define(
 
         });
         this.getView().setModel(oViewModel, "view");
+        this.setMenuLinksHover();
+      },
+      setMenuLinksHover: function(){
+        //! Hover function on menu button
+			this.byId("target").addEventDelegate({
+				onmouseover: this._showPopover,
+				// onmouseout: this._clearPopover,
+			}, this);
+        this.byId("menuLinks").addEventDelegate({
+          onmouseover: this.onMouseOverMenuLinks,
+        }, this);
       },
       onShowCategories: function (oEvent) {
         var oMenu = oEvent.getSource();
@@ -120,26 +132,6 @@ sap.ui.define(
       _showPopover: function () {
         this._timeId = setTimeout(() => {
           this.byId("popover").openBy(this.byId("target"));
-        });
-      },
-
-      onShowCategories: function (oEvent) {
-        var oMenu = oEvent.getSource();
-        var oView = this.getView();
-
-        // create popover
-        if (!this._oPopover) {
-          this._oPopover = Fragment.load({
-            id: oView.getId(),
-            name: "ag.agasown.view.fragment.Menu",
-            controller: this,
-          }).then(function (oPopover) {
-            oView.addDependent(oPopover);
-            return oPopover;
-          });
-        }
-        this._oPopover.then(function (oPopover) {
-          oPopover.openBy(oView);
         });
       },
 
@@ -176,10 +168,11 @@ sap.ui.define(
         }
       },
 
-      onCategoryLinkPress: function (oEvent) {
+      handleCategoryLink: function (oEvent, oCntxtName) {
         var oSelectedItem = oEvent.getSource();
-        var oContext = oSelectedItem.getBindingContext("oDataCategory");
+        var oContext = oSelectedItem.getBindingContext(oCntxtName);
         var sValue1 = oContext.getProperty("_id");
+        var pathValue = oContext.getProperty("category_name");
 
         var fnFilterCategory = function (item) {
           return item.parent === sValue1;
@@ -187,15 +180,36 @@ sap.ui.define(
 
         var oDataCategory = this.getView().getModel("oDataCategory").getData();
         var selectedCategory = oDataCategory.filter(fnFilterCategory);
-        console.log("sub_cate", selectedCategory);
 
         this.getView().getModel("oGlobalModel").setProperty("/", {
           detailCategory: selectedCategory,
         });
 
         this.getRouter().navTo("product", {
-          productPath: sValue1,
+          productPath: pathValue,
         });
+
+      },
+      onMouseOverMenuLinks: function (oEvent) {
+        var selectedCtgryId = oEvent.currentTarget.getAttribute("data-categoryid");
+        var fnFilterCategory = function (item) {
+          return item.parent === selectedCtgryId;
+        };
+
+        var oDataCategory = this.getView().getModel("oDataCategory").getData();
+        var selectedCategory = oDataCategory.filter(fnFilterCategory);
+
+        this.getView().getModel("oGlobalModel").setProperty("/", {
+          detailCategory: selectedCategory,
+        });
+      },
+
+      onCategoryLinkPress: function (oEvent) {
+        this.handleCategoryLink(oEvent, "oDataCategory")
+      },
+
+      onSubCategoryLinkPress: function (oEvent) {
+        this.handleCategoryLink(oEvent, "oGlobalModel");
       },
 
       onProductItemPress: function (oEvent) {
@@ -261,17 +275,12 @@ sap.ui.define(
           supportedLocales: ["en", "de"],
           fallbackLocale: ""
         });
-        console.log("thumb", i18nModel);
         this.getView().setModel(i18nModel, "i18n");
         //try is done
         if (document.documentElement.lang.includes("en")) {
-          console.log("language", sap.ui.getCore().getConfiguration().getLanguage());
-          console.log("language_alter", document.documentElement.lang);
           sap.ui.getCore().getConfiguration().setLanguage("de");
           MessageToast.show("Switched to German");
         } else {
-          console.log("else_language", sap.ui.getCore().getConfiguration().getLanguage());
-          console.log("else_language_alter", document.documentElement.lang);
           sap.ui.getCore().getConfiguration().setLanguage("en");
           MessageToast.show("Switched to English");
         }
@@ -290,7 +299,6 @@ sap.ui.define(
        * @param {sap.ui.base.Event} @param oEvent the button press event
        */
       onToggleCart: function (oEvent) {
-        //this.getRouter().navTo("cart");
         var oMenu = oEvent.getSource();
         var oView = this.getView();
 
@@ -461,7 +469,6 @@ sap.ui.define(
         //open in same window
         window.location.href = "http://localhost:5000/auth/google";
         //open in new window
-        // window.open("http://localhost:5000/auth/google");
 
         window.onbeforeunload = function () {
           return "Are you sure want to LOGOUT the session ?";
@@ -887,7 +894,6 @@ sap.ui.define(
           }
           console.log("Accepted!");
         }
-       
       },
 
       onSubmit: function (oEvent) {

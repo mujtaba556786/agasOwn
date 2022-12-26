@@ -4,6 +4,14 @@
   opacity: 1;
 }
 
+.agasown .sapMShellGlobalOuterBackground{
+  background: #3f183b;
+}
+.sapUiBody{
+  color: #3f183b;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+}
 /* ------------menu hover-------------- */
 .menu {
   background-color: transparent;
@@ -91,14 +99,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
-}
-
-.agasown .newsletterButton .sapMBtnInner {
-  background-color: #3f183b;
-  border: none;
-  border-radius: 25px;
-  color: #fff;
-  width: 115px;
 }
 
 /* --------------home css start------------------ */

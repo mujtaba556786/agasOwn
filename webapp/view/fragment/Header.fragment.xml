@@ -3,31 +3,7 @@
         <contentLeft>
             <Button id="target" press=".onShowCategories" type="Unstyled" class="menu sapUiLargeMarginBegin" icon="sap-icon://menu2">
                 <dependents>
-                    <ResponsivePopover id="popover" showArrow="false" showHeader="false" class="sapUiPopupWithPadding" placement="Bottom">
-                        <content>
-                            <HBox>
-                                <List items="{
-                                path: 'oDataCategory>/',
-                                filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
-                                sorter: {path: '_id'}
-                            }" class="menu1">
-                                    <CustomListItem>
-                                        <HBox alignItems="Center" justifyContent="SpaceBetween">
-                                            <Link class="menuLinks" text="{oDataCategory>category_name}" press="onCategoryLinkPress" />
-                                            <!-- <Link class="menuLinks" text="{oDataCategory>selectedCategory(3)}" press="xyz" /> -->
-                                        </HBox>
-                                    </CustomListItem>
-                                </List>
-                                <List class="sapUiTinyMarginBegin Menu2 second">
-                                    <CustomListItem>
-                                        <HBox alignItems="Center" justifyContent="SpaceBetween">
-                                            <Link class="menuLinks" press="onCategoryLinkPress" />
-                                        </HBox>
-                                    </CustomListItem>
-                                </List>
-                            </HBox>
-                        </content>
-                    </ResponsivePopover>
+                    <core:Fragment fragmentName="ag.agasown.view.fragment.Menu" type="XML" />
                 </dependents>
             </Button>
         </contentLeft>

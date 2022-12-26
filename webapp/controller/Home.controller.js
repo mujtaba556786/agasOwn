@@ -4,7 +4,7 @@ sap.ui.define([
 	"sap/ui/Device",
 	'sap/ui/core/Fragment',
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator",
+	"sap/ui/model/FilterOperator"
 
 ], function (BaseController, JSONModel, Device, Fragment, Filter, FilterOperator) {
 	"use strict";
@@ -14,12 +14,6 @@ sap.ui.define([
 		_iCarouselLoopTime: 5000, // loop to next picture after 8 seconds
 
 		onInit: function () {
-			//! Hover function on menu button
-			this.byId("target").addEventDelegate({
-				onmouseover: this._showPopover,
-				// onmouseout: this._clearPopover,
-			}, this);
-
 			// select random carousel page at start
 			var oWelcomeCarousel = this.byId("welcomeCarousel");
 			var iRandomIndex = Math.floor(Math.abs(Math.random()) * oWelcomeCarousel.getPages().length);
@@ -35,7 +29,6 @@ sap.ui.define([
 				this.byId("popover").openBy(this.byId("target"));
 			});
 		},
-
 		_onObjectMatched: function (oEvent) {
 			var sCurrentRouteName = oEvent.getParameter("name");
 			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
