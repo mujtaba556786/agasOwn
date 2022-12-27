@@ -106,14 +106,12 @@ sap.ui.define(
           .getData().detailProduct;
         var product_id = oSelectedPath._id;
         var previous_wishlist = sessionStorage.getItem('product_id')
-        console.log("=========>", previous_wishlist);
         if (previous_wishlist != null) {
           var temp = previous_wishlist + ';' + product_id
           sessionStorage.setItem('product_id', temp)
         } else {
           sessionStorage.setItem('product_id', ('' + product_id))
         }
-        console.log("product_id", product_id);
         var item_status = this.getView().byId("product_status");
         var item_exist = item_status.mProperties.text;
         if (item_exist === "In Stock") {
@@ -248,7 +246,6 @@ sap.ui.define(
                   .getModel("oGlobalModel")
                   .getData().detailProduct;
                 var product_id = oSelectedPath._id;
-                console.log("product_id", product_id);
                 var customer_id = sessionStorage.getItem("uid");
 
                 if (!login_id) {

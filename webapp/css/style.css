@@ -391,8 +391,12 @@
   border-bottom: 1px solid black;
 }
 
+/* instock color chnage */
 .agasown .productStatus {
   color: green;
+}
+.agasown .productStatus2 {
+  color: red;
 }
 
 .productCart {
@@ -1533,3 +1537,4 @@ opacity: 1;
     display: block;
     width: 100%;
 }
+

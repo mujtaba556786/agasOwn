@@ -90,7 +90,6 @@ sap.ui.define(
           .getRoute("checkout")
           .attachMatched(function () { }.bind(this));
         // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-        // console.log(oRouter)
         // oRouter.stop();
 
         this.setHeaderModel();
@@ -410,7 +409,7 @@ sap.ui.define(
       onReturnToShopButtonPress: function () {
         this.getRouter().navTo("home");
       },
-      
+
 
       // *** the following functions are private "helper" functions ***
 
@@ -541,14 +540,14 @@ sap.ui.define(
         }
         var cred_num = numList.length
         if (cred_num < 16) {
-              this.getView()
-                .byId("creditCardNumber")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (cred_num >= 4) {
-              this.getView()
-                .byId("creditCardNumber")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("creditCardNumber")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (cred_num >= 4) {
+          this.getView()
+            .byId("creditCardNumber")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkCardSecurityNumber: function (oEvent) {
         let data = this.byId("creditCardSecurityNumber");
@@ -562,184 +561,182 @@ sap.ui.define(
         }
         var cred_num = numList.length
         if (cred_num < 3) {
-              this.getView()
-                .byId("creditCardSecurityNumber")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (cred_num === 3) {
-              this.getView()
-                .byId("creditCardSecurityNumber")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("creditCardSecurityNumber")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (cred_num === 3) {
+          this.getView()
+            .byId("creditCardSecurityNumber")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkInvoiceAddressAddress: function (oEvent) {
         let data = this.byId("invoiceAddressAddress").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("invoiceAddressAddress")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("invoiceAddressAddress")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("invoiceAddressAddress")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("invoiceAddressAddress")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkInvoiceAddressCity: function (oEvent) {
         let data = this.byId("invoiceAddressCity").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("invoiceAddressCity")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("invoiceAddressCity")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("invoiceAddressCity")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("invoiceAddressCity")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkInvoiceAddressZip: function (oEvent) {
         let data = this.byId("invoiceAddressZip").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("invoiceAddressZip")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("invoiceAddressZip")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("invoiceAddressZip")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("invoiceAddressZip")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkInvoiceAddressCountry: function (oEvent) {
         let data = this.byId("invoiceAddressCountry").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("invoiceAddressCountry")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("invoiceAddressCountry")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("invoiceAddressCountry")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("invoiceAddressCountry")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkDeliveryAddressAddress: function (oEvent) {
         let data = this.byId("deliveryAddressAddress").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("deliveryAddressAddress")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("deliveryAddressAddress")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("deliveryAddressAddress")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("deliveryAddressAddress")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkDeliveryAddressCity: function (oEvent) {
         let data = this.byId("deliveryAddressCity").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("deliveryAddressCity")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("deliveryAddressCity")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("deliveryAddressCity")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("deliveryAddressCity")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkDeliveryAddressZip: function (oEvent) {
         let data = this.byId("deliveryAddressZip").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("deliveryAddressZip")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("deliveryAddressZip")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("deliveryAddressZip")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("deliveryAddressZip")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkDeliveryAddressCountry: function (oEvent) {
         let data = this.byId("deliveryAddressCountry").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("deliveryAddressCountry")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("deliveryAddressCountry")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("deliveryAddressCountry")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("deliveryAddressCountry")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkPaypalUserName: function (oEvent) {
         let data = this.byId("cashOnDeliveryName").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("cashOnDeliveryName")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("cashOnDeliveryName")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("cashOnDeliveryName")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("cashOnDeliveryName")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkPaypalUserLastName: function (oEvent) {
         let data = this.byId("cashOnDeliveryLastName").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("cashOnDeliveryLastName")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("cashOnDeliveryLastName")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("cashOnDeliveryLastName")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("cashOnDeliveryLastName")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
       checkPaypalUserPhoneNumber: function (oEvent) {
         let data = this.byId("cashOnDeliveryPhoneNumber").getValue();
-        if (data.length < 9 || data.length >10) {
-              this.getView()
-                .byId("cashOnDeliveryPhoneNumber")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 9) {
-              this.getView()
-                .byId("cashOnDeliveryPhoneNumber")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+        if (data.length < 9 || data.length > 10) {
+          this.getView()
+            .byId("cashOnDeliveryPhoneNumber")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 9) {
+          this.getView()
+            .byId("cashOnDeliveryPhoneNumber")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
-     
+
       checkPaypalUserEmail: function (oEvent) {
         let data = this.byId("cashOnDeliveryEmail").getValue();
         if (data.length < 3) {
-              this.getView()
-                .byId("cashOnDeliveryEmail")
-                .setValueState(sap.ui.core.ValueState.Error);
-            } else if (data.length > 3) {
-              this.getView()
-                .byId("cashOnDeliveryEmail")
-                .setValueState(sap.ui.core.ValueState.Success);
-            }
+          this.getView()
+            .byId("cashOnDeliveryEmail")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else if (data.length > 3) {
+          this.getView()
+            .byId("cashOnDeliveryEmail")
+            .setValueState(sap.ui.core.ValueState.Success);
+        }
       },
 
       handleWizardSubmitss: async function (oEvent) {
         var selectedKey = this.getView()
           .getModel()
           .getProperty("/SelectedPayment");
-        var customer_id = sessionStorage.getItem("uid");
+        var customer_id_guest = sessionStorage.getItem("Guid");
+        var customer_id_login = sessionStorage.getItem("uid");
+        if (!customer_id_guest){
+          var customer_id = customer_id_login;
+        }else{
+          customer_id = customer_id_guest;
+        }
         var total_Price2 = this.byId("totalPricefinal").getText();
         var total_Price1 = total_Price2.split(" ");
         var total_price5 = total_Price1[1];
         var total_price0 = total_Price1[1].split(".");
         var total_price = total_price0[0];
         var total_price3 = total_price.replace(',', '');
-        // console.log("price", total_price3);
-
-        console.log(total_price5);
-        // console.log(total_Price2);
-        // console.log(total_Price1);
-        // console.log(total_price0);
-        // console.log(total_price);
 
         var expDate = this.byId("creditCardExpirationDate").getValue();
         var expDate1 = expDate.slice(0, 2);
         var expYear = expDate.slice(3);
-        console.log
         // product details
         var oCartModels = this.getView()
           .getModel("oDataProducts")
@@ -748,9 +745,7 @@ sap.ui.define(
         var oCartModel = this.getView()
           .getModel("oDataProducts")
           .getProperty(`/cartEntries/${ans}`);
-        console.log(oCartModel.Quantity);
-        console.log(oCartModel.product_name);
-        console.log(oCartModel.price);
+
 
         var pro_Quantity = oCartModel.Quantity;
         var product_name = oCartModel.product_name;
@@ -758,19 +753,16 @@ sap.ui.define(
 
         if (selectedKey == "Credit Card" || selectedKey == "Dedit Card") {
           var formdata = new FormData();
-
-
-
           formdata.append("card_number", this.byId("creditCardNumber").getValue());
           formdata.append("exp_month", expDate1);
           formdata.append("exp_year", expYear);
           formdata.append("cvc", this.byId("creditCardSecurityNumber").getValue());
-          formdata.append("description", "Card_Payment");
           formdata.append("name", this.byId("creditCardHolderName").getValue());
           formdata.append("email", this.byId("loginEmailInput").getValue());
           formdata.append("amount", total_price5);
           formdata.append("currency", "EUR");
-          formdata.append("customer_id",customer_id);
+          formdata.append("description", "card_payment");
+          formdata.append("customer_id", customer_id);
 
           var requestOptions = {
             method: 'POST',
@@ -782,11 +774,10 @@ sap.ui.define(
             .then(response => {
               return response.status
             })
-            // .then(result => console.log(result))
             .catch(error => console.log('error', error));
           if (respo === 200) {
             alert("Order Accepted!");
-                window.location.replace("index.html#/payment");
+            window.location.replace("index.html#/payment");
           }
           else {
             alert('order not accepted')
@@ -797,7 +788,7 @@ sap.ui.define(
           formdata.append("price", product_price);
           formdata.append("currency", "EUR");
           formdata.append("quantity", pro_Quantity);
-          formdata.append("customer_id",customer_id);
+          formdata.append("customer_id", customer_id);
 
           var requestOptions = {
             method: "POST",
@@ -812,24 +803,16 @@ sap.ui.define(
 
         } else if (selectedKey == "Bank Transfer") {
           var formdata = new FormData();
-          formdata.append("name", "Test1");
+          formdata.append("name", "User");
           formdata.append("email", this.byId("loginEmailInput").getValue());
-          formdata.append("customer_id",customer_id);
-          formdata.append(
-            "cus_add_line1",
-            this.byId("invoiceAddressAddress").getValue()
-          );
-          formdata.append(
-            "cus_add_city",
-            this.byId("invoiceAddressCity").getValue()
-          );
-          formdata.append(
-            "cus_add_state",
-            this.byId("invoiceAddressCountry").getValue()
-          );
+          formdata.append("cus_add_line1", this.byId("invoiceAddressAddress").getValue());
+          formdata.append("cus_add_city", this.byId("invoiceAddressCity").getValue());
+          formdata.append("cus_add_state", this.byId("invoiceAddressCountry").getValue());
           formdata.append("amount", total_price5);
           formdata.append("currency", "eur");
           formdata.append("country", "DE");
+          formdata.append("descrition", "SOFORT");
+          formdata.append("customer_id", customer_id);
           var requestOptions = {
             method: "POST",
             body: formdata,
@@ -837,7 +820,9 @@ sap.ui.define(
           };
           fetch("http://64.227.115.243:8080/stripe/sofort/", requestOptions)
             .then((response) => response.text())
-            .then((result) => window.open(result, "_self"))
+            .then((result) => {
+              window.open(result, "_self")
+            })
             .catch((error) => console.log("error", error));
         }
       },

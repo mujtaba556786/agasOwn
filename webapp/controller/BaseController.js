@@ -345,7 +345,85 @@ sap.ui.define(
           this.getRouter().navTo("home");
         }
       },
-
+            //Guest Login Dailog Box
+            handleGuestLogin: function () {
+              if (this._mLoginDialog !== undefined) {
+                this.onLoginClose();
+              }
+              var oView = this.getView();
+              // creates requested dialog if not yet created
+              if (!this._mGuestLoginDialog) {
+                this._mGuestLoginDialog = Fragment.load({
+                  id: oView.getId(),
+                  name: "ag.agasown.view.fragment.dialog.GuestLogin",
+                  controller: this,
+                }).then(function (oDialog) {
+                  oView.addDependent(oDialog);
+                  return oDialog;
+                });
+              }
+              this._mGuestLoginDialog.then(function (oDialog) {
+                oDialog.open();
+              });
+            },
+      onGuestOpen: function (oEvent) {
+        this.handleGuestLogin(oEvent);
+      },
+      onGuestLoginClose: function () {
+        this._mGuestLoginDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+      },
+      
+      onLoginGuestOpen: function () {
+        //Try to login
+        var _sUrl = "http://64.227.115.243:8080/guest_login/";
+        var first_name = this.byId("guestLoginFN").getValue();
+        var last_name = this.byId("guestLoginLN").getValue();
+        var email = this.byId("guestLoginEmail").getValue();
+        var oData = {
+         first_name : first_name,
+         last_name : last_name,
+         email : email
+        };
+        this.getService()
+          .onPost(_sUrl, oData)
+          .then((oSuccess) => {
+            console.log("suc",oSuccess);})
+          .catch((oError) => {
+            MessageBox.error(oError.responseText);
+          });
+          
+        this._mLoginDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+        window.onbeforeunload = function () {
+          return "Are you sure want to LOGOUT the session ?";
+        };
+        var requestOptions = {
+          method: 'GET',
+          redirect: 'follow'
+        };
+        
+        fetch("http://64.227.115.243:8080/customers/", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            const res = JSON.parse(result)
+            var new_ans = res[res.length - 1]._id;
+            sessionStorage.setItem("Guid", new_ans);
+          })
+          .catch(error => console.log('error', error));
+        MessageBox.success("You are successfully logged in", {
+          icon: MessageBox.Icon.INFORMATION,
+          title: "GUEST USER",
+          actions: [MessageBox.Action.OK],
+          emphasizedAction: MessageBox.Action.YES,
+        });
+        this._mGuestLoginDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+        
+      },
       onPressAboutUs: function () {
         this.getRouter().navTo("about-us");
       },
@@ -456,7 +534,6 @@ sap.ui.define(
           })
           .catch(error => console.log('error', error));
       },
-
       onLoginGoogleOpen: function (e) {
         //open in same window
         window.location.href = "http://localhost:5000/auth/google";
@@ -470,27 +547,6 @@ sap.ui.define(
         sessionStorage.setItem("uid", myUniversallyUniqueID);
       },
 
-      onLoginGuestOpen: function () {
-        var dt = new Date().getTime();
-        var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-          var r = (dt + Math.random() * 16) % 16 | 0;
-          dt = Math.floor(dt / 16);
-          return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-        });
-        sessionStorage.setItem("Guid", uuid);
-        this._mLoginDialog.then(function (oDialog) {
-          oDialog.close();
-        });
-        window.onbeforeunload = function () {
-          return "Are you sure want to LOGOUT the session ?";
-        };
-        MessageBox.success("You are successfully logged in", {
-          icon: MessageBox.Icon.INFORMATION,
-          title: "GUEST USER",
-          actions: [MessageBox.Action.OK],
-          emphasizedAction: MessageBox.Action.YES,
-        });
-      },
 
       onNavToCustomer: function () {
         var uid = sessionStorage.getItem("uid");
@@ -516,7 +572,7 @@ sap.ui.define(
         sessionStorage.removeItem("Guid");
         sessionStorage.removeItem("myvalue5");
         sessionStorage.removeItem("single");
-
+        sessionStorage.removeItem("access_token");
         sessionStorage.removeItem("product_id");
 
         var oCustomer = oGlobalModel.getData().customer;
@@ -702,7 +758,6 @@ sap.ui.define(
           emailjs
             .send("service_mr4cg1j", "template_yxbawkk", tempParams)
             .then(function (res) {
-              console.log("success", res.status);
               if (res.status === 200) {
                 MessageToast.show(
                   "We received your queries, We will contact you soon!"
@@ -835,7 +890,6 @@ sap.ui.define(
       EmailJs: async function () {
         var news_check = this.getView().byId("news_check");
         var data_acceptance = news_check.mProperties.selected;
-        // console.log("=>",news_check.mProperties.selected);
         var _nwUrl = "http://64.227.115.243:8080/newsletter/";
         var _nwfirstName = this.byId("firstNameInput1").getValue();
         var _nwlastName = this.byId("lastNameInput1").getValue();
@@ -864,7 +918,7 @@ sap.ui.define(
             agasown: "Aga'sOwn Marketing Team",
             message: "You subscribe to Aga'sOwn Shopping Site",
             text: "Testing",
-            user_email: "dhirenderrawat@forcebolt.com",
+            user_email: "test@gamil.com",
           };
           if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
             this.getService()
@@ -893,7 +947,6 @@ sap.ui.define(
       onSubmit: function (oEvent) {
         var readData = this.getView().byId("readData");
         var data_acceptance = readData.mProperties.selected;
-        console.log(data_acceptance);
         var _sUrl = "http://64.227.115.243:8080/sign-up/";
         var _sfirstName = this.byId("firstNameInput").getValue();
         var _slastName = this.byId("lastNameInput").getValue();
@@ -915,7 +968,6 @@ sap.ui.define(
           this.getService()
             .onPost(_sUrl, oData)
             .then((oSuccess) => {
-              console.log(oSuccess.detail);
               MessageBox.success(oSuccess.detail);
               this._mRegistrationDialog.then(function (oDialog) {
                 oDialog.close();
