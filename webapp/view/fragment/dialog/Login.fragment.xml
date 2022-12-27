@@ -16,7 +16,7 @@
              <HBox class="sapUiSmallMarginBottom">
              <Button class="withSubmit sapUiTinyMargin " text="{i18n>Logingoo}" press=".onLoginGoogleOpen" type="Unstyled"  />
         
-               <Button class="withSubmit sapUiTinyMargin" text="{i18n>Loginguest}" press=".onLoginGuestOpen" type="Unstyled"  />
+               <Button class="withSubmit sapUiTinyMargin" text="{i18n>Loginguest}" press=".onGuestOpen" type="Unstyled"  />
                </HBox>
 
             <Link class="loginSignUp sapUiTinyMargin" text="{i18n>Loginsign}" press=".onRegisterOpen" />

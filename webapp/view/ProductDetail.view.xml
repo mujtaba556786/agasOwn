@@ -41,7 +41,7 @@
 										type: 'sap.ui.model.type.Currency',
 										formatOptions: {showMeasure: false}
 										}" unit="{view>/Currency}" textAlign="Center"/>
-										<Text class="productStatus" id="product_status" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.variantLen' }"/>
+										<Text class="productStatus productStatus2" id="product_status" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.variantLen' }"/>
 									</HBox>
 									<HBox alignItems="Baseline">
 										<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>

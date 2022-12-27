@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" >
+    <Dialog id="guestLoginDialog" class="loginDialog" showHeader="false">
+        <VBox alignItems="End" class="sapUiSmallMargin">
+            <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onGuestLoginClose" type="Unstyled" />
+        </VBox>
+        <VBox class="sapUiSmallMargin">
+            <Text class="dialogTitle sapUiSmallMarginBottom" text="{i18n>GuestLog}" />
+            <Label class="dialogLabel" text="{i18n>FN}" labelFor="guestLoginFNInput" />
+            <Input id="guestLoginFN" class="sapUiSmallMarginBottom" placeholder="Enter your first name" />
+            <Label class="dialogLabel" text="{i18n>LN}" labelFor="guestLoginLNInput" />
+            <Input id="guestLoginLN" class="sapUiSmallMarginBottom" placeholder="Enter your last name" />
+            <Label class="dialogLabel" text="{i18n>Loginemail}" labelFor="loginEmailInput" />
+            <Input id="guestLoginEmail" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
+            
+             <HBox class="sapUiSmallMarginBottom">
+                <Button class="withSubmit sapUiTinyMargin" text="Continue as Guest" press=".onLoginGuestOpen" type="Unstyled"  />
+            </HBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>

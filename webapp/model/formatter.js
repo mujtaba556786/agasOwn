@@ -70,38 +70,18 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 				? productDetail["product_highlight"]
 				: productDetail["product_highlight_de"];
 		},
-		/*variantColor: async function(productDetail){
-		  var ans = productDetail["_id"]
-		  var requestOptions = {
-			method: 'GET',
-			redirect: 'follow'
-		  };
-		  var blank_array =[];
-		//   var req_ans;
-		   await fetch(`http://64.227.115.243:8080/products/${ans}`, requestOptions)
-			.then(response => response.text())
-			.then(result => JSON.parse(result))
-			.then(data=>{
-	   
-			  data.product_variant.map(colour=>{
-				var re_ans = colour.color
-				console.log("This is color", re_ans);
-				blank_array.push(re_ans);
-				// req_ans = re_ans.split(",");
-				// console.log("req_ans",req_ans)
-			  })
-			})
-			.catch(error => console.log('error', error));
-			return(blank_array) ;
-		},*/
-		variantLen: async function (productDetail) {
+		
+		variantLen: async function(productDetail){
 			var ans = productDetail["quantity"];
-
-			if (ans > 0) {
-				return "In Stock"
-				//   console.log("IS")
-			} else {
-				return "Not Available"
+			var idText= this.getView().byId("product_status")
+			idText.removeStyleClass("productStatus")
+			idText.removeStyleClass("productStatus2")
+			if(ans> 0){
+				idText.addStyleClass("productStatus")
+				return "In Stock";
+			}else{
+				idText.addStyleClass("productStatus2")
+				return "Not Available";
 			}
 		},
 		/**
