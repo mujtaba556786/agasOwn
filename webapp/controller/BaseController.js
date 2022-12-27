@@ -139,7 +139,7 @@ sap.ui.define(
         var oDataCategory = this.getView().getModel("oDataCategory").getData();
         var selectedCategory = oDataCategory.filter(fnFilterCategory);
 
-        this.getView().getModel("oGlobalModel").setProperty("/", {
+        this.getView().getModel("oMenuModel").setProperty("/", {
           detailCategory: selectedCategory,
         });
 
@@ -157,7 +157,7 @@ sap.ui.define(
         var oDataCategory = this.getView().getModel("oDataCategory").getData();
         var selectedCategory = oDataCategory.filter(fnFilterCategory);
 
-        this.getView().getModel("oGlobalModel").setProperty("/", {
+        this.getView().getModel("oMenuModel").setProperty("/", {
           detailCategory: selectedCategory,
         });
       },
@@ -167,7 +167,7 @@ sap.ui.define(
       },
 
       onSubCategoryLinkPress: function (oEvent) {
-        this.handleCategoryLink(oEvent, "oGlobalModel");
+        this.handleCategoryLink(oEvent, "oMenuModel");
       },
 
       onProductItemPress: function (oEvent) {

@@ -24,7 +24,7 @@
             <!--<Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
                         formatter : '.formatter.pictureUrl'
                         }" />-->
-            <Avatar displaySize="XS" showBorder="false" press="onPressInstaGram" imageFitType="Cover" decorative="true" src="{path: 'view>/instagram',
+            <Avatar class="logo" displaySize="XS" showBorder="false" press="onPressInstaGram" imageFitType="Cover" decorative="true" src="{path: 'view>/instagram',
                         formatter : '.formatter.pictureUrl'
                         }" />
             <Avatar displaySize="XS" showBorder="false" press="onPressYouTube" class="logo" imageFitType="Cover" decorative="true" src="{path: 'view>/youtube',

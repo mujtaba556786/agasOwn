@@ -27,7 +27,8 @@ sap.ui.define([
 			this.setModel(models.createDeviceModel(), "device");
 			// set the global model
 			this.setModel(new sap.ui.model.json.JSONModel() , "oGlobalModel");
-			
+			// set the Menu model
+			this.setModel(new sap.ui.model.json.JSONModel() , "oMenuModel");
 		},
 		
 	});

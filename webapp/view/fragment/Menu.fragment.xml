@@ -19,11 +19,11 @@
                         </HBox>
                     </CustomListItem>
                 </List>
-                <List items="{oGlobalModel>/detailCategory}" 
+                <List items="{oMenuModel>/detailCategory}" 
                 class="sapUiTinyMarginBegin Menu2 second" noData="  ">
                     <CustomListItem>
                         <HBox alignItems="Center" justifyContent="SpaceBetween">
-                            <Link class="menuLinks" text="{oGlobalModel>category_name}" press="onSubCategoryLinkPress"/>
+                            <Link class="menuLinks" text="{oMenuModel>category_name}" press="onSubCategoryLinkPress"/>
                         </HBox>
                     </CustomListItem>
                 </List>
