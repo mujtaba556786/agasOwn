@@ -15,18 +15,8 @@ sap.ui.define([
 			this.setHeaderModel();
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
-			//! Hover function on menu button
-			this.byId("target").addEventDelegate({
-				onmouseover: this._showPopover,
-				// onmouseout: this._clearPopover,
-			  }, this);
 		},
-//! Hover function on menu button
-_showPopover: function () {
-	this._timeId = setTimeout(() => {
-	  this.byId("popover").openBy(this.byId("target"));
-	});
-  },
+
 		_onObjectMatched: function (oEvent) {
 			var _sId = oEvent.getParameter("arguments").productPath;
 			this.onProductFilter(_sId);
@@ -69,7 +59,7 @@ _showPopover: function () {
 			var aSelectedProduct = [];
 			var filter = new Filter("category", FilterOperator.EQ, _sId);
 			aSelectedProduct.push(filter);
-			
+
 			// update list binding
 			oBinding.filter(aSelectedProduct);
 

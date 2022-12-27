@@ -23,12 +23,6 @@ sap.ui.define([
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("home").attachPatternMatched(this._onObjectMatched, this);
 		},
-		//! Hover function on menu button
-		_showPopover: function () {
-			this._timeId = setTimeout(() => {
-				this.byId("popover").openBy(this.byId("target"));
-			});
-		},
 		_onObjectMatched: function (oEvent) {
 			var sCurrentRouteName = oEvent.getParameter("name");
 			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);

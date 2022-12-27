@@ -66,12 +66,6 @@ sap.ui.define(
         var sImgSrc = oEvent.getSource().getSrc();
         oView.setSrc(sImgSrc);
       },
-      //! Hover function on menu button
-      _showPopover: function () {
-        this._timeId = setTimeout(() => {
-          this.byId("popover").openBy(this.byId("target"));
-        });
-      },
       _onObjectMatched: function (oEvent) {
         var sCurrentRouteName = oEvent.getParameter("name");
         this.getView()

@@ -104,68 +104,26 @@ sap.ui.define(
         this.getView().setModel(oViewModel, "view");
         this.setMenuLinksHover();
       },
-      setMenuLinksHover: function(){
-        //! Hover function on menu button
-			this.byId("target").addEventDelegate({
-				onmouseover: this._showPopover,
-				// onmouseout: this._clearPopover,
-			}, this);
+      setMenuLinksHover: function () {
+        this.byId("target").addEventDelegate({
+          onmouseover: this._showPopover,
+        }, this);
         this.byId("menuLinks").addEventDelegate({
           onmouseover: this.onMouseOverMenuLinks,
         }, this);
       },
-      onShowCategories: function (oEvent) {
-        var oMenu = oEvent.getSource();
-        var oView = this.getView();
-
-        this.byId("target").addEventDelegate(
-          {
-            onmouseover: this._showPopover,
-            onmouseout: this._clearPopover,
-          }.then(function (oPopover) {
-            oView.addDependent(oPopover);
-            return oPopover;
-          })
-        );
-      },
-      // popover
+      //! Hover function on menu button
       _showPopover: function () {
         this._timeId = setTimeout(() => {
           this.byId("popover").openBy(this.byId("target"));
         });
       },
-
       /**
        * Always navigates back to home
        * @override
        */
       onNavBackHome: function () {
         this.getRouter().navTo("home");
-      },
-
-      handleMenuCategory: function (oEvent) {
-        var categoryId = sap.ui.getCore().byId("subCategoryList");
-        var categoryDetails = sap.ui.getCore().byId("categoryDetails");
-        var oSelectedItem = oEvent.getSource();
-        var oContext = oSelectedItem.getBindingContext("oDataCategory");
-
-        var sName = oContext.getProperty("category_name");
-        this.getView().getModel("view").setProperty("/category_name", sName);
-
-        var sValue1 = oContext.getProperty("id");
-        var sPath = "parent";
-        var sOperator = "EQ";
-        var oBinding = categoryId.getBinding("items");
-
-        oBinding.filter([new sap.ui.model.Filter(sPath, sOperator, sValue1)]);
-        if (oBinding.getLength() !== 0) {
-          categoryDetails.setVisible(true);
-        } else {
-          categoryDetails.setVisible(false);
-          this.getRouter().navTo("product", {
-            productPath: sValue1,
-          });
-        }
       },
 
       handleCategoryLink: function (oEvent, oCntxtName) {
@@ -213,7 +171,6 @@ sap.ui.define(
       },
 
       onProductItemPress: function (oEvent) {
-
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
@@ -225,15 +182,6 @@ sap.ui.define(
         });
       },
 
-
-      handleCloseMenu: function (oEvent) {
-        // note: We don't need to chain to the _pPopover promise, since this event-handler
-        // is only called from within the loaded dialog itself.
-        //this.byId("myMenu").close();
-        if (this._oPopover) {
-          this._oPopover.close();
-        }
-      },
       /**
        * Called, when the add button of a product is pressed.
        * Saves the product, the i18n bundle, and the cart model and hands them to the <code>addToCart</code> function
@@ -899,7 +847,6 @@ sap.ui.define(
       onSubmit: function (oEvent) {
         var readData = this.getView().byId("readData");
         var data_acceptance = readData.mProperties.selected;
-        console.log(data_acceptance);
         var _sUrl = "http://64.227.115.243:8080/sign-up/";
         var _sfirstName = this.byId("firstNameInput").getValue();
         var _slastName = this.byId("lastNameInput").getValue();

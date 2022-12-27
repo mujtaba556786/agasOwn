@@ -94,21 +94,6 @@ sap.ui.define(
         // oRouter.stop();
 
         this.setHeaderModel();
-
-        //! Hover function on menu button
-        this.byId("target").addEventDelegate(
-          {
-            onmouseover: this._showPopover,
-            // onmouseout: this._clearPopover,
-          },
-          this
-        );
-      },
-      //! Hover function on menu button
-      _showPopover: function () {
-        this._timeId = setTimeout(() => {
-          this.byId("popover").openBy(this.byId("target"));
-        });
       },
 
       /**

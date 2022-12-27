@@ -6,13 +6,6 @@ sap.ui.define(
 
     return BaseController.extend("ag.agasown.controller.Customer", {
       onInit: function () {
-
-        //! Hover function on menu button
-        this.byId("target").addEventDelegate({
-          onmouseover: this._showPopover,
-          // onmouseout: this._clearPopover,
-        }, this);
-
         // Storing user data into session Storage
         this.setHeaderModel();
         var uid = sessionStorage.getItem("uid");

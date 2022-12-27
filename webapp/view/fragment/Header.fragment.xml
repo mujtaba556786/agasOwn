@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
     <Bar class="headerBar">
         <contentLeft>
-            <Button id="target" press=".onShowCategories" type="Unstyled" class="menu sapUiLargeMarginBegin" icon="sap-icon://menu2">
+            <Button id="target"  type="Unstyled" class="menu sapUiLargeMarginBegin" icon="sap-icon://menu2">
                 <dependents>
                     <core:Fragment fragmentName="ag.agasown.view.fragment.Menu" type="XML" />
                 </dependents>
