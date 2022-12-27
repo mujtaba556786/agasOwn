@@ -9,9 +9,6 @@ sap.ui.define([
 	"use strict";
 	return BaseController.extend("ag.agasown.controller.Product", {
 		onInit: function () {
-			this.oView = this.getView();
-			this._bDescendingSort = false;
-			this.oGridList = this.oView.byId("gridList");
 			this.setHeaderModel();
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
@@ -19,8 +16,19 @@ sap.ui.define([
 
 		_onObjectMatched: function (oEvent) {
 			var _sId = oEvent.getParameter("arguments").productPath;
-			this.onProductFilter(_sId);
 		},
+
+		onProductItemPress: function (oEvent) {
+			var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
+			var spath = oBndngCtxt.getPath();
+			var selectedPath = oBndngCtxt.getProperty(spath);
+			this.getView()
+			  .getModel("oGlobalModel")
+			  .setProperty("/", { detailProduct: selectedPath });
+			this.getRouter().navTo("productDetail", {
+			  detailObj: selectedPath.product_name,
+			});
+		  },
 
 		onSearch: function (oEvent) {
 			var oProductSearchState = [],
@@ -29,9 +37,6 @@ sap.ui.define([
 				oProductSearchState = [new Filter("product_name", FilterOperator.Contains, sQuery)];
 			}
 			this.oGridList.getBinding("items").filter(oProductSearchState, "Application");
-		},
-		onAdd: function () {
-			MessageBox.information("This functionality is not ready yet.", { title: "Aw, Snap!" });
 		},
 		onSort: function () {
 			this._bDescendingSort = !this._bDescendingSort;

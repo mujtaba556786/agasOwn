@@ -23,7 +23,7 @@
 					<SearchField width="50%" />
 				</HBox>
 
-				<f:GridList id="gridList" items="{oDataProducts>/}" growing="true" growingThreshold="4">
+				<f:GridList id="gridList" items="{oGlobalModel>/productLists}" growing="true" growingThreshold="4">
 					<f:customLayout>
 						<cssgrid:GridBasicLayout gridAutoRows="5rem" gridTemplateColumns="repeat(auto-fill, minmax(9rem, 1fr))" gridGap="0.5rem"></cssgrid:GridBasicLayout>
 					</f:customLayout>
@@ -32,11 +32,11 @@
 							<cssgrid:GridItemLayoutData gridRow="span 3" gridColumn="span 2" />
 						</f:layoutData>
 						<VBox alignItems="Center" class="sapUiSmallMargin">
-							<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
+							<Image src="{path: 'oGlobalModel>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
 							
-							<Title text="{oDataProducts>product_name}" wrapping="true" />
+							<Title text="{oGlobalModel>title}" wrapping="true" />
 							<ObjectNumber class="sapUiSmallMarginBottom" number="{
-						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						parts:[{path:'oGlobalModel>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" unit="{view>/Currency}" textAlign="Center"/>

@@ -25,8 +25,7 @@ sap.ui.define(
     Service,
     MessageBox,
     MessageToast,
-    ResourceModel,
-    HoverLink
+    ResourceModel
   ) {
     "use strict";
 
@@ -129,11 +128,11 @@ sap.ui.define(
       handleCategoryLink: function (oEvent, oCntxtName) {
         var oSelectedItem = oEvent.getSource();
         var oContext = oSelectedItem.getBindingContext(oCntxtName);
-        var sValue1 = oContext.getProperty("_id");
-        var pathValue = oContext.getProperty("category_name");
+        var sCategoryId = oContext.getProperty("_id");
+        var sCategoryName = oContext.getProperty("category_name");
 
         var fnFilterCategory = function (item) {
-          return item.parent === sValue1;
+          return item.parent === sCategoryId;
         };
 
         var oDataCategory = this.getView().getModel("oDataCategory").getData();
@@ -143,8 +142,10 @@ sap.ui.define(
           detailCategory: selectedCategory,
         });
 
+        this.setProductItemsModel(sCategoryId);
+
         this.getRouter().navTo("product", {
-          productPath: pathValue,
+          productPath: sCategoryName,
         });
 
       },
@@ -168,6 +169,18 @@ sap.ui.define(
 
       onSubCategoryLinkPress: function (oEvent) {
         this.handleCategoryLink(oEvent, "oMenuModel");
+      },
+
+      setProductItemsModel: function(selectedCtgryId){
+        var fnFilterProducts = function (item) {
+          return item.category === selectedCtgryId;
+        };
+        var oDataProducts = this.getView().getModel("oDataProducts").getData();
+        var selectedProducts = oDataProducts.filter(fnFilterProducts);
+
+        this.getView().getModel("oGlobalModel").setProperty("/", {
+          productLists: selectedProducts,
+        });
       },
 
       onProductItemPress: function (oEvent) {
@@ -301,27 +314,27 @@ sap.ui.define(
           this.getRouter().navTo("home");
         }
       },
-            //Guest Login Dailog Box
-            handleGuestLogin: function () {
-              if (this._mLoginDialog !== undefined) {
-                this.onLoginClose();
-              }
-              var oView = this.getView();
-              // creates requested dialog if not yet created
-              if (!this._mGuestLoginDialog) {
-                this._mGuestLoginDialog = Fragment.load({
-                  id: oView.getId(),
-                  name: "ag.agasown.view.fragment.dialog.GuestLogin",
-                  controller: this,
-                }).then(function (oDialog) {
-                  oView.addDependent(oDialog);
-                  return oDialog;
-                });
-              }
-              this._mGuestLoginDialog.then(function (oDialog) {
-                oDialog.open();
-              });
-            },
+      //Guest Login Dailog Box
+      handleGuestLogin: function () {
+        if (this._mLoginDialog !== undefined) {
+          this.onLoginClose();
+        }
+        var oView = this.getView();
+        // creates requested dialog if not yet created
+        if (!this._mGuestLoginDialog) {
+          this._mGuestLoginDialog = Fragment.load({
+            id: oView.getId(),
+            name: "ag.agasown.view.fragment.dialog.GuestLogin",
+            controller: this,
+          }).then(function (oDialog) {
+            oView.addDependent(oDialog);
+            return oDialog;
+          });
+        }
+        this._mGuestLoginDialog.then(function (oDialog) {
+          oDialog.open();
+        });
+      },
       onGuestOpen: function (oEvent) {
         this.handleGuestLogin(oEvent);
       },
@@ -330,7 +343,7 @@ sap.ui.define(
           oDialog.close();
         });
       },
-      
+
       onLoginGuestOpen: function () {
         //Try to login
         var _sUrl = "http://64.227.115.243:8080/guest_login/";
@@ -338,18 +351,19 @@ sap.ui.define(
         var last_name = this.byId("guestLoginLN").getValue();
         var email = this.byId("guestLoginEmail").getValue();
         var oData = {
-         first_name : first_name,
-         last_name : last_name,
-         email : email
+          first_name: first_name,
+          last_name: last_name,
+          email: email
         };
         this.getService()
           .onPost(_sUrl, oData)
           .then((oSuccess) => {
-            console.log("suc",oSuccess);})
+            console.log("suc", oSuccess);
+          })
           .catch((oError) => {
             MessageBox.error(oError.responseText);
           });
-          
+
         this._mLoginDialog.then(function (oDialog) {
           oDialog.close();
         });
@@ -360,7 +374,7 @@ sap.ui.define(
           method: 'GET',
           redirect: 'follow'
         };
-        
+
         fetch("http://64.227.115.243:8080/customers/", requestOptions)
           .then(response => response.text())
           .then(result => {
@@ -378,7 +392,7 @@ sap.ui.define(
         this._mGuestLoginDialog.then(function (oDialog) {
           oDialog.close();
         });
-        
+
       },
       onPressAboutUs: function () {
         this.getRouter().navTo("about-us");
