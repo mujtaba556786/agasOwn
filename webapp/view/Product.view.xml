@@ -1,10 +1,8 @@
-<mvc:View 
-	controllerName="ag.agasown.controller.Product"
+<mvc:View controllerName="ag.agasown.controller.Product"
 	xmlns:core="sap.ui.core"
 	xmlns="sap.m"
 	xmlns:cssgrid="sap.ui.layout.cssgrid"
 	xmlns:f="sap.f"
-	
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page id="productDetail" showNavButton="true" navButtonPress="onNavBack">
 		<customHeader>
@@ -14,6 +12,9 @@
 			<IconTabBar select=".onFilterSelect" expanded="{device>/isNoPhone}" items="{oMenuModel>/detailCategory}" class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter text="{oMenuModel>category_name}" key="{oMenuModel>_id}">
+						<customData>
+							<core:CustomData key="categoryParent" value="{oMenuModel>_id}" writeToDom="true" />
+						</customData>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
@@ -33,7 +34,7 @@
 						</f:layoutData>
 						<VBox alignItems="Center" class="sapUiSmallMargin">
 							<Image src="{path: 'oGlobalModel>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
-							
+
 							<Title text="{oGlobalModel>title}" wrapping="true" />
 							<ObjectNumber class="sapUiSmallMarginBottom" number="{
 						parts:[{path:'oGlobalModel>price'},{path:'view>/Currency'}],

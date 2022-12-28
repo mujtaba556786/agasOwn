@@ -55,20 +55,14 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		 * @return {string} the corresponding text if found or the original value
 		 */
 		productDescription: function (productDetail) {
-			return sap.ui.getCore().getConfiguration().getLanguage().toLowerCase().includes("en")
-				? productDetail["description"]
-				: productDetail["description_de"];
+			
 
 		},
 		productTitle: function (productTitle) {
-			return sap.ui.getCore().getConfiguration().getLanguage().toLowerCase().includes("en")
-				? productTitle["title"]
-				: productTitle["title_de"];
+			
 		},
 		productHighlight: function (productDetail) {
-			return sap.ui.getCore().getConfiguration().getLanguage().toLowerCase().includes("en")
-				? productDetail["product_highlight"]
-				: productDetail["product_highlight_de"];
+			
 		},
 		
 		variantLen: async function(productDetail){
