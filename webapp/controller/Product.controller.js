@@ -10,6 +10,7 @@ sap.ui.define([
 	return BaseController.extend("ag.agasown.controller.Product", {
 		onInit: function () {
 			this.setHeaderModel();
+			this.oGridList = this.byId("gridList");
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("product").attachPatternMatched(this._onObjectMatched, this);
 		},
@@ -45,18 +46,8 @@ sap.ui.define([
 			oBinding.sort(oSorter);
 		},
 		onFilterSelect: function (oEvent) {
-			// Array to combine filters
-			var oBinding = this.oGridList.getBinding("items");
-			// Array to combine filters
-			var aFilters = [];
-
 			var sQuery = oEvent.getParameter("key");
-			if (sQuery && sQuery.length > 0) {
-				var filter = new Filter("category", FilterOperator.EQ, sQuery);
-				aFilters.push(filter);
-			}
-			// update list binding
-			oBinding.filter(aFilters);
+			this.setProductItemsModel(sQuery);
 		},
 
 		onProductFilter: function (_sId) {

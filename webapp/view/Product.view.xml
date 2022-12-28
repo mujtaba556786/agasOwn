@@ -11,9 +11,9 @@
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
-			<IconTabBar select=".onFilterSelect" expanded="{device>/isNoPhone}" items="{oGlobalModel>/detailCategory}" class="sapUiResponsiveContentPadding">
+			<IconTabBar select=".onFilterSelect" expanded="{device>/isNoPhone}" items="{oMenuModel>/detailCategory}" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter text="{oGlobalModel>category_name}" key="{oGlobalModel>_id}">
+					<IconTabFilter text="{oMenuModel>category_name}" key="{oMenuModel>_id}">
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
