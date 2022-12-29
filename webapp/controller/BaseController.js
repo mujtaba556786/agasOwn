@@ -156,10 +156,10 @@ sap.ui.define(
         };
 
         var oDataCategory = this.getView().getModel("oDataCategory").getData();
-        var selectedCategory = oDataCategory.filter(fnFilterCategory);
+        this.selectedCategory = oDataCategory.filter(fnFilterCategory);
 
         this.getView().getModel("oMenuModel").setProperty("/", {
-          detailCategory: selectedCategory,
+          detailCategory: this.selectedCategory,
         });
       },
 
@@ -171,15 +171,30 @@ sap.ui.define(
         this.handleCategoryLink(oEvent, "oMenuModel");
       },
 
-      setProductItemsModel: function(selectedCtgryId){
+      setProductItemsModel: function (selectedCtgryId) {
+        var that = this;
+        var arrayProducts = [];
         var fnFilterProducts = function (item) {
           return item.category === selectedCtgryId;
         };
+
+        var fnFilter = function (item) {
+          if (that.selectedCategory.length !== 0) {
+            that.selectedCategory.forEach((category) => {
+              if (item.category === category._id) {
+                arrayProducts.push(item);
+              }
+            });
+          }
+        };
+
         var oDataProducts = this.getView().getModel("oDataProducts").getData();
         var selectedProducts = oDataProducts.filter(fnFilterProducts);
+        oDataProducts.filter(fnFilter);
+        var all = [...selectedProducts, ...arrayProducts];
 
         this.getView().getModel("oGlobalModel").setProperty("/", {
-          productLists: selectedProducts,
+          productLists: all,
         });
       },
 
