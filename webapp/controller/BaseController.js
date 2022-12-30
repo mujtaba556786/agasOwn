@@ -108,6 +108,9 @@ sap.ui.define(
         this.byId("target").addEventDelegate({
           onmouseover: this._showPopover,
         }, this);
+        this.byId("footerCtgry").addEventDelegate({
+          onmouseover: this.onMouseOverMenuLinks,
+        }, this);
         this.byId("menuLinks").addEventDelegate({
           onmouseover: this.onMouseOverMenuLinks,
         }, this);

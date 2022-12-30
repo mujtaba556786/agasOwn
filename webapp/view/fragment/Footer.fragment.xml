@@ -38,7 +38,11 @@
                         filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
                         sorter: {path: 'id'}
                     }">
-                <Link class="link" text="{oDataCategory>category_name}" press="onCategoryLinkPress"/>
+                <Link id="footerCtgry" class="link" text="{oDataCategory>category_name}" press="onCategoryLinkPress">
+                    <customData>
+                        <core:CustomData key="categoryId" value="{oDataCategory>_id}" writeToDom="true" />
+                    </customData>
+                </Link>
             </VBox>
         </VBox>
     </HBox>

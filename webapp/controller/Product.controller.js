@@ -58,8 +58,6 @@ sap.ui.define([
 
 			// update list binding
 			oBinding.filter(aSelectedProduct);
-
 		}
-
 	});
 });
