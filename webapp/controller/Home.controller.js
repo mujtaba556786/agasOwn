@@ -24,8 +24,7 @@ sap.ui.define([
 			oRouter.getRoute("home").attachPatternMatched(this._onObjectMatched, this);
 		},
 		_onObjectMatched: function (oEvent) {
-			var sCurrentRouteName = oEvent.getParameter("name");
-			this.getView().getModel("oGlobalModel").setProperty("/currentRouteName", sCurrentRouteName);
+			
 		},
 
 		/**

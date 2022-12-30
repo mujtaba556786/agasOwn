@@ -38,14 +38,6 @@ sap.ui.define(
           .getRoute("productDetail")
           .attachPatternMatched(this._onObjectMatched, this);
 
-        //! Hover function on menu button
-        this.byId("target").addEventDelegate(
-          {
-            onmouseover: this._showPopover,
-            // onmouseout: this._clearPopover,
-          },
-          this
-        );
       },
       onPressVariant: function (oEvent) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
@@ -67,10 +59,29 @@ sap.ui.define(
         oView.setSrc(sImgSrc);
       },
       _onObjectMatched: function (oEvent) {
-        var sCurrentRouteName = oEvent.getParameter("name");
+        var oDetailPrdct = this.getView()
+        .getModel("oGlobalModel").getData().detailProduct;
+
+        var fnFilterProducts = function (item) {
+          return item.category === oDetailPrdct.category;
+        };
+
+        var oDataProducts = this.getView().getModel("oDataProducts").getData();
+        var selectedProducts = oDataProducts.filter(fnFilterProducts);
+        var oModel = new JSONModel(selectedProducts);
+        this.getView().setModel(oModel, "prdctCatgryMdl");
+      },
+
+      onProductItemPress: function (oEvent) {
+        var oBndngCtxt = oEvent.getSource().getBindingContext("prdctCatgryMdl");
+        var spath = oBndngCtxt.getPath();
+        var selectedPath = oBndngCtxt.getProperty(spath);
         this.getView()
           .getModel("oGlobalModel")
-          .setProperty("/currentRouteName", sCurrentRouteName);
+          .setProperty("/", { detailProduct: selectedPath });
+        this.getRouter().navTo("productDetail", {
+          detailObj: selectedPath.product_name,
+        });
       },
 
       onSort: function () {
