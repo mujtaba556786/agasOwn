@@ -175,7 +175,7 @@ sap.ui.define(
         this.handleCategoryLink(oEvent, "oMenuModel");
       },
 
-      setProductItemsModel: function (selectedCtgryId, prdctView) {
+      setProductItemsModel: function (selectedCtgryId) {
         var arrayProducts = [];
 
         var fnFilterCategory = function (item) {
@@ -189,9 +189,7 @@ sap.ui.define(
           return item.category === selectedCtgryId;
         };
 
-        if (prdctView) {
-          selectedCategory = [];
-        }
+        
 
         var fnFilter = function (item) {
           if (selectedCategory.length !== 0) {
