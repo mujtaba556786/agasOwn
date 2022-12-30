@@ -108,9 +108,7 @@ sap.ui.define(
         this.byId("target").addEventDelegate({
           onmouseover: this._showPopover,
         }, this);
-        this.byId("footerCtgry").addEventDelegate({
-          onmouseover: this.onMouseOverMenuLinks,
-        }, this);
+
         this.byId("menuLinks").addEventDelegate({
           onmouseover: this.onMouseOverMenuLinks,
         }, this);
@@ -178,18 +176,26 @@ sap.ui.define(
       },
 
       setProductItemsModel: function (selectedCtgryId, prdctView) {
-        var that = this;
         var arrayProducts = [];
-        if (prdctView) {
-          this.selectedCategory = [];
+
+        var fnFilterCategory = function (item) {
+          return item.parent === selectedCtgryId;
         }
+
+        var oDataCategory = this.getView().getModel("oDataCategory").getData();
+        var selectedCategory = oDataCategory.filter(fnFilterCategory);
+
         var fnFilterProducts = function (item) {
           return item.category === selectedCtgryId;
         };
 
+        if (prdctView) {
+          selectedCategory = [];
+        }
+
         var fnFilter = function (item) {
-          if (that.selectedCategory.length !== 0) {
-            that.selectedCategory.forEach((category) => {
+          if (selectedCategory.length !== 0) {
+            selectedCategory.forEach((category) => {
               if (item.category === category._id) {
                 arrayProducts.push(item);
               }

@@ -3,7 +3,7 @@
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
     <HBox justifyContent="SpaceBetween">
-        <Image width="10rem" src="{path: 'view>/welcomeLogoVertical',
+        <Image width="13rem" src="{path: 'view>/welcomeLogoVertical',
                         formatter : '.formatter.pictureUrl'
                         }" press="onNavBackHome">
         </Image>
@@ -21,9 +21,6 @@
             <Avatar displaySize="XS" showBorder="false" press="onPressFaceBook" imageFitType="Cover" decorative="true" class="logo" src="{path: 'view>/facebook',
                         formatter : '.formatter.pictureUrl'
                         }" />
-            <!--<Avatar displaySize="XS" showBorder="true" press="onPressFaceBook" class="logo" src="{path: 'view>/pinterest',
-                        formatter : '.formatter.pictureUrl'
-                        }" />-->
             <Avatar class="logo" displaySize="XS" showBorder="false" press="onPressInstaGram" imageFitType="Cover" decorative="true" src="{path: 'view>/instagram',
                         formatter : '.formatter.pictureUrl'
                         }" />
@@ -38,10 +35,7 @@
                         filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
                         sorter: {path: 'id'}
                     }">
-                <Link id="footerCtgry" class="link" text="{oDataCategory>category_name}" press="onCategoryLinkPress">
-                    <customData>
-                        <core:CustomData key="categoryId" value="{oDataCategory>_id}" writeToDom="true" />
-                    </customData>
+                <Link class="link" text="{oDataCategory>category_name}" press="onCategoryLinkPress">
                 </Link>
             </VBox>
         </VBox>
