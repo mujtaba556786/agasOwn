@@ -47,7 +47,7 @@ sap.ui.define([
 		},
 		onFilterSelect: function (oEvent) {
 			var sQuery = oEvent.getParameter("key");
-			this.setProductItemsModel(sQuery);
+			this.setProductItemsModel(sQuery, true);
 		},
 
 		onProductFilter: function (_sId) {

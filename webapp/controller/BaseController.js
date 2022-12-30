@@ -32,6 +32,7 @@ sap.ui.define(
     return Controller.extend("ag.agasown.controller.BaseController", {
       cart: cart,
       formatter: formatter,
+      selectedCategory: [],
       /**
        * Convenience method for accessing the router.
        * @public
@@ -150,6 +151,7 @@ sap.ui.define(
 
       },
       onMouseOverMenuLinks: function (oEvent) {
+        this.selectedCategory = [];
         var selectedCtgryId = oEvent.currentTarget.getAttribute("data-categoryid");
         var fnFilterCategory = function (item) {
           return item.parent === selectedCtgryId;
@@ -168,12 +170,16 @@ sap.ui.define(
       },
 
       onSubCategoryLinkPress: function (oEvent) {
+        this.selectedCategory = [];
         this.handleCategoryLink(oEvent, "oMenuModel");
       },
 
-      setProductItemsModel: function (selectedCtgryId) {
+      setProductItemsModel: function (selectedCtgryId, prdctView) {
         var that = this;
         var arrayProducts = [];
+        if (prdctView) {
+          this.selectedCategory = [];
+        }
         var fnFilterProducts = function (item) {
           return item.category === selectedCtgryId;
         };
