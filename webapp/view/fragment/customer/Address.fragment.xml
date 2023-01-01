@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m"
+   xmlns:f="sap.f"
+   xmlns:core="sap.ui.core"
+   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+   <HBox>
+<Text text="none"></Text>
+    </HBox>
+</core:FragmentDefinition>

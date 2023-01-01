@@ -94,20 +94,7 @@
 									</items>
 								</SegmentedButton>
 							</VBox>
-							<!-- <VBox class="upVBox">
-								<VBox visible="true" backgroundDesign="Solid" class="sideVBox">
-									<Text text="{ path : 'oDataProducts>/cartEntries', formatter : '.formatter.totalPrice' } EUR" class="totalText" />
-									<HBox class="freeDelivery">
-										<Text text="{i18n>deliveryText}" class="deliveryText"/>
-										<Text text="{i18n>freeText}" class="freeText"/>
-									</HBox>
-									<HBox class="totalVat">
-										<Text class="vatText" text="{i18n>vatText}"/>
-										<Text class="priceText" text="164.00$"/>
-									</HBox>
-									<Button width="50%" class="continue_shopping continueShopping" text="{i18n>checkOutText1}" press=".onContinueShopping" type="Unstyled" />
-								</VBox>
-							</VBox> -->
+							
 						</HBox>
 					</WizardStep>
 					<WizardStep id="creditCardStep" title="{i18n>checkoutCreditCardCreditCardInfo}" nextStep="invoiceStep" activate=".onCheckStepActivation" icon="sap-icon://credit-card" validated="false" class="deliveryAddress_step">

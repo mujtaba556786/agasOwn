@@ -16,7 +16,7 @@
                   noData : false
 					}
 				}" noDataText="{i18n>noProds}">
-            <CustomListItem class="bcEF1" width="100%">
+            <CustomListItem class="" width="100%">
                <!-- <HBox>
                   <Text text="`${oDataProducts}`" />
                </HBox> -->
