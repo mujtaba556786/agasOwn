@@ -10,7 +10,7 @@
 		</customHeader>
 		<content class="customer_details_page">
 
-			<IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" design="horizontally">
+			<IconTabBar id="customerTab" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" design="horizontally">
 				<items>
 					<IconTabFilter text="{i18n>overView}" key="{i18n>overView}">
 						<Panel id="customerContent">
@@ -18,36 +18,36 @@
 								<Text text="{i18n>yourAcc}" class="AboutUs"/>
 							</HBox>
 							<HBox>
-								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>order}" subheader="{i18n>yourOrder}" press="press">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>order}" subheader="{i18n>yourOrder}" press="onPressCustomerTile">
 									<TileContent>
 										<ImageContent src="sap-icon://customer-order-entry" />
 									</TileContent>
 								</GenericTile>
-								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>wishlist}" subheader="{i18n>yourWishlist}" press="press">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>wishlist}" subheader="{i18n>yourWishlist}" press="onPressCustomerTile">
 									<TileContent>
 										<ImageContent src="sap-icon://favorite-list" />
 									</TileContent>
 								</GenericTile>
 
-								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>vouchers}" subheader="{i18n>yourVoucher}" press="press">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>vouchers}" subheader="{i18n>yourVoucher}" press="onPressCustomerTile">
 									<TileContent>
 										<ImageContent src="sap-icon://sales-document" />
 									</TileContent>
 								</GenericTile>
 
-								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>persDeta}" subheader="{i18n>yourPersDeta}" press="press">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>persDeta}" subheader="{i18n>yourPersDeta}" press="onPressCustomerTile">
 									<TileContent>
 										<ImageContent src="sap-icon://private" />
 									</TileContent>
 								</GenericTile>
 
-								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>checkoutInvoiceAddress}" subheader="{i18n>yourAddress}" press="press">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>checkoutInvoiceAddress}" subheader="{i18n>yourAddress}" press="onPressCustomerTile">
 									<TileContent>
 										<ImageContent src="sap-icon://add-contact" />
 									</TileContent>
 								</GenericTile>
 
-								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>contact}" subheader="{i18n>contact}" press="press">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>contactUs}" subheader="{i18n>contact}" press="onPressCustomerTile">
 									<TileContent>
 										<ImageContent src="sap-icon://phone" />
 									</TileContent>

@@ -1,7 +1,7 @@
 sap.ui.define(
   ["./BaseController",
-   "sap/ui/model/json/JSONModel","sap/m/MessageToast"],
-  function (BaseController, JSONModel,MessageToast) {
+    "sap/ui/model/json/JSONModel", "sap/m/MessageToast"],
+  function (BaseController, JSONModel, MessageToast) {
     "use strict";
 
     return BaseController.extend("ag.agasown.controller.Customer", {
@@ -40,28 +40,21 @@ sap.ui.define(
             }
           });
       },
-      onProductItemPress: function(oEvent){
+      onProductItemPress: function (oEvent) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("wish");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-          this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
+        this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
         this.getRouter().navTo("productDetail", {
-          detailObj:selectedPath.product_name,
+          detailObj: selectedPath.product_name,
         });
       },
 
-      onCustomerNavigationSelect: function (oEvent) {
-        var oCustomerLayout = this.getView().byId("customerContent");
-        var _sFragmentName = oEvent.getSource().data("fragmentName");
-        var oFragment = sap.ui.xmlfragment(
-          "ag.agasown.view.fragment.customer." + _sFragmentName,
-          this
-        );
-        oCustomerLayout.destroyContent();
-        oCustomerLayout.addContent(oFragment);
+      onPressCustomerTile: function (oEvent) {
+        var sId = this.byId("customerTab");
+        var sHeader = oEvent.getSource().getHeader();
+        sId.setSelectedKey(sHeader);
       },
-     
-
 
       onCustomerNavigationWishlistSelect: function (oEvent) {
         var uid = sessionStorage.getItem("uid");
@@ -112,25 +105,25 @@ sap.ui.define(
       onAddToWishList11: function (oEvent) {
         var prod_id = oEvent.getSource().data("itemId");
         var customer_id = sessionStorage.getItem("uid");
-          var formdata = new FormData();
-          formdata.append("customer_id", customer_id);
-          formdata.append("product_id", prod_id);
-          var requestOptions = {
-            method: "DELETE",
-            body: formdata,
-            redirect: "follow",
-          };
-          fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
-            .then((response) => response.text())
-            .then((result) => { 
-              MessageToast.show(JSON.parse(result).message);
-              this.onCustomerNavigationWishlistSelect();
-              
-            })
-            .catch((error) => {
-              // MessageToast.show(error)
-            });
-            }
+        var formdata = new FormData();
+        formdata.append("customer_id", customer_id);
+        formdata.append("product_id", prod_id);
+        var requestOptions = {
+          method: "DELETE",
+          body: formdata,
+          redirect: "follow",
+        };
+        fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            MessageToast.show(JSON.parse(result).message);
+            this.onCustomerNavigationWishlistSelect();
+
+          })
+          .catch((error) => {
+            // MessageToast.show(error)
+          });
+      }
     }
     );
   }
