@@ -526,11 +526,25 @@ sap.ui.define(
           .then(result => {
             const res = JSON.parse(result).filter(data => data.user === req_id)
             var new_ans = res[0]._id;
+            this.setCustomerModel(new_ans);
             sessionStorage.setItem("uid", new_ans);
-
-
           })
           .catch(error => console.log('error', error));
+      },
+      setCustomerModel: function(sUid){
+        //var sUid = sessionStorage.getItem("uid");
+        var _sUrl = `http://64.227.115.243:8080/api/customers/${sUid}`;
+        this.getService()
+        .onGet(_sUrl)
+        .then((oSuccess) => {
+          this.getView()
+          .getModel("oGlobalModel")
+          .setProperty("/", { customerModel: oSuccess });
+        })
+        .catch((oError) => {
+          MessageBox.error(oError.responseText);
+        });
+        
       },
       onLoginGoogleOpen: function (e) {
         //open in same window

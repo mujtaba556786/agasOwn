@@ -2,27 +2,27 @@
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
    <VBox class="VBox_PD">
-<Text class="overviewHeader" text="{i18n>persDeta}"/>
+      <Text class="overviewHeader" text="{i18n>persDeta}"/>
       <VBox class="topBottom">
          <HBox class="final semi">
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".offLoginOpen" />
             <VBox class="distance">
                <Text text="{i18n>FN}" class="testone"/>
-               <Input class = "checkVal" editable="false" value='Christopher'/>
+               <Input class = "checkVal" editable="false" value='{oGlobalModel>/customerModel/first_name}'/>
             </VBox>
             <VBox class="distance">
                <Text text="{i18n>LN}" class="testone"/>
-               <Input editable="false" value="Pandit" class="checkVal"/>
+               <Input editable="false" value="{oGlobalModel>/customerModel/last_name}" class="checkVal"/>
             </VBox>
          </HBox>
          <HBox class="final">
             <VBox class="distance">
                <Text text="{i18n>DOB}"/>
-               <Input editable="false" class = "checkVal" value="16.07.1982"/>
+               <Input editable="false" class = "checkVal" value="{oGlobalModel>/customerModel/birthDay}"/>
             </VBox>
             <VBox class="distance">
-      <Text type="Tel" text="{i18n>mobNum}"/>
-               <Input editable="false" class = "checkVal" value="01765550985"/>
+               <Text type="Tel" text="{i18n>mobNum}"/>
+               <Input editable="false" class = "checkVal" value="{oGlobalModel>/customerModel/phone}"/>
             </VBox>
 
          </HBox>
@@ -31,8 +31,8 @@
          <HBox class="final semi">
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://email" press=".offLoginOpen" />
             <VBox class="email_left">
-             <Text type="e-mail" text="{i18n>Loginemail}"/>
-               <Input editable="false" class = "check" value="test@gmail.com"/>
+               <Text type="e-mail" text="{i18n>Loginemail}"/>
+               <Input editable="false" class = "check" value="{oGlobalModel>/customerModel/email}"/>
             </VBox>
          </HBox>
       </VBox>
@@ -40,9 +40,9 @@
          <HBox class="final semi">
             <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://locked" press=".offLoginOpen" />
             <VBox class="email_left">
-             <Text text="{i18n>Loginpass}"/>
-               <Input type="password" class = "check" editable="false" value=""/>
-            </VBox>           
+               <Text text="{i18n>Loginpass}"/>
+               <Input type="password" class = "check" editable="false" value="{oGlobalModel>/customerModel/password}"/>
+            </VBox>
          </HBox>
       </VBox>
       <Button class="baton" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />

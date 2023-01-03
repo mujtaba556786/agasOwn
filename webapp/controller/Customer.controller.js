@@ -1,7 +1,7 @@
 sap.ui.define(
   ["./BaseController",
-    "sap/ui/model/json/JSONModel", "sap/m/MessageToast"],
-  function (BaseController, JSONModel, MessageToast) {
+    "sap/ui/model/json/JSONModel", "sap/m/MessageToast", "sap/m/MessageBox"],
+  function (BaseController, JSONModel, MessageToast, MessageBox) {
     "use strict";
 
     return BaseController.extend("ag.agasown.controller.Customer", {
@@ -34,6 +34,10 @@ sap.ui.define(
           .getRoute("customer")
           .attachPatternMatched((event) => {
             if (oData.uid !== null || oData.Guid == null) {
+              if(oData.uid !== null){
+                this.setCustomerModel(oData.uid);
+              }
+              
               this.getRouter().navTo("customer");
             } else {
               this.getRouter().navTo("home");
@@ -57,6 +61,7 @@ sap.ui.define(
       },
 
       onCustomerNavigationWishlistSelect: function (oEvent) {
+        var that = this;
         var uid = sessionStorage.getItem("uid");
         var access_token = sessionStorage.getItem("access_token");
         var wishlistItems = [];
@@ -92,14 +97,8 @@ sap.ui.define(
           })
           .catch((error) => console.log("error", error));
         if (wishlistItems) {
-          var oCustomerLayout = this.getView().byId("customerContent");
-          var _sFragmentName = oEvent.getSource().data("fragmentName");
-          var oFragment = sap.ui.xmlfragment(
-            "ag.agasown.view.fragment.customer." + _sFragmentName,
-            this
-          );
-          oCustomerLayout.destroyContent();
-          oCustomerLayout.addContent(oFragment);
+          var sId = this.byId("customerTab");
+          sId.setSelectedKey("Wishlist");
         }
       },
       onAddToWishList11: function (oEvent) {

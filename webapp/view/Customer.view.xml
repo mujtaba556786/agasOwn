@@ -17,7 +17,7 @@
 							<HBox>
 								<Text text="{i18n>yourAcc}" class="AboutUs"/>
 							</HBox>
-							<HBox>
+							<HBox width="100%" wrap="Wrap">
 								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>order}" subheader="{i18n>yourOrder}" press="onPressCustomerTile">
 									<TileContent>
 										<ImageContent src="sap-icon://customer-order-entry" />
