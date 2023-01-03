@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
-   <HBox class="widthso">
+   <HBox class="sapUiResponsiveContentPadding">
       <VBox class="voucher">
          <VBox class="downLine">
             <Text class="overviewHeaderBold" text="{i18n>voucher}"/>

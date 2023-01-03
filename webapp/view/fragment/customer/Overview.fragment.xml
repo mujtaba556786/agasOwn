@@ -4,7 +4,7 @@
    controllerName="ag.agasown.controller.Customer"
    >
    <HBox>
-      <VBox class="sapUiSmallMargin bcEF" >
+      <VBox class="sapUiSmallMargin" >
          <Text class="overviewHeaderBolds" text="Checkout" />
          <!-- <Button text="hello" /> -->
          <List delete=".onCartEntriesDelete"   items="{

@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f"
    xmlns:core="sap.ui.core">
-   <VBox class="VBox_PD">
+   <VBox class="sapUiResponsiveContentPadding">
       <Text class="overviewHeader" text="{i18n>persDeta}"/>
       <VBox class="topBottom">
          <HBox class="final semi">
