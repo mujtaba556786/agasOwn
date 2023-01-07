@@ -9,7 +9,7 @@
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
 		<content>
-			<IconTabBar select=".onFilterSelect" expanded="{device>/isNoPhone}" items="{oMenuModel>/detailCategory}" class="sapUiResponsiveContentPadding">
+			<IconTabBar select=".onFilterSelect" items="{oMenuModel>/detailCategory}" expanded="true" headerBackgroundDesign="Transparent" expandable="false" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding customerTab">
 				<items>
 					<IconTabFilter text="{oMenuModel>category_name}" key="{oMenuModel>_id}">
 						<customData>

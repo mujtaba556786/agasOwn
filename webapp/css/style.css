@@ -768,18 +768,34 @@
 
 .buttonEdit {
   cursor: pointer;
-  /* padding: 0 110px;  */
   background-color: #3F183B;
   border: 1px solid #3F183B;
   border-radius: 5px;
   font-size: 15px;
   font-weight: 700;
+  color:#fff;
 }
 
 .buttonEdit:hover {
   color: #df3165;
   font-weight: 700;
   cursor: pointer;
+}
+
+.customerTab .sapMITBFilterDefault.sapMITBSelected .sapMITBText{
+  color:#3F183B;
+}
+.customerTab .sapMITBSelected .sapMITBContentArrow{
+  color: #3f183b;
+  border-bottom-color:#3f183b
+}
+.customerTab .sapMITBSelected .sapMITBContentArrow:hover{
+  color: #df3165;
+  border-bottom-color:#df3165;
+}
+
+.customerTab  .sapMITBFilterDefault.sapMITBSelected .sapMITBText:hover{
+  color: #df3165;
 }
 
 .email_left {
