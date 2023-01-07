@@ -45,6 +45,6 @@
             </VBox>
          </HBox>
       </VBox>
-      <Button class="baton" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
+      <Button class="buttonEdit" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
    </VBox>
 </core:FragmentDefinition>

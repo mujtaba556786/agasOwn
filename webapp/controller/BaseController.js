@@ -501,13 +501,13 @@ sap.ui.define(
           body: raw,
           redirect: "follow",
         };
-
-        fetch("http://64.227.115.243:8080/customers/", requestOptions)
+        //WHY ARE WE DOING IT?
+        /*fetch("http://64.227.115.243:8080/customers/", requestOptions)
           .then((response) => response.text())
           .then((oSuccess) => {
             console.log(oSuccess);
           })
-          .catch((error) => console.log("error", error));
+          .catch((error) => console.log("error", error));*/
         //GET Method
         var headEr = new Headers();
         var TokenPass = {
@@ -521,7 +521,7 @@ sap.ui.define(
           redirect: 'follow'
         };
 
-        await fetch("http://64.227.115.243:8080/customers/", req_ans)
+        await fetch("http://64.227.115.243:8080/api/customers/_id", req_ans)
           .then(response => response.text())
           .then(result => {
             const res = JSON.parse(result).filter(data => data.user === req_id)

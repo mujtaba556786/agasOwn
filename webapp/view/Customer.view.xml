@@ -10,7 +10,7 @@
 		</customHeader>
 		<content class="customer_details_page">
 
-			<IconTabBar id="customerTab" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" design="horizontally">
+			<IconTabBar id="customerTab" expanded="true" headerBackgroundDesign="Transparent" expandable="false" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding" design="horizontally">
 				<items>
 					<IconTabFilter text="{i18n>overView}" key="{i18n>overView}">
 						<Panel id="customerContent">

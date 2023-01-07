@@ -1,7 +1,7 @@
 sap.ui.define(
   ["./BaseController",
-    "sap/ui/model/json/JSONModel", "sap/m/MessageToast", "sap/m/MessageBox"],
-  function (BaseController, JSONModel, MessageToast, MessageBox) {
+    "sap/ui/model/json/JSONModel", "sap/m/MessageToast", "sap/m/MessageBox", "sap/ui/core/Fragment"],
+  function (BaseController, JSONModel, MessageToast, MessageBox, Fragment) {
     "use strict";
 
     return BaseController.extend("ag.agasown.controller.Customer", {
@@ -34,10 +34,10 @@ sap.ui.define(
           .getRoute("customer")
           .attachPatternMatched((event) => {
             if (oData.uid !== null || oData.Guid == null) {
-              if(oData.uid !== null){
+              if (oData.uid !== null) {
                 this.setCustomerModel(oData.uid);
               }
-              
+
               this.getRouter().navTo("customer");
             } else {
               this.getRouter().navTo("home");
@@ -60,6 +60,9 @@ sap.ui.define(
         sId.setSelectedKey(sHeader);
       },
 
+      onEditHomeAddress: function () {
+        var oView = this.getView();
+      },
       onCustomerNavigationWishlistSelect: function (oEvent) {
         var that = this;
         var uid = sessionStorage.getItem("uid");

@@ -766,22 +766,17 @@
 
 .VBox_PD {}
 
-.baton {
+.buttonEdit {
+  cursor: pointer;
   /* padding: 0 110px;  */
-  margin-top: 20px;
-  width: 40% !important;
-  min-width: 10rem !important;
-  margin-left: 10%;
   background-color: #3F183B;
   border: 1px solid #3F183B;
   border-radius: 5px;
   font-size: 15px;
   font-weight: 700;
-  color: white;
 }
 
-.baton:hover {
- 
+.buttonEdit:hover {
   color: #df3165;
   font-weight: 700;
   cursor: pointer;

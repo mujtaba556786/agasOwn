@@ -6,27 +6,32 @@
     <l:VerticalLayout id="addressVerticalLayout" width="100%">
         <l:BlockLayout id="addressLayout">
             <l:BlockLayoutRow>
-                <l:BlockLayoutCell title="{i18n>shippingTitle}">
-                    <Text text="{i18n>custAddress}" class="testone"/>
-                    <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/ship_address}'/>
-                    <Text text="{i18n>custCity}" class="testone"/>
-                    <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/ship_city}'/>
-                    <Text text="{i18n>custPostalCode}" class="testone"/>
-                    <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/ship_postal_code}'/>
-                    <Text text="{i18n>custCountry}" class="testone"/>
-                    <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/ship_country}'/>
-                    <Button class="baton" text="{i18n>editText}" press=".onEditShippingAddress" type="Unstyled" />
+                <l:BlockLayoutCell title="{i18n>homeAddressTitle}">
+                    <VBox renderType="Bare" displayInline="true" fitContainer="true">
+                        <Text text="{i18n>custAddress}" class="testone"/>
+                        <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/address1}'/>
+                        <Text text="{i18n>custCity}" class="testone"/>
+                        <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/city}'/>
+                        <Text text="{i18n>custPostalCode}" class="testone"/>
+                        <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/postal_code}'/>
+                        <Text text="{i18n>custCountry}" class="testone"/>
+                        <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/country}'/>
+                        <Button class="buttonEdit" text="{i18n>editText}" press=".onEditHomeAddress" type="Unstyled" />
+                    </VBox>
+
                 </l:BlockLayoutCell>
                 <l:BlockLayoutCell title="{i18n>billingTitle}">
-                    <Text text="{i18n>custAddress}" class="testone"/>
-                    <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/billing_address}'/>
-                    <Text text="{i18n>custCity}" class="testone"/>
-                    <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/billing_city}'/>
-                    <Text text="{i18n>custPostalCode}" class="testone"/>
-                    <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/billing_postal_code}'/>
-                    <Text text="{i18n>custCountry}" class="testone"/>
-                    <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/billing_country}'/>
-                    <Button class="baton" text="{i18n>editText}" press=".onEditBillingAddress" type="Unstyled" />
+                    <VBox renderType="Bare" displayInline="true" fitContainer="true">
+                        <Text text="{i18n>custAddress}" class="testone"/>
+                        <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/billing_address}'/>
+                        <Text text="{i18n>custCity}" class="testone"/>
+                        <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/billing_city}'/>
+                        <Text text="{i18n>custPostalCode}" class="testone"/>
+                        <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/billing_postal_code}'/>
+                        <Text text="{i18n>custCountry}" class="testone"/>
+                        <Input class="checkVal" editable="false" value='{oGlobalModel>/customerModel/billing_country}'/>
+                        <Button class="buttonEdit" text="{i18n>editText}" press=".onEditBillingAddress" type="Unstyled" />
+                    </VBox>
                 </l:BlockLayoutCell>
             </l:BlockLayoutRow>
         </l:BlockLayout>
