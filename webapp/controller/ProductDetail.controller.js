@@ -39,25 +39,25 @@ sap.ui.define(
           .attachPatternMatched(this._onObjectMatched, this);
 
       },
-      _setProductVariant: function(oEvent, typeVariant){
+      _setProductVariant: function (oEvent, typeVariant) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
         var aDataProducts = this.getView().getModel("oDataProducts").getData();
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-			  var sQuery = selectedPath[typeVariant];
+        var sQuery = selectedPath[typeVariant];
         function filterWithId(value) {
           return value._id === sQuery;
         }
-        var detailProduct =  aDataProducts.filter(filterWithId);			
+        var detailProduct = aDataProducts.filter(filterWithId);
         this.getView()
           .getModel("oGlobalModel")
-          .setProperty("/", { detailProduct: detailProduct[0]});
+          .setProperty("/", { detailProduct: detailProduct[0] });
 
       },
       onPressColorVariant: function (oEvent) {
         this._setProductVariant(oEvent, "color");
       },
-      onPressSizeVariant: function(oEvent){
+      onPressSizeVariant: function (oEvent) {
         this._setProductVariant(oEvent, "size");
       },
       handleImagePress: function (oEvent) {
@@ -67,7 +67,7 @@ sap.ui.define(
       },
       _onObjectMatched: function (oEvent) {
         var oDetailPrdct = this.getView()
-        .getModel("oGlobalModel").getData().detailProduct;
+          .getModel("oGlobalModel").getData().detailProduct;
 
         var fnFilterProducts = function (item) {
           return item.category === oDetailPrdct.category;
