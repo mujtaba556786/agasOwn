@@ -43,6 +43,25 @@ sap.ui.define(
               this.getRouter().navTo("home");
             }
           });
+          this._sIdHomeAdrs();
+          this._sIdBillingAdrs();
+      },
+      _sIdHomeAdrs: function(){
+        this.oAddress = this.byId("address1");
+        this.oCity = this.byId("city");
+        this.oPostalCode = this.byId("postalCode");
+        this.oCountry = this.byId("country");
+        this.oBtnEditHmAdrs = this.byId("btnEditHmAdrs");
+        this.oBtnSaveHmAdrs = this.byId("btnSaveHmAdrs");
+      },
+
+      _sIdBillingAdrs: function(){
+        this.oBillingAddress = this.byId("billingAddress");
+        this.oBillingCity = this.byId("billingCity");
+        this.oBillingPostalCode = this.byId("billingPostalCode");
+        this.oBillingCountry = this.byId("billingCountry");
+        this.oBtnEditblngAdrs = this.byId("btnEditblngAdrs");
+        this.oBtnSaveblngAdrs = this.byId("btnSaveblngAdrs");
       },
       onProductItemPress: function (oEvent) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("wish");
@@ -61,10 +80,42 @@ sap.ui.define(
       },
 
       onEditHomeAddress: function () {
-        var oView = this.getView();
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(true);
+        };
+        this.oBtnEditHmAdrs.setVisible(false);
+        this.oBtnSaveHmAdrs.setVisible(true);
+        var aHomeAdrsInptId = [this.oAddress, this.oCity, this.oPostalCode, this.oCountry];
+        aHomeAdrsInptId.filter(fnSetVisibleInptFld);
+      },
+      onSaveHomeAddress: function(){
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(false);
+        };
+        this.oBtnEditHmAdrs.setVisible(true);
+        this.oBtnSaveHmAdrs.setVisible(false);
+        var aHomeAdrsInptId = [this.oAddress, this.oCity, this.oPostalCode, this.oCountry];
+        aHomeAdrsInptId.filter(fnSetVisibleInptFld);
+      },
+      onEditBillingAddress: function(){
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(true);
+        };
+        this.oBtnEditblngAdrs.setVisible(false);
+        this.oBtnSaveblngAdrs.setVisible(true);
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry];
+        aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+      },
+      onSaveBillingAddress: function(){
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(false);
+        };
+        this.oBtnEditblngAdrs.setVisible(true);
+        this.oBtnSaveblngAdrs.setVisible(false);
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry];
+        aBillingAdrsInptId.filter(fnSetVisibleInptFld);
       },
       onCustomerNavigationWishlistSelect: function (oEvent) {
-        var that = this;
         var uid = sessionStorage.getItem("uid");
         var access_token = sessionStorage.getItem("access_token");
         var wishlistItems = [];
