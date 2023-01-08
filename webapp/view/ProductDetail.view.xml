@@ -45,13 +45,13 @@
 										<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
 									</HBox>
 									<HBox class="prodThumbBox" items="{oGlobalModel>/detailProduct/product_variant}" displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
-										<Image class="prodThumbnail" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="onPressVariant"/>
+										<Image class="prodThumbnail" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="onPressColorVariant"/>
 									</HBox>
 									<HBox alignItems="Baseline">
 										<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
 									</HBox>
 									<HBox items="{oGlobalModel>/detailProduct/product_variant}" displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
-										<GenericTile width="5em" class="prodThumbnail tileLayout" header="" press="onPressVariant" frameType="OneByHalf" subheader="{oGlobalModel>size}">
+										<GenericTile width="5em" class="prodThumbnail tileLayout" header="" press="onPressSizeVariant" frameType="OneByHalf" subheader="{oGlobalModel>size}">
 										</GenericTile>
 									</HBox>
 									<HBox justifyContent="SpaceBetween" renderType="Bare">

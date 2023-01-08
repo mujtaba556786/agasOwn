@@ -423,7 +423,8 @@
   border-radius: 25px !important;
   width: 100%;
   border: 0px;
-  min-width: 30% !important
+  min-width: 30% !important;
+  cursor: pointer;
 }
 
 .productBuyNow:hover {
@@ -805,6 +806,12 @@
 .customerTab .sapMITH{
   box-shadow: none;
   border-bottom: 0.125rem solid #3f183b;
+}
+.customerTab .sapMITBFilterDefault{
+  color: #3f183b;
+}
+.customerTab .sapMITBContentArrow{
+  color: #3f183b;
 }
 .customerTab .sapMITBFilterDefault.sapMITBSelected .sapMITBText{
   color:#3F183B;

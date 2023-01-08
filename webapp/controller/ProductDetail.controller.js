@@ -39,19 +39,26 @@ sap.ui.define(
           .attachPatternMatched(this._onObjectMatched, this);
 
       },
-      onPressVariant: function (oEvent) {
+      _setProductVariant: function(oEvent, typeVariant){
         var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
         var aDataProducts = this.getView().getModel("oDataProducts").getData();
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-			  var sQuery = selectedPath.ean;
+			  var sQuery = selectedPath[typeVariant];
         function filterWithId(value) {
-          return value.ean === sQuery;
+          return value._id === sQuery;
         }
         var detailProduct =  aDataProducts.filter(filterWithId);			
         this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { detailProduct: detailProduct[0]});
+
+      },
+      onPressColorVariant: function (oEvent) {
+        this._setProductVariant(oEvent, "color");
+      },
+      onPressSizeVariant: function(oEvent){
+        this._setProductVariant(oEvent, "size");
       },
       handleImagePress: function (oEvent) {
         var oView = this.getView().byId("bigImg");
