@@ -1,50 +1,45 @@
 <core:FragmentDefinition xmlns="sap.m"
    xmlns:f="sap.f"
-   xmlns:core="sap.ui.core">
-   <VBox class="sapUiResponsiveContentPadding">
-      <Text class="overviewHeader" text="{i18n>persDeta}"/>
-      <VBox class="topBottom">
-         <HBox class="final semi">
-            <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".offLoginOpen" />
-            <VBox class="distance">
-               <Text text="{i18n>FN}" class="testone"/>
-               <Input class = "checkVal" editable="false" value='{oGlobalModel>/customerModel/first_name}'/>
-            </VBox>
-            <VBox class="distance">
-               <Text text="{i18n>LN}" class="testone"/>
-               <Input editable="false" value="{oGlobalModel>/customerModel/last_name}" class="checkVal"/>
-            </VBox>
-         </HBox>
-         <HBox class="final">
-            <VBox class="distance">
-               <Text text="{i18n>DOB}"/>
-               <Input editable="false" class = "checkVal" value="{oGlobalModel>/customerModel/birthDay}"/>
-            </VBox>
-            <VBox class="distance">
-               <Text type="Tel" text="{i18n>mobNum}"/>
-               <Input editable="false" class = "checkVal" value="{oGlobalModel>/customerModel/phone}"/>
-            </VBox>
-
-         </HBox>
-      </VBox>
-      <VBox class="topBottom">
-         <HBox class="final semi">
-            <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://email" press=".offLoginOpen" />
-            <VBox class="email_left">
-               <Text type="e-mail" text="{i18n>Loginemail}"/>
-               <Input editable="false" class = "check" value="{oGlobalModel>/customerModel/email}"/>
-            </VBox>
-         </HBox>
-      </VBox>
-      <VBox class="topBottoms">
-         <HBox class="final semi">
-            <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://locked" press=".offLoginOpen" />
-            <VBox class="email_left">
-               <Text text="{i18n>Loginpass}"/>
-               <Input type="password" class = "check" editable="false" value="{oGlobalModel>/customerModel/password}"/>
-            </VBox>
-         </HBox>
-      </VBox>
-      <Button class="buttonEdit" text="{i18n>editText}" press=".onEditPersonalDetails" type="Unstyled" />
-   </VBox>
+   xmlns:l="sap.ui.layout"
+   xmlns:core="sap.ui.core"
+   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+   <l:VerticalLayout id="personalVerticalLayout" width="100%">
+      <l:BlockLayout id="personalLayout">
+         <l:BlockLayoutRow>
+            <l:BlockLayoutCell title="{i18n>personalAddressTitle}">
+               <VBox renderType="Bare" displayInline="true" fitContainer="true">
+                  <HBox renderType="Bare">
+                     <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".offLoginOpen" />
+                     <VBox renderType="Bare" justifyContent="SpaceBetween" width="100%">
+                        <Text text="{i18n>FN}" />
+                        <Input id="firstNamePrsnlDtl" editable="false" value='{oGlobalModel>/customerModel/first_name}'/>
+                        <Text text="{i18n>LN}" />
+                        <Input id="lastNamePrsnlDtl" editable="false" value='{oGlobalModel>/customerModel/last_name}'/>
+                         <Text text="{i18n>DOB}" />
+                        <Input id="dateOfBirthPrsnlDtl" editable="false" value='{oGlobalModel>/customerModel/date_of_birth}'/>
+                     </VBox>
+                  </HBox>
+                  <HBox>
+                     <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://email" press=".offLoginOpen" />
+                     <VBox renderType="Bare" justifyContent="SpaceBetween" width="100%">
+                        <Text type="e-mail" text="{i18n>Loginemail}"/>
+                        <Input id="emailPrsnlDtl" editable="false" class = "check" value="{oGlobalModel>/customerModel/email}"/>
+                     </VBox>
+                  </HBox>
+                  <HBox >
+                     <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://locked" press=".offLoginOpen" />
+                     <VBox renderType="Bare" justifyContent="SpaceBetween" width="100%">
+                        <Text text="{i18n>Loginpass}"/>
+                        <Input id="pwdPrsnlDtl" type="password" class = "check" editable="false" value="{oGlobalModel>/customerModel/password}"/>
+                     </VBox>
+                  </HBox>
+                  <Button id="btnEditPrsnlAdrs" visible="true" class="buttonEdit" text="{i18n>editText}" press=".onEditPersonalAddress" type="Unstyled" />
+                  <Button id="btnSavePrsnlAdrs" visible="false" class="buttonSave" text="{i18n>save}" press=".onSavePersonalAddress" type="Unstyled" />
+               </VBox>
+            </l:BlockLayoutCell>
+            <l:BlockLayoutCell>
+            </l:BlockLayoutCell>
+         </l:BlockLayoutRow>
+      </l:BlockLayout>
+   </l:VerticalLayout>
 </core:FragmentDefinition>
