@@ -30,7 +30,6 @@
 							</l:BlockLayoutCell>
 							<l:BlockLayoutCell>
 								<VBox justifyContent="SpaceBetween" displayInline="true" fitContainer="true">
-
 									<Text class="productName" id="product_name" text="{ path : 'oGlobalModel>/detailProduct', 
 										formatter : '.formatter.productTitle' }" />
 									<HBox class="priceStatusBox" justifyContent="SpaceBetween">
@@ -51,7 +50,7 @@
 										<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
 									</HBox>
 									<HBox items="{oGlobalModel>/detailProduct/product_variant}" displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
-										<GenericTile width="5em" class="prodThumbnail tileLayout" header="" press="onPressSizeVariant" frameType="OneByHalf" subheader="{oGlobalModel>size}">
+										<GenericTile width="5em" class="prodThumbnail tileLayout" header="" press="onPressSizeVariant" frameType="OneByHalf" subheader="{oGlobalModel>size_variant}">
 										</GenericTile>
 									</HBox>
 									<HBox justifyContent="SpaceBetween" renderType="Bare">
@@ -82,7 +81,6 @@
 						formatter : '.formatter.productDescription' }"/>
 				</VBox>
 			</Panel>
-
 			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
 				<headerToolbar>
 					<Toolbar>
