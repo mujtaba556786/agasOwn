@@ -14,7 +14,6 @@
 						<HBox class="section1">
 							<VBox class="sapUiSmallMargin section_one">
 								<List delete=".onCartEntriesDelete" items="{
-
 					path : 'oDataProducts>/cartEntries',
 					sorter : {
 						path : 'Name',
@@ -55,8 +54,7 @@
 							</VBox>
 							<VBox class="upVBox">
 								<VBox visible="true" backgroundDesign="Solid" class="sideVBox">
-								<Link class="continue_shopping_link" text="{i18n>checkOutText1}" press=".onContinueShopping"/>
-
+									<Link class="continue_shopping_link" text="{i18n>checkOutText1}" press=".onContinueShopping"/>
 									<Text id="totalPricefinal" text="{ path : 'oDataProducts>/cartEntries', formatter : '.formatter.totalPrice' } EUR" class="totalText" />
 									<HBox class="freeDelivery">
 										<Text text="{i18n>deliveryText}" class="deliveryText"/>
@@ -66,18 +64,9 @@
 										<Text class="vatText" text="{i18n>vatText}"/>
 										<Text class="priceText" text=" {path : 'oDataProducts>/cartEntries',formatter : '.formatter.totalPrice' }"/>
 									</HBox>
-									<!-- <Button width="50%" class="continue_shopping continueShopping" text="{i18n>checkOutText1}" press=".onContinueShopping" type="Unstyled" /> -->
 								</VBox>
-								<!-- <VBox class="addVoucher">
-								<Text class="add_Vtext" text="Add a voucher(Optional)"/>
-							</VBox> -->
 							</VBox>
 						</HBox>
-						<!-- <Bar class="totalprice_bar">
-							<contentRight>
-								<Text class="totalPrice_final" id="totalPricefinal" text="{ path : 'oDataProducts>/cartEntries', formatter : '.formatter.totalPrice' } EUR" />
-							</contentRight>
-						</Bar> -->
 					</WizardStep>
 					<WizardStep id="paymentTypeStep" title="{i18n>checkoutPaymentTitle}" subsequentSteps="creditCardStep, bankAccountStep, cashOnDeliveryStep" complete="goToPaymentStep" icon="sap-icon://money-bills">
 						<Text class="sapUiSmallMarginBottom" text="{i18n>checkoutPaymentText}" />
@@ -88,13 +77,10 @@
 										<SegmentedButtonItem class="sapUiLargeMarginBottom" id="payViaCC" key="Credit Card" press=".newFunction" text="{i18n>checkoutPaymentCreditCard}" />
 										<SegmentedButtonItem class="sapUiLargeMarginBottom" id="payViaDC" key="Dedit Card" press=".newFunction" text="{i18n>checkoutPaymentDebitCard}" />
 										<SegmentedButtonItem class="sapUiLargeMarginBottom" id="payViaBank" key="Bank Transfer" press=".newFunction" text="{i18n>checkoutPaymentBankTransfer} / Sofort" />
-										<!-- <SegmentedButtonItem class="sapUiLargeMarginBottom" id="payViaCOD" key="Cash on Delivery" press=".newFunction" text="{i18n>checkoutPaymentCod}" /> -->
-
 										<SegmentedButtonItem class="sapUiLargeMarginBottom" id="payViaPayPal" key="PayPal" press=".newFunction" text="{i18n>checkoutPaymentPP}" />
 									</items>
 								</SegmentedButton>
 							</VBox>
-							
 						</HBox>
 					</WizardStep>
 					<WizardStep id="creditCardStep" title="{i18n>checkoutCreditCardCreditCardInfo}" nextStep="invoiceStep" activate=".onCheckStepActivation" icon="sap-icon://credit-card" validated="false" class="deliveryAddress_step">
@@ -128,7 +114,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<MaskInput id="creditCardSecurityNumber" placeholder="{i18n>creditCardSecurityNumberText}" mask="CCC" placeholderSymbol="_" value="{ path: '/CreditCard/SecurityCode', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[0-9]+$' } }" change="checkCreditCardStep"  liveChange="checkCardSecurityNumber">
+								<MaskInput id="creditCardSecurityNumber" placeholder="{i18n>creditCardSecurityNumberText}" mask="CCC" placeholderSymbol="_" value="{ path: '/CreditCard/SecurityCode', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[0-9]+$' } }" change="checkCreditCardStep" liveChange="checkCardSecurityNumber">
 									<rules>
 										<MaskInputRule maskFormatSymbol="C" regex="[0-9]" />
 									</rules>
@@ -174,7 +160,6 @@
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
 								</Input>
-								
 								<Label text="{i18n>checkoutCodLastName}" labelFor="cashOnDeliveryLastName" required="true">
 									<layoutData>
 										<layout:GridData span="XL4 L4 M4 S12" />
@@ -284,7 +269,7 @@
 							</VBox>
 						</form:SimpleForm>
 					</WizardStep>
-										<WizardStep id="deliveryAddressStep" activate=".onCheckStepActivation" validated="false" title="{i18n>checkoutDeliveryAddressTitle}" nextStep="orderSummaryStep" icon="sap-icon://sales-quote" class="deliveryAddress_step">
+					<WizardStep id="deliveryAddressStep" activate=".onCheckStepActivation" validated="false" title="{i18n>checkoutDeliveryAddressTitle}" nextStep="orderSummaryStep" icon="sap-icon://sales-quote" class="deliveryAddress_step">
 						<form:SimpleForm editable="true" layout="ResponsiveGridLayout" class="deliveryAddress_form">
 							<VBox class="form_data">
 								<Label text="{i18n>checkoutDeliveryAddressAddress}" required="true" labelFor="deliveryAddressAddress">
@@ -482,7 +467,7 @@
 						</HBox>
 						<HBox class="summaryBar">
 							<Button class="place_order_button" text="{i18n>placeYourOrder}" press=".handleWizardSubmitss"></Button>
-							<Button class="order_cancel_button"  text="{i18n>cancelYourOrder}" press=".handleWizardCancel"></Button>
+							<Button class="order_cancel_button" text="{i18n>cancelYourOrder}" press=".handleWizardCancel"></Button>
 						</HBox>
 					</WizardStep>
 				</steps>
