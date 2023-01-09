@@ -475,10 +475,6 @@ sap.ui.define(
       onLoginSucces: async function (oData) {
         var access_token = sessionStorage.getItem("access_token");
         var req_id = oData.id
-        this.myName = oData.first_name;
-        this.myLastName = oData.last_name;
-        this.myUserName = oData.first_name + oData.last_name;
-        this.email = oData.email;
         this.credit_card_type_id = "credit_card_type_id";
         var myHeaders = new Headers();
         var oHeaderToken = {
@@ -486,29 +482,7 @@ sap.ui.define(
         };
         myHeaders.append("Authorization", oHeaderToken.Authorization);
         myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({
-          first_name: this.myName,
-          last_name: this.myLastName,
-          username: this.myUserName,
-          email: this.email,
-          credit_card_type_id: this.credit_card_type_id,
-        });
-
-        var requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: raw,
-          redirect: "follow",
-        };
-        //WHY ARE WE DOING IT?
-        /*fetch("http://64.227.115.243:8080/customers/", requestOptions)
-          .then((response) => response.text())
-          .then((oSuccess) => {
-            console.log(oSuccess);
-          })
-          .catch((error) => console.log("error", error));*/
-        //GET Method
+        
         var headEr = new Headers();
         var TokenPass = {
           Authorization: "Bearer " + access_token,
@@ -521,10 +495,10 @@ sap.ui.define(
           redirect: 'follow'
         };
 
-        await fetch("http://64.227.115.243:8080/api/customers/_id", req_ans)
+        await fetch("http://64.227.115.243:8080/api/customers/", req_ans)
           .then(response => response.text())
           .then(result => {
-            const res = JSON.parse(result).filter(data => data.user === req_id)
+            const res = result.filter(data => 331 === req_id);
             var new_ans = res[0]._id;
             this.setCustomerModel(new_ans);
             sessionStorage.setItem("uid", new_ans);
@@ -532,8 +506,7 @@ sap.ui.define(
           .catch(error => console.log('error', error));
       },
       setCustomerModel: function(sUid){
-        //var sUid = sessionStorage.getItem("uid");
-        var _sUrl = `http://64.227.115.243:8080/api/customers/${sUid}`;
+        var _sUrl = "http://64.227.115.243:8080/api/customers";
         this.getService()
         .onGet(_sUrl)
         .then((oSuccess) => {

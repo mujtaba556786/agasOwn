@@ -2,42 +2,51 @@
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc">
-    <HBox justifyContent="SpaceBetween">
-        <Image width="13rem" src="{path: 'view>/welcomeLogoVertical',
+    <l:VerticalLayout id="fotterLayout" width="100%">
+        <l:BlockLayout id="fotterBlockLayout">
+            <l:BlockLayoutRow>
+                <l:BlockLayoutCell>
+                    <Image width="13rem" src="{path: 'view>/welcomeLogoVertical',
                         formatter : '.formatter.pictureUrl'
                         }" press="onNavBackHome">
-        </Image>
-        <VBox class="fotterLink">
-            <Text text="{i18n>FooterInfo}" class="sapUiSmallMarginTopBottom"/>
-            <Link class="link" text="{i18n>aboutUs}" press="onPressAboutUs" />
-            <Link class="link" text="{i18n>contact}" press="onPressContact" />
-            <Link class="link" text="{i18n>imprint}" press="onPressImprint"/>
-            <Link class="link" text="{i18n>Terms}" press="onPressTerms"/>
-            <Link class="link" text="{i18n>Privacy}" press="onPressPrivacy"/>
-            <Link class="link" text="{i18n>GDPR}" press="onPressGDPR"/>
-        </VBox>
-        <VBox class="fotterAvatar">
-            <Text text="{i18n>FooterSoc}" class="sapUiSmallMarginTopBottom"/>
-            <Avatar displaySize="XS" showBorder="false" press="onPressFaceBook" imageFitType="Cover" decorative="true" class="logo" src="{path: 'view>/facebook',
+                    </Image>
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell title="{i18n>FooterInfo}">
+                    <VBox class="fotterLink">
+                        <Link class="link" text="{i18n>aboutUs}" press="onPressAboutUs" />
+                        <Link class="link" text="{i18n>contact}" press="onPressContact" />
+                        <Link class="link" text="{i18n>imprint}" press="onPressImprint"/>
+                        <Link class="link" text="{i18n>Terms}" press="onPressTerms"/>
+                        <Link class="link" text="{i18n>Privacy}" press="onPressPrivacy"/>
+                        <Link class="link" text="{i18n>GDPR}" press="onPressGDPR"/>
+                    </VBox>
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell title="{i18n>FooterSoc}">
+                    <VBox class="fotterAvatar">
+                        <Avatar displaySize="XS" showBorder="false" press="onPressFaceBook" imageFitType="Cover" decorative="true" class="logo" src="{path: 'view>/facebook',
                         formatter : '.formatter.pictureUrl'
                         }" />
-            <Avatar class="logo" displaySize="XS" showBorder="false" press="onPressInstaGram" imageFitType="Cover" decorative="true" src="{path: 'view>/instagram',
+                        <Avatar class="logo" displaySize="XS" showBorder="false" press="onPressInstaGram" imageFitType="Cover" decorative="true" src="{path: 'view>/instagram',
                         formatter : '.formatter.pictureUrl'
                         }" />
-            <Avatar displaySize="XS" showBorder="false" press="onPressYouTube" class="logo" imageFitType="Cover" decorative="true" src="{path: 'view>/youtube',
+                        <Avatar displaySize="XS" showBorder="false" press="onPressYouTube" class="logo" imageFitType="Cover" decorative="true" src="{path: 'view>/youtube',
                         formatter : '.formatter.pictureUrl'
                         }" />
-        </VBox>
-        <VBox>
-            <Text text="{i18n>FooterCat}" class="sapUiSmallMarginTopBottom"/>
-            <VBox class="fotterLink" items="{
+                    </VBox>
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell title="{i18n>FooterCat}">
+                    <VBox>
+                        <VBox class="fotterLink" items="{
                         path: 'oDataCategory>/',
                         filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
                         sorter: {path: 'id'}
                     }">
-                <Link class="link" text="{oDataCategory>category_name}" press="onCategoryLinkPress">
-                </Link>
-            </VBox>
-        </VBox>
-    </HBox>
+                            <Link class="link" text="{oDataCategory>category_name}" press="onCategoryLinkPress">
+                            </Link>
+                        </VBox>
+                    </VBox>
+                </l:BlockLayoutCell>
+            </l:BlockLayoutRow>
+        </l:BlockLayout>
+    </l:VerticalLayout>
 </core:FragmentDefinition>
