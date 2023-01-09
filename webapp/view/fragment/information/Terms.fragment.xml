@@ -1,13 +1,12 @@
 <core:FragmentDefinition xmlns="sap.m"
-    xmlns:f="sap.f"
-    xmlns:core="sap.ui.core">
-
-            <HBox>
-                <VBox backgroundDesign="Solid" class="sapUiSmallMargin">
-                   <Text text="Terms goes here" />
-                </VBox>
-                <VBox  visible="false" backgroundDesign="Solid" class="categories sapUiSmallMargin">
-                   <Text text="Terms goes here" />
-                </VBox>
-            </HBox>
+   xmlns:f="sap.f"
+   xmlns:core="sap.ui.core"
+   height="100%">
+   <FlexBox direction="Column" renderType="Div" fitContainer="true" class="sapUiSmallMargin">
+      <PDFViewer source="{view>/sPdfTerms}" height="100%" showDownloadButton="false">
+         <layoutData>
+            <FlexItemData growFactor="1" />
+         </layoutData>
+      </PDFViewer>
+   </FlexBox>
 </core:FragmentDefinition>

@@ -18,7 +18,7 @@
                         <Link class="link" text="{i18n>imprint}" press="onPressImprint"/>
                         <Link class="link" text="{i18n>Terms}" press="onPressTerms"/>
                         <Link class="link" text="{i18n>Privacy}" press="onPressPrivacy"/>
-                        <Link class="link" text="{i18n>GDPR}" press="onPressGDPR"/>
+                        <!--<Link class="link" text="{i18n>GDPR}" press="onPressGDPR"/>-->
                     </VBox>
                 </l:BlockLayoutCell>
                 <l:BlockLayoutCell title="{i18n>FooterSoc}">

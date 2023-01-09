@@ -17,6 +17,9 @@ sap.ui.define([
 				ShoppingCart: "ag/agasown/img/ShoppingCart.jpg",
 				AboutUs: "ag/agasown/img/AboutUsPage.jpg",
 				Jewel: "ag/agasown/img/goyna.jpg",
+				sPdfPrivacy: sap.ui.require.toUrl("ag/agasown/lib/agb.pdf"),
+				sPdfTerms: sap.ui.require.toUrl("ag/agasown/lib/terms.pdf")
+
 			});
 			this.getView().setModel(oViewModel, "view");
 		}
