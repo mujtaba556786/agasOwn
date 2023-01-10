@@ -38,27 +38,28 @@ sap.ui.define(
           .getRoute("productDetail")
           .attachPatternMatched(this._onObjectMatched, this);
 
+        //! Hover function on menu button
+        this.byId("target").addEventDelegate(
+          {
+            onmouseover: this._showPopover,
+            // onmouseout: this._clearPopover,
+          },
+          this
+        );
       },
-      _setProductVariant: function (oEvent, typeVariant) {
+      onPressVariant: function (oEvent) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
         var aDataProducts = this.getView().getModel("oDataProducts").getData();
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-        var sQuery = selectedPath[typeVariant];
+			  var sQuery = selectedPath.ean;
         function filterWithId(value) {
-          return value._id === sQuery;
+          return value.ean === sQuery;
         }
-        var detailProduct = aDataProducts.filter(filterWithId);
+        var detailProduct =  aDataProducts.filter(filterWithId);			
         this.getView()
           .getModel("oGlobalModel")
-          .setProperty("/", { detailProduct: detailProduct[0] });
-
-      },
-      onPressColorVariant: function (oEvent) {
-        this._setProductVariant(oEvent, "color");
-      },
-      onPressSizeVariant: function (oEvent) {
-        this._setProductVariant(oEvent, "size");
+          .setProperty("/", { detailProduct: detailProduct[0]});
       },
       handleImagePress: function (oEvent) {
         var oView = this.getView().byId("bigImg");
@@ -66,29 +67,10 @@ sap.ui.define(
         oView.setSrc(sImgSrc);
       },
       _onObjectMatched: function (oEvent) {
-        var oDetailPrdct = this.getView()
-          .getModel("oGlobalModel").getData().detailProduct;
-
-        var fnFilterProducts = function (item) {
-          return item.category === oDetailPrdct.category;
-        };
-
-        var oDataProducts = this.getView().getModel("oDataProducts").getData();
-        var selectedProducts = oDataProducts.filter(fnFilterProducts);
-        var oModel = new JSONModel(selectedProducts);
-        this.getView().setModel(oModel, "prdctCatgryMdl");
-      },
-
-      onProductItemPress: function (oEvent) {
-        var oBndngCtxt = oEvent.getSource().getBindingContext("prdctCatgryMdl");
-        var spath = oBndngCtxt.getPath();
-        var selectedPath = oBndngCtxt.getProperty(spath);
+        var sCurrentRouteName = oEvent.getParameter("name");
         this.getView()
           .getModel("oGlobalModel")
-          .setProperty("/", { detailProduct: selectedPath });
-        this.getRouter().navTo("productDetail", {
-          detailObj: selectedPath.product_name,
-        });
+          .setProperty("/currentRouteName", sCurrentRouteName);
       },
 
       onSort: function () {
@@ -147,7 +129,7 @@ sap.ui.define(
           this.getView().byId("defaultValue").setValue(1);
         }
 
-        var customer_id = sessionStorage.getItem("uid");
+        var customer_id = sap.ui.getCore()._customerID || sap.ui.getCore()._GcustomerID;
         var formdata = new FormData();
         formdata.append("customer_id", customer_id);
         formdata.append("product_id", product_id);
@@ -182,6 +164,17 @@ sap.ui.define(
         cart.deleteFromCart(oResourceBundle, oSelectedPath, oDataProducts, prod_id);
       },
       onBuyItNow: function () {
+        var oSelectedPath = this.getView()
+        .getModel("oGlobalModel")
+        .getData().detailProduct;
+        var product_id = oSelectedPath._id;
+        var customer_id_guest = sap.ui.getCore()._GcustomerID;
+        var customer_id_login = sap.ui.getCore()._customerID;
+        if (!customer_id_guest){
+          var customer_id = customer_id_login;
+        }else{
+          customer_id = customer_id_guest;
+        }
         var item_status = this.getView().byId("product_status");
         var item_exist = item_status.mProperties.text;
         if (item_exist === "In Stock") {
@@ -198,6 +191,25 @@ sap.ui.define(
             .getData().detailProduct;
           var oDataProducts = this.getView().getModel("oDataProducts");
           cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
+
+          var formdata = new FormData();
+          formdata.append("customer_id", customer_id);
+          formdata.append("product_id", product_id);
+          formdata.append("quantity", "1");
+          formdata.append("voucher", "welcome12");
+          // formdata.append("voucher", "welcome12");
+          
+          var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+          };
+          
+          fetch("http://64.227.115.243:8080/buy_now/", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
           //   After add item to the cart the default value will be 1
           this.getView().byId("defaultValue").setValue(1);
           this.getRouter().navTo("checkout");
@@ -208,7 +220,7 @@ sap.ui.define(
 
       onAddToWishList: function (oEvent) {
 
-        var login_id = sessionStorage.getItem("uid");
+        var login_id = sap.ui.getCore()._customerID;
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
           .getData().detailProduct;
@@ -220,12 +232,12 @@ sap.ui.define(
         } else {
           sessionStorage.setItem('product_id', ('' + product_id))
         }
-        var customer_id = sessionStorage.getItem("uid");
+        var customer_id = sap.ui.getCore()._customerID;
 
         if (!login_id) {
           MessageToast.show("You have to login first");
-          var uid = sessionStorage.getItem("uid");
-          var Guid = sessionStorage.getItem("Guid");
+          var uid = sap.ui.getCore()._customerID;
+          var Guid = sap.ui.getCore()._GcustomerID;
           var oData = {
             uid: uid,
             Guid: Guid,
@@ -253,17 +265,17 @@ sap.ui.define(
 
               if (JSON.parse(result).message === "Product already exists") {
                 // sessionStorage.setItem("product_id");
-                var login_id = sessionStorage.getItem("uid");
+                var login_id = sap.ui.getCore()._customerID;
                 var oSelectedPath = this.getView()
                   .getModel("oGlobalModel")
                   .getData().detailProduct;
                 var product_id = oSelectedPath._id;
-                var customer_id = sessionStorage.getItem("uid");
+                var customer_id = sap.ui.getCore()._customerID;
 
                 if (!login_id) {
                   MessageToast.show("You have to login first");
-                  var uid = sessionStorage.getItem("uid");
-                  var Guid = sessionStorage.getItem("Guid");
+                  var uid = sap.ui.getCore()._customerID;
+                  var Guid = sap.ui.getCore()._GcustomerID;
                   var oData = {
                     uid: uid,
                     Guid: Guid,

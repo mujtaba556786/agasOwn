@@ -498,7 +498,6 @@ sap.ui.define(
         }.bind(this);
 
         oNavContainer.attachAfterNavigate(_fnAfterNavigate);
-        console.log("first", oNavContainer);
         oNavContainer.to(this.byId("wizardContentPage"));
       },
       checkCardHolderName: function (oEvent) {
@@ -700,25 +699,26 @@ sap.ui.define(
             .setValueState(sap.ui.core.ValueState.Success);
         }
       },
+      userAddressSave: function () {
+        let userAddressAddress = this.byId("invoiceAddressAddress").getValue();
+        let userAddressCity = this.byId("invoiceAddressCity").getValue();
+        let userAddressZip = this.byId("invoiceAddressZip").getValue();
+        let userAddressCountry = this.byId("invoiceAddressCountry").getValue();
+      },
 
       handleWizardSubmitss: async function (oEvent) {
         var selectedKey = this.getView()
           .getModel()
           .getProperty("/SelectedPayment");
-        var customer_id_guest = sessionStorage.getItem("Guid");
-        var customer_id_login = sessionStorage.getItem("uid");
-        if (!customer_id_guest){
-          var customer_id = customer_id_login;
-        }else{
-          customer_id = customer_id_guest;
+        var customer_id_guest1 = sap.ui.getCore()._GcustomerID;
+        var customer_id_login1 = sap.ui.getCore()._customerID;
+        if (!customer_id_guest1) {
+          var customer_id = customer_id_login1;
+        } else {
+          customer_id = customer_id_guest1;
         }
-        var total_Price2 = this.byId("totalPricefinal").getText();
-        var total_Price1 = total_Price2.split(" ");
-        var total_price5 = total_Price1[1];
-        var total_price0 = total_Price1[1].split(".");
-        var total_price = total_price0[0];
-        var total_price3 = total_price.replace(',', '');
-
+        var total_price = sap.ui.getCore()._globalVar;
+        var total_price_paypal = Number(total_price);
         var expDate = this.byId("creditCardExpirationDate").getValue();
         var expDate1 = expDate.slice(0, 2);
         var expYear = expDate.slice(3);
@@ -727,14 +727,12 @@ sap.ui.define(
           .getModel("oDataProducts")
           .getProperty("/cartEntries");
         var ans = Object.keys(oCartModels);
-        var oCartModel = this.getView()
-          .getModel("oDataProducts")
-          .getProperty(`/cartEntries/${ans}`);
-
-
-        var pro_Quantity = oCartModel.Quantity;
-        var product_name = oCartModel.product_name;
-        var product_price = oCartModel.price;
+        // var oCartModel = this.getView()
+        //   .getModel("oDataProducts")
+        //   .getProperty(`/cartEntries/${ans}`);
+        var pro_Quantity = oCartModels.Quantity;
+        var product_name = oCartModels.product_name;
+        var product_price = oCartModels.price;
 
         if (selectedKey == "Credit Card" || selectedKey == "Dedit Card") {
           var formdata = new FormData();
@@ -744,7 +742,7 @@ sap.ui.define(
           formdata.append("cvc", this.byId("creditCardSecurityNumber").getValue());
           formdata.append("name", this.byId("creditCardHolderName").getValue());
           formdata.append("email", this.byId("loginEmailInput").getValue());
-          formdata.append("amount", total_price5);
+          formdata.append("amount", total_price);
           formdata.append("currency", "EUR");
           formdata.append("description", "card_payment");
           formdata.append("customer_id", customer_id);
@@ -769,22 +767,20 @@ sap.ui.define(
           }
         } else if (selectedKey == "PayPal") {
           var formdata = new FormData();
-          formdata.append("product_name", product_name);
-          formdata.append("price", product_price);
-          formdata.append("currency", "EUR");
-          formdata.append("quantity", pro_Quantity);
           formdata.append("customer_id", customer_id);
+          formdata.append("currency", "EUR");
+          formdata.append("total_amount", total_price_paypal);
 
           var requestOptions = {
-            method: "POST",
+            method: 'POST',
             body: formdata,
-            redirect: "follow",
+            redirect: 'follow'
           };
 
           fetch("http://64.227.115.243:8080/paypal/payment/", requestOptions)
-            .then((response) => response.text())
+            .then(response => response.text())
             .then((result) => window.open(result, "_self"))
-            .catch((error) => console.log("error", error));
+            .catch(error => console.log('error', error));
 
         } else if (selectedKey == "Bank Transfer") {
           var formdata = new FormData();
@@ -793,7 +789,7 @@ sap.ui.define(
           formdata.append("cus_add_line1", this.byId("invoiceAddressAddress").getValue());
           formdata.append("cus_add_city", this.byId("invoiceAddressCity").getValue());
           formdata.append("cus_add_state", this.byId("invoiceAddressCountry").getValue());
-          formdata.append("amount", total_price5);
+          formdata.append("amount", total_price);
           formdata.append("currency", "eur");
           formdata.append("country", "DE");
           formdata.append("descrition", "SOFORT");

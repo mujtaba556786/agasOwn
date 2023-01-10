@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" >
+    <Dialog id="guestToCustomerLoginDialog" class="loginDialog" showHeader="false">
+        <VBox alignItems="End" class="sapUiSmallMargin">
+            <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onGuestToCustomerLoginClose" type="Unstyled" />
+        </VBox>
+        <VBox class="sapUiSmallMargin">
+            <VBox class="div">
+                <Text text="This emailId is already exist!" />
+                <Text text="Press Continue as Guest to login as Guest" />
+                <Text text="Enter Password and Press Sign Up to become a Customer" />
+            </VBox>
+            <VBox class="div">
+                <Label required="true" class="dialogLabel pwLabel" text="{i18n>Loginpass}" labelFor="passwordInput"/>
+                <Input id="guest_guestPasswordInput" type="Password" class="sapUiSmallMarginBottom pwInput" placeholder="{i18n>Enter}" />
+                <Label required="true" class="dialogLabel cpLabel" text="{i18n>confpass}" labelFor="confirmPasswordInput"/>
+                <Input id="guest_guestConfirmPasswordInput" type="Password" class="sapUiSmallMarginBottom cpInput" placeholder="{i18n>reEnter}" />
+            </VBox>
+            <CheckBox required="true" width="350px" wrapping="true" id="guest_newsLetter" text="Ja, ich möchte per E-Mail Newsletter über Trends, Aktionen 
+						 Gutscheine informiert werden. Abmeldung jederzeit möglich. (optional)" />
+            <CheckBox required="true" width="350px" wrapping="true" id="guest_readData" text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
+						 von Zalando sowie einer Bonitätsprüfung zu. " />
+            <HBox class="sapUiSmallMarginBottom twoButtons">
+                <Button class="withSubmit sapUiTinyMargin" text="Login as Guest" press="handleGuest" type="Unstyled"  />
+                <Button class="withSubmit sapUiTinyMargin" text="Sign Up" press=".onGuestToCustomer" type="Unstyled"  />
+            </HBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>
