@@ -5,14 +5,17 @@
         </VBox>
         <VBox class="sapUiSmallMargin">
             <Text class="dialogTitle sapUiSmallMarginBottom" text="{i18n>GuestLog}" />
-            <Label class="dialogLabel" text="{i18n>FN}" labelFor="guestLoginFNInput" />
-            <Input id="guestLoginFN" class="sapUiSmallMarginBottom" placeholder="Enter your first name" />
-            <Label class="dialogLabel" text="{i18n>LN}" labelFor="guestLoginLNInput" />
-            <Input id="guestLoginLN" class="sapUiSmallMarginBottom" placeholder="Enter your last name" />
-            <Label class="dialogLabel" text="{i18n>Loginemail}" labelFor="loginEmailInput" />
-            <Input id="guestLoginEmail" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
+            <Label class="dialogLabel" text="{i18n>FN}" labelFor="guestLoginFNInput" required="true"/>
+            <Input id="guestLoginFN" class="sapUiSmallMarginBottom" placeholder="Enter your first name"/>
+            <Label class="dialogLabel" text="{i18n>LN}" labelFor="guestLoginLNInput" required="true"/>
+            <Input id="guestLoginLN" class="sapUiSmallMarginBottom" placeholder="Enter your last name"/>
+            <Label class="dialogLabel" text="{i18n>Loginemail}" labelFor="loginEmailInput" required="true"/>
+            <Input id="guestLoginEmail" class="sapUiSmallMarginBottom" type="Email" change="validate" placeholder="Enter email" valueStateText="E-mail must be a valid email address." value="{
+							path: '/email',
+							type: '.customEMailType'
+						}"/>
             
-             <HBox class="sapUiSmallMarginBottom">
+             <HBox class="sapUiSmallMarginBottom twoButtons">
                 <Button class="withSubmit sapUiTinyMargin" text="Continue as Guest" press=".onLoginGuestOpen" type="Unstyled"  />
             </HBox>
         </VBox>

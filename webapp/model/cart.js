@@ -68,7 +68,6 @@ sap.ui.define([
 				}
 				else{
 					MessageToast.show("You've reached at Minimum Product");
-				 console.log("=========>",oCartEntry);
 				//  sessionStorage.removeItem("myvalue5");
 
 

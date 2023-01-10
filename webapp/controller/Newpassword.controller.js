@@ -8,7 +8,6 @@ sap.ui.define([
 
     return BaseController.extend("ag.agasown.controller.Newpassword", {
         onInit: function () {
-        console.log("===>")
         },
 
 		confirmpassword: function(oEvent) {
