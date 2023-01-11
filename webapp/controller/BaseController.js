@@ -223,8 +223,8 @@ sap.ui.define(
       onLoginOpen: function (oEvent) {
         // this.onLoginSucces();
         // login log out fragment show
-        var uid = sap.ui.getCore()._customerID;
-        var Guid = sap.ui.getCore()._GcustomerID;
+        var uid = localStorage.getItem("customer_id");
+        var Guid = localStorage.getItem("Guest_id");
         if (!uid && !Guid) {
           this.handleLogin(oEvent);
         } else {
@@ -283,10 +283,9 @@ sap.ui.define(
 
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
-        var uid = sap.ui.getCore()._customerID;
-        var gid = sap.ui.getCore()._GcustomerID;
+        var uid = localStorage.getItem("customer_id");
+        var gid = localStorage.getItem("Guest_id");
         var pid = sessionStorage.getItem("myvalue5");
-
         if ((uid !== null && pid !== null) || gid !== null) {
           this.getRouter().navTo("checkout");
           this.checkOutFunctionality();
@@ -296,9 +295,13 @@ sap.ui.define(
         } else if (pid === null) {
           this.getRouter().navTo("home");
           MessageToast.show("You must add some item!");
-        } else {
-          this.getRouter().navTo("#");
-          MessageToast.show("You must add some item");
+        } else if(gid!==null && pid!==null){
+          this.getRouter().navTo("checkout");
+        }else if(gid!==null && pid===null){
+          this.getRouter().navTo("home");
+        }
+        else{
+          this.getRouter().navTo("home");
         }
       },
 
@@ -315,8 +318,8 @@ sap.ui.define(
           Object.keys(oCartEntries).forEach(function (sProductId) {
             var oProduct = oCartEntries[sProductId];
             quantity[sProductId] = oProduct.Quantity;
-            var customer_id_guest = sap.ui.getCore()._GcustomerID;
-            var customer_id_login = sap.ui.getCore()._customerID;
+            var customer_id_guest = localStorage.getItem("Guest_id");
+            var customer_id_login = localStorage.getItem("customer_id");
             if (!customer_id_guest) {
               var customer_id = customer_id_login;
             } else {
@@ -444,13 +447,14 @@ sap.ui.define(
             .then(response => response.json())
             .then(result => {
               var resp = (result.message);
+
               if (resp == "Email_Id already exists") {
                 this.onGuestToCustomerOpen();
               } else if (resp == "Successfully Logged In") {
                 var Guest_login = result.customer;
-                var token = result.token.access_token;
                 sap.ui.getCore()._GcustomerID = Guest_login;
-                sap.ui.getCore()._token = token;
+                localStorage.setItem("access_token", result.token.access_token);
+                this.handleGuestId();
                 this._mGuestLoginDialog.then(function (oDialog) {
                   oDialog.close();
                 });
@@ -459,59 +463,7 @@ sap.ui.define(
             .catch(error => console.log('error', error));
         }
       },
-      guestLoginSuccess: async function () {
-        this.myUserName = this.byId("guestLoginEmail").getValue();
-        var email = this.byId("guestLoginEmail").getValue();
-        this.credit_card_type_id = "credit_card_type_id";
-        var access_token = sap.ui.getCore()._token;
-        var myHeaders = new Headers();
-        var oHeaderToken = {
-          Authorization: "Bearer " + access_token,
-        };
-        myHeaders.append("Authorization", oHeaderToken.Authorization);
-        myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify({
-          username: this.myUserName,
-          email: email,
-          credit_card_type_id: this.credit_card_type_id,
-        });
-
-        var requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: raw,
-          redirect: "follow",
-        };
-
-        fetch("http://64.227.115.243:8080/customers/", requestOptions)
-          .then((response) => response.text())
-          .then((oSuccess) => {
-            console.log(oSuccess);
-          })
-          .catch((error) => console.log("error", error));
-        //GET Method
-        var headEr = new Headers();
-        var TokenPass = {
-          Authorization: "Bearer " + access_token,
-        };
-        headEr.append("Authorization", TokenPass.Authorization);
-
-        var req_ans = {
-          method: "GET",
-          headers: headEr,
-          redirect: "follow",
-        };
-
-        await fetch("http://64.227.115.243:8080/customers/", req_ans)
-          .then((response) => response.text())
-          .then((result) => {
-            const res = JSON.parse(result).filter(
-              (data) => data.user === email
-            );
-          })
-          .catch((error) => console.log("error", error));
-      },
       onGuestToCustomer: async function () {
         var password = this.byId("guest_guestPasswordInput").getValue();
         var confirm_password = this.byId("guest_guestConfirmPasswordInput").getValue();
@@ -522,7 +474,8 @@ sap.ui.define(
         if (!password || !confirm_password) {
           alert("Please fill all the required fields")
         } else {
-
+          var guest_token;
+          var Guest_login;
           var formdata = new FormData();
           formdata.append("first_name", first_name);
           formdata.append("last_name", last_name);
@@ -537,21 +490,32 @@ sap.ui.define(
           await fetch("http://64.227.115.243:8080/guest_login/", requestOptions)
             .then(response => response.json())
             .then(result => {
-              var Guest_login = result.customer_id;
-              // sessionStorage.setItem("Guid", Guest_login)
+              Guest_login = result.customer_id;
               sap.ui.getCore()._GcustomerID = Guest_login;
+              guest_token = result.token.access_token;
             })
             .catch(error => console.log('error', error));
-          // var customer_id = sessionStorage.getItem("Guid");
-          var customer_id = sap.ui.getCore()._GcustomerID;
+
           var myHeaders = new Headers();
+          myHeaders.append("Authorization", "Bearer " + guest_token);
+
+          var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+          };
+
+          fetch(`http://64.227.115.243:8080/customers/${Guest_login}/`, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+              Guest_login = JSON.parse(result)._id;
+              var myHeaders = new Headers();
           myHeaders.append("Content-Type", "application/json");
 
           var raw = JSON.stringify({
-            "customer_id": customer_id,
+            "customer_id": Guest_login,
             "password": password,
-            "confirm_password": confirm_password,
-            "guest_login": false
+            "confirm_password": confirm_password
           });
 
           var requestOptions = {
@@ -560,31 +524,62 @@ sap.ui.define(
             body: raw,
             redirect: 'follow'
           };
-
           fetch("http://64.227.115.243:8080/guest_password/", requestOptions)
             .then(response => response.json())
             .then(result => {
               var resp = Object.values(result);
               if (resp == "Password already stored") {
-                sap.ui.getCore()._GcustomerID = null;
+                // sap.ui.getCore()._GcustomerID = null;
+                localStorage.removeItem("Guest_id")
                 MessageToast.show("You're already a customer!")
                 this.handleLogin();
               } else if (resp == "Password doesn't match") {
+                localStorage.removeItem("access_token")
                 MessageToast.show("Password doesn't match");
-                sap.ui.getCore()._GcustomerID = null;
+                // sap.ui.getCore()._GcustomerID = null;
+
               } else {
+                localStorage.setItem("Guest_id",Guest_login);
+                localStorage.setItem("access_token",guest_token);
                 MessageToast.show("You are a customer now!");
               }
               this.onGuestLoginClose();
               this.onGuestToCustomerLoginClose();
             })
             .catch(error => console.log("error", error));
+
+            })
+            .catch(error => console.log('error', error));
         }
       },
-      handleGuest: function () {
+      handleGuestId:  function () {
+        var ID = sap.ui.getCore()._GcustomerID;
+        var token = localStorage.getItem("access_token")
+        // var token = localStorage.getItem("token");
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+        // var email = this.byId("loginEmailInput").getValue();
+        fetch(`http://64.227.115.243:8080/customers/${ID}`, requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            var customer_id = (JSON.parse(result)._id);
+            sap.ui.getCore()._boolval = JSON.parse(result).guest_login;
+            localStorage.setItem("Guest_id", customer_id)
+
+          })
+          .catch((error) => console.log("error", error));
+      },
+      handleGuest:  function() {
         var first_name = this.byId("guestLoginFN").getValue();
         var last_name = this.byId("guestLoginLN").getValue();
         var email = this.byId("guestLoginEmail").getValue();
+        var bool_val;
         var formdata = new FormData();
         formdata.append("first_name", first_name);
         formdata.append("last_name", last_name);
@@ -596,13 +591,38 @@ sap.ui.define(
           redirect: 'follow'
         };
 
-        fetch("http://64.227.115.243:8080/guest_login/", requestOptions)
+         fetch("http://64.227.115.243:8080/guest_login/", requestOptions)
           .then(response => response.json())
           .then(result => {
             var Guest_login = result.customer_id;
-            // sessionStorage.setItem("Guid", Guest_login)
+            // localStorage.setItem("Guest_id", Guest_login)
             sap.ui.getCore()._GcustomerID = Guest_login;
-            sap.ui.getCore()._token = result.token.access_token;
+            localStorage.setItem("access_token", result.token.access_token);
+
+            var ID = sap.ui.getCore()._GcustomerID;
+        var token = localStorage.getItem("access_token")
+        // var token = localStorage.getItem("token");
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+        // var email = this.byId("loginEmailInput").getValue();
+        fetch(`http://64.227.115.243:8080/customers/${ID}`, requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+          bool_val = JSON.parse(result).guest_login;
+          if(bool_val==true){
+            this.handleGuestId();
+          }else if(bool_val==false){
+            localStorage.removeItem("access_token");
+            this.onLoginOpen();
+            MessageToast.show("You're already a customer");
+          }  
+          });
             this.onGuestToCustomerLoginClose();
             this.onGuestLoginClose();
           })
@@ -655,9 +675,12 @@ sap.ui.define(
         this.getService()
           .onPost(_sUrl, oData)
           .then((oSuccess) => {
+            var ID = oSuccess.id
             var ans = oSuccess.token.access_token;
             // localStorage.setItem("token", ans);
-            sap.ui.getCore()._token = ans;
+            localStorage.setItem("access_token", ans)
+            // sap.ui.getCore()._token = ans;
+            sap.ui.getCore()._Id = ID;
             this.onLoginSucces(oSuccess);
             this.getRouter().navTo("customer");
             this.onLoginClose();
@@ -668,7 +691,8 @@ sap.ui.define(
       },
 
       onLoginSucces: async function (oData) {
-       var token = sap.ui.getCore()._token
+        var ID = sap.ui.getCore()._Id
+        var token = localStorage.getItem("access_token")
         // var token = localStorage.getItem("token");
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer " + token);
@@ -678,23 +702,19 @@ sap.ui.define(
           headers: myHeaders,
           redirect: 'follow'
         };
-        var email = this.byId("loginEmailInput").getValue();
-        fetch("http://64.227.115.243:8080/customers", requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
-          const res = JSON.parse(result).filter(
-            (data) => data.email === email
-          );
-          console.log("blank asbe",res)
-          var new_ans = res[0]._id;
-          sap.ui.getCore()._customerID = new_ans;
-        })
-        .catch((error) => console.log("error", error));
+        // var email = this.byId("loginEmailInput").getValue();
+        fetch(`http://64.227.115.243:8080/customers/${ID}`, requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            var customer_id = (JSON.parse(result)._id)
+            localStorage.setItem("customer_id", customer_id)
+          })
+          .catch((error) => console.log("error", error));
       },
 
       onNavToCustomer: function () {
-        var uid = sap.ui.getCore()._customerID;
-        var Guid = sap.ui.getCore()._GcustomerID;
+        var uid = localStorage.getItem("customer_id");
+        var Guid = localStorage.getItem("Guest_id");
         if (uid !== null) {
           this.getRouter().navTo("customer");
         } else if (Guid !== null) {
@@ -706,7 +726,7 @@ sap.ui.define(
       onLogout: function () {
         var _sUrl = "http://64.227.115.243:8080/logout/";
         var oGlobalModel = this.getView().getModel("oGlobalModel");
-        var token = sap.ui.getCore()._token;
+        var token = localStorage.getItem("access_token");
         //After log out sent user to home page & refresh
         this.getRouter().navTo("home");
         // location.reload();
@@ -717,8 +737,12 @@ sap.ui.define(
           .onPost(_sUrl, "", oHeaderToken)
           .then((oSuccess) => {
             MessageBox.success(oSuccess.detail);
-            sap.ui.getCore()._customerID = null;
-            sap.ui.getCore()._GcustomerID = null;
+            // sap.ui.getCore()._customerID = null;
+            // sap.ui.getCore()._GcustomerID = null;
+            localStorage.removeItem("Guest_id")
+            localStorage.removeItem("customer_id")
+            localStorage.removeItem("access_token")
+            sessionStorage.removeItem("myvalue5");
             oGlobalModel.setProperty("/customer", "");
           })
           .catch((oError) => {
@@ -910,8 +934,8 @@ sap.ui.define(
       },
 
       onCustomerNavigationSelect: function (oEvent) {
-        var uid = sap.ui.getCore()._customerID;
-        var Guid = sap.ui.getCore()._GcustomerID;
+        var uid = localStorage.getItem("customer_id");
+        var Guid = localStorage.getItem("Guest_id");
         if (uid !== null) {
           this.getRouter().navTo("customer");
         } else if (Guid !== null) {
@@ -1067,7 +1091,6 @@ sap.ui.define(
                 });
               })
               .catch((oError) => {
-                console.log("error", oError);
                 MessageBox.error("Hey! Mail id already exist!");
               });
           } else {
