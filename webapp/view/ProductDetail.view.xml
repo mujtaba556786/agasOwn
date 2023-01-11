@@ -55,7 +55,7 @@
 									</HBox>
 									<HBox justifyContent="SpaceBetween" renderType="Bare">
 										<StepInput class="stepInput" id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" max="{/recipient/max}" textAlign="Center" width="150px" validationMode="{detailView>/validationMode}" change="onChange"/>
-										<Button class="productCart" type="Unstyled" text="{i18n>productAddButtonText}" press=".onAddToCartDetails"/>
+										<Button class="productCart" type="Unstyled" text="{i18n>productAddButtonText}" press=".validUser"/>
 										<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
 									</HBox>
 									<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onBuyItNow"/>

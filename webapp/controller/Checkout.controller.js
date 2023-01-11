@@ -710,8 +710,8 @@ sap.ui.define(
         var selectedKey = this.getView()
           .getModel()
           .getProperty("/SelectedPayment");
-        var customer_id_guest1 = sap.ui.getCore()._GcustomerID;
-        var customer_id_login1 = sap.ui.getCore()._customerID;
+        var customer_id_guest1 = localStorage.getItem("Guest_id");
+        var customer_id_login1 = localStorage.getItem("customer_id");
         if (!customer_id_guest1) {
           var customer_id = customer_id_login1;
         } else {

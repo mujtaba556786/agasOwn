@@ -129,7 +129,17 @@ sap.ui.define(
           this.getView().byId("defaultValue").setValue(1);
         }
 
-        var customer_id = sap.ui.getCore()._customerID || sap.ui.getCore()._GcustomerID;
+        var cus_id =localStorage.getItem("customer_id") 
+        var gues_id =localStorage.getItem("Guest_id");
+        if (!gues_id){
+         var customer_id = cus_id;
+        }else if(gues_id){
+          customer_id = gues_id;
+        }
+        // else if(!gues_id && !cus_id){
+        //   MessageToast.show("You must login First!")
+        //   this.getRouter().navTo("home");
+        // }
         var formdata = new FormData();
         formdata.append("customer_id", customer_id);
         formdata.append("product_id", product_id);
@@ -142,9 +152,18 @@ sap.ui.define(
 
         fetch("http://64.227.115.243:8080/checkout/", requestOptions)
           .then(response => response.text())
-          .then(result => console.log(result))
+          .then(result => {console.log(result)})
           .catch(error => console.log('error', error));
 
+      },
+      validUser : function(){
+        var access_token = localStorage.getItem("access_token");
+        if(!access_token){
+          this.getRouter().navTo("home");
+          MessageToast.show("You must Login first!");
+        }else if(access_token){
+          this.onAddToCartDetails();
+        }
       },
       onAddToCartDetails_delete: function (oEvent) {
         var prod_id = oEvent.getSource().data("itemId");
@@ -168,8 +187,8 @@ sap.ui.define(
         .getModel("oGlobalModel")
         .getData().detailProduct;
         var product_id = oSelectedPath._id;
-        var customer_id_guest = sap.ui.getCore()._GcustomerID;
-        var customer_id_login = sap.ui.getCore()._customerID;
+        var customer_id_guest = localStorage.getItem("Guest_id");
+        var customer_id_login = localStorage.getItem("customer_id");
         if (!customer_id_guest){
           var customer_id = customer_id_login;
         }else{
@@ -220,7 +239,7 @@ sap.ui.define(
 
       onAddToWishList: function (oEvent) {
 
-        var login_id = sap.ui.getCore()._customerID;
+        var login_id = localStorage.getItem("customer_id");
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
           .getData().detailProduct;
@@ -232,12 +251,12 @@ sap.ui.define(
         } else {
           sessionStorage.setItem('product_id', ('' + product_id))
         }
-        var customer_id = sap.ui.getCore()._customerID;
+        var customer_id = localStorage.getItem("customer_id");
 
         if (!login_id) {
           MessageToast.show("You have to login first");
-          var uid = sap.ui.getCore()._customerID;
-          var Guid = sap.ui.getCore()._GcustomerID;
+          var uid = localStorage.getItem("customer_id");
+          var Guid = localStorage.getItem("Guest_id");
           var oData = {
             uid: uid,
             Guid: Guid,
@@ -265,22 +284,19 @@ sap.ui.define(
 
               if (JSON.parse(result).message === "Product already exists") {
                 // sessionStorage.setItem("product_id");
-                var login_id = sap.ui.getCore()._customerID;
+                var login_id = localStorage.getItem("customer_id");
                 var oSelectedPath = this.getView()
                   .getModel("oGlobalModel")
                   .getData().detailProduct;
                 var product_id = oSelectedPath._id;
-                var customer_id = sap.ui.getCore()._customerID;
+                var customer_id = localStorage.getItem("customer_id");
 
                 if (!login_id) {
                   MessageToast.show("You have to login first");
-                  var uid = sap.ui.getCore()._customerID;
-                  var Guid = sap.ui.getCore()._GcustomerID;
-                  var oData = {
-                    uid: uid,
-                    Guid: Guid,
-                  };
-                  if (oData.uid == null && oData.Guid == null) {
+                  var uid = localStorage.getItem("customer_id");
+                  var Guid = localStorage.getItem("Guest_id");
+                 
+                  if (uid == null && Guid == null) {
                     this.handleLogin(oEvent);
                   } else {
                     this.handleLogout(oEvent);
