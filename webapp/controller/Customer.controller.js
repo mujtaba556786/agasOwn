@@ -8,7 +8,100 @@ sap.ui.define(
       onInit: function () {
         // Storing user data into session Storage
         this.setHeaderModel();
-        
+        this._sIdHomeAdrs();
+        this._sIdBillingAdrs();
+        this._sIdPersonalAdrs();
+      },
+      _sIdHomeAdrs: function () {
+        this.oAddress = this.byId("address1");
+        this.oCity = this.byId("city");
+        this.oPostalCode = this.byId("postalCode");
+        this.oCountry = this.byId("country");
+        this.oBtnEditHmAdrs = this.byId("btnEditHmAdrs");
+        this.oBtnSaveHmAdrs = this.byId("btnSaveHmAdrs");
+      },
+
+      _sIdPersonalAdrs: function () {
+        this.oFirstNamePrsnlDtl = this.byId("firstNamePrsnlDtl");
+        this.oLastNamePrsnlDtl = this.byId("lastNamePrsnlDtl");
+        this.oDateOfBirthPrsnlDtl = this.byId("dateOfBirthPrsnlDtl");
+        this.oEmailPrsnlDtl = this.byId("emailPrsnlDtl");
+        this.oPwdPrsnlDtl = this.byId("pwdPrsnlDtl");
+
+        this.oBtnEditPrsnlAdrs = this.byId("btnEditPrsnlAdrs");
+        this.oBtnSavePrsnlAdrs = this.byId("btnSavePrsnlAdrs");
+      },
+
+      _sIdBillingAdrs: function () {
+        this.oBillingAddress = this.byId("billingAddress");
+        this.oBillingCity = this.byId("billingCity");
+        this.oBillingPostalCode = this.byId("billingPostalCode");
+        this.oBillingCountry = this.byId("billingCountry");
+        this.oBtnEditblngAdrs = this.byId("btnEditblngAdrs");
+        this.oBtnSaveblngAdrs = this.byId("btnSaveblngAdrs");
+      },
+
+      onPressCustomerTile: function (oEvent) {
+        var sId = this.byId("customerTab");
+        var sHeader = oEvent.getSource().getHeader();
+        sId.setSelectedKey(sHeader);
+      },
+
+      onEditHomeAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(true);
+        };
+        this.oBtnEditHmAdrs.setVisible(false);
+        this.oBtnSaveHmAdrs.setVisible(true);
+        var aHomeAdrsInptId = [this.oAddress, this.oCity, this.oPostalCode, this.oCountry];
+        aHomeAdrsInptId.filter(fnSetVisibleInptFld);
+      },
+      onSaveHomeAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(false);
+        };
+        this.oBtnEditHmAdrs.setVisible(true);
+        this.oBtnSaveHmAdrs.setVisible(false);
+        var aHomeAdrsInptId = [this.oAddress, this.oCity, this.oPostalCode, this.oCountry];
+        aHomeAdrsInptId.filter(fnSetVisibleInptFld);
+      },
+      onEditBillingAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(true);
+        };
+        this.oBtnEditblngAdrs.setVisible(false);
+        this.oBtnSaveblngAdrs.setVisible(true);
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry];
+        aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+      },
+      onSaveBillingAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(false);
+        };
+        this.oBtnEditblngAdrs.setVisible(true);
+        this.oBtnSaveblngAdrs.setVisible(false);
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry];
+        aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+      },
+      onEditPersonalAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(true);
+        };
+        this.oBtnEditPrsnlAdrs.setVisible(false);
+        this.oBtnSavePrsnlAdrs.setVisible(true);
+        var aBillingAdrsInptId = [this.oFirstNamePrsnlDtl, this.oLastNamePrsnlDtl,
+        this.oDateOfBirthPrsnlDtl, this.oEmailPrsnlDtl, this.oPwdPrsnlDtl];
+        aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+      },
+      onSavePersonalAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(false);
+        };
+        this.oBtnEditPrsnlAdrs.setVisible(true);
+        this.oBtnSavePrsnlAdrs.setVisible(false);
+        var aBillingAdrsInptId = [this.oFirstNamePrsnlDtl, this.oLastNamePrsnlDtl,
+        this.oDateOfBirthPrsnlDtl, this.oEmailPrsnlDtl, this.oPwdPrsnlDtl];
+        aBillingAdrsInptId.filter(fnSetVisibleInptFld);
       },
       onProductItemPress: function(oEvent){
         var oBndngCtxt = oEvent.getSource().getBindingContext("wish");
