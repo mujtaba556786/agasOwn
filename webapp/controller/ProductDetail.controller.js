@@ -38,39 +38,59 @@ sap.ui.define(
           .getRoute("productDetail")
           .attachPatternMatched(this._onObjectMatched, this);
 
-        //! Hover function on menu button
-        this.byId("target").addEventDelegate(
-          {
-            onmouseover: this._showPopover,
-            // onmouseout: this._clearPopover,
-          },
-          this
-        );
       },
-      onPressVariant: function (oEvent) {
+      _setProductVariant: function (oEvent, typeVariant) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
         var aDataProducts = this.getView().getModel("oDataProducts").getData();
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-			  var sQuery = selectedPath.ean;
+        var sQuery = selectedPath[typeVariant];
         function filterWithId(value) {
-          return value.ean === sQuery;
+          return value._id === sQuery;
         }
-        var detailProduct =  aDataProducts.filter(filterWithId);			
+        var detailProduct = aDataProducts.filter(filterWithId);
         this.getView()
           .getModel("oGlobalModel")
-          .setProperty("/", { detailProduct: detailProduct[0]});
+          .setProperty("/", { detailProduct: detailProduct[0] });
+        this._onObjectMatched();
+
+      },
+      onPressColorVariant: function (oEvent) {
+        this._setProductVariant(oEvent, "color");
+      },
+      onPressSizeVariant: function (oEvent) {
+        this._setProductVariant(oEvent, "size");
       },
       handleImagePress: function (oEvent) {
         var oView = this.getView().byId("bigImg");
         var sImgSrc = oEvent.getSource().getSrc();
         oView.setSrc(sImgSrc);
       },
-      _onObjectMatched: function (oEvent) {
-        var sCurrentRouteName = oEvent.getParameter("name");
+      _onObjectMatched: function () {
+        var oDetailPrdct = this.getView()
+          .getModel("oGlobalModel").getData().detailProduct;
+
+        var fnFilterProducts = function (item) {
+          return item.category === oDetailPrdct.category;
+        };
+
+        var oDataProducts = this.getView().getModel("oDataProducts").getData();
+        var selectedProducts = oDataProducts.filter(fnFilterProducts);
+        var oModel = new JSONModel(selectedProducts);
+        this.getView().setModel(oModel, "prdctCatgryMdl");
+      },
+
+      onProductItemPress: function (oEvent) {
+        var oBndngCtxt = oEvent.getSource().getBindingContext("prdctCatgryMdl");
+        var spath = oBndngCtxt.getPath();
+        var selectedPath = oBndngCtxt.getProperty(spath);
         this.getView()
           .getModel("oGlobalModel")
-          .setProperty("/currentRouteName", sCurrentRouteName);
+          .setProperty("/", { detailProduct: selectedPath });
+        this.getRouter().navTo("productDetail", {
+          detailObj: selectedPath.product_name,
+        });
+        this._onObjectMatched();
       },
 
       onSort: function () {
@@ -129,11 +149,11 @@ sap.ui.define(
           this.getView().byId("defaultValue").setValue(1);
         }
 
-        var cus_id =localStorage.getItem("customer_id") 
-        var gues_id =localStorage.getItem("Guest_id");
-        if (!gues_id){
-         var customer_id = cus_id;
-        }else if(gues_id){
+        var cus_id = localStorage.getItem("customer_id")
+        var gues_id = localStorage.getItem("Guest_id");
+        if (!gues_id) {
+          var customer_id = cus_id;
+        } else if (gues_id) {
           customer_id = gues_id;
         }
         // else if(!gues_id && !cus_id){
@@ -152,16 +172,16 @@ sap.ui.define(
 
         fetch("http://64.227.115.243:8080/checkout/", requestOptions)
           .then(response => response.text())
-          .then(result => {console.log(result)})
+          .then(result => { console.log(result) })
           .catch(error => console.log('error', error));
 
       },
-      validUser : function(){
+      validUser: function () {
         var access_token = localStorage.getItem("access_token");
-        if(!access_token){
+        if (!access_token) {
           this.getRouter().navTo("home");
           MessageToast.show("You must Login first!");
-        }else if(access_token){
+        } else if (access_token) {
           this.onAddToCartDetails();
         }
       },
@@ -184,14 +204,14 @@ sap.ui.define(
       },
       onBuyItNow: function () {
         var oSelectedPath = this.getView()
-        .getModel("oGlobalModel")
-        .getData().detailProduct;
+          .getModel("oGlobalModel")
+          .getData().detailProduct;
         var product_id = oSelectedPath._id;
         var customer_id_guest = localStorage.getItem("Guest_id");
         var customer_id_login = localStorage.getItem("customer_id");
-        if (!customer_id_guest){
+        if (!customer_id_guest) {
           var customer_id = customer_id_login;
-        }else{
+        } else {
           customer_id = customer_id_guest;
         }
         var item_status = this.getView().byId("product_status");
@@ -217,13 +237,13 @@ sap.ui.define(
           formdata.append("quantity", "1");
           formdata.append("voucher", "welcome12");
           // formdata.append("voucher", "welcome12");
-          
+
           var requestOptions = {
             method: 'POST',
             body: formdata,
             redirect: 'follow'
           };
-          
+
           fetch("http://64.227.115.243:8080/buy_now/", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
@@ -295,7 +315,7 @@ sap.ui.define(
                   MessageToast.show("You have to login first");
                   var uid = localStorage.getItem("customer_id");
                   var Guid = localStorage.getItem("Guest_id");
-                 
+
                   if (uid == null && Guid == null) {
                     this.handleLogin(oEvent);
                   } else {
