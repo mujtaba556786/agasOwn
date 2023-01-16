@@ -710,29 +710,31 @@ sap.ui.define(
         var selectedKey = this.getView()
           .getModel()
           .getProperty("/SelectedPayment");
-        var customer_id_guest1 = localStorage.getItem("Guest_id");
-        var customer_id_login1 = localStorage.getItem("customer_id");
-        if (!customer_id_guest1) {
-          var customer_id = customer_id_login1;
+        var access_token = localStorage.getItem("access_token");
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        if (!guest_access_token) {
+          var token = access_token;
         } else {
-          customer_id = customer_id_guest1;
+          token = guest_access_token;
         }
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
         var total_price = sap.ui.getCore()._globalVar;
         var total_price_paypal = Number(total_price);
         var expDate = this.byId("creditCardExpirationDate").getValue();
         var expDate1 = expDate.slice(0, 2);
         var expYear = expDate.slice(3);
         // product details
-        var oCartModels = this.getView()
-          .getModel("oDataProducts")
-          .getProperty("/cartEntries");
-        var ans = Object.keys(oCartModels);
-        // var oCartModel = this.getView()
+        // var oCartModels = this.getView()
         //   .getModel("oDataProducts")
-        //   .getProperty(`/cartEntries/${ans}`);
-        var pro_Quantity = oCartModels.Quantity;
-        var product_name = oCartModels.product_name;
-        var product_price = oCartModels.price;
+        //   .getProperty("/cartEntries");
+        // var ans = Object.keys(oCartModels);
+        // // var oCartModel = this.getView()
+        // //   .getModel("oDataProducts")
+        // //   .getProperty(`/cartEntries/${ans}`);
+        // var pro_Quantity = oCartModels.Quantity;
+        // var product_name = oCartModels.product_name;
+        // var product_price = oCartModels.price;
 
         if (selectedKey == "Credit Card" || selectedKey == "Dedit Card") {
           var formdata = new FormData();
@@ -745,17 +747,16 @@ sap.ui.define(
           formdata.append("amount", total_price);
           formdata.append("currency", "EUR");
           formdata.append("description", "card_payment");
-          formdata.append("customer_id", customer_id);
 
           var requestOptions = {
             method: 'POST',
+            headers : myHeaders,
             body: formdata,
             redirect: 'follow'
           };
-
           let respo = await fetch("http://64.227.115.243:8080/stripe/", requestOptions)
             .then(response => {
-              return response.status
+              return response.status;              
             })
             .catch(error => console.log('error', error));
           if (respo === 200) {
@@ -767,12 +768,12 @@ sap.ui.define(
           }
         } else if (selectedKey == "PayPal") {
           var formdata = new FormData();
-          formdata.append("customer_id", customer_id);
           formdata.append("currency", "EUR");
           formdata.append("total_amount", total_price_paypal);
 
           var requestOptions = {
             method: 'POST',
+            headers : myHeaders,
             body: formdata,
             redirect: 'follow'
           };
@@ -793,9 +794,9 @@ sap.ui.define(
           formdata.append("currency", "eur");
           formdata.append("country", "DE");
           formdata.append("descrition", "SOFORT");
-          formdata.append("customer_id", customer_id);
           var requestOptions = {
             method: "POST",
+            headers : myHeaders,
             body: formdata,
             redirect: "follow",
           };
