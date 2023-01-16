@@ -149,23 +149,21 @@ sap.ui.define(
           this.getView().byId("defaultValue").setValue(1);
         }
 
-        var cus_id = localStorage.getItem("customer_id")
-        var gues_id = localStorage.getItem("Guest_id");
-        if (!gues_id) {
-          var customer_id = cus_id;
-        } else if (gues_id) {
-          customer_id = gues_id;
+        var access_token = localStorage.getItem("access_token")
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        if (!guest_access_token) {
+          var token = access_token;
+        } else if (guest_access_token) {
+          token = guest_access_token;
         }
-        // else if(!gues_id && !cus_id){
-        //   MessageToast.show("You must login First!")
-        //   this.getRouter().navTo("home");
-        // }
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
         var formdata = new FormData();
-        formdata.append("customer_id", customer_id);
         formdata.append("product_id", product_id);
 
         var requestOptions = {
           method: 'PATCH',
+          headers: myHeaders,
           body: formdata,
           redirect: 'follow'
         };
@@ -178,10 +176,16 @@ sap.ui.define(
       },
       validUser: function () {
         var access_token = localStorage.getItem("access_token");
-        if (!access_token) {
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        if(access_token){
+          var token = access_token;
+        }else if(guest_access_token){
+          token = guest_access_token
+        }
+        if (!token) {
           this.getRouter().navTo("home");
           MessageToast.show("You must Login first!");
-        } else if (access_token) {
+        } else if (token) {
           this.onAddToCartDetails();
         }
       },
@@ -207,8 +211,8 @@ sap.ui.define(
           .getModel("oGlobalModel")
           .getData().detailProduct;
         var product_id = oSelectedPath._id;
-        var customer_id_guest = localStorage.getItem("Guest_id");
-        var customer_id_login = localStorage.getItem("customer_id");
+        var customer_id_guest = localStorage.getItem("guest_access_token");
+        var customer_id_login = localStorage.getItem("access_token");
         if (!customer_id_guest) {
           var customer_id = customer_id_login;
         } else {
@@ -258,8 +262,7 @@ sap.ui.define(
       },
 
       onAddToWishList: function (oEvent) {
-
-        var login_id = localStorage.getItem("customer_id");
+        var token;
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
           .getData().detailProduct;
@@ -271,28 +274,30 @@ sap.ui.define(
         } else {
           sessionStorage.setItem('product_id', ('' + product_id))
         }
-        var customer_id = localStorage.getItem("customer_id");
+        var access_token = localStorage.getItem("access_token");
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        if (access_token) {
+          token = access_token;
+        } else if (guest_access_token) {
+          token = guest_access_token;
+        }
 
-        if (!login_id) {
+        if (!token) {
           MessageToast.show("You have to login first");
-          var uid = localStorage.getItem("customer_id");
-          var Guid = localStorage.getItem("Guest_id");
-          var oData = {
-            uid: uid,
-            Guid: Guid,
-          };
-          if (oData.uid == null && oData.Guid == null) {
+          if (token == null) {
             this.handleLogin(oEvent);
           } else {
             this.handleLogout(oEvent);
           }
         } else {
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", "Bearer " + token);
           var formdata = new FormData();
-          formdata.append("customer_id", customer_id);
           formdata.append("product_id", product_id);
 
           var requestOptions = {
             method: "PATCH",
+            headers: myHeaders,
             body: formdata,
             redirect: "follow",
           };
@@ -300,43 +305,33 @@ sap.ui.define(
           fetch("http://64.227.115.243:8080/wishlist/", requestOptions)
             .then((response) => response.text())
             .then((result) => {
-              // MessageToast.show(JSON.parse(result).message)
+              console.log(JSON.parse(result).message);
 
               if (JSON.parse(result).message === "Product already exists") {
-                // sessionStorage.setItem("product_id");
-                var login_id = localStorage.getItem("customer_id");
                 var oSelectedPath = this.getView()
                   .getModel("oGlobalModel")
                   .getData().detailProduct;
                 var product_id = oSelectedPath._id;
-                var customer_id = localStorage.getItem("customer_id");
 
-                if (!login_id) {
+                if (!token) {
                   MessageToast.show("You have to login first");
-                  var uid = localStorage.getItem("customer_id");
-                  var Guid = localStorage.getItem("Guest_id");
-
-                  if (uid == null && Guid == null) {
-                    this.handleLogin(oEvent);
-                  } else {
-                    this.handleLogout(oEvent);
-                  }
                 } else {
                   var formdata = new FormData();
-                  formdata.append("customer_id", customer_id);
                   formdata.append("product_id", product_id);
-
+                  var myHeaders = new Headers();
+                  myHeaders.append("Authorization", "Bearer " + token);
                   var requestOptions = {
                     method: "DELETE",
+                    headers: myHeaders,
                     body: formdata,
                     redirect: "follow",
                   };
 
                   fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
                     .then((response) => response.text())
-                    .then((result) =>
-                      //  MessageToast.show(JSON.parse(result).message)
-                      console.log(result)
+                    .then((result) => {
+                      console.log(JSON.parse(result).message)
+                    }
                     )
                     .catch((error) => console.log("error", error));
                 }
