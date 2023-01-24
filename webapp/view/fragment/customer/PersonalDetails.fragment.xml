@@ -6,7 +6,7 @@
    <l:VerticalLayout id="personalVerticalLayout" width="100%">
       <l:BlockLayout id="personalLayout">
          <l:BlockLayoutRow>
-            <l:BlockLayoutCell title="{i18n>personalAddressTitle}">
+            <l:BlockLayoutCell title="{i18n>persDeta}">
                <VBox renderType="Bare" displayInline="true" fitContainer="true">
                   <HBox renderType="Bare">
                      <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".offLoginOpen" />
@@ -26,13 +26,13 @@
                         <Input id="emailPrsnlDtl" editable="false" class = "check" value="{oGlobalModel>/customerModel/email}"/>
                      </VBox>
                   </HBox>
-                  <HBox >
+                  <!-- <HBox >
                      <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://locked" press=".offLoginOpen" />
                      <VBox renderType="Bare" justifyContent="SpaceBetween" width="100%">
                         <Text text="{i18n>Loginpass}"/>
                         <Input id="pwdPrsnlDtl" type="password" class = "check" editable="false" value="{oGlobalModel>/customerModel/password}"/>
                      </VBox>
-                  </HBox>
+                  </HBox> -->
                   <Button id="btnEditPrsnlAdrs" visible="true" class="buttonEdit" text="{i18n>editText}" press=".onEditPersonalAddress" type="Unstyled" />
                   <Button id="btnSavePrsnlAdrs" visible="false" class="buttonSave" text="{i18n>save}" press=".onSavePersonalAddress" type="Unstyled" />
                </VBox>
