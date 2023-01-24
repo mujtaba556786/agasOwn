@@ -25,10 +25,11 @@ sap.ui.define([
                 })
             },
             
-            onGet: function (url) {
+            onGet: function (url,oHeaderToken) {
                 return new Promise((resolve, reject) => {
                     $.ajax({
                         url: url,
+                        headers: oHeaderToken,
                         type: 'Get',
                         success: function (data) {
                             resolve(data)

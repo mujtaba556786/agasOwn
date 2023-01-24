@@ -13,7 +13,7 @@
                         <Text text="{i18n>custCity}" />
                         <Input id="city" editable="false" value='{oGlobalModel>/customerModel/city}'/>
                         <Text text="{i18n>custPostalCode}"/>
-                        <Input id="postalCode" editable="false" value='{oGlobalModel>/customerModel/postal_code}'/>
+                        <Input id="postalCode" editable="false" value='{oGlobalModel>/customerModel/postal_code}' type="number"/>
                         <Text text="{i18n>custCountry}" />
                         <Input id="country" editable="false" value='{oGlobalModel>/customerModel/country}'/>
                         <Button id="btnEditHmAdrs" visible="true" class="buttonEdit" text="{i18n>editText}" press=".onEditHomeAddress" type="Unstyled" />

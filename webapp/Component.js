@@ -29,6 +29,7 @@ sap.ui.define([
 			this.setModel(new sap.ui.model.json.JSONModel() , "oGlobalModel");
 			// set the Menu model
 			this.setModel(new sap.ui.model.json.JSONModel() , "oMenuModel");
+			this.setModel(new sap.ui.model.json.JSONModel(), "customerModel");
 		},
 		
 	});

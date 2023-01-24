@@ -1,7 +1,7 @@
 sap.ui.define(
   ["./BaseController",
-   "sap/ui/model/json/JSONModel","sap/m/MessageToast"],
-  function (BaseController, JSONModel,MessageToast) {
+    "sap/ui/model/json/JSONModel", "sap/m/MessageToast"],
+  function (BaseController, JSONModel, MessageToast) {
     "use strict";
 
     return BaseController.extend("ag.agasown.controller.Customer", {
@@ -64,6 +64,45 @@ sap.ui.define(
         this.oBtnSaveHmAdrs.setVisible(false);
         var aHomeAdrsInptId = [this.oAddress, this.oCity, this.oPostalCode, this.oCountry];
         aHomeAdrsInptId.filter(fnSetVisibleInptFld);
+        this.EditCustomerAddress();
+      },
+      //Patch Method for Customer API
+      EditCustomerAddress: function () {
+        var ID = localStorage.getItem("user");
+        var access_token = localStorage.getItem("access_token");
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        if (access_token) {
+          var token = access_token;
+        } else if (guest_access_token) {
+          token = guest_access_token;
+        }
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+          "address1": this.byId("address1").getValue(),
+          "city": this.byId("city").getValue(),
+          "postal_code": this.byId("postalCode").getValue(),
+          "country": this.byId("country").getValue()
+        });
+
+        var requestOptions = {
+          method: 'PATCH',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+
+        fetch(`http://64.227.115.243:8080/customers/${ID}/`, requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            MessageToast.show("Home Address Updated Successfully!");
+          })
+          .catch(error => {
+            console.log('error', error);
+            MessageToast.show("Error while updating Home Address!")
+          });
       },
       onEditBillingAddress: function () {
         var fnSetVisibleInptFld = function (oId) {
@@ -82,6 +121,45 @@ sap.ui.define(
         this.oBtnSaveblngAdrs.setVisible(false);
         var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+        this.editCustomerBillingAddress();
+      },
+      //Patch Method for Customer API
+      editCustomerBillingAddress: function () {
+        var ID = localStorage.getItem("user");
+        var access_token = localStorage.getItem("access_token");
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        if (access_token) {
+          var token = access_token;
+        } else if (guest_access_token) {
+          token = guest_access_token;
+        }
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer "+token);
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+          "billing_address": this.byId("billingAddress").getValue(),
+          "billing_city": this.byId("billingCity").getValue(),
+          "billing_postal_code": this.byId("billingPostalCode").getValue(),
+          "billing_country": this.byId("billingCountry").getValue()
+        });
+
+        var requestOptions = {
+          method: 'PATCH',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+
+        fetch(`http://64.227.115.243:8080/customers/${ID}/`, requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            MessageToast.show("Billing Address Updated Successfully!")
+          })
+          .catch(error => {
+            console.log('error', error);
+            MessageToast.show("Error while updating Billing Address!")
+          });
       },
       onEditPersonalAddress: function () {
         var fnSetVisibleInptFld = function (oId) {
@@ -90,7 +168,7 @@ sap.ui.define(
         this.oBtnEditPrsnlAdrs.setVisible(false);
         this.oBtnSavePrsnlAdrs.setVisible(true);
         var aBillingAdrsInptId = [this.oFirstNamePrsnlDtl, this.oLastNamePrsnlDtl,
-        this.oDateOfBirthPrsnlDtl, this.oEmailPrsnlDtl, this.oPwdPrsnlDtl];
+        this.oDateOfBirthPrsnlDtl];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
       },
       onSavePersonalAddress: function () {
@@ -100,16 +178,53 @@ sap.ui.define(
         this.oBtnEditPrsnlAdrs.setVisible(true);
         this.oBtnSavePrsnlAdrs.setVisible(false);
         var aBillingAdrsInptId = [this.oFirstNamePrsnlDtl, this.oLastNamePrsnlDtl,
-        this.oDateOfBirthPrsnlDtl, this.oEmailPrsnlDtl, this.oPwdPrsnlDtl];
+        this.oDateOfBirthPrsnlDtl];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+        this.EditCustomerDetails();
       },
-      onProductItemPress: function(oEvent){
+      // Patch API works here
+      EditCustomerDetails: function () {
+        var access_token = localStorage.getItem("access_token");
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        var ID = localStorage.getItem("user");
+        if (access_token) {
+          var token = access_token;
+        } else if (guest_access_token) {
+          token = guest_access_token;
+        }
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+          "first_name": this.byId("firstNamePrsnlDtl").getValue(),
+          "last_name": this.byId("lastNamePrsnlDtl").getValue()
+        });
+
+        var requestOptions = {
+          method: 'PATCH',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+
+        fetch(`http://64.227.115.243:8080/customers/${ID}/`, requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            MessageToast.show("Personal Details Updated Successfully!")
+          })
+          .catch(error => {
+            console.log('error', error);
+            MessageToast.show("Error while updating Personal Details!")
+          });
+      },
+      onProductItemPress: function (oEvent) {
         var oBndngCtxt = oEvent.getSource().getBindingContext("wish");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-          this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
+        this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
         this.getRouter().navTo("productDetail", {
-          detailObj:selectedPath.product_name,
+          detailObj: selectedPath.product_name,
         });
       },
 
@@ -123,7 +238,7 @@ sap.ui.define(
         oCustomerLayout.destroyContent();
         oCustomerLayout.addContent(oFragment);
       },
-     
+
 
 
       onCustomerNavigationWishlistSelect: function (oEvent) {
@@ -175,25 +290,25 @@ sap.ui.define(
       onAddToWishList11: function (oEvent) {
         var prod_id = oEvent.getSource().data("itemId");
         var customer_id = sessionStorage.getItem("uid");
-          var formdata = new FormData();
-          formdata.append("customer_id", customer_id);
-          formdata.append("product_id", prod_id);
-          var requestOptions = {
-            method: "DELETE",
-            body: formdata,
-            redirect: "follow",
-          };
-          fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
-            .then((response) => response.text())
-            .then((result) => { 
-              MessageToast.show(JSON.parse(result).message);
-              this.onCustomerNavigationWishlistSelect();
-              
-            })
-            .catch((error) => {
-              // MessageToast.show(error)
-            });
-            }
+        var formdata = new FormData();
+        formdata.append("customer_id", customer_id);
+        formdata.append("product_id", prod_id);
+        var requestOptions = {
+          method: "DELETE",
+          body: formdata,
+          redirect: "follow",
+        };
+        fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            MessageToast.show(JSON.parse(result).message);
+            this.onCustomerNavigationWishlistSelect();
+
+          })
+          .catch((error) => {
+            // MessageToast.show(error)
+          });
+      }
     }
     );
   }
