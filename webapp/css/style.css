@@ -1068,18 +1068,14 @@
 }
 
 .sideVBox {
-  min-width: 27vw;
   border: 1px solid #efefef;
   background-color: #efefef;
   border-radius: 30px;
 }
 
 .totalText {
-  padding: 30px;
   font-size: 25px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  margin-bottom: 30px;
 }
 
 .freeDelivery,
@@ -1114,11 +1110,9 @@
 }
 
 .product_title {
-  text-align: left;
+  color: #3f183b;
   font-size: 15px;
   font-weight: 900;
-  /* margin: 20px 0; */
-  padding-top: 5px;
 }
 
 
@@ -1160,9 +1154,6 @@
 }
 
 
-.section_one {
-  width: 90%;
-}
 
 .product_price {
   text-align: right;
@@ -1298,7 +1289,6 @@
   background-color: #efefef !important;
   border: 1px solid #efefef !important;
   border-radius: 20px !important;
-  margin-top: 1px;
 }
 
 
@@ -1379,14 +1369,10 @@
 
 
 .des_tilte {
-  color: #000;
-  text-transform: uppercase
+  color: #3f183b;
+  font-size: medium;
 }
 
-.des_tilte:hover {
-  color: #000;
-  text-transform: uppercase
-}
   
 .productName {
   color: #3F183B;
