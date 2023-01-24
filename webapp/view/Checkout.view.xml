@@ -12,9 +12,9 @@
 				<steps>
 					<WizardStep id="contentsStep" nextStep="paymentTypeStep" title="{i18n>checkoutContentsTitle}" icon="sap-icon://cart">
 						<Panel class="sapUiDemoFlexBoxSizeAdjustments">
-							<FlexBox alignItems="Start">
-								<HBox class="sapUiSmallMargin">
-									<VBox class="sapUiSmallMargin section_one" width="100%">
+							<FlexBox wrap="Wrap">
+								<HBox>
+									<VBox class="sapUiSmallMargin" width="100%" justifyContent="">
 										<List delete=".onCartEntriesDelete" items="{
 										path : 'oDataProducts>/cartEntries',
 										sorter : {
@@ -24,13 +24,13 @@
 											}
 									}" noDataText="{i18n>minimumOne}" class="mimimun_list">
 											<CustomListItem class="section_one_data">
-												<HBox class="sapUiSmallMargin" fitContainer="true" justifyContent="SpaceBetween">
+												<HBox fitContainer="true" justifyContent="SpaceBetween">
 													<HBox>
-														<VBox class="sapUiSmallMargin">
+														<VBox>
 															<Avatar displaySize="L" src="{
 														path : 'oDataProducts>picture',
 														formatter : '.formatter.picture'
-													}"/>
+													}" class="ceckoutAvtar" showBorder="true" displayShape="Square"/>
 														</VBox>
 														<VBox class="sapUiSmallMargin" renderType="Bare" justifyContent="SpaceBetween">
 															<Label text="{oDataProducts>product_name}" class="product_title"/>
@@ -54,9 +54,9 @@
 													</VBox>
 												</HBox>
 												<HBox renderType="Bare" alignItems="Center" justifyContent="SpaceAround">
-												<Button class="specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
-												<Label class="buttonTexts" text="{i18n>rem}"/>
-											</HBox>
+													<Button class="specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
+													<Label class="buttonTexts" text="{i18n>rem}"/>
+												</HBox>
 											</CustomListItem>
 										</List>
 									</VBox>
@@ -64,17 +64,20 @@
 										<FlexItemData growFactor="3" />
 									</layoutData>
 								</HBox>
-								<HBox class="sapUiSmallMargin">
-									<VBox visible="true" backgroundDesign="Solid" width="100%" class="sideVBox">
-										<Link class="continue_shopping_link" text="{i18n>checkOutText1}" press=".onContinueShopping"/>
-										<Text id="totalPricefinal" text="{ path : 'oDataProducts>/cartEntries', formatter : '.formatter.totalPrice' } EUR" class="totalText" />
-										<HBox class="freeDelivery">
-											<Text text="{i18n>deliveryText}" class="deliveryText"/>
-											<Text text="{i18n>freeText}" class="freeText"/>
+								<HBox>
+									<VBox backgroundDesign="Solid" class="sideVBox" width="100%" justifyContent="SpaceAround">
+										<Text class="checkoutTotal" id="totalPricefinal" text="Total" />
+										<HBox justifyContent="SpaceBetween">
+											<Label design="Bold" vAlign="Middle" text="Sub-Total" labelFor="text-subTotal" />
+											<Text id="text-subTotal" text="0.00" class="deliveryText"/>
 										</HBox>
-										<HBox class="totalVat">
-											<Text class="vatText" text="{i18n>vatText}"/>
-											<Text class="priceText" text=" {path : 'oDataProducts>/cartEntries',formatter : '.formatter.totalPrice' }"/>
+										<HBox class="checkoutDelivery" justifyContent="SpaceBetween">
+											<Label design="Bold" vAlign="Middle" text="{i18n>deliveryText}" labelFor="text-deliveryText" />
+											<Text id="text-deliveryText" text="0.00" class="deliveryText"/>
+										</HBox>
+										<HBox justifyContent="SpaceBetween">
+											<Label design="Bold" vAlign="Middle" text="{i18n>vatText}" labelFor="text-vatText" />
+											<Text id="text-vatText" class="priceText" text=" {path : 'oDataProducts>/cartEntries',formatter : '.formatter.totalPrice' }"/>
 										</HBox>
 									</VBox>
 									<layoutData>
@@ -356,7 +359,7 @@
 						descending : false,
                   noData : false
 					}
-				}" noDataText="{i18n>minimumOne}" class="mimimum_list">
+				}" noDataText="{i18n>minimumOne}">
 											<CustomListItem class="product_show">
 												<HBox class="sapUiSmallMargin image_pro" justifyContent="SpaceBetween" alignItems="Center">
 													<VBox class="avatarVBox">

@@ -995,6 +995,11 @@
   letter-spacing: 1px;
   padding-bottom: 20px;
 }
+.checkoutTotal{
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+}
 
 .redeem {
   justify-content: start !important;
@@ -1068,9 +1073,9 @@
 }
 
 .sideVBox {
-  border: 1px solid #efefef;
-  background-color: #efefef;
-  border-radius: 30px;
+  padding: 15px;
+  border: 1px solid #ABABAB;
+  border-radius: 18px;
 }
 
 .totalText {
@@ -1078,12 +1083,6 @@
   font-weight: 600;
 }
 
-.freeDelivery,
-.totalVat {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-}
 
 .deliveryText {
   font-size: 20px;
@@ -1140,11 +1139,6 @@
   align-items: center;
 }
 
-.specialButtons,
-.buttonTexts {
-  border: none;
-  color: #989898;
-}
 
 .product_quantity {
   text-align: left;
@@ -1255,14 +1249,6 @@
   background-color: red;
 }
 
-.mimimun_list,
-.deliveryType {
-  width: 100%;
-  /* border: 2px solid #DF3165 !important; */
-  /* background-color: #DF3165 !important; */
-  border-radius: 20px;
-  color: #3F183B !important;
-}
 
 .deliveryTypetext {
   padding: 10px !important;
@@ -1273,22 +1259,17 @@
   border: 1px solid #EFEFEF;
 }
 
-.amantil {
-  width: 299px !important;
-}
-
-.mimimum_list {
-  width: 40vw !important;
-  /* border: 2px solid #df3165 !important; */
-  /* background-color: #df3165 !important; */
-  border-radius: 20px;
-  padding: 2px 8px;
-}
 
 .section_one_data {
-  background-color: #efefef !important;
-  border: 1px solid #efefef !important;
-  border-radius: 20px !important;
+  padding: 15px;
+  border: 1px solid #ABABAB !important;
+  border-radius: 18px !important;
+}
+.ceckoutAvtar{
+  border: 1px solid #ABABAB; 
+}
+.checkoutDelivery{
+  border-bottom: 1px solid #ABABAB;
 }
 
 
