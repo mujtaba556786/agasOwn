@@ -43,7 +43,6 @@ sap.ui.define(
       onBeforeRendering: function () { },
       onInit: function () {
         this._initI18n();
-
       },
       _initI18n: function () {
         var i18n = "i18n";
@@ -675,7 +674,7 @@ sap.ui.define(
         );
       },
 
-      onLoginSubmit: function () {
+      onLoginSubmit: async function () {
         var _sUrl = "http://64.227.115.243:8080/login/";
         var _sLoginEmail = this.byId("loginEmailInput").getValue();
         var _sLoginPassword = this.byId("loginPasswordInput").getValue();
@@ -683,42 +682,61 @@ sap.ui.define(
           email: _sLoginEmail,
           password: _sLoginPassword,
         };
-        this.getService()
+        await this.getService()
           .onPost(_sUrl, oData)
           .then((oSuccess) => {
+            console.log("SUCSEX",oSuccess)
             var ID = oSuccess.id
             var ans = oSuccess.token.access_token;
             localStorage.setItem("access_token", ans)
-            sap.ui.getCore()._Id = ID;
+            localStorage.setItem("user",ID);
             // this.onLoginSucces(oSuccess);
             this.getRouter().navTo("customer");
             this.onLoginClose();
+            this.setCustomerModel();
           })
           .catch((oError) => {
             MessageBox.error(oError.responseText);
           });
       },
+      InactivelyLogOut : function(){
+        this.timeout = timeout;
+        this.eventHandler = this.updateExpiredTIme.bind(this);
+        this.tracker();
+      },
+      tracker : function(){
+        window.addEventListener("mousemove",this.eventHandler);
+        window.addEventListener("mousewheel",this.eventHandler);
+        window.addEventListener("scroll",this.eventHandler);
+        window.addEventListener("mousedown",this.eventHandler);
+        window.addEventListener("keydown",this.eventHandler);
+        window.addEventListener("keypress",this.eventHandler);
+        window.addEventListener("MSPointerMove",this.eventHandler);
+        window.addEventListener("touchmove",this.eventHandler);
+        window.addEventListener("DOMMouseScroll",this.eventHandler);
+      },
 
-      getCustomerDetails: async function (oData) {
-        var ID = sap.ui.getCore()._Id
-        var token = localStorage.getItem("access_token")
-        // var token = localStorage.getItem("token");
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer " + token);
-
-        var requestOptions = {
-          method: 'GET',
-          headers: myHeaders,
-          redirect: 'follow'
+      setCustomerModel: async function(sUid){
+        var ID = localStorage.getItem("user")
+        var token = localStorage.getItem("access_token");
+        var oHeaderToken = {
+          Authorization: "Bearer " + token,
         };
-        // v
-        fetch(`http://64.227.115.243:8080/customers/${ID}`, requestOptions)
-          .then((response) => response.text())
-          .then((result) => {
-            var customer_id = (JSON.parse(result)._id)
-            localStorage.setItem("customer_id", customer_id)
-          })
-          .catch((error) => console.log("error", error));
+        if(!ID){
+					return;
+				}
+        var _sUrl = `http://64.227.115.243:8080/customers/${ID}`;
+        await this.getService()
+        .onGet(_sUrl,oHeaderToken)
+        .then((oSuccess) => {
+          console.log("success",oSuccess);
+          this.getView()
+          .getModel("oGlobalModel")
+          .setProperty("/", { customerModel: oSuccess });
+        })
+        .catch((oError) => {
+          MessageBox.error(oError.responseText);
+        });       
       },
 
       onNavToCustomer: function () {
@@ -755,6 +773,7 @@ sap.ui.define(
             localStorage.removeItem("access_token")
             localStorage.removeItem("guest_access_token");
             localStorage.removeItem("Guest_id");
+            localStorage.removeItem("user");
             sessionStorage.removeItem("myvalue5");
             sessionStorage.removeItem("product_id");
             oGlobalModel.setProperty("/customer", "");
@@ -1074,6 +1093,9 @@ sap.ui.define(
         if (data_acceptance === false) {
           alert("Click to accept T&C");
         } else {
+          if(!_nwfirstName || !_nwlastName || !_nwEmail){
+            MessageBox.information("All Fields are mandatory!")
+          }else{
           await this.getService()
             .onGet(_nwUrl)
             .then((oSuccess) => {
@@ -1111,6 +1133,7 @@ sap.ui.define(
             MessageToast.show("Mail id already exist!");
             MessageBox.error("Hey! Mail id already exist!");
           }
+        }
         }
       },
 
