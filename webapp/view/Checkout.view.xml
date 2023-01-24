@@ -11,11 +11,10 @@
 			<Wizard class="checkoutSteps" id="shoppingCartWizard" complete="checkCompleted" enableBranching="true">
 				<steps>
 					<WizardStep id="contentsStep" nextStep="paymentTypeStep" title="{i18n>checkoutContentsTitle}" icon="sap-icon://cart">
-						<Panel class="sapUiDemoFlexBoxSizeAdjustments">
-							<FlexBox wrap="Wrap">
-								<HBox>
-									<VBox class="sapUiSmallMargin" width="100%" justifyContent="">
-										<List delete=".onCartEntriesDelete" items="{
+						<FlexBox>
+							<HBox>
+								<VBox class="sapUiSmallMargin" width="100%" justifyContent="">
+									<List delete=".onCartEntriesDelete" items="{
 										path : 'oDataProducts>/cartEntries',
 										sorter : {
 												path : 'Name',
@@ -23,69 +22,68 @@
                   								noData : false
 											}
 									}" noDataText="{i18n>minimumOne}" class="mimimun_list">
-											<CustomListItem class="section_one_data">
-												<HBox fitContainer="true" justifyContent="SpaceBetween">
-													<HBox>
-														<VBox>
-															<Avatar displaySize="L" src="{
+										<CustomListItem class="section_one_data">
+											<HBox fitContainer="true" justifyContent="SpaceBetween">
+												<HBox>
+													<VBox>
+														<Avatar displaySize="XL" src="{
 														path : 'oDataProducts>picture',
 														formatter : '.formatter.picture'
 													}" class="ceckoutAvtar" showBorder="true" displayShape="Square"/>
-														</VBox>
-														<VBox class="sapUiSmallMargin" renderType="Bare" justifyContent="SpaceBetween">
-															<Label text="{oDataProducts>product_name}" class="product_title"/>
-															<HBox renderType="Bare">
-																<Label text="{i18n>color}" labelFor="text-color" />
-																<Text id="text-color" text="{oGlobalModel>/detailProduct/color}"/>
-															</HBox>
-															<HBox renderType="Bare">
-																<Label text="{i18n>dimension}" labelFor="text-dimension" />
-																<Text id="text-dimension" text="{oGlobalModel>/detailProduct/size}"/>
-															</HBox>
-														</VBox>
-													</HBox>
-													<VBox>
-														<Text text="{oDataProducts>Quantity}" class="product_quantity"/>
-														<ObjectNumber number="{
+													</VBox>
+													<VBox class="sapUiSmallMargin" renderType="Bare" justifyContent="SpaceBetween">
+														<Label text="{oDataProducts>product_name}" class="product_title"/>
+														<HBox renderType="Bare">
+															<Label text="{i18n>color}" labelFor="text-color" />
+															<Text id="text-color" text="{oGlobalModel>/detailProduct/color}"/>
+														</HBox>
+														<HBox renderType="Bare">
+															<Label text="{i18n>dimension}" labelFor="text-dimension" />
+															<Text id="text-dimension" text="{oGlobalModel>/detailProduct/size}"/>
+														</HBox>
+													</VBox>
+												</HBox>
+												<VBox>
+													<Text text="{oDataProducts>Quantity}" class="product_quantity"/>
+													<ObjectNumber number="{
 																		parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
 																		type: 'sap.ui.model.type.Currency',
 																		formatOptions: {showMeasure: false}
 														}" class="product_price"/>
-													</VBox>
-												</HBox>
-												<HBox renderType="Bare" alignItems="Center" justifyContent="SpaceAround">
-													<Button class="specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
-													<Label class="buttonTexts" text="{i18n>rem}"/>
-												</HBox>
-											</CustomListItem>
-										</List>
-									</VBox>
-									<layoutData>
-										<FlexItemData growFactor="3" />
-									</layoutData>
-								</HBox>
-								<HBox>
-									<VBox backgroundDesign="Solid" class="sideVBox" width="100%" justifyContent="SpaceAround">
-										<Text class="checkoutTotal" id="totalPricefinal" text="Total" />
-										<HBox justifyContent="SpaceBetween">
-											<Label design="Bold" vAlign="Middle" text="Sub-Total" labelFor="text-subTotal" />
-											<Text id="text-subTotal" text="0.00" class="deliveryText"/>
-										</HBox>
-										<HBox class="checkoutDelivery" justifyContent="SpaceBetween">
-											<Label design="Bold" vAlign="Middle" text="{i18n>deliveryText}" labelFor="text-deliveryText" />
-											<Text id="text-deliveryText" text="0.00" class="deliveryText"/>
-										</HBox>
-										<HBox justifyContent="SpaceBetween">
-											<Label design="Bold" vAlign="Middle" text="{i18n>vatText}" labelFor="text-vatText" />
-											<Text id="text-vatText" class="priceText" text=" {path : 'oDataProducts>/cartEntries',formatter : '.formatter.totalPrice' }"/>
-										</HBox>
-									</VBox>
-									<layoutData>
-										<FlexItemData growFactor="1" />
-									</layoutData>
-								</HBox>
-							</FlexBox>
-						</Panel>
+												</VBox>
+											</HBox>
+											<HBox renderType="Bare" alignItems="Center" justifyContent="SpaceAround">
+												<Button class="specialButtons" icon="sap-icon://delete" press="" type="Unstyled" />
+												<Label class="buttonTexts" text="{i18n>rem}"/>
+											</HBox>
+										</CustomListItem>
+									</List>
+								</VBox>
+								<layoutData>
+									<FlexItemData growFactor="3" />
+								</layoutData>
+							</HBox>
+							<HBox alignItems="Start">
+								<VBox backgroundDesign="Solid" class="sideVBox" width="100%" justifyContent="SpaceAround">
+									<Text class="checkoutTotal" id="totalPricefinal" text="Total" />
+									<HBox justifyContent="SpaceBetween">
+										<Label design="Bold" vAlign="Middle" text="Sub-Total" labelFor="text-subTotal" />
+										<Text id="text-subTotal" text="0.00" class="deliveryText"/>
+									</HBox>
+									<HBox class="checkoutDelivery" justifyContent="SpaceBetween">
+										<Label design="Bold" vAlign="Middle" text="{i18n>deliveryText}" labelFor="text-deliveryText" />
+										<Text id="text-deliveryText" text="0.00" class="deliveryText"/>
+									</HBox>
+									<HBox justifyContent="SpaceBetween">
+										<Label design="Bold" vAlign="Middle" text="{i18n>vatText}" labelFor="text-vatText" />
+										<Text id="text-vatText" class="priceText" text=" {path : 'oDataProducts>/cartEntries',formatter : '.formatter.totalPrice' }"/>
+									</HBox>
+								</VBox>
+								<layoutData>
+									<FlexItemData growFactor="1" />
+								</layoutData>
+							</HBox>
+						</FlexBox>
 					</WizardStep>
 					<WizardStep id="paymentTypeStep" title="{i18n>checkoutPaymentTitle}" subsequentSteps="creditCardStep, bankAccountStep, cashOnDeliveryStep" complete="goToPaymentStep" icon="sap-icon://money-bills">
 						<Text class="sapUiSmallMarginBottom" text="{i18n>checkoutPaymentText}" />
