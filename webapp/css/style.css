@@ -176,9 +176,6 @@
 
 /*---------------- header fragment css start ------------------ */
 /* my code ... */
-.headerBar {
-}
-
 
 .headerBar .sapMImg {
   width: 150px;
@@ -201,10 +198,7 @@
 }
 
 .checkoutSteps .sapMWizardProgressNavStepCircle {
-  background-color: #df3165;
-  border: #df3165 2px;
-  color: white !important;
-  background-color: #df3165;
+  
 }
 
 /* checkout page nav bar */
@@ -1427,12 +1421,6 @@ opacity: 1;
 
 .go_to_cus1 .logerName .sapUiIcon::before {
   color: #df3165;
-}
-
-
-
-.checkoutSteps .sapMWizardProgressNavStepCircle:hover {
-  background-color: pink;
 }
 
 .cus_con {
