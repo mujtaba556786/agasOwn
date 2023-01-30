@@ -88,7 +88,7 @@
 					<WizardStep id="paymentTypeStep" title="{i18n>checkoutPaymentTitle}" subsequentSteps="creditCardStep, bankAccountStep, cashOnDeliveryStep" complete="goToPaymentStep" icon="sap-icon://money-bills">
 						<Text class="sapUiSmallMarginBottom" text="{i18n>checkoutPaymentText}" />
 						<HBox justifyContent="Center">
-							<VBox renderType="Bare" width="100%" class="paymentSegmaent" backgroundDesign="Solid"> 
+							<VBox renderType="Bare" class="paymentSegmaent" backgroundDesign="Solid"> 
 								<SegmentedButton select="setPaymentMethod" id="paymentMethodSelection" selectedKey="{/SelectedPayment}">
 									<items>
 										<SegmentedButtonItem class="sapUiLargeMarginBottom" id="payViaCC" key="Credit Card" press=".newFunction" text="{i18n>checkoutPaymentCreditCard}" />

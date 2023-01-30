@@ -1200,8 +1200,9 @@
   background:#3f183b;
   color: #fff;
 }
-.paymentSegmaent .sapMSegB:hover .sapMSegBBtn:hover .sapMSegBBtnInner:hover{
-  background:#3f183b;
+.paymentSegmaent .sapMSegB:hover 
+.sapMSegBBtn:hover .sapMSegBBtnInner:hover{
+  background:transparent;
   color: #df3165;
 }
 
@@ -1231,11 +1232,13 @@
 }
 
 .form_data {
-  /* border: 5px solid #DF3165; */
-  background-color: #efefef;
+  background-color: #fff;
   padding: 2vw;
   border-radius: 30px;
   width: 40vw;
+}
+.form_data .sapMLabel{
+  color: #3f183b;
 }
 
 .colorwhite {
