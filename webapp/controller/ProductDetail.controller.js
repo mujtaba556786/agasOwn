@@ -136,7 +136,7 @@ sap.ui.define(
           var sRecipient = this.getView()
             .getModel()
             .getProperty("/recipient/value");
-          sessionStorage.setItem("myvalue5", sRecipient);
+          sessionStorage.setItem("myvalue5",  );
           var oSelectedPath = this.getView()
             .getModel("oGlobalModel")
             .getData().detailProduct;
@@ -224,7 +224,7 @@ sap.ui.define(
           var oResourceBundle = this.getOwnerComponent()
             .getModel("i18n")
             .getResourceBundle();
-          //!Store Cart data into session storage
+          //!Store Cart data sinto session storage
           var sRecipient = this.getView()
             .getModel()
             .getProperty("/recipient/value");

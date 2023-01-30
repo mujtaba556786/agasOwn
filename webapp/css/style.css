@@ -197,14 +197,38 @@
   background-color: #3f183b;
 }
 
+.checkoutSteps .sapMWizardProgressNavStep[data-sap-ui-wpn-step-active="true"] 
+.sapMWizardProgressNavStepTitle{
+  color: #3f183b;
+}
+.checkoutSteps .sapMWizardProgressNavStepTitleContainer{
+  background: none;
+  vertical-align:baseline;
+}
+.checkoutSteps 
+.sapMWizardProgressNavStep[data-sap-ui-wpn-step-active="true"]~.sapMWizardProgressNavStep 
+.sapMWizardProgressNavStepCircle{
+  color: #fff;
+  background: #3f183b;
+  border-color:#3f183b;
+}
+.checkoutSteps 
+.sapMWizardProgressNavStep[data-sap-ui-wpn-step-current="true"] 
+.sapMWizardProgressNavStepCircle {
+  background: #3f183b;
+  color: #fff;
+  border-color:#3f183b;
+}
+
 .checkoutSteps .sapMWizardProgressNavStepCircle {
-  
+  border-color: #df3165;
+  color: #fff;
+  background: #DF3165;
 }
 
 /* checkout page nav bar */
 .sapMWizardProgressNav {
   padding: 1rem 0.5rem;
-  margin-top: 46px;
   background-color: rgb(254, 253, 252) !important;
 }
 
