@@ -18,10 +18,7 @@ sap.ui.define([
 				// });
 				// this.getView().setModel(i18nModel, "i18n");
 				var access_token = localStorage.getItem("access_token");
-				var guest_access_token = localStorage.getItem("guest_access_token");
 				if (access_token) {
-					this.newFunc()
-				} else if (guest_access_token) {
 					this.newFunc()
 				}
 			},
@@ -31,13 +28,7 @@ sap.ui.define([
 			newFunc: function () {
 
 				var ID = localStorage.getItem("user");
-				var access_token = localStorage.getItem("access_token");
-				var guest_access_token = localStorage.getItem("guest_access_token");
-				if (access_token) {
-					var token = access_token;
-				} else if (guest_access_token) {
-					token = guest_access_token
-				}
+				var token = localStorage.getItem("access_token");
 				var oHeaderToken = {
 					Authorization: "Bearer " + token,
 				};

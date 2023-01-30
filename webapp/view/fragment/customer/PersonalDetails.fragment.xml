@@ -6,15 +6,20 @@
    <l:VerticalLayout id="personalVerticalLayout" width="100%">
       <l:BlockLayout id="personalLayout">
          <l:BlockLayoutRow>
-            <l:BlockLayoutCell title="{i18n>persDeta}">
+            <l:BlockLayoutCell title="{i18n>personalAddressTitle}">
                <VBox renderType="Bare" displayInline="true" fitContainer="true">
                   <HBox renderType="Bare">
                      <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://customer" press=".offLoginOpen" />
                      <VBox renderType="Bare" justifyContent="SpaceBetween" width="100%">
+                     <Text text="{i18n>salu}" />
+                     <HBox>
+                     <CheckBox id="saluMr" text="Mr." editable="false" />
+                     <CheckBox id="saluMrs" text="Mrs." editable="false" selected="false"/>
+                     </HBox>
                         <Text text="{i18n>FN}" />
-                        <Input id="firstNamePrsnlDtl" editable="false" value='{oGlobalModel>/customerModel/first_name}'/>
+                        <Input id="firstNamePrsnlDtl" editable="false"  placeholder="{i18n>firstNameText}" value="{ path: 'oGlobalModel>/customerModel/first_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userFirstNameCheck" valueStateText="Must be greater than 3 letters" required="true" type="text"/>
                         <Text text="{i18n>LN}" />
-                        <Input id="lastNamePrsnlDtl" editable="false" value='{oGlobalModel>/customerModel/last_name}'/>
+                        <Input id="lastNamePrsnlDtl" editable="false" placeholder="{i18n>lastNameText}" value="{ path: 'oGlobalModel>/customerModel/last_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userLastNameCheck" valueStateText="Must be greater than 3 letters" required="true" type="text"/>
                          <Text text="{i18n>DOB}" />
                         <Input id="dateOfBirthPrsnlDtl" editable="false" value='{oGlobalModel>/customerModel/date_of_birth}'/>
                      </VBox>

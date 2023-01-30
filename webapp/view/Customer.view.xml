@@ -24,7 +24,7 @@
 										<ImageContent src="sap-icon://customer-order-entry" />
 									</TileContent>
 								</GenericTile>
-								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>wishlist}" subheader="{i18n>yourWishlist}" press="onPressCustomerTile">
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>wishlist}" subheader="{i18n>yourWishlist}" press="onCustomerNavigationWishlistSelect">
 									<TileContent>
 										<ImageContent src="sap-icon://favorite-list" />
 									</TileContent>

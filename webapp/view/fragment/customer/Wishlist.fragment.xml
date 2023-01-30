@@ -26,7 +26,6 @@
                <VBox alignItems="Center" class="sapUiSmallMargin vbox-c-home" >
               
                   <HBox>
-                     <!-- <Button class="specialButtons" icon="sap-icon://delete" press="onAddToWishList11" type="Unstyled" /> -->
                      <Image src="{path: 'wish>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
                   </HBox>
                   <Title text="{wish>product_name}" wrapping="true" />
@@ -36,7 +35,7 @@
 						formatOptions: {showMeasure: false}
 					}" unit="{wish>/Currency}" textAlign="Center"/>
                   <Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
-                  <Button class="dialogCloseBtn newDialogCloseBtn" icon="sap-icon://delete" press=".onAddToWishList11" type="Unstyled" app:itemId="{wish>_id}"/>
+                  <Button class="dialogCloseBtn newDialogCloseBtn" icon="sap-icon://delete" press=".onAddToWishListDel" type="Unstyled" app:itemId="{wish>_id}"/>
                </VBox>
             </Carousel>
          </VBox>

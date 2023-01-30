@@ -683,11 +683,13 @@ sap.ui.define(
           password: _sLoginPassword,
         };
         await this.getService()
+        await this.getService()
           .onPost(_sUrl, oData)
           .then((oSuccess) => {
             var ID = oSuccess.id
             var ans = oSuccess.token.access_token;
             localStorage.setItem("access_token", ans)
+            localStorage.setItem("user",ID);
             localStorage.setItem("user",ID);
             // this.onLoginSucces(oSuccess);
             this.getRouter().navTo("customer");
@@ -717,13 +719,7 @@ sap.ui.define(
 
       setCustomerModel: async function(sUid){
         var ID = localStorage.getItem("user")
-        var access_token = localStorage.getItem("access_token");
-        var guest_access_token = localStorage.getItem("guest_access_token");
-        if(access_token){
-          var token =  access_token;
-        }else if(guest_access_token){
-          token = guest_access_token
-        }
+        var token = localStorage.getItem("access_token");
         var oHeaderToken = {
           Authorization: "Bearer " + token,
         };
@@ -734,6 +730,7 @@ sap.ui.define(
         await this.getService()
         .onGet(_sUrl,oHeaderToken)
         .then((oSuccess) => {
+          console.log("success",oSuccess);
           this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { customerModel: oSuccess });
