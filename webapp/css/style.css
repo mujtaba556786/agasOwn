@@ -614,24 +614,9 @@
   width: -webkit-fill-available;
 }
 
-#container-agasown---checkout--orderSummaryStep-nextButton {
-  display: none !important;
-}
-
-/* #__hbox37{
-  display: flex !important;
-  flex-direction: column !important;
-} */
-.hbox5 {
-  display: flex !important;
-  flex-direction: column !important;
-}
 
 /* Registration Fragment.xml */
 
-#container-agasown---home--registrationDialog-cont {
-  width: 50rem !important;
-}
 
 .registrationText {
   color: #DF3165 !important;
@@ -1198,15 +1183,7 @@
   color: white !important;
 }
 
-.pal_payment {
-  display: flex !important;
-  justify-content: space-evenly;
-  padding: 25px !important;
-}
-
 .step_left {
-  /* background-color: #df3165;
-  border: 1px solid #df3165; */
   border-radius: 30px;
   display: flex;
 }
@@ -1214,21 +1191,23 @@
   text-align: right;
   color: #df3165;
 }
-.pal_pay {
+.paymentSegmaent {
   border: 2px solid #efefef;
-  background-color: #efefef;
   padding: 2vw;
-  margin: 5px;
   border-radius: 30px;
-  width: 40vw;
-  height: 30vh;
-  min-width: 200px !important;
+}
+.paymentSegmaent .sapMSegB .sapMSegBBtn .sapMSegBBtnInner{
+  background:#3f183b;
+  color: #fff;
+}
+.paymentSegmaent .sapMSegB:hover .sapMSegBBtn:hover .sapMSegBBtnInner:hover{
+  background:#3f183b;
+  color: #df3165;
 }
 
-.activate {
-  color: white !important;
-  background-color: #3F183B !important;
-  border: 1px solid #3F183B !important;
+.paymentSegmaent .sapMSegBBtn.sapMSegBBtnSel .sapMSegBBtnInner {
+  background: #df3165;
+  border-color: #df3165;
 }
 
 .bankDetails {
