@@ -1144,10 +1144,7 @@
 
 
 .product_quantity {
-  text-align: left;
   border: 1px solid #989898;
-  padding: 10px 50px;
-  margin: 15px 0;
 }
 
 
@@ -1168,11 +1165,6 @@
 }
 
 /* Checkout Page  */
-.product_overall_details {
-  display: flex;
-  justify-content: space-between;
-  width: 100% !important;
-}
 
 .totalprice_bar {
   background-color: #df3165 !important;
@@ -1293,17 +1285,10 @@
   border-radius: 33% !important;
 }
 
-.image_pro {
-  background-color: #efefef;
-  border: 1px solid #efefef;
-  border-radius: 20px;
-}
 
 .product_show {
-  background-color: #efefef;
   border-radius: 20px;
   border: 1px solid #efefef;
-  margin: 10px 0;
 }
 
 .summaryBar {

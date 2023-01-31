@@ -136,7 +136,7 @@ sap.ui.define(
           var sRecipient = this.getView()
             .getModel()
             .getProperty("/recipient/value");
-          sessionStorage.setItem("myvalue5",  );
+          sessionStorage.setItem("myvalue5", sRecipient);
           var oSelectedPath = this.getView()
             .getModel("oGlobalModel")
             .getData().detailProduct;

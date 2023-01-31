@@ -12,7 +12,7 @@
 					}
 				}" noDataText="{i18n>cartNoData}">
 			<CustomListItem>
-				<HBox class="sapUiSmallMargin prodductDet" justifyContent="SpaceBetween" alignItems="Center">
+				<HBox wrap="Wrap" class="sapUiSmallMargin prodductDet" justifyContent="SpaceBetween" alignItems="Center">
 					<Avatar displaySize="M" src="{
 							path : 'oDataProducts>picture',
 							formatter : '.formatter.jsonPictureUrl'
@@ -29,11 +29,11 @@
 				</HBox>
 				<HBox class="sapUiSmallMargin productBut" justifyContent="SpaceBetween" alignItems="Center">
 					<Button class="cartButton" icon="sap-icon://favorite" type="Unstyled" />
-					<Button class="cartButton" icon="sap-icon://delete" type="Unstyled"  press=".onAddToCartDetails_delete" app:itemId="{oDataProducts>_id}"/>
+					<Button class="cartButton" icon="sap-icon://delete" type="Unstyled"  press=".onCartEntriesDelete" app:itemId="{oDataProducts>_id}"/>
 				</HBox>
 			</CustomListItem>
 		</List>
-		<HBox class="sapUiSmallMargin productCheck" justifyContent="SpaceBetween" alignItems="Center">
+		<HBox class="sapUiSmallMargin" wrap="Wrap" justifyContent="SpaceBetween" alignItems="Center">
 			<Button class="cartButtonCheckOut" text="{i18n>checkOutText}" press="onNavToCheckout" type="Unstyled" />
 			<Text text="{path : 'oDataProducts>/cartEntries',
 						formatter : '.formatter.totalPrice'
