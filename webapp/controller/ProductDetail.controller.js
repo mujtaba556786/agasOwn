@@ -261,7 +261,41 @@ sap.ui.define(
         }
       },
 
+      onWishlistSelect : function(){
+        // var sId = this.byId("customerTab");
+        // var sHeader = oEvent.getSource().getHeader();
+        // sId.setSelectedKey(sHeader);
+        var data = sap.ui.controller("ag.agasown.Controller.Customer").onGetWishlistProductDetails();
+        var id = localStorage.getItem("user");
+        var access_token = localStorage.getItem("access_token");
+        var headEr = new Headers();
+        headEr.append("Authorization", "Bearer " + access_token);
+        var requestOptions = {
+          method: "GET",
+          headers: headEr,
+          redirect: "follow",
+        };
+        fetch(`http://64.227.115.243:8080/customers/${id}`, requestOptions)
+          .then((response) => response.json())
+          .then(async (result) => {
+            var wishData = result.wishlist; 
+            var globArr = [];
+            var answ = wishData.split(',');
+            answ.forEach(function(obj){
+              globArr.push(obj);
+        });
+            const data = globArr.map(async (item) => {
+              return await this.onGetWishlistProductDetails(item);
+            })
+            const product = await Promise.all(data);
+            var eachProd =  product.map((i) => { return (i) });
+            var oGlobalModel = new JSONModel(eachProd);  //pass product
+            this.getView().setModel(oGlobalModel, "wishListmodel");
+          })
+          .catch(error => console.log('error', error));
+      },
       onAddToWishList: function (oEvent) {
+        this.onWishlistSelect();
         var token;
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
@@ -274,14 +308,8 @@ sap.ui.define(
         } else {
           sessionStorage.setItem('product_id', ('' + product_id))
         }
-        var access_token = localStorage.getItem("access_token");
-        var guest_access_token = localStorage.getItem("guest_access_token");
-        if (access_token) {
-          token = access_token;
-        } else if (guest_access_token) {
-          token = guest_access_token;
-        }
-
+        var token = localStorage.getItem("access_token");
+       
         if (!token) {
           MessageToast.show("You have to login first");
           if (token == null) {
@@ -327,10 +355,11 @@ sap.ui.define(
                     redirect: "follow",
                   };
 
-                  fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
+                  fetch("http://64.227.115.243:8080/delete_wishlist/", requestOptions)
                     .then((response) => response.text())
                     .then((result) => {
                       console.log(JSON.parse(result).message)
+                      MessageToast.show(JSON.parse(result).message)
                     }
                     )
                     .catch((error) => console.log("error", error));

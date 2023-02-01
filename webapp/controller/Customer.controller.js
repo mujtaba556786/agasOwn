@@ -12,6 +12,7 @@ sap.ui.define(
         this._sIdBillingAdrs();
         this._sIdPersonalAdrs();
         this.onCustomerOderDetails();
+        // this.onCustomerNavigationWishlistSelect();
       },
       _sIdHomeAdrs: function () {
         this.oAddress = this.byId("address1");
@@ -287,9 +288,11 @@ sap.ui.define(
 
 
       onCustomerNavigationWishlistSelect: function (oEvent) {
+        var sId = this.byId("customerTab");
+        var sHeader = oEvent.getSource().getHeader();
+        sId.setSelectedKey(sHeader);
         var id = localStorage.getItem("user");
         var access_token = localStorage.getItem("access_token");
-        var wishlistItems = [];
         var headEr = new Headers();
         headEr.append("Authorization", "Bearer " + access_token);
         var requestOptions = {
@@ -297,30 +300,49 @@ sap.ui.define(
           headers: headEr,
           redirect: "follow",
         };
-        var new_reqestOptions = {
-          method: "GET",
-          redirect: "follow",
-        };
         fetch(`http://64.227.115.243:8080/customers/${id}`, requestOptions)
           .then((response) => response.json())
-          .then((result) => {
+          .then(async (result) => {
             var wishData = result.wishlist; 
-            console.log(wishData,"wishData");
+            var globArr = [];
+            var answ = wishData.split(',');
+            answ.forEach(function(obj){
+              globArr.push(obj);
+        });
+            const data = globArr.map(async (item) => {
+              return await this.onGetWishlistProductDetails(item);
+            })
+            const product = await Promise.all(data);
+            var eachProd =  product.map((i) => { return (i) });
+            var oGlobalModel = new JSONModel(eachProd);  //pass product
+            this.getView().setModel(oGlobalModel, "wishListmodel");
           })
+          .catch(error => console.log('error', error));
+      },
+      onGetWishlistProductDetails: async function (item) {
+        var requestOptions = {
+          method: 'GET',
+          redirect: 'follow'
+        };
+        const res = await fetch(`http://64.227.115.243:8080/products/${item}`, requestOptions)
+        return res.json();
       },
       
       onAddToWishListDel: function (oEvent) {
         var prod_id = oEvent.getSource().data("itemId");
-        var customer_id = sessionStorage.getItem("uid");
         var formdata = new FormData();
-        formdata.append("customer_id", customer_id);
         formdata.append("product_id", prod_id);
+        var access_token = localStorage.getItem("access_token");
+        var headEr = new Headers();
+        headEr.append("Authorization", "Bearer " + access_token);
+
         var requestOptions = {
           method: "DELETE",
+          headers: headEr,
           body: formdata,
           redirect: "follow",
         };
-        fetch("http://64.227.115.243:8080/wishlist/delete", requestOptions)
+        fetch("http://64.227.115.243:8080/delete_wishlist/", requestOptions)
           .then((response) => response.text())
           .then((result) => {
             MessageToast.show(JSON.parse(result).message);
