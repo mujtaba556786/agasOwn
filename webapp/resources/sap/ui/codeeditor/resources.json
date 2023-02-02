@@ -1,0 +1,8650 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": ".library",
+			"size": 1798
+		},
+		{
+			"name": ".supportrc",
+			"size": 26
+		},
+		{
+			"name": ".theming",
+			"size": 81
+		},
+		{
+			"name": "CodeEditor-dbg.js",
+			"module": "sap/ui/codeeditor/CodeEditor.js",
+			"size": 16318,
+			"isDebug": true,
+			"required": [
+				"sap/ui/codeeditor/js/ace/ace.js",
+				"sap/ui/codeeditor/js/ace/ext-beautify.js",
+				"sap/ui/codeeditor/js/ace/ext-language_tools.js",
+				"sap/ui/codeeditor/js/ace/mode-javascript.js",
+				"sap/ui/codeeditor/js/ace/mode-json.js",
+				"sap/ui/codeeditor/library.js",
+				"sap/ui/core/Control.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/RenderManager.js",
+				"sap/ui/core/ResizeHandler.js",
+				"sap/ui/dom/includeStylesheet.js",
+				"sap/ui/thirdparty/jquery.js"
+			]
+		},
+		{
+			"name": "CodeEditor.js",
+			"module": "sap/ui/codeeditor/CodeEditor.js",
+			"size": 6964,
+			"required": [
+				"sap/ui/codeeditor/js/ace/ace.js",
+				"sap/ui/codeeditor/js/ace/ext-beautify.js",
+				"sap/ui/codeeditor/js/ace/ext-language_tools.js",
+				"sap/ui/codeeditor/js/ace/mode-javascript.js",
+				"sap/ui/codeeditor/js/ace/mode-json.js",
+				"sap/ui/codeeditor/library.js",
+				"sap/ui/core/Control.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/RenderManager.js",
+				"sap/ui/core/ResizeHandler.js",
+				"sap/ui/dom/includeStylesheet.js",
+				"sap/ui/thirdparty/jquery.js"
+			]
+		},
+		{
+			"name": "CodeEditor.js.map",
+			"size": 7554,
+			"isDebug": true
+		},
+		{
+			"name": "aceWorkerProxy-dbg.js",
+			"module": "sap/ui/codeeditor/aceWorkerProxy.js",
+			"size": 1646,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "aceWorkerProxy.html",
+			"size": 256
+		},
+		{
+			"name": "aceWorkerProxy.js",
+			"module": "sap/ui/codeeditor/aceWorkerProxy.js",
+			"size": 898,
+			"format": "raw"
+		},
+		{
+			"name": "aceWorkerProxy.js.map",
+			"size": 1320,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ace-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ace.js",
+			"size": 714295,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ace.js",
+			"module": "sap/ui/codeeditor/js/ace/ace.js",
+			"size": 380420,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ace.js.map",
+			"size": 502600,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/css/ace.css",
+			"size": 21601
+		},
+		{
+			"name": "js/ace/css/ambiance-1.png",
+			"size": 17742
+		},
+		{
+			"name": "js/ace/css/ambiance-2.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/chrome-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/clouds-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/clouds_midnight-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/cobalt-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/crimson_editor-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/dawn-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/dracula-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/dreamweaver-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/eclipse-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/github-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/gob-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/gruvbox-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/idle_fingers-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/iplastic-1.png",
+			"size": 109
+		},
+		{
+			"name": "js/ace/css/iplastic-2.png",
+			"size": 2798
+		},
+		{
+			"name": "js/ace/css/kr_theme-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/main-1.png",
+			"size": 694
+		},
+		{
+			"name": "js/ace/css/main-10.png",
+			"size": 109
+		},
+		{
+			"name": "js/ace/css/main-11.png",
+			"size": 115
+		},
+		{
+			"name": "js/ace/css/main-12.png",
+			"size": 87
+		},
+		{
+			"name": "js/ace/css/main-13.png",
+			"size": 88
+		},
+		{
+			"name": "js/ace/css/main-14.png",
+			"size": 85
+		},
+		{
+			"name": "js/ace/css/main-15.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/main-16.png",
+			"size": 160
+		},
+		{
+			"name": "js/ace/css/main-2.png",
+			"size": 427
+		},
+		{
+			"name": "js/ace/css/main-3.png",
+			"size": 170
+		},
+		{
+			"name": "js/ace/css/main-4.png",
+			"size": 159
+		},
+		{
+			"name": "js/ace/css/main-5.png",
+			"size": 248
+		},
+		{
+			"name": "js/ace/css/main-6.png",
+			"size": 128
+		},
+		{
+			"name": "js/ace/css/main-7.png",
+			"size": 248
+		},
+		{
+			"name": "js/ace/css/main-8.png",
+			"size": 126
+		},
+		{
+			"name": "js/ace/css/main-9.png",
+			"size": 109
+		},
+		{
+			"name": "js/ace/css/merbivore-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/merbivore_soft-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/mono_industrial-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/monokai-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/one_dark-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/pastel_on_dark-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/solarized_dark-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/solarized_light-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/sqlserver-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/terminal-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/textmate-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/theme/ambiance.css",
+			"size": 3651
+		},
+		{
+			"name": "js/ace/css/theme/chaos.css",
+			"size": 2789
+		},
+		{
+			"name": "js/ace/css/theme/chrome.css",
+			"size": 2517
+		},
+		{
+			"name": "js/ace/css/theme/clouds.css",
+			"size": 1853
+		},
+		{
+			"name": "js/ace/css/theme/clouds_midnight.css",
+			"size": 2202
+		},
+		{
+			"name": "js/ace/css/theme/cobalt.css",
+			"size": 2149
+		},
+		{
+			"name": "js/ace/css/theme/crimson_editor.css",
+			"size": 2599
+		},
+		{
+			"name": "js/ace/css/theme/dawn.css",
+			"size": 2033
+		},
+		{
+			"name": "js/ace/css/theme/dracula.css",
+			"size": 2364
+		},
+		{
+			"name": "js/ace/css/theme/dreamweaver.css",
+			"size": 2952
+		},
+		{
+			"name": "js/ace/css/theme/eclipse.css",
+			"size": 1884
+		},
+		{
+			"name": "js/ace/css/theme/github.css",
+			"size": 1956
+		},
+		{
+			"name": "js/ace/css/theme/gob.css",
+			"size": 2179
+		},
+		{
+			"name": "js/ace/css/theme/gruvbox.css",
+			"size": 1428
+		},
+		{
+			"name": "js/ace/css/theme/idle_fingers.css",
+			"size": 2021
+		},
+		{
+			"name": "js/ace/css/theme/iplastic.css",
+			"size": 2495
+		},
+		{
+			"name": "js/ace/css/theme/katzenmilch.css",
+			"size": 3025
+		},
+		{
+			"name": "js/ace/css/theme/kr_theme.css",
+			"size": 2081
+		},
+		{
+			"name": "js/ace/css/theme/kuroir.css",
+			"size": 1903
+		},
+		{
+			"name": "js/ace/css/theme/merbivore.css",
+			"size": 2011
+		},
+		{
+			"name": "js/ace/css/theme/merbivore_soft.css",
+			"size": 2219
+		},
+		{
+			"name": "js/ace/css/theme/mono_industrial.css",
+			"size": 2572
+		},
+		{
+			"name": "js/ace/css/theme/monokai.css",
+			"size": 2162
+		},
+		{
+			"name": "js/ace/css/theme/nord_dark.css",
+			"size": 1929
+		},
+		{
+			"name": "js/ace/css/theme/one_dark.css",
+			"size": 2481
+		},
+		{
+			"name": "js/ace/css/theme/pastel_on_dark.css",
+			"size": 2416
+		},
+		{
+			"name": "js/ace/css/theme/solarized_dark.css",
+			"size": 2075
+		},
+		{
+			"name": "js/ace/css/theme/solarized_light.css",
+			"size": 2125
+		},
+		{
+			"name": "js/ace/css/theme/sqlserver.css",
+			"size": 2704
+		},
+		{
+			"name": "js/ace/css/theme/terminal.css",
+			"size": 2702
+		},
+		{
+			"name": "js/ace/css/theme/textmate.css",
+			"size": 2381
+		},
+		{
+			"name": "js/ace/css/theme/tomorrow.css",
+			"size": 2341
+		},
+		{
+			"name": "js/ace/css/theme/tomorrow_night.css",
+			"size": 2603
+		},
+		{
+			"name": "js/ace/css/theme/tomorrow_night_blue.css",
+			"size": 2807
+		},
+		{
+			"name": "js/ace/css/theme/tomorrow_night_bright.css",
+			"size": 3285
+		},
+		{
+			"name": "js/ace/css/theme/tomorrow_night_eighties.css",
+			"size": 2995
+		},
+		{
+			"name": "js/ace/css/theme/twilight.css",
+			"size": 2261
+		},
+		{
+			"name": "js/ace/css/theme/vibrant_ink.css",
+			"size": 1976
+		},
+		{
+			"name": "js/ace/css/theme/xcode.css",
+			"size": 1686
+		},
+		{
+			"name": "js/ace/css/tomorrow-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/css/tomorrow_night-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/tomorrow_night_blue-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/tomorrow_night_bright-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/tomorrow_night_eighties-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/twilight-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/vibrant_ink-1.png",
+			"size": 75
+		},
+		{
+			"name": "js/ace/css/xcode-1.png",
+			"size": 76
+		},
+		{
+			"name": "js/ace/ext-beautify-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-beautify.js",
+			"size": 12495,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-beautify.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-beautify.js",
+			"size": 4631,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-beautify.js.map",
+			"size": 6740,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-code_lens-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-code_lens.js",
+			"size": 7728,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-code_lens.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-code_lens.js",
+			"size": 3894,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-code_lens.js.map",
+			"size": 5911,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-elastic_tabstops_lite-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-elastic_tabstops_lite.js",
+			"size": 8893,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-elastic_tabstops_lite.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-elastic_tabstops_lite.js",
+			"size": 3982,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-elastic_tabstops_lite.js.map",
+			"size": 6901,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-emmet-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-emmet.js",
+			"size": 48415,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-emmet.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-emmet.js",
+			"size": 25093,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-emmet.js.map",
+			"size": 35661,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-error_marker-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-error_marker.js",
+			"size": 333,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-error_marker.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-error_marker.js",
+			"size": 192,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-error_marker.js.map",
+			"size": 264,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-hardwrap-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-hardwrap.js",
+			"size": 2844,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-hardwrap.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-hardwrap.js",
+			"size": 1155,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-hardwrap.js.map",
+			"size": 2125,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-keybinding_menu-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-keybinding_menu.js",
+			"size": 6032,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-keybinding_menu.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-keybinding_menu.js",
+			"size": 3712,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-keybinding_menu.js.map",
+			"size": 3229,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-language_tools-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-language_tools.js",
+			"size": 76783,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-language_tools.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-language_tools.js",
+			"size": 40108,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-language_tools.js.map",
+			"size": 55515,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-linking-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-linking.js",
+			"size": 1944,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-linking.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-linking.js",
+			"size": 1077,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-linking.js.map",
+			"size": 1553,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-modelist-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-modelist.js",
+			"size": 7500,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-modelist.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-modelist.js",
+			"size": 4672,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-modelist.js.map",
+			"size": 5985,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-options-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-options.js",
+			"size": 25508,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-options.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-options.js",
+			"size": 14812,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-options.js.map",
+			"size": 15936,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-prompt-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-prompt.js",
+			"size": 97223,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-prompt.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-prompt.js",
+			"size": 50943,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-prompt.js.map",
+			"size": 68743,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-rtl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-rtl.js",
+			"size": 4490,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-rtl.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-rtl.js",
+			"size": 2461,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-rtl.js.map",
+			"size": 3505,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-searchbox-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-searchbox.js",
+			"size": 17033,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-searchbox.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-searchbox.js",
+			"size": 11751,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-searchbox.js.map",
+			"size": 9851,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-settings_menu-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-settings_menu.js",
+			"size": 26258,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-settings_menu.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-settings_menu.js",
+			"size": 15286,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-settings_menu.js.map",
+			"size": 16441,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-spellcheck-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-spellcheck.js",
+			"size": 2455,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-spellcheck.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-spellcheck.js",
+			"size": 1413,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-spellcheck.js.map",
+			"size": 2130,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-split-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-split.js",
+			"size": 6374,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-split.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-split.js",
+			"size": 3612,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-split.js.map",
+			"size": 5091,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-static_highlight-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-static_highlight.js",
+			"size": 165,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-static_highlight.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-static_highlight.js",
+			"size": 154,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-static_highlight.js.map",
+			"size": 140,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-statusbar-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-statusbar.js",
+			"size": 1859,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-statusbar.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-statusbar.js",
+			"size": 1095,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-statusbar.js.map",
+			"size": 1698,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-textarea-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-textarea.js",
+			"size": 157,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-textarea.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-textarea.js",
+			"size": 138,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-textarea.js.map",
+			"size": 124,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-themelist-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-themelist.js",
+			"size": 2799,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-themelist.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-themelist.js",
+			"size": 1561,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-themelist.js.map",
+			"size": 1426,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-whitespace-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-whitespace.js",
+			"size": 6556,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/ext-whitespace.js",
+			"module": "sap/ui/codeeditor/js/ace/ext-whitespace.js",
+			"size": 3215,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/ext-whitespace.js.map",
+			"size": 5528,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/keybinding-emacs-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/keybinding-emacs.js",
+			"size": 39906,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/keybinding-emacs.js",
+			"module": "sap/ui/codeeditor/js/ace/keybinding-emacs.js",
+			"size": 23767,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/keybinding-emacs.js.map",
+			"size": 27857,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/keybinding-sublime-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/keybinding-sublime.js",
+			"size": 11334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/keybinding-sublime.js",
+			"module": "sap/ui/codeeditor/js/ace/keybinding-sublime.js",
+			"size": 7797,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/keybinding-sublime.js.map",
+			"size": 7353,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/keybinding-vim-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/keybinding-vim.js",
+			"size": 228010,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/keybinding-vim.js",
+			"module": "sap/ui/codeeditor/js/ace/keybinding-vim.js",
+			"size": 111718,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/keybinding-vim.js.map",
+			"size": 170698,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/keybinding-vscode-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/keybinding-vscode.js",
+			"size": 8190,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/keybinding-vscode.js",
+			"module": "sap/ui/codeeditor/js/ace/keybinding-vscode.js",
+			"size": 5707,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/keybinding-vscode.js.map",
+			"size": 5479,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-abap-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-abap.js",
+			"size": 9119,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-abap.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-abap.js",
+			"size": 5938,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-abap.js.map",
+			"size": 4244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-abc-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-abc.js",
+			"size": 9223,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-abc.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-abc.js",
+			"size": 4815,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-abc.js.map",
+			"size": 5153,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-actionscript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-actionscript.js",
+			"size": 24753,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-actionscript.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-actionscript.js",
+			"size": 20643,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-actionscript.js.map",
+			"size": 5636,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ada-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ada.js",
+			"size": 4131,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ada.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ada.js",
+			"size": 2398,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-ada.js.map",
+			"size": 2532,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-alda-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-alda.js",
+			"size": 10208,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-alda.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-alda.js",
+			"size": 5107,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-alda.js.map",
+			"size": 5454,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-apache_conf-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-apache_conf.js",
+			"size": 19121,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-apache_conf.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-apache_conf.js",
+			"size": 13961,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-apache_conf.js.map",
+			"size": 6584,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-apex-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-apex.js",
+			"size": 15247,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-apex.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-apex.js",
+			"size": 8380,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-apex.js.map",
+			"size": 7349,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-applescript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-applescript.js",
+			"size": 9627,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-applescript.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-applescript.js",
+			"size": 5534,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-applescript.js.map",
+			"size": 5167,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-aql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-aql.js",
+			"size": 4551,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-aql.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-aql.js",
+			"size": 3190,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-aql.js.map",
+			"size": 1565,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-asciidoc-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-asciidoc.js",
+			"size": 13846,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-asciidoc.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-asciidoc.js",
+			"size": 8216,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-asciidoc.js.map",
+			"size": 8438,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-asl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-asl.js",
+			"size": 15804,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-asl.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-asl.js",
+			"size": 8742,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-asl.js.map",
+			"size": 6523,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-assembly_x86-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-assembly_x86.js",
+			"size": 11766,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-assembly_x86.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-assembly_x86.js",
+			"size": 8932,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-assembly_x86.js.map",
+			"size": 4011,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-autohotkey-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-autohotkey.js",
+			"size": 67347,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-autohotkey.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-autohotkey.js",
+			"size": 63730,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-autohotkey.js.map",
+			"size": 5477,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-batchfile-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-batchfile.js",
+			"size": 8297,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-batchfile.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-batchfile.js",
+			"size": 4916,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-batchfile.js.map",
+			"size": 5198,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-c9search-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-c9search.js",
+			"size": 9598,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-c9search.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-c9search.js",
+			"size": 4052,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-c9search.js.map",
+			"size": 5891,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-c_cpp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-c_cpp.js",
+			"size": 18902,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-c_cpp.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-c_cpp.js",
+			"size": 11094,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-c_cpp.js.map",
+			"size": 8857,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-cirru-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-cirru.js",
+			"size": 6029,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-cirru.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-cirru.js",
+			"size": 3028,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-cirru.js.map",
+			"size": 3834,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-clojure-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-clojure.js",
+			"size": 12892,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-clojure.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-clojure.js",
+			"size": 8408,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-clojure.js.map",
+			"size": 4953,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-cobol-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-cobol.js",
+			"size": 3531,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-cobol.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-cobol.js",
+			"size": 2398,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-cobol.js.map",
+			"size": 1565,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-coffee-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-coffee.js",
+			"size": 14362,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-coffee.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-coffee.js",
+			"size": 7463,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-coffee.js.map",
+			"size": 7568,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-coldfusion-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-coldfusion.js",
+			"size": 103255,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-coldfusion.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-coldfusion.js",
+			"size": 62104,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-coldfusion.js.map",
+			"size": 56130,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-crystal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-crystal.js",
+			"size": 23741,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-crystal.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-crystal.js",
+			"size": 10059,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-crystal.js.map",
+			"size": 10081,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csharp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csharp.js",
+			"size": 16251,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csharp.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csharp.js",
+			"size": 8721,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-csharp.js.map",
+			"size": 9801,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csound_document-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csound_document.js",
+			"size": 123999,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csound_document.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csound_document.js",
+			"size": 72325,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-csound_document.js.map",
+			"size": 39328,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csound_orchestra-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csound_orchestra.js",
+			"size": 76177,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csound_orchestra.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csound_orchestra.js",
+			"size": 41363,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-csound_orchestra.js.map",
+			"size": 24779,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csound_score-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csound_score.js",
+			"size": 14149,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csound_score.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csound_score.js",
+			"size": 7620,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-csound_score.js.map",
+			"size": 5619,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csp.js",
+			"size": 2120,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-csp.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-csp.js",
+			"size": 1293,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-csp.js.map",
+			"size": 1119,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-css-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-css.js",
+			"size": 31294,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-css.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-css.js",
+			"size": 20442,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-css.js.map",
+			"size": 17046,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-curly-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-curly.js",
+			"size": 101292,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-curly.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-curly.js",
+			"size": 60577,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-curly.js.map",
+			"size": 55252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-d-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-d.js",
+			"size": 17471,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-d.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-d.js",
+			"size": 8965,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-d.js.map",
+			"size": 8307,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-dart-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-dart.js",
+			"size": 24778,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-dart.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-dart.js",
+			"size": 14373,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-dart.js.map",
+			"size": 11235,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-diff-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-diff.js",
+			"size": 4540,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-diff.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-diff.js",
+			"size": 2382,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-diff.js.map",
+			"size": 2636,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-django-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-django.js",
+			"size": 102272,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-django.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-django.js",
+			"size": 61010,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-django.js.map",
+			"size": 55584,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-dockerfile-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-dockerfile.js",
+			"size": 16058,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-dockerfile.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-dockerfile.js",
+			"size": 8269,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-dockerfile.js.map",
+			"size": 9535,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-dot-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-dot.js",
+			"size": 13695,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-dot.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-dot.js",
+			"size": 7521,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-dot.js.map",
+			"size": 7702,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-drools-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-drools.js",
+			"size": 18658,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-drools.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-drools.js",
+			"size": 11190,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-drools.js.map",
+			"size": 6748,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-edifact-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-edifact.js",
+			"size": 5215,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-edifact.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-edifact.js",
+			"size": 2833,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-edifact.js.map",
+			"size": 2386,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-eiffel-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-eiffel.js",
+			"size": 5111,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-eiffel.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-eiffel.js",
+			"size": 2925,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-eiffel.js.map",
+			"size": 2153,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ejs-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ejs.js",
+			"size": 139158,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ejs.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ejs.js",
+			"size": 79893,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-ejs.js.map",
+			"size": 70991,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-elixir-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-elixir.js",
+			"size": 23357,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-elixir.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-elixir.js",
+			"size": 15806,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-elixir.js.map",
+			"size": 8323,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-elm-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-elm.js",
+			"size": 9437,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-elm.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-elm.js",
+			"size": 5003,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-elm.js.map",
+			"size": 5916,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-erlang-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-erlang.js",
+			"size": 46504,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-erlang.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-erlang.js",
+			"size": 29797,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-erlang.js.map",
+			"size": 13548,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-forth-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-forth.js",
+			"size": 11307,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-forth.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-forth.js",
+			"size": 7063,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-forth.js.map",
+			"size": 6014,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-fortran-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-fortran.js",
+			"size": 15118,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-fortran.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-fortran.js",
+			"size": 8674,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-fortran.js.map",
+			"size": 7850,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-fsharp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-fsharp.js",
+			"size": 10370,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-fsharp.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-fsharp.js",
+			"size": 5488,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-fsharp.js.map",
+			"size": 5537,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-fsl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-fsl.js",
+			"size": 8516,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-fsl.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-fsl.js",
+			"size": 4769,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-fsl.js.map",
+			"size": 5106,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ftl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ftl.js",
+			"size": 50670,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ftl.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ftl.js",
+			"size": 32463,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-ftl.js.map",
+			"size": 16481,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-gcode-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-gcode.js",
+			"size": 2993,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-gcode.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-gcode.js",
+			"size": 1508,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-gcode.js.map",
+			"size": 1529,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-gherkin-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-gherkin.js",
+			"size": 4826,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-gherkin.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-gherkin.js",
+			"size": 2460,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-gherkin.js.map",
+			"size": 2777,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-gitignore-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-gitignore.js",
+			"size": 1648,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-gitignore.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-gitignore.js",
+			"size": 941,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-gitignore.js.map",
+			"size": 1188,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-glsl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-glsl.js",
+			"size": 21763,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-glsl.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-glsl.js",
+			"size": 13088,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-glsl.js.map",
+			"size": 9974,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-gobstones-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-gobstones.js",
+			"size": 43559,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-gobstones.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-gobstones.js",
+			"size": 27942,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-gobstones.js.map",
+			"size": 16433,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-golang-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-golang.js",
+			"size": 13675,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-golang.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-golang.js",
+			"size": 6848,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-golang.js.map",
+			"size": 7904,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-graphqlschema-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-graphqlschema.js",
+			"size": 6651,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-graphqlschema.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-graphqlschema.js",
+			"size": 3540,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-graphqlschema.js.map",
+			"size": 4631,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-groovy-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-groovy.js",
+			"size": 38282,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-groovy.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-groovy.js",
+			"size": 22509,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-groovy.js.map",
+			"size": 15195,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-haml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-haml.js",
+			"size": 77620,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-haml.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-haml.js",
+			"size": 45880,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-haml.js.map",
+			"size": 26129,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-handlebars-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-handlebars.js",
+			"size": 102830,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-handlebars.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-handlebars.js",
+			"size": 61389,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-handlebars.js.map",
+			"size": 56071,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-haskell-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-haskell.js",
+			"size": 17242,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-haskell.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-haskell.js",
+			"size": 11568,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-haskell.js.map",
+			"size": 7308,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-haskell_cabal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-haskell_cabal.js",
+			"size": 4296,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-haskell_cabal.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-haskell_cabal.js",
+			"size": 2275,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-haskell_cabal.js.map",
+			"size": 3011,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-haxe-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-haxe.js",
+			"size": 12090,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-haxe.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-haxe.js",
+			"size": 6428,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-haxe.js.map",
+			"size": 7336,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-hjson-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-hjson.js",
+			"size": 11087,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-hjson.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-hjson.js",
+			"size": 6014,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-hjson.js.map",
+			"size": 5912,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-html-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-html.js",
+			"size": 99925,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-html.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-html.js",
+			"size": 59746,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-html.js.map",
+			"size": 54405,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-html_elixir-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-html_elixir.js",
+			"size": 125354,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-html_elixir.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-html_elixir.js",
+			"size": 76615,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-html_elixir.js.map",
+			"size": 63278,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-html_ruby-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-html_ruby.js",
+			"size": 139859,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-html_ruby.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-html_ruby.js",
+			"size": 80179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-html_ruby.js.map",
+			"size": 71049,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ini-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ini.js",
+			"size": 4738,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ini.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ini.js",
+			"size": 2686,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-ini.js.map",
+			"size": 2934,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-io-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-io.js",
+			"size": 9051,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-io.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-io.js",
+			"size": 5383,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-io.js.map",
+			"size": 5450,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jack-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jack.js",
+			"size": 10922,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jack.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jack.js",
+			"size": 5741,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-jack.js.map",
+			"size": 6485,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jade-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jade.js",
+			"size": 79902,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jade.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jade.js",
+			"size": 46944,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-jade.js.map",
+			"size": 27957,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-java-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-java.js",
+			"size": 39965,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-java.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-java.js",
+			"size": 23356,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-java.js.map",
+			"size": 16420,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-javascript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-javascript.js",
+			"size": 31319,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-javascript.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-javascript.js",
+			"size": 18221,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-javascript.js.map",
+			"size": 13296,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-json-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-json.js",
+			"size": 10188,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-json.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-json.js",
+			"size": 5190,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-json.js.map",
+			"size": 6621,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-json5-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-json5.js",
+			"size": 11121,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-json5.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-json5.js",
+			"size": 5798,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-json5.js.map",
+			"size": 6844,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jsoniq-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jsoniq.js",
+			"size": 327673,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jsoniq.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jsoniq.js",
+			"size": 233592,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-jsoniq.js.map",
+			"size": 244313,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jsp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jsp.js",
+			"size": 58905,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jsp.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jsp.js",
+			"size": 36874,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-jsp.js.map",
+			"size": 20912,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jssm-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jssm.js",
+			"size": 10536,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jssm.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jssm.js",
+			"size": 5937,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-jssm.js.map",
+			"size": 5760,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jsx-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jsx.js",
+			"size": 13191,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-jsx.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-jsx.js",
+			"size": 6938,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-jsx.js.map",
+			"size": 7717,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-julia-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-julia.js",
+			"size": 11954,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-julia.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-julia.js",
+			"size": 7586,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-julia.js.map",
+			"size": 6219,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-kotlin-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-kotlin.js",
+			"size": 24692,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-kotlin.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-kotlin.js",
+			"size": 12017,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-kotlin.js.map",
+			"size": 10177,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-latex-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-latex.js",
+			"size": 9408,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-latex.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-latex.js",
+			"size": 5066,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-latex.js.map",
+			"size": 5863,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-latte-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-latte.js",
+			"size": 106546,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-latte.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-latte.js",
+			"size": 63288,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-latte.js.map",
+			"size": 56946,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-less-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-less.js",
+			"size": 35419,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-less.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-less.js",
+			"size": 22421,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-less.js.map",
+			"size": 18242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-liquid-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-liquid.js",
+			"size": 108227,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-liquid.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-liquid.js",
+			"size": 64078,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-liquid.js.map",
+			"size": 58425,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-lisp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-lisp.js",
+			"size": 3393,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-lisp.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-lisp.js",
+			"size": 2016,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-lisp.js.map",
+			"size": 1753,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-livescript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-livescript.js",
+			"size": 8388,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-livescript.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-livescript.js",
+			"size": 5137,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-livescript.js.map",
+			"size": 4752,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-logiql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-logiql.js",
+			"size": 10511,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-logiql.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-logiql.js",
+			"size": 5722,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-logiql.js.map",
+			"size": 7346,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-logtalk-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-logtalk.js",
+			"size": 15740,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-logtalk.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-logtalk.js",
+			"size": 10676,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-logtalk.js.map",
+			"size": 6743,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-lsl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-lsl.js",
+			"size": 31561,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-lsl.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-lsl.js",
+			"size": 26635,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-lsl.js.map",
+			"size": 6898,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-lua-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-lua.js",
+			"size": 15069,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-lua.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-lua.js",
+			"size": 7836,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-lua.js.map",
+			"size": 9221,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-luapage-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-luapage.js",
+			"size": 116426,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-luapage.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-luapage.js",
+			"size": 68395,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-luapage.js.map",
+			"size": 63519,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-lucene-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-lucene.js",
+			"size": 4738,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-lucene.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-lucene.js",
+			"size": 2490,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-lucene.js.map",
+			"size": 2026,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-makefile-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-makefile.js",
+			"size": 13117,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-makefile.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-makefile.js",
+			"size": 6633,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-makefile.js.map",
+			"size": 6821,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-markdown-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-markdown.js",
+			"size": 122022,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-markdown.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-markdown.js",
+			"size": 71046,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-markdown.js.map",
+			"size": 65901,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mask-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mask.js",
+			"size": 70717,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mask.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mask.js",
+			"size": 41820,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-mask.js.map",
+			"size": 28957,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-matlab-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-matlab.js",
+			"size": 23284,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-matlab.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-matlab.js",
+			"size": 20942,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-matlab.js.map",
+			"size": 2900,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-maze-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-maze.js",
+			"size": 9169,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-maze.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-maze.js",
+			"size": 4963,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-maze.js.map",
+			"size": 5290,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mediawiki-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mediawiki.js",
+			"size": 19254,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mediawiki.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mediawiki.js",
+			"size": 9430,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-mediawiki.js.map",
+			"size": 5664,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mel-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mel.js",
+			"size": 28867,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mel.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mel.js",
+			"size": 24969,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-mel.js.map",
+			"size": 5495,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mips-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mips.js",
+			"size": 9191,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mips.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mips.js",
+			"size": 5342,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-mips.js.map",
+			"size": 5315,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mixal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mixal.js",
+			"size": 5112,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mixal.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mixal.js",
+			"size": 2890,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-mixal.js.map",
+			"size": 2800,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mushcode-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mushcode.js",
+			"size": 12097,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mushcode.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mushcode.js",
+			"size": 8189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-mushcode.js.map",
+			"size": 6675,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mysql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mysql.js",
+			"size": 8721,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-mysql.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-mysql.js",
+			"size": 6472,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-mysql.js.map",
+			"size": 2862,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nginx-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nginx.js",
+			"size": 20248,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nginx.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nginx.js",
+			"size": 15931,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-nginx.js.map",
+			"size": 5645,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nim-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nim.js",
+			"size": 12155,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nim.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nim.js",
+			"size": 6696,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-nim.js.map",
+			"size": 6651,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nix-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nix.js",
+			"size": 23555,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nix.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nix.js",
+			"size": 13220,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-nix.js.map",
+			"size": 10765,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nsis-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nsis.js",
+			"size": 14908,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nsis.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nsis.js",
+			"size": 10441,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-nsis.js.map",
+			"size": 5702,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nunjucks-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nunjucks.js",
+			"size": 105793,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-nunjucks.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-nunjucks.js",
+			"size": 63025,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-nunjucks.js.map",
+			"size": 56658,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-objectivec-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-objectivec.js",
+			"size": 65375,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-objectivec.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-objectivec.js",
+			"size": 54723,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-objectivec.js.map",
+			"size": 10336,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ocaml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ocaml.js",
+			"size": 21528,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ocaml.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ocaml.js",
+			"size": 16201,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-ocaml.js.map",
+			"size": 5434,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-pascal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-pascal.js",
+			"size": 7846,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-pascal.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-pascal.js",
+			"size": 4224,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-pascal.js.map",
+			"size": 4070,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-perl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-perl.js",
+			"size": 13066,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-perl.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-perl.js",
+			"size": 7513,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-perl.js.map",
+			"size": 7122,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-pgsql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-pgsql.js",
+			"size": 86287,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-pgsql.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-pgsql.js",
+			"size": 60149,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-pgsql.js.map",
+			"size": 19238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-php-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-php.js",
+			"size": 594858,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-php.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-php.js",
+			"size": 473090,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-php.js.map",
+			"size": 163676,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-php_laravel_blade-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-php_laravel_blade.js",
+			"size": 601995,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-php_laravel_blade.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-php_laravel_blade.js",
+			"size": 477388,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-php_laravel_blade.js.map",
+			"size": 166178,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-pig-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-pig.js",
+			"size": 10904,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-pig.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-pig.js",
+			"size": 6366,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-pig.js.map",
+			"size": 5560,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-plain_text-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-plain_text.js",
+			"size": 975,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-plain_text.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-plain_text.js",
+			"size": 604,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-plain_text.js.map",
+			"size": 849,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-powershell-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-powershell.js",
+			"size": 38781,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-powershell.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-powershell.js",
+			"size": 32930,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-powershell.js.map",
+			"size": 7304,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-praat-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-praat.js",
+			"size": 17677,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-praat.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-praat.js",
+			"size": 10627,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-praat.js.map",
+			"size": 8125,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-prisma-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-prisma.js",
+			"size": 15361,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-prisma.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-prisma.js",
+			"size": 8290,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-prisma.js.map",
+			"size": 6893,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-prolog-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-prolog.js",
+			"size": 14144,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-prolog.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-prolog.js",
+			"size": 8412,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-prolog.js.map",
+			"size": 7156,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-properties-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-properties.js",
+			"size": 2224,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-properties.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-properties.js",
+			"size": 1142,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-properties.js.map",
+			"size": 1319,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-protobuf-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-protobuf.js",
+			"size": 21961,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-protobuf.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-protobuf.js",
+			"size": 12647,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-protobuf.js.map",
+			"size": 10060,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-puppet-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-puppet.js",
+			"size": 12678,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-puppet.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-puppet.js",
+			"size": 7079,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-puppet.js.map",
+			"size": 6632,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-python-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-python.js",
+			"size": 15271,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-python.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-python.js",
+			"size": 7923,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-python.js.map",
+			"size": 7763,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-qml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-qml.js",
+			"size": 23395,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-qml.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-qml.js",
+			"size": 16494,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-qml.js.map",
+			"size": 5824,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-r-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-r.js",
+			"size": 9780,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-r.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-r.js",
+			"size": 5075,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-r.js.map",
+			"size": 4545,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-raku-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-raku.js",
+			"size": 24783,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-raku.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-raku.js",
+			"size": 18123,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-raku.js.map",
+			"size": 9200,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-razor-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-razor.js",
+			"size": 111962,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-razor.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-razor.js",
+			"size": 66531,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-razor.js.map",
+			"size": 60314,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-rdoc-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-rdoc.js",
+			"size": 7905,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-rdoc.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-rdoc.js",
+			"size": 4579,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-rdoc.js.map",
+			"size": 3890,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-red-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-red.js",
+			"size": 19957,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-red.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-red.js",
+			"size": 12890,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-red.js.map",
+			"size": 8652,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-redshift-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-redshift.js",
+			"size": 13922,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-redshift.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-redshift.js",
+			"size": 7926,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-redshift.js.map",
+			"size": 4499,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-rhtml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-rhtml.js",
+			"size": 109013,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-rhtml.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-rhtml.js",
+			"size": 64507,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-rhtml.js.map",
+			"size": 57975,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-rst-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-rst.js",
+			"size": 5837,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-rst.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-rst.js",
+			"size": 3095,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-rst.js.map",
+			"size": 3222,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ruby-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ruby.js",
+			"size": 38923,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-ruby.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-ruby.js",
+			"size": 19974,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-ruby.js.map",
+			"size": 17334,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-rust-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-rust.js",
+			"size": 11191,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-rust.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-rust.js",
+			"size": 6670,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-rust.js.map",
+			"size": 6087,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sass-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sass.js",
+			"size": 23900,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sass.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sass.js",
+			"size": 15689,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-sass.js.map",
+			"size": 8179,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scad-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scad.js",
+			"size": 12715,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scad.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scad.js",
+			"size": 6397,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-scad.js.map",
+			"size": 7721,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scala-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scala.js",
+			"size": 38392,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scala.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scala.js",
+			"size": 22693,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-scala.js.map",
+			"size": 15134,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scheme-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scheme.js",
+			"size": 7076,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scheme.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scheme.js",
+			"size": 3800,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-scheme.js.map",
+			"size": 4468,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scrypt-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scrypt.js",
+			"size": 13108,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scrypt.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scrypt.js",
+			"size": 7086,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-scrypt.js.map",
+			"size": 6179,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scss-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scss.js",
+			"size": 37171,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-scss.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-scss.js",
+			"size": 23687,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-scss.js.map",
+			"size": 18571,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sh-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sh.js",
+			"size": 14580,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sh.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sh.js",
+			"size": 7378,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-sh.js.map",
+			"size": 8643,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sjs-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sjs.js",
+			"size": 37131,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sjs.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sjs.js",
+			"size": 21211,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-sjs.js.map",
+			"size": 16293,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-slim-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-slim.js",
+			"size": 197768,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-slim.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-slim.js",
+			"size": 110323,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-slim.js.map",
+			"size": 97639,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-smarty-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-smarty.js",
+			"size": 104841,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-smarty.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-smarty.js",
+			"size": 63078,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-smarty.js.map",
+			"size": 56414,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-smithy-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-smithy.js",
+			"size": 15763,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-smithy.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-smithy.js",
+			"size": 8665,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-smithy.js.map",
+			"size": 7841,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-snippets-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-snippets.js",
+			"size": 7062,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-snippets.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-snippets.js",
+			"size": 3841,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-snippets.js.map",
+			"size": 4789,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-soy_template-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-soy_template.js",
+			"size": 113337,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-soy_template.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-soy_template.js",
+			"size": 68118,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-soy_template.js.map",
+			"size": 59269,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-space-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-space.js",
+			"size": 4848,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-space.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-space.js",
+			"size": 2249,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-space.js.map",
+			"size": 3272,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sparql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sparql.js",
+			"size": 12385,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sparql.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sparql.js",
+			"size": 7900,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-sparql.js.map",
+			"size": 5561,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sql.js",
+			"size": 8328,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sql.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sql.js",
+			"size": 4522,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-sql.js.map",
+			"size": 5262,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sqlserver-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sqlserver.js",
+			"size": 23227,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-sqlserver.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-sqlserver.js",
+			"size": 16456,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-sqlserver.js.map",
+			"size": 8735,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-stylus-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-stylus.js",
+			"size": 21045,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-stylus.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-stylus.js",
+			"size": 14379,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-stylus.js.map",
+			"size": 6847,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-svg-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-svg.js",
+			"size": 57712,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-svg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-svg.js",
+			"size": 31674,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-svg.js.map",
+			"size": 28893,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-swift-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-swift.js",
+			"size": 13361,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-swift.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-swift.js",
+			"size": 7036,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-swift.js.map",
+			"size": 7533,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-tcl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-tcl.js",
+			"size": 12226,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-tcl.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-tcl.js",
+			"size": 6196,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-tcl.js.map",
+			"size": 7094,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-terraform-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-terraform.js",
+			"size": 12937,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-terraform.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-terraform.js",
+			"size": 6828,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-terraform.js.map",
+			"size": 6908,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-tex-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-tex.js",
+			"size": 5022,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-tex.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-tex.js",
+			"size": 2765,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-tex.js.map",
+			"size": 2862,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-text-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-text.js",
+			"size": 326,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-text.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-text.js",
+			"size": 178,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-text.js.map",
+			"size": 250,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-textile-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-textile.js",
+			"size": 4098,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-textile.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-textile.js",
+			"size": 2147,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-textile.js.map",
+			"size": 2700,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-toml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-toml.js",
+			"size": 4012,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-toml.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-toml.js",
+			"size": 2167,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-toml.js.map",
+			"size": 2634,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-tsx-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-tsx.js",
+			"size": 34133,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-tsx.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-tsx.js",
+			"size": 20004,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-tsx.js.map",
+			"size": 14726,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-turtle-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-turtle.js",
+			"size": 9270,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-turtle.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-turtle.js",
+			"size": 5069,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-turtle.js.map",
+			"size": 5332,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-twig-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-twig.js",
+			"size": 105480,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-twig.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-twig.js",
+			"size": 63206,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-twig.js.map",
+			"size": 57031,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-typescript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-typescript.js",
+			"size": 33760,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-typescript.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-typescript.js",
+			"size": 19758,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-typescript.js.map",
+			"size": 14421,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-vala-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-vala.js",
+			"size": 27375,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-vala.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-vala.js",
+			"size": 16577,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-vala.js.map",
+			"size": 12446,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-vbscript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-vbscript.js",
+			"size": 24334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-vbscript.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-vbscript.js",
+			"size": 11925,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-vbscript.js.map",
+			"size": 11181,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-velocity-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-velocity.js",
+			"size": 108999,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-velocity.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-velocity.js",
+			"size": 64511,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-velocity.js.map",
+			"size": 58786,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-verilog-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-verilog.js",
+			"size": 4378,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-verilog.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-verilog.js",
+			"size": 2981,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-verilog.js.map",
+			"size": 2002,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-vhdl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-vhdl.js",
+			"size": 3716,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-vhdl.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-vhdl.js",
+			"size": 2177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-vhdl.js.map",
+			"size": 1713,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-visualforce-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-visualforce.js",
+			"size": 104045,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-visualforce.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-visualforce.js",
+			"size": 62257,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-visualforce.js.map",
+			"size": 56149,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-wollok-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-wollok.js",
+			"size": 35132,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-wollok.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-wollok.js",
+			"size": 20322,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-wollok.js.map",
+			"size": 14664,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-xml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-xml.js",
+			"size": 23522,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-xml.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-xml.js",
+			"size": 11876,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-xml.js.map",
+			"size": 14352,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-xquery-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-xquery.js",
+			"size": 324880,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-xquery.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-xquery.js",
+			"size": 230975,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-xquery.js.map",
+			"size": 242538,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-yaml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-yaml.js",
+			"size": 10269,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-yaml.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-yaml.js",
+			"size": 4763,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-yaml.js.map",
+			"size": 6077,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-zeek-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-zeek.js",
+			"size": 16783,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/mode-zeek.js",
+			"module": "sap/ui/codeeditor/js/ace/mode-zeek.js",
+			"size": 9128,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/mode-zeek.js.map",
+			"size": 6686,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/abap-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/abap.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/abap.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/abap.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/abap.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/abc-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/abc.js",
+			"size": 1401,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/abc.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/abc.js",
+			"size": 1104,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/abc.js.map",
+			"size": 366,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/actionscript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/actionscript.js",
+			"size": 3660,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/actionscript.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/actionscript.js",
+			"size": 3392,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/actionscript.js.map",
+			"size": 384,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ada-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ada.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ada.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ada.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/ada.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/alda-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/alda.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/alda.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/alda.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/alda.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/apache_conf-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/apache_conf.js",
+			"size": 337,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/apache_conf.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/apache_conf.js",
+			"size": 191,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/apache_conf.js.map",
+			"size": 254,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/apex-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/apex.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/apex.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/apex.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/apex.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/applescript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/applescript.js",
+			"size": 337,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/applescript.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/applescript.js",
+			"size": 191,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/applescript.js.map",
+			"size": 254,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/aql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/aql.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/aql.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/aql.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/aql.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/asciidoc-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/asciidoc.js",
+			"size": 334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/asciidoc.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/asciidoc.js",
+			"size": 185,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/asciidoc.js.map",
+			"size": 248,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/asl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/asl.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/asl.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/asl.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/asl.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/assembly_x86-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/assembly_x86.js",
+			"size": 338,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/assembly_x86.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/assembly_x86.js",
+			"size": 193,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/assembly_x86.js.map",
+			"size": 256,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/autohotkey-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/autohotkey.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/autohotkey.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/autohotkey.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/autohotkey.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/batchfile-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/batchfile.js",
+			"size": 335,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/batchfile.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/batchfile.js",
+			"size": 187,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/batchfile.js.map",
+			"size": 250,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/c9search-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/c9search.js",
+			"size": 334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/c9search.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/c9search.js",
+			"size": 185,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/c9search.js.map",
+			"size": 248,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/c_cpp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/c_cpp.js",
+			"size": 3271,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/c_cpp.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/c_cpp.js",
+			"size": 2878,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/c_cpp.js.map",
+			"size": 370,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/cirru-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/cirru.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/cirru.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/cirru.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/cirru.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/clojure-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/clojure.js",
+			"size": 2576,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/clojure.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/clojure.js",
+			"size": 2258,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/clojure.js.map",
+			"size": 374,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/cobol-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/cobol.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/cobol.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/cobol.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/cobol.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/coffee-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/coffee.js",
+			"size": 2770,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/coffee.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/coffee.js",
+			"size": 2468,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/coffee.js.map",
+			"size": 372,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/coldfusion-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/coldfusion.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/coldfusion.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/coldfusion.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/coldfusion.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/crystal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/crystal.js",
+			"size": 333,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/crystal.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/crystal.js",
+			"size": 183,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/crystal.js.map",
+			"size": 246,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csharp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csharp.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csharp.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csharp.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/csharp.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csound_document-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csound_document.js",
+			"size": 678,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csound_document.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csound_document.js",
+			"size": 482,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/csound_document.js.map",
+			"size": 389,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csound_orchestra-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csound_orchestra.js",
+			"size": 1524,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csound_orchestra.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csound_orchestra.js",
+			"size": 1287,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/csound_orchestra.js.map",
+			"size": 393,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csound_score-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csound_score.js",
+			"size": 338,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csound_score.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csound_score.js",
+			"size": 193,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/csound_score.js.map",
+			"size": 256,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csp.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/csp.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/csp.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/csp.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/css-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/css.js",
+			"size": 21928,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/css.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/css.js",
+			"size": 20289,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/css.js.map",
+			"size": 368,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/curly-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/curly.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/curly.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/curly.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/curly.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/d-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/d.js",
+			"size": 327,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/d.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/d.js",
+			"size": 171,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/d.js.map",
+			"size": 234,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/dart-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/dart.js",
+			"size": 1830,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/dart.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/dart.js",
+			"size": 1526,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/dart.js.map",
+			"size": 368,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/diff-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/diff.js",
+			"size": 920,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/diff.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/diff.js",
+			"size": 709,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/diff.js.map",
+			"size": 366,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/django-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/django.js",
+			"size": 4563,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/django.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/django.js",
+			"size": 4239,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/django.js.map",
+			"size": 372,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/dockerfile-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/dockerfile.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/dockerfile.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/dockerfile.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/dockerfile.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/dot-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/dot.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/dot.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/dot.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/dot.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/drools-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/drools.js",
+			"size": 757,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/drools.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/drools.js",
+			"size": 541,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/drools.js.map",
+			"size": 371,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/edifact-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/edifact.js",
+			"size": 5195,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/edifact.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/edifact.js",
+			"size": 4594,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/edifact.js.map",
+			"size": 374,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/eiffel-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/eiffel.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/eiffel.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/eiffel.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/eiffel.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ejs-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ejs.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ejs.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ejs.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/ejs.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/elixir-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/elixir.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/elixir.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/elixir.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/elixir.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/elm-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/elm.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/elm.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/elm.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/elm.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/erlang-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/erlang.js",
+			"size": 4241,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/erlang.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/erlang.js",
+			"size": 3826,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/erlang.js.map",
+			"size": 372,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/forth-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/forth.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/forth.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/forth.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/forth.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/fortran-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/fortran.js",
+			"size": 333,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/fortran.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/fortran.js",
+			"size": 183,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/fortran.js.map",
+			"size": 246,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/fsharp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/fsharp.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/fsharp.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/fsharp.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/fsharp.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/fsl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/fsl.js",
+			"size": 469,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/fsl.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/fsl.js",
+			"size": 274,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/fsl.js.map",
+			"size": 376,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ftl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ftl.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ftl.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ftl.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/ftl.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/gcode-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/gcode.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/gcode.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/gcode.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/gcode.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/gherkin-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/gherkin.js",
+			"size": 333,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/gherkin.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/gherkin.js",
+			"size": 183,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/gherkin.js.map",
+			"size": 246,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/gitignore-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/gitignore.js",
+			"size": 335,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/gitignore.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/gitignore.js",
+			"size": 187,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/gitignore.js.map",
+			"size": 250,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/glsl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/glsl.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/glsl.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/glsl.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/glsl.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/gobstones-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/gobstones.js",
+			"size": 42452,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/gobstones.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/gobstones.js",
+			"size": 39551,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/gobstones.js.map",
+			"size": 380,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/golang-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/golang.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/golang.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/golang.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/golang.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/graphqlschema-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/graphqlschema.js",
+			"size": 1080,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/graphqlschema.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/graphqlschema.js",
+			"size": 847,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/graphqlschema.js.map",
+			"size": 386,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/groovy-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/groovy.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/groovy.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/groovy.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/groovy.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/haml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/haml.js",
+			"size": 833,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/haml.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/haml.js",
+			"size": 628,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/haml.js.map",
+			"size": 367,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/handlebars-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/handlebars.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/handlebars.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/handlebars.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/handlebars.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/haskell-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/haskell.js",
+			"size": 2477,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/haskell.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/haskell.js",
+			"size": 2185,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/haskell.js.map",
+			"size": 374,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/haskell_cabal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/haskell_cabal.js",
+			"size": 339,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/haskell_cabal.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/haskell_cabal.js",
+			"size": 195,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/haskell_cabal.js.map",
+			"size": 258,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/haxe-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/haxe.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/haxe.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/haxe.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/haxe.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/hjson-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/hjson.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/hjson.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/hjson.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/hjson.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/html-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/html.js",
+			"size": 21903,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/html.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/html.js",
+			"size": 19932,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/html.js.map",
+			"size": 370,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/html_elixir-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/html_elixir.js",
+			"size": 337,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/html_elixir.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/html_elixir.js",
+			"size": 191,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/html_elixir.js.map",
+			"size": 254,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/html_ruby-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/html_ruby.js",
+			"size": 335,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/html_ruby.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/html_ruby.js",
+			"size": 187,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/html_ruby.js.map",
+			"size": 250,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ini-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ini.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ini.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ini.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/ini.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/io-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/io.js",
+			"size": 2170,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/io.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/io.js",
+			"size": 1372,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/io.js.map",
+			"size": 930,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jack-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jack.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jack.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jack.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/jack.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jade-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jade.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jade.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jade.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/jade.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/java-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/java.js",
+			"size": 5177,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/java.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/java.js",
+			"size": 4593,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/java.js.map",
+			"size": 368,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/javascript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/javascript.js",
+			"size": 4583,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/javascript.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/javascript.js",
+			"size": 4164,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/javascript.js.map",
+			"size": 380,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/json-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/json.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/json.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/json.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/json.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/json5-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/json5.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/json5.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/json5.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/json5.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jsoniq-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jsoniq.js",
+			"size": 2193,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jsoniq.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jsoniq.js",
+			"size": 1907,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/jsoniq.js.map",
+			"size": 372,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jsp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jsp.js",
+			"size": 3410,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jsp.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jsp.js",
+			"size": 2997,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/jsp.js.map",
+			"size": 366,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jssm-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jssm.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jssm.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jssm.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/jssm.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jsx-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jsx.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/jsx.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/jsx.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/jsx.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/julia-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/julia.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/julia.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/julia.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/julia.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/kotlin-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/kotlin.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/kotlin.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/kotlin.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/kotlin.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/latex-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/latex.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/latex.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/latex.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/latex.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/latte-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/latte.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/latte.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/latte.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/latte.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/less-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/less.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/less.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/less.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/less.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/liquid-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/liquid.js",
+			"size": 22323,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/liquid.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/liquid.js",
+			"size": 20319,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/liquid.js.map",
+			"size": 374,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/lisp-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/lisp.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/lisp.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/lisp.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/lisp.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/livescript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/livescript.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/livescript.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/livescript.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/livescript.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/logiql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/logiql.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/logiql.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/logiql.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/logiql.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/logtalk-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/logtalk.js",
+			"size": 333,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/logtalk.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/logtalk.js",
+			"size": 183,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/logtalk.js.map",
+			"size": 246,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/lsl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/lsl.js",
+			"size": 38231,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/lsl.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/lsl.js",
+			"size": 36357,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/lsl.js.map",
+			"size": 368,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/lua-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/lua.js",
+			"size": 894,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/lua.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/lua.js",
+			"size": 673,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/lua.js.map",
+			"size": 365,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/luapage-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/luapage.js",
+			"size": 333,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/luapage.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/luapage.js",
+			"size": 183,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/luapage.js.map",
+			"size": 246,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/lucene-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/lucene.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/lucene.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/lucene.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/lucene.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/makefile-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/makefile.js",
+			"size": 555,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/makefile.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/makefile.js",
+			"size": 360,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/makefile.js.map",
+			"size": 374,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/markdown-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/markdown.js",
+			"size": 2516,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/markdown.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/markdown.js",
+			"size": 2173,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/markdown.js.map",
+			"size": 376,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mask-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mask.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mask.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mask.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/mask.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/matlab-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/matlab.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/matlab.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/matlab.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/matlab.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/maze-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/maze.js",
+			"size": 633,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/maze.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/maze.js",
+			"size": 422,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/maze.js.map",
+			"size": 366,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mediawiki-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mediawiki.js",
+			"size": 335,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mediawiki.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mediawiki.js",
+			"size": 187,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/mediawiki.js.map",
+			"size": 250,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mel-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mel.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mel.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mel.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/mel.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mips-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mips.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mips.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mips.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/mips.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mixal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mixal.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mixal.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mixal.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/mixal.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mushcode-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mushcode.js",
+			"size": 334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mushcode.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mushcode.js",
+			"size": 185,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/mushcode.js.map",
+			"size": 248,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mysql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mysql.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/mysql.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/mysql.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/mysql.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nginx-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nginx.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nginx.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nginx.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/nginx.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nim-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nim.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nim.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nim.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/nim.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nix-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nix.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nix.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nix.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/nix.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nsis-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nsis.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nsis.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nsis.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/nsis.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nunjucks-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nunjucks.js",
+			"size": 334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/nunjucks.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/nunjucks.js",
+			"size": 185,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/nunjucks.js.map",
+			"size": 248,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/objectivec-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/objectivec.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/objectivec.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/objectivec.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/objectivec.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ocaml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ocaml.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ocaml.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ocaml.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/ocaml.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/pascal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/pascal.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/pascal.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/pascal.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/pascal.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/perl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/perl.js",
+			"size": 6552,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/perl.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/perl.js",
+			"size": 5865,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/perl.js.map",
+			"size": 368,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/pgsql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/pgsql.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/pgsql.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/pgsql.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/pgsql.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/php-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/php.js",
+			"size": 8063,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/php.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/php.js",
+			"size": 7455,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/php.js.map",
+			"size": 366,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/php_laravel_blade-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/php_laravel_blade.js",
+			"size": 343,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/php_laravel_blade.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/php_laravel_blade.js",
+			"size": 203,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/php_laravel_blade.js.map",
+			"size": 266,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/pig-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/pig.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/pig.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/pig.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/pig.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/plain_text-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/plain_text.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/plain_text.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/plain_text.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/plain_text.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/powershell-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/powershell.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/powershell.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/powershell.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/powershell.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/praat-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/praat.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/praat.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/praat.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/praat.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/prisma-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/prisma.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/prisma.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/prisma.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/prisma.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/prolog-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/prolog.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/prolog.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/prolog.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/prolog.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/properties-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/properties.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/properties.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/properties.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/properties.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/protobuf-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/protobuf.js",
+			"size": 334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/protobuf.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/protobuf.js",
+			"size": 185,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/protobuf.js.map",
+			"size": 248,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/puppet-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/puppet.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/puppet.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/puppet.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/puppet.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/python-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/python.js",
+			"size": 4350,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/python.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/python.js",
+			"size": 3988,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/python.js.map",
+			"size": 372,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/qml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/qml.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/qml.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/qml.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/qml.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/r-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/r.js",
+			"size": 3216,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/r.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/r.js",
+			"size": 2834,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/r.js.map",
+			"size": 362,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/raku-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/raku.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/raku.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/raku.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/raku.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/razor-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/razor.js",
+			"size": 516,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/razor.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/razor.js",
+			"size": 317,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/razor.js.map",
+			"size": 368,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/rdoc-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/rdoc.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/rdoc.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/rdoc.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/rdoc.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/red-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/red.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/red.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/red.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/red.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/redshift-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/redshift.js",
+			"size": 334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/redshift.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/redshift.js",
+			"size": 185,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/redshift.js.map",
+			"size": 248,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/rhtml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/rhtml.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/rhtml.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/rhtml.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/rhtml.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/rst-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/rst.js",
+			"size": 830,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/rst.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/rst.js",
+			"size": 603,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/rst.js.map",
+			"size": 365,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ruby-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ruby.js",
+			"size": 23569,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/ruby.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/ruby.js",
+			"size": 22209,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/ruby.js.map",
+			"size": 370,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/rust-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/rust.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/rust.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/rust.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/rust.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sass-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sass.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sass.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sass.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/sass.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scad-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scad.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scad.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scad.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/scad.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scala-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scala.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scala.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scala.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/scala.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scheme-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scheme.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scheme.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scheme.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/scheme.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scrypt-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scrypt.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scrypt.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scrypt.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/scrypt.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scss-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scss.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/scss.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/scss.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/scss.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sh-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sh.js",
+			"size": 2574,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sh.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sh.js",
+			"size": 2278,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/sh.js.map",
+			"size": 364,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sjs-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sjs.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sjs.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sjs.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/sjs.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/slim-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/slim.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/slim.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/slim.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/slim.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/smarty-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/smarty.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/smarty.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/smarty.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/smarty.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/smithy-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/smithy.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/smithy.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/smithy.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/smithy.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/snippets-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/snippets.js",
+			"size": 664,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/snippets.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/snippets.js",
+			"size": 462,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/snippets.js.map",
+			"size": 374,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/soy_template-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/soy_template.js",
+			"size": 338,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/soy_template.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/soy_template.js",
+			"size": 193,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/soy_template.js.map",
+			"size": 256,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/space-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/space.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/space.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/space.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/space.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sparql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sparql.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sparql.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sparql.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/sparql.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sql-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sql.js",
+			"size": 1338,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sql.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sql.js",
+			"size": 1117,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/sql.js.map",
+			"size": 366,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sqlserver-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sqlserver.js",
+			"size": 2627,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/sqlserver.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/sqlserver.js",
+			"size": 2365,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/sqlserver.js.map",
+			"size": 378,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/stylus-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/stylus.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/stylus.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/stylus.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/stylus.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/svg-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/svg.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/svg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/svg.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/svg.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/swift-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/swift.js",
+			"size": 331,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/swift.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/swift.js",
+			"size": 179,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/swift.js.map",
+			"size": 242,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/tcl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/tcl.js",
+			"size": 2218,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/tcl.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/tcl.js",
+			"size": 1910,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/tcl.js.map",
+			"size": 366,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/terraform-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/terraform.js",
+			"size": 335,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/terraform.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/terraform.js",
+			"size": 187,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/terraform.js.map",
+			"size": 250,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/tex-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/tex.js",
+			"size": 4360,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/tex.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/tex.js",
+			"size": 3908,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/tex.js.map",
+			"size": 366,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/text-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/text.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/text.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/text.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/text.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/textile-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/textile.js",
+			"size": 950,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/textile.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/textile.js",
+			"size": 708,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/textile.js.map",
+			"size": 373,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/toml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/toml.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/toml.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/toml.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/toml.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/tsx-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/tsx.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/tsx.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/tsx.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/tsx.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/turtle-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/turtle.js",
+			"size": 332,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/turtle.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/turtle.js",
+			"size": 181,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/turtle.js.map",
+			"size": 244,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/twig-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/twig.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/twig.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/twig.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/twig.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/typescript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/typescript.js",
+			"size": 336,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/typescript.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/typescript.js",
+			"size": 189,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/typescript.js.map",
+			"size": 252,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/vala-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/vala.js",
+			"size": 5321,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/vala.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/vala.js",
+			"size": 3315,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/vala.js.map",
+			"size": 1982,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/vbscript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/vbscript.js",
+			"size": 334,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/vbscript.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/vbscript.js",
+			"size": 185,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/vbscript.js.map",
+			"size": 248,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/velocity-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/velocity.js",
+			"size": 1069,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/velocity.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/velocity.js",
+			"size": 830,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/velocity.js.map",
+			"size": 425,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/verilog-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/verilog.js",
+			"size": 333,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/verilog.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/verilog.js",
+			"size": 183,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/verilog.js.map",
+			"size": 246,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/vhdl-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/vhdl.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/vhdl.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/vhdl.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/vhdl.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/visualforce-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/visualforce.js",
+			"size": 337,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/visualforce.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/visualforce.js",
+			"size": 191,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/visualforce.js.map",
+			"size": 254,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/wollok-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/wollok.js",
+			"size": 1792,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/wollok.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/wollok.js",
+			"size": 1451,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/wollok.js.map",
+			"size": 372,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/xml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/xml.js",
+			"size": 329,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/xml.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/xml.js",
+			"size": 175,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/xml.js.map",
+			"size": 238,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/xquery-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/xquery.js",
+			"size": 2193,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/xquery.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/xquery.js",
+			"size": 1907,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/xquery.js.map",
+			"size": 372,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/yaml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/yaml.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/yaml.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/yaml.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/yaml.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/zeek-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/zeek.js",
+			"size": 330,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/snippets/zeek.js",
+			"module": "sap/ui/codeeditor/js/ace/snippets/zeek.js",
+			"size": 177,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/snippets/zeek.js.map",
+			"size": 240,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-ambiance-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-ambiance.js",
+			"size": 28173,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-ambiance.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-ambiance.js",
+			"size": 27615,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-ambiance.js.map",
+			"size": 501,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-chaos-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-chaos.js",
+			"size": 3510,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-chaos.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-chaos.js",
+			"size": 2993,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-chaos.js.map",
+			"size": 494,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-chrome-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-chrome.js",
+			"size": 3327,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-chrome.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-chrome.js",
+			"size": 2864,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-chrome.js.map",
+			"size": 496,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-clouds-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-clouds.js",
+			"size": 2630,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-clouds.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-clouds.js",
+			"size": 2233,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-clouds.js.map",
+			"size": 496,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-clouds_midnight-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-clouds_midnight.js",
+			"size": 2989,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-clouds_midnight.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-clouds_midnight.js",
+			"size": 2601,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-clouds_midnight.js.map",
+			"size": 515,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-cobalt-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-cobalt.js",
+			"size": 2935,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-cobalt.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-cobalt.js",
+			"size": 2504,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-cobalt.js.map",
+			"size": 496,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-crimson_editor-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-crimson_editor.js",
+			"size": 3415,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-crimson_editor.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-crimson_editor.js",
+			"size": 2980,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-crimson_editor.js.map",
+			"size": 513,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-dawn-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-dawn.js",
+			"size": 2811,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-dawn.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-dawn.js",
+			"size": 2388,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-dawn.js.map",
+			"size": 492,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-dracula-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-dracula.js",
+			"size": 3206,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-dracula.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-dracula.js",
+			"size": 2739,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-dracula.js.map",
+			"size": 544,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-dreamweaver-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-dreamweaver.js",
+			"size": 3785,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-dreamweaver.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-dreamweaver.js",
+			"size": 3300,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-dreamweaver.js.map",
+			"size": 507,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-eclipse-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-eclipse.js",
+			"size": 2679,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-eclipse.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-eclipse.js",
+			"size": 2279,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-eclipse.js.map",
+			"size": 503,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-github-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-github.js",
+			"size": 2749,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-github.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-github.js",
+			"size": 2328,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-github.js.map",
+			"size": 495,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-gob-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-gob.js",
+			"size": 2958,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-gob.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-gob.js",
+			"size": 2526,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-gob.js.map",
+			"size": 490,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-gruvbox-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-gruvbox.js",
+			"size": 2189,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-gruvbox.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-gruvbox.js",
+			"size": 1820,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-gruvbox.js.map",
+			"size": 498,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-idle_fingers-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-idle_fingers.js",
+			"size": 2802,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-idle_fingers.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-idle_fingers.js",
+			"size": 2411,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-idle_fingers.js.map",
+			"size": 509,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-iplastic-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-iplastic.js",
+			"size": 7077,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-iplastic.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-iplastic.js",
+			"size": 6632,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-iplastic.js.map",
+			"size": 500,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-katzenmilch-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-katzenmilch.js",
+			"size": 3730,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-katzenmilch.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-katzenmilch.js",
+			"size": 3288,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-katzenmilch.js.map",
+			"size": 507,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-kr_theme-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-kr_theme.js",
+			"size": 2862,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-kr_theme.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-kr_theme.js",
+			"size": 2451,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-kr_theme.js.map",
+			"size": 500,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-kuroir-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-kuroir.js",
+			"size": 2533,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-kuroir.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-kuroir.js",
+			"size": 2206,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-kuroir.js.map",
+			"size": 496,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-merbivore-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-merbivore.js",
+			"size": 2785,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-merbivore.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-merbivore.js",
+			"size": 2393,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-merbivore.js.map",
+			"size": 503,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-merbivore_soft-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-merbivore_soft.js",
+			"size": 3004,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-merbivore_soft.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-merbivore_soft.js",
+			"size": 2615,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-merbivore_soft.js.map",
+			"size": 513,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-mono_industrial-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-mono_industrial.js",
+			"size": 3370,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-mono_industrial.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-mono_industrial.js",
+			"size": 2960,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-mono_industrial.js.map",
+			"size": 515,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-monokai-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-monokai.js",
+			"size": 2942,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-monokai.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-monokai.js",
+			"size": 2528,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-monokai.js.map",
+			"size": 498,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-nord_dark-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-nord_dark.js",
+			"size": 2640,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-nord_dark.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-nord_dark.js",
+			"size": 2241,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-nord_dark.js.map",
+			"size": 549,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-one_dark-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-one_dark.js",
+			"size": 3318,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-one_dark.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-one_dark.js",
+			"size": 2823,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-one_dark.js.map",
+			"size": 500,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-pastel_on_dark-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-pastel_on_dark.js",
+			"size": 3213,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-pastel_on_dark.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-pastel_on_dark.js",
+			"size": 2800,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-pastel_on_dark.js.map",
+			"size": 513,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-solarized_dark-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-solarized_dark.js",
+			"size": 2852,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-solarized_dark.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-solarized_dark.js",
+			"size": 2479,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-solarized_dark.js.map",
+			"size": 513,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-solarized_light-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-solarized_light.js",
+			"size": 2908,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-solarized_light.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-solarized_light.js",
+			"size": 2530,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-solarized_light.js.map",
+			"size": 515,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-sqlserver-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-sqlserver.js",
+			"size": 3530,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-sqlserver.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-sqlserver.js",
+			"size": 3050,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-sqlserver.js.map",
+			"size": 503,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-terminal-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-terminal.js",
+			"size": 3499,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-terminal.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-terminal.js",
+			"size": 3068,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-terminal.js.map",
+			"size": 501,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-textmate-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-textmate.js",
+			"size": 3239,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-textmate.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-textmate.js",
+			"size": 2768,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-textmate.js.map",
+			"size": 529,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow.js",
+			"size": 3131,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow.js",
+			"size": 2712,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-tomorrow.js.map",
+			"size": 500,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow_night.js",
+			"size": 3400,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow_night.js",
+			"size": 2987,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night.js.map",
+			"size": 513,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_blue-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow_night_blue.js",
+			"size": 3612,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_blue.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow_night_blue.js",
+			"size": 3208,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_blue.js.map",
+			"size": 523,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_bright-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow_night_bright.js",
+			"size": 4109,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_bright.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow_night_bright.js",
+			"size": 3677,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_bright.js.map",
+			"size": 527,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_eighties-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow_night_eighties.js",
+			"size": 3810,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_eighties.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-tomorrow_night_eighties.js",
+			"size": 3406,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-tomorrow_night_eighties.js.map",
+			"size": 531,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-twilight-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-twilight.js",
+			"size": 3047,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-twilight.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-twilight.js",
+			"size": 2626,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-twilight.js.map",
+			"size": 500,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-vibrant_ink-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-vibrant_ink.js",
+			"size": 2753,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-vibrant_ink.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-vibrant_ink.js",
+			"size": 2365,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-vibrant_ink.js.map",
+			"size": 507,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-xcode-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-xcode.js",
+			"size": 2450,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/theme-xcode.js",
+			"module": "sap/ui/codeeditor/js/ace/theme-xcode.js",
+			"size": 2068,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/theme-xcode.js.map",
+			"size": 494,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-base-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-base.js",
+			"size": 43030,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-base.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-base.js",
+			"size": 22167,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-base.js.map",
+			"size": 32906,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-coffee-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-coffee.js",
+			"size": 349202,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-coffee.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-coffee.js",
+			"size": 324403,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-coffee.js.map",
+			"size": 489818,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-css-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-css.js",
+			"size": 314156,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-css.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-css.js",
+			"size": 154101,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-css.js.map",
+			"size": 172658,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-html-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-html.js",
+			"size": 316171,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-html.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-html.js",
+			"size": 204671,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-html.js.map",
+			"size": 212135,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-javascript-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-javascript.js",
+			"size": 721517,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-javascript.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-javascript.js",
+			"size": 518132,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-javascript.js.map",
+			"size": 315572,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-json-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-json.js",
+			"size": 50776,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-json.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-json.js",
+			"size": 24627,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-json.js.map",
+			"size": 36817,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-lua-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-lua.js",
+			"size": 103932,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-lua.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-lua.js",
+			"size": 49323,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-lua.js.map",
+			"size": 74571,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-php-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-php.js",
+			"size": 133074,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-php.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-php.js",
+			"size": 72360,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-php.js.map",
+			"size": 94266,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-xml-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-xml.js",
+			"size": 90733,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-xml.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-xml.js",
+			"size": 48055,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-xml.js.map",
+			"size": 72365,
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-xquery-dbg.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-xquery.js",
+			"size": 3501132,
+			"format": "raw",
+			"isDebug": true
+		},
+		{
+			"name": "js/ace/worker-xquery.js",
+			"module": "sap/ui/codeeditor/js/ace/worker-xquery.js",
+			"size": 1633678,
+			"format": "raw"
+		},
+		{
+			"name": "js/ace/worker-xquery.js.map",
+			"size": 1821378,
+			"isDebug": true
+		},
+		{
+			"name": "library-dbg.js",
+			"module": "sap/ui/codeeditor/library.js",
+			"size": 818,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/Core.js",
+				"sap/ui/core/library.js"
+			]
+		},
+		{
+			"name": "library-preload.js",
+			"module": "sap/ui/codeeditor/library-preload.js",
+			"size": 9515,
+			"merged": true,
+			"required": [
+				"sap/ui/codeeditor/js/ace/ace.js",
+				"sap/ui/codeeditor/js/ace/ext-beautify.js",
+				"sap/ui/codeeditor/js/ace/ext-language_tools.js",
+				"sap/ui/codeeditor/js/ace/mode-javascript.js",
+				"sap/ui/codeeditor/js/ace/mode-json.js",
+				"sap/ui/core/Control.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/RenderManager.js",
+				"sap/ui/core/ResizeHandler.js",
+				"sap/ui/core/library.js",
+				"sap/ui/dom/includeStylesheet.js",
+				"sap/ui/thirdparty/jquery.js"
+			],
+			"included": [
+				"sap/ui/codeeditor/library.js",
+				"sap/ui/codeeditor/CodeEditor.js",
+				"sap/ui/codeeditor/aceWorkerProxy.js",
+				"sap/ui/codeeditor/manifest.json"
+			]
+		},
+		{
+			"name": "library-preload.js.map",
+			"size": 9714,
+			"isDebug": true
+		},
+		{
+			"name": "library.js",
+			"module": "sap/ui/codeeditor/library.js",
+			"size": 485,
+			"required": [
+				"sap/ui/core/Core.js",
+				"sap/ui/core/library.js"
+			]
+		},
+		{
+			"name": "library.js.map",
+			"size": 437,
+			"isDebug": true
+		},
+		{
+			"name": "manifest.json",
+			"module": "sap/ui/codeeditor/manifest.json",
+			"size": 1892
+		},
+		{
+			"name": "messagebundle.properties",
+			"module": "sap/ui/codeeditor/messagebundle.properties",
+			"size": 276,
+			"locale": "",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_ar.properties",
+			"module": "sap/ui/codeeditor/messagebundle_ar.properties",
+			"size": 91,
+			"locale": "ar",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_bg.properties",
+			"module": "sap/ui/codeeditor/messagebundle_bg.properties",
+			"size": 128,
+			"locale": "bg",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_ca.properties",
+			"module": "sap/ui/codeeditor/messagebundle_ca.properties",
+			"size": 44,
+			"locale": "ca",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_cs.properties",
+			"module": "sap/ui/codeeditor/messagebundle_cs.properties",
+			"size": 46,
+			"locale": "cs",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_cy.properties",
+			"module": "sap/ui/codeeditor/messagebundle_cy.properties",
+			"size": 42,
+			"locale": "cy",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_da.properties",
+			"module": "sap/ui/codeeditor/messagebundle_da.properties",
+			"size": 40,
+			"locale": "da",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_de.properties",
+			"module": "sap/ui/codeeditor/messagebundle_de.properties",
+			"size": 41,
+			"locale": "de",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_el.properties",
+			"module": "sap/ui/codeeditor/messagebundle_el.properties",
+			"size": 145,
+			"locale": "el",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_en.properties",
+			"module": "sap/ui/codeeditor/messagebundle_en.properties",
+			"size": 41,
+			"locale": "en",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_en_GB.properties",
+			"module": "sap/ui/codeeditor/messagebundle_en_GB.properties",
+			"size": 41,
+			"locale": "en_GB",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_en_US_sappsd.properties",
+			"module": "sap/ui/codeeditor/messagebundle_en_US_sappsd.properties",
+			"size": 145,
+			"locale": "en_US_sappsd",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_en_US_saprigi.properties",
+			"module": "sap/ui/codeeditor/messagebundle_en_US_saprigi.properties",
+			"size": 317,
+			"locale": "en_US_saprigi",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_en_US_saptrc.properties",
+			"module": "sap/ui/codeeditor/messagebundle_en_US_saptrc.properties",
+			"size": 64,
+			"locale": "en_US_saptrc",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_es.properties",
+			"module": "sap/ui/codeeditor/messagebundle_es.properties",
+			"size": 51,
+			"locale": "es",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_es_MX.properties",
+			"module": "sap/ui/codeeditor/messagebundle_es_MX.properties",
+			"size": 51,
+			"locale": "es_MX",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_et.properties",
+			"module": "sap/ui/codeeditor/messagebundle_et.properties",
+			"size": 43,
+			"locale": "et",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_fi.properties",
+			"module": "sap/ui/codeeditor/messagebundle_fi.properties",
+			"size": 42,
+			"locale": "fi",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_fr.properties",
+			"module": "sap/ui/codeeditor/messagebundle_fr.properties",
+			"size": 50,
+			"locale": "fr",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_fr_CA.properties",
+			"module": "sap/ui/codeeditor/messagebundle_fr_CA.properties",
+			"size": 50,
+			"locale": "fr_CA",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_hi.properties",
+			"module": "sap/ui/codeeditor/messagebundle_hi.properties",
+			"size": 79,
+			"locale": "hi",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_hr.properties",
+			"module": "sap/ui/codeeditor/messagebundle_hr.properties",
+			"size": 41,
+			"locale": "hr",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_hu.properties",
+			"module": "sap/ui/codeeditor/messagebundle_hu.properties",
+			"size": 53,
+			"locale": "hu",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_id.properties",
+			"module": "sap/ui/codeeditor/messagebundle_id.properties",
+			"size": 41,
+			"locale": "id",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_it.properties",
+			"module": "sap/ui/codeeditor/messagebundle_it.properties",
+			"size": 43,
+			"locale": "it",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_iw.properties",
+			"module": "sap/ui/codeeditor/messagebundle_iw.properties",
+			"size": 73,
+			"locale": "iw",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_ja.properties",
+			"module": "sap/ui/codeeditor/messagebundle_ja.properties",
+			"size": 72,
+			"locale": "ja",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_kk.properties",
+			"module": "sap/ui/codeeditor/messagebundle_kk.properties",
+			"size": 103,
+			"locale": "kk",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_ko.properties",
+			"module": "sap/ui/codeeditor/messagebundle_ko.properties",
+			"size": 61,
+			"locale": "ko",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_lt.properties",
+			"module": "sap/ui/codeeditor/messagebundle_lt.properties",
+			"size": 48,
+			"locale": "lt",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_lv.properties",
+			"module": "sap/ui/codeeditor/messagebundle_lv.properties",
+			"size": 44,
+			"locale": "lv",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_ms.properties",
+			"module": "sap/ui/codeeditor/messagebundle_ms.properties",
+			"size": 40,
+			"locale": "ms",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_nl.properties",
+			"module": "sap/ui/codeeditor/messagebundle_nl.properties",
+			"size": 41,
+			"locale": "nl",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_no.properties",
+			"module": "sap/ui/codeeditor/messagebundle_no.properties",
+			"size": 40,
+			"locale": "no",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_pl.properties",
+			"module": "sap/ui/codeeditor/messagebundle_pl.properties",
+			"size": 41,
+			"locale": "pl",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_pt.properties",
+			"module": "sap/ui/codeeditor/messagebundle_pt.properties",
+			"size": 51,
+			"locale": "pt",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_pt_PT.properties",
+			"module": "sap/ui/codeeditor/messagebundle_pt_PT.properties",
+			"size": 51,
+			"locale": "pt_PT",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_ro.properties",
+			"module": "sap/ui/codeeditor/messagebundle_ro.properties",
+			"size": 46,
+			"locale": "ro",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_ru.properties",
+			"module": "sap/ui/codeeditor/messagebundle_ru.properties",
+			"size": 109,
+			"locale": "ru",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_sh.properties",
+			"module": "sap/ui/codeeditor/messagebundle_sh.properties",
+			"size": 59,
+			"locale": "sh",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_sk.properties",
+			"module": "sap/ui/codeeditor/messagebundle_sk.properties",
+			"size": 46,
+			"locale": "sk",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_sl.properties",
+			"module": "sap/ui/codeeditor/messagebundle_sl.properties",
+			"size": 46,
+			"locale": "sl",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_sv.properties",
+			"module": "sap/ui/codeeditor/messagebundle_sv.properties",
+			"size": 39,
+			"locale": "sv",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_th.properties",
+			"module": "sap/ui/codeeditor/messagebundle_th.properties",
+			"size": 108,
+			"locale": "th",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_tr.properties",
+			"module": "sap/ui/codeeditor/messagebundle_tr.properties",
+			"size": 50,
+			"locale": "tr",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_uk.properties",
+			"module": "sap/ui/codeeditor/messagebundle_uk.properties",
+			"size": 109,
+			"locale": "uk",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_vi.properties",
+			"module": "sap/ui/codeeditor/messagebundle_vi.properties",
+			"size": 69,
+			"locale": "vi",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_zh_CN.properties",
+			"module": "sap/ui/codeeditor/messagebundle_zh_CN.properties",
+			"size": 60,
+			"locale": "zh_CN",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "messagebundle_zh_TW.properties",
+			"module": "sap/ui/codeeditor/messagebundle_zh_TW.properties",
+			"size": 60,
+			"locale": "zh_TW",
+			"raw": "messagebundle.properties"
+		},
+		{
+			"name": "resources.json",
+			"size": 188803
+		},
+		{
+			"name": "themes/base/.theming",
+			"size": 64,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/css_variables.css",
+			"size": 121,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/css_variables.less",
+			"size": 240,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/css_variables.source.less",
+			"size": 122836,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/library-RTL.css",
+			"size": 559,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/library-parameters.json",
+			"module": "sap/ui/codeeditor/themes/base/library-parameters.json",
+			"size": 2,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/library.css",
+			"size": 559,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/library.less",
+			"size": 823,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/library.source.less",
+			"size": 631,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/library_skeleton-RTL.css",
+			"size": 438,
+			"theme": "base"
+		},
+		{
+			"name": "themes/base/library_skeleton.css",
+			"size": 438,
+			"theme": "base"
+		},
+		{
+			"name": "themes/sap_hcb/.theming",
+			"size": 128,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/css_variables.css",
+			"size": 121,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/css_variables.less",
+			"size": 109448,
+			"designtime": true,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/css_variables.source.less",
+			"size": 109148,
+			"designtime": true,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL.css",
+			"size": 709,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-parameters.json",
+			"module": "sap/ui/codeeditor/themes/sap_hcb/library-parameters.json",
+			"size": 2,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.css",
+			"size": 709,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.less",
+			"size": 358,
+			"designtime": true,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.source.less",
+			"size": 255,
+			"designtime": true,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library_skeleton-RTL.css",
+			"size": 588,
+			"theme": "sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library_skeleton.css",
+			"size": 588,
+			"theme": "sap_hcb"
+		}
+	]
+}
