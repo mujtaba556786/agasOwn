@@ -1,0 +1,1 @@
+{"version":3,"file":"jsoniq.js","names":["ace","define","require","exports","module","snippetText","scope","m"],"sources":["jsoniq-dbg.js"],"mappings":"AAAAA,IAAIC,OAAO,sBAAsB,GAAI,SAASC,EAASC,EAASC,GAChE,aAEAD,EAAQE,YAAc,4lDA8DtBF,EAAQG,MAAQ,QAEhB,IAAmB,WACCN,IAAIE,QAAQ,CAAC,uBAAwB,SAASK,GAC1C,UAAWH,QAAU,iBAAmBD,SAAW,UAAYC,OAAQ,CACnEA,OAAOD,QAAUI,CACrB,CACJ,EACH,EANE"}

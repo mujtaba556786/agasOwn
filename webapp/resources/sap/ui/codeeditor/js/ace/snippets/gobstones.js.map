@@ -1,0 +1,1 @@
+{"version":3,"file":"gobstones.js","names":["ace","define","require","exports","module","snippetText","scope","m"],"sources":["gobstones-dbg.js"],"mappings":"AAAAA,IAAIC,OAAO,yBAAyB,GAAI,SAASC,EAASC,EAASC,GACnE,aAEAD,EAAQE,YAAc,kvsCAyqDtBF,EAAQG,MAAQ,WAEhB,IAAmB,WACCN,IAAIE,QAAQ,CAAC,0BAA2B,SAASK,GAC7C,UAAWH,QAAU,iBAAmBD,SAAW,UAAYC,OAAQ,CACnEA,OAAOD,QAAUI,CACrB,CACJ,EACH,EANE"}

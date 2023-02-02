@@ -1,0 +1,1 @@
+{"version":3,"file":"markdown.js","names":["ace","define","require","exports","module","snippetText","scope","m"],"sources":["markdown-dbg.js"],"mappings":"AAAAA,IAAIC,OAAO,wBAAwB,GAAI,SAASC,EAASC,EAASC,GAClE,aAEAD,EAAQE,YAAc,81DAyFtBF,EAAQG,MAAQ,UAEhB,IAAmB,WACCN,IAAIE,QAAQ,CAAC,yBAA0B,SAASK,GAC5C,UAAWH,QAAU,iBAAmBD,SAAW,UAAYC,OAAQ,CACnEA,OAAOD,QAAUI,CACrB,CACJ,EACH,EANE"}

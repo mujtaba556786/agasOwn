@@ -1,0 +1,1 @@
+{"version":3,"file":"php.js","names":["ace","define","require","exports","module","snippetText","scope","m"],"sources":["php-dbg.js"],"mappings":"AAAAA,IAAIC,OAAO,mBAAmB,GAAI,SAASC,EAASC,EAASC,GAC7D,aAEAD,EAAQE,YAAc,ohOAgYtBF,EAAQG,MAAQ,KAEhB,IAAmB,WACCN,IAAIE,QAAQ,CAAC,oBAAqB,SAASK,GACvC,UAAWH,QAAU,iBAAmBD,SAAW,UAAYC,OAAQ,CACnEA,OAAOD,QAAUI,CACrB,CACJ,EACH,EANE"}

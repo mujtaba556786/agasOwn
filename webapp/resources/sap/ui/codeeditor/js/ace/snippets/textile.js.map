@@ -1,0 +1,1 @@
+{"version":3,"file":"textile.js","names":["ace","define","require","exports","module","snippetText","scope","m"],"sources":["textile-dbg.js"],"mappings":"AAAAA,IAAIC,OAAO,uBAAuB,GAAI,SAASC,EAASC,EAASC,GACjE,aAEAD,EAAQE,YAAc,yaA+BtBF,EAAQG,MAAQ,SAEhB,IAAmB,WACCN,IAAIE,QAAQ,CAAC,wBAAyB,SAASK,GAC3C,UAAWH,QAAU,iBAAmBD,SAAW,UAAYC,OAAQ,CACnEA,OAAOD,QAAUI,CACrB,CACJ,EACH,EANE"}

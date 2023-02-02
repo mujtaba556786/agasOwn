@@ -1,0 +1,1 @@
+{"version":3,"file":"sh.js","names":["ace","define","require","exports","module","snippetText","scope","m"],"sources":["sh-dbg.js"],"mappings":"AAAAA,IAAIC,OAAO,kBAAkB,GAAI,SAASC,EAASC,EAASC,GAC5D,aAEAD,EAAQE,YAAc,+9DAoFtBF,EAAQG,MAAQ,IAEhB,IAAmB,WACCN,IAAIE,QAAQ,CAAC,mBAAoB,SAASK,GACtC,UAAWH,QAAU,iBAAmBD,SAAW,UAAYC,OAAQ,CACnEA,OAAOD,QAAUI,CACrB,CACJ,EACH,EANE"}
