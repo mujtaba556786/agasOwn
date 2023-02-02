@@ -1,1 +1,0 @@
-{"version":3,"file":"pgsql.js","names":["ace","require","m","module","exports"],"sources":["pgsql-dbg.js"],"mappings":"CACiB,WACGA,IAAIC,QAAQ,CAAC,sBAAuB,SAASC,GACzC,UAAWC,QAAU,iBAAmBC,SAAW,UAAYD,OAAQ,CACnEA,OAAOC,QAAUF,CACrB,CACJ,EACH,EANA"}
