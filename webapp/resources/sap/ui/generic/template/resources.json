@@ -1,0 +1,71 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": ".library",
+			"size": 1591
+		},
+		{
+			"name": ".theming",
+			"size": 106
+		},
+		{
+			"name": "library-dbg.js",
+			"module": "sap/ui/generic/template/library.js",
+			"size": 871,
+			"isDebug": true,
+			"required": [
+				"sap/ui/comp/library.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/library.js",
+				"sap/ui/generic/app/library.js"
+			]
+		},
+		{
+			"name": "library-preload.js",
+			"module": "sap/ui/generic/template/library-preload.js",
+			"size": 1225,
+			"merged": true,
+			"required": [
+				"sap/ui/comp/library.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/library.js",
+				"sap/ui/generic/app/library.js"
+			],
+			"included": [
+				"sap/ui/generic/template/library.js",
+				"sap/ui/generic/template/manifest.json"
+			]
+		},
+		{
+			"name": "library-preload.js.map",
+			"size": 737,
+			"isDebug": true
+		},
+		{
+			"name": "library.js",
+			"module": "sap/ui/generic/template/library.js",
+			"size": 457,
+			"required": [
+				"sap/ui/comp/library.js",
+				"sap/ui/core/Core.js",
+				"sap/ui/core/library.js",
+				"sap/ui/generic/app/library.js"
+			]
+		},
+		{
+			"name": "library.js.map",
+			"size": 455,
+			"isDebug": true
+		},
+		{
+			"name": "manifest.json",
+			"module": "sap/ui/generic/template/manifest.json",
+			"size": 860
+		},
+		{
+			"name": "resources.json",
+			"size": 1359
+		}
+	]
+}

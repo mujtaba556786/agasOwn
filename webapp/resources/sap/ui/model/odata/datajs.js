@@ -1,0 +1,2 @@
+(function(jQuery){var e="The file datajs.js has been moved from sap.ui.model.odata to sap.ui.thirdparty! Please update the dependencies accordingly.";if(jQuery&&jQuery.sap&&jQuery.sap.require){jQuery.sap.require("sap.ui.thirdparty.datajs");jQuery.sap.log.warning(e)}else{throw new Error(e)}})(window.jQuery);
+//# sourceMappingURL=datajs.js.map

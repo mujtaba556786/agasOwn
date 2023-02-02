@@ -1,0 +1,2 @@
+(function(jQuery){var e="The file qunit.js has been moved from sap.ui.qunit to sap.ui.thirdparty! Please update the dependencies accordingly.";if(jQuery&&jQuery.sap&&jQuery.sap.require){jQuery.sap.require("sap.ui.thirdparty.qunit");jQuery.sap.log.warning(e)}else{throw new Error(e)}})(window.jQuery);
+//# sourceMappingURL=qunit.js.map
