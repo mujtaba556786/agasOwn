@@ -13,8 +13,7 @@
             <Text text="{i18n>wantTo}" class="giftCard"/>
             <Text text="{i18n>wantToEnter}" class="giftCardCode"/>
             <HBox class="redeem">
-               <Input value="" class="giftCard_input" id="gift_card" required="true"/>
-               <Button width="100%" class="redeemButton" text="{i18n>Redeem}" press=".onEditPersonalDetails" type="Unstyled" />
+               <Input class="giftCard_input" id="gift_card" value="{oGlobalModel>/customerModel/voucher}"  editable="false"/>
             </HBox>
          </VBox>
       </VBox>

@@ -170,7 +170,8 @@ sap.ui.define(
 
         fetch("http://64.227.115.243:8080/checkout/", requestOptions)
           .then(response => response.text())
-          .then(result => { console.log(result) })
+          .then(result => {
+           })
           .catch(error => console.log('error', error));
 
       },
@@ -260,12 +261,16 @@ sap.ui.define(
           MessageToast.show("Product is not available!");
         }
       },
-
+      onGetWishItems: async function (item) {
+        var requestOptions = {
+          method: 'GET',
+          redirect: 'follow'
+        };
+        const res = await fetch(`http://64.227.115.243:8080/products/${item}`, requestOptions)
+        return res.json();
+      },
       onWishlistSelect : function(){
-        // var sId = this.byId("customerTab");
-        // var sHeader = oEvent.getSource().getHeader();
-        // sId.setSelectedKey(sHeader);
-        var data = sap.ui.controller("ag.agasown.Controller.Customer").onGetWishlistProductDetails();
+
         var id = localStorage.getItem("user");
         var access_token = localStorage.getItem("access_token");
         var headEr = new Headers();
@@ -279,23 +284,30 @@ sap.ui.define(
           .then((response) => response.json())
           .then(async (result) => {
             var wishData = result.wishlist; 
-            var globArr = [];
-            var answ = wishData.split(',');
-            answ.forEach(function(obj){
-              globArr.push(obj);
-        });
-            const data = globArr.map(async (item) => {
-              return await this.onGetWishlistProductDetails(item);
-            })
-            const product = await Promise.all(data);
-            var eachProd =  product.map((i) => { return (i) });
-            var oGlobalModel = new JSONModel(eachProd);  //pass product
+           if (wishData !== null){
+          var globArr = [];
+          var answ = wishData.split(',');
+          answ.forEach(function(obj){
+            globArr.push(obj);
+      });
+          const data = globArr.map(async (item) => {
+            return await this.onGetWishlistProductDetails(item);
+          })
+          const product = await Promise.all(data);
+          var eachProd =  product.map((i) => { return (i) });
+          var oGlobalModel = new JSONModel(eachProd);
+          // this.onInit();  //pass product
+         }else{
+           oGlobalModel = new JSONModel(null);  //pass product
+         }  //pass product
             this.getView().setModel(oGlobalModel, "wishListmodel");
           })
-          .catch(error => console.log('error', error));
+          .catch(error => {
+            console.log('error', error)
+          });
       },
-      onAddToWishList: function (oEvent) {
-        this.onWishlistSelect();
+      onAddToWishList:async function (oEvent) {
+        // this.onWishlistSelect();
         var token;
         var oSelectedPath = this.getView()
           .getModel("oGlobalModel")
@@ -333,8 +345,6 @@ sap.ui.define(
           fetch("http://64.227.115.243:8080/wishlist/", requestOptions)
             .then((response) => response.text())
             .then((result) => {
-              console.log(JSON.parse(result).message);
-
               if (JSON.parse(result).message === "Product already exists") {
                 var oSelectedPath = this.getView()
                   .getModel("oGlobalModel")
@@ -358,7 +368,6 @@ sap.ui.define(
                   fetch("http://64.227.115.243:8080/delete_wishlist/", requestOptions)
                     .then((response) => response.text())
                     .then((result) => {
-                      console.log(JSON.parse(result).message)
                       MessageToast.show(JSON.parse(result).message)
                     }
                     )

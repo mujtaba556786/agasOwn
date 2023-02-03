@@ -30,6 +30,8 @@ sap.ui.define([
 			// set the Menu model
 			this.setModel(new sap.ui.model.json.JSONModel() , "oMenuModel");
 			this.setModel(new sap.ui.model.json.JSONModel(), "customerModel");
+			this.setModel(new sap.ui.model.json.JSONModel(), "wishListmodel");
+			this.setModel(new sap.ui.model.json.JSONModel(), "cartDetailsModel");	
 		},
 		
 	});

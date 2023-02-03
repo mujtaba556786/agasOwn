@@ -6,7 +6,8 @@ xmlns:core="sap.ui.core"
    xmlns:cssgrid="sap.ui.layout.cssgrid"
    xmlns:app ="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
    >
-   <f:GridList id="gridListt" items="{wishListmodel>/}" growing="true" growingThreshold="4">
+   <f:GridList id="gridListWishlist" items="{wishListmodel>/}" growing="true" growingThreshold="4" noDataText="Nothing added in Wishlist" >
+   
       <f:customLayout>
          <cssgrid:GridBasicLayout gridAutoRows="5rem" gridTemplateColumns="repeat(auto-fill, minmax(9rem, 1fr))" gridGap="0.5rem"></cssgrid:GridBasicLayout>
       </f:customLayout>
@@ -32,10 +33,8 @@ xmlns:core="sap.ui.core"
               </HBox>
 						<Button text="Buy Now" class="sapUiTinyMarginBegin" press="onProductItemPress" />
 						</VBox>
-               </VBox>
-				
-			</Panel>
-         
+               </VBox>	
+			</Panel>        
       </f:GridListItem>
    </f:GridList>
 </core:FragmentDefinition>

@@ -730,7 +730,6 @@ sap.ui.define(
         await this.getService()
         .onGet(_sUrl,oHeaderToken)
         .then((oSuccess) => {
-          console.log("success",oSuccess);
           this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { customerModel: oSuccess });
@@ -739,12 +738,13 @@ sap.ui.define(
           MessageBox.error(oError.responseText);
         });       
       },
-
-      onNavToCustomer: function () {
+      onNavToCustomer: async function () {
         var uid = localStorage.getItem("access_token");
         var Guid = localStorage.getItem("guest_access_token");
         if (uid !== null) {
           this.getRouter().navTo("customer");
+          history.go();
+          // sap.ui.controller("ag.agasown.controller.Customer").onCustomerNavigationWishlistSelect();
         } else if (Guid !== null) {
           MessageToast.show("You must login first!");
         } else {
@@ -967,7 +967,7 @@ sap.ui.define(
         }
       },
 
-      onCustomerNavigationSelect: function (oEvent) {
+      onCustomerNavigationSelect:async function (oEvent) {
         var uid = localStorage.getItem("access_token");
         var Guid = localStorage.getItem("guest_access_token");
         if (uid !== null) {

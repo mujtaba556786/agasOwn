@@ -12,8 +12,9 @@ sap.ui.define(
         this._sIdBillingAdrs();
         this._sIdPersonalAdrs();
         this.onCustomerOderDetails();
-        // this.onCustomerNavigationWishlistSelect();
-      },
+        
+        this.onCustomerNavigationWishlistSelect();
+        },
       _sIdHomeAdrs: function () {
         this.oAddress = this.byId("address1");
         this.oCity = this.byId("city");
@@ -53,6 +54,8 @@ sap.ui.define(
         var sId = this.byId("customerTab");
         var sHeader = oEvent.getSource().getHeader();
         sId.setSelectedKey(sHeader);
+        this.onCustomerNavigationWishlistSelect();
+        this.onCustomerOderDetails();
       },
 
       onEditHomeAddress: function () {
@@ -104,7 +107,6 @@ sap.ui.define(
             MessageToast.show("Home Address Updated Successfully!");
           })
           .catch(error => {
-            console.log('error', error);
             MessageToast.show("Error while updating Home Address!")
           });
       },
@@ -114,7 +116,7 @@ sap.ui.define(
         };
         this.oBtnEditblngAdrs.setVisible(false);
         this.oBtnSaveblngAdrs.setVisible(true);
-        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs,this.oSaluMrsblngAdrs];
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs, this.oSaluMrsblngAdrs];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
       },
       onSaveBillingAddress: function () {
@@ -123,7 +125,7 @@ sap.ui.define(
         };
         this.oBtnEditblngAdrs.setVisible(true);
         this.oBtnSaveblngAdrs.setVisible(false);
-        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs,this.oSaluMrsblngAdrs];
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs, this.oSaluMrsblngAdrs];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
         this.editCustomerBillingAddress();
       },
@@ -151,7 +153,7 @@ sap.ui.define(
           "billing_postal_code": this.byId("billingPostalCode").getValue(),
           "billing_country": this.byId("billingCountry").getValue(),
           "name": this.byId("name").getValue(),
-          "salutation_billing" : salutation
+          "salutation_billing": salutation
         });
 
         var requestOptions = {
@@ -234,7 +236,7 @@ sap.ui.define(
           });
       },
       onProductItemPress: function (oEvent) {
-        var oBndngCtxt = oEvent.getSource().getBindingContext("wish");
+        var oBndngCtxt = oEvent.getSource().getBindingContext("wishListmodel");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
         this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
@@ -248,7 +250,6 @@ sap.ui.define(
         var _sFragmentName = oEvent.getSource().data("fragmentName");
         var oFragment = sap.ui.xmlfragment(
           "ag.agasown.view.fragment.customer." + _sFragmentName,
-          this
         );
         oCustomerLayout.destroyContent();
         oCustomerLayout.addContent(oFragment);
@@ -287,10 +288,7 @@ sap.ui.define(
       },
 
 
-      onCustomerNavigationWishlistSelect: function (oEvent) {
-        var sId = this.byId("customerTab");
-        var sHeader = oEvent.getSource().getHeader();
-        sId.setSelectedKey(sHeader);
+      onCustomerNavigationWishlistSelect : function (oEvent) {
         var id = localStorage.getItem("user");
         var access_token = localStorage.getItem("access_token");
         var headEr = new Headers();
@@ -303,19 +301,23 @@ sap.ui.define(
         fetch(`http://64.227.115.243:8080/customers/${id}`, requestOptions)
           .then((response) => response.json())
           .then(async (result) => {
-            var wishData = result.wishlist; 
-            var globArr = [];
-            var answ = wishData.split(',');
-            answ.forEach(function(obj){
-              globArr.push(obj);
-        });
-            const data = globArr.map(async (item) => {
-              return await this.onGetWishlistProductDetails(item);
-            })
-            const product = await Promise.all(data);
-            var eachProd =  product.map((i) => { return (i) });
-            var oGlobalModel = new JSONModel(eachProd);  //pass product
-            this.getView().setModel(oGlobalModel, "wishListmodel");
+            var wishData = result.wishlist;
+         if (wishData !== null){
+          var globArr = [];
+          var answ = wishData.split(',');
+          answ.forEach(function(obj){
+            globArr.push(obj);
+      });
+          const data = globArr.map(async (item) => {
+            return await this.onGetWishlistProductDetails(item);
+          })
+          const product = await Promise.all(data);
+          var eachProd =  product.map((i) => { return (i) });
+          var oGlobalModel = new JSONModel(eachProd);
+         }else{
+           oGlobalModel = new JSONModel(null);  //pass product
+         }
+         this.getView().setModel(oGlobalModel, "wishListmodel");
           })
           .catch(error => console.log('error', error));
       },
@@ -325,14 +327,17 @@ sap.ui.define(
           redirect: 'follow'
         };
         const res = await fetch(`http://64.227.115.243:8080/products/${item}`, requestOptions)
+
         return res.json();
+        
       },
-      
+
       onAddToWishListDel: function (oEvent) {
         var prod_id = oEvent.getSource().data("itemId");
         var formdata = new FormData();
         formdata.append("product_id", prod_id);
         var access_token = localStorage.getItem("access_token");
+        var ID = localStorage.getItem("user");
         var headEr = new Headers();
         headEr.append("Authorization", "Bearer " + access_token);
 
@@ -347,10 +352,7 @@ sap.ui.define(
           .then((result) => {
             MessageToast.show(JSON.parse(result).message);
             this.onCustomerNavigationWishlistSelect();
-
-          })
-          .catch((error) => {
-            // MessageToast.show(error)
+            
           });
       },
       userFirstNameCheck: function (oEvent) {
