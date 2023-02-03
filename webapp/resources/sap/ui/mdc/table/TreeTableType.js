@@ -1,7 +1,0 @@
-/*!
- * OpenUI5
- * (c) Copyright 2009-2022 SAP SE or an SAP affiliate company.
- * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
- */
-sap.ui.define(["./GridTableType","../library"],function(e,t){"use strict";var r;var o=t.TableP13nMode;var i=e.extend("sap.ui.mdc.table.TreeTableType",{metadata:{library:"sap.ui.mdc"}});i.prototype.getSupportedP13nModes=function(){var t=e.prototype.getSupportedP13nModes.apply(this,arguments);t.splice(t.indexOf(o.Column),1);return t};i.prototype.loadModules=function(){if(r){return Promise.resolve()}return Promise.all([e.prototype.loadModules.apply(this,arguments),this.loadUiTableLibrary().then(function(){return new Promise(function(e,t){sap.ui.require(["sap/ui/table/TreeTable"],function(t){r=t;e()},function(){t("Failed to load some modules")})})})])};i.prototype.createTable=function(e){var t=this.getTable();if(!t||!r){return null}var o=new r(e,this.getTableSettings());o._oProxy._bEnableV4=true;return o};i.prototype.getTableSettings=function(){var t=this.getTable();var r=t?t.bDelegateInitialized&&t.getControlDelegate().isSelectionSupported(t):false;var o=e.prototype.getTableSettings.apply(this,arguments);if(!r){o.plugins[0].destroy();delete o.plugins;o.selectionMode="None"}o.dragDropConfig[0].destroy();delete o.dragDropConfig;return o};return i});
-//# sourceMappingURL=TreeTableType.js.map

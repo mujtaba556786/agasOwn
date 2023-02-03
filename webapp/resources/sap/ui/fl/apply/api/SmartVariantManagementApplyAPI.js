@@ -1,7 +1,0 @@
-/*!
- * OpenUI5
- * (c) Copyright 2009-2022 SAP SE or an SAP affiliate company.
- * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
- */
-sap.ui.define(["sap/base/util/UriParameters","sap/ui/fl/apply/_internal/flexState/compVariants/CompVariantMerger","sap/ui/fl/apply/_internal/flexState/compVariants/Utils","sap/ui/fl/apply/_internal/flexState/FlexState","sap/ui/fl/apply/_internal/flexState/ManifestUtils","sap/ui/fl/Utils","sap/ui/fl/LayerUtils"],function(t,e,a,r,n,i,o){"use strict";function l(t){var e=n.getFlexReferenceForControl(t);var i=a.getPersistencyKey(t);var o=r.getCompVariantsMap(e);return o._getOrCreate(i)}function s(t){var e=t.control;var o=n.getFlexReferenceForControl(e);return r.initialize({reference:o,componentData:{},manifest:i.getAppDescriptor(e),componentId:i.getAppComponentForControl(e).getId()}).then(function(){var n=a.getPersistencyKey(e);var i=r.getCompVariantsMap(o);r.setInitialNonFlCompVariantData(o,n,t.standardVariant,t.variants);return i._initialize(n,t.variants)})}var p={loadVariants:function(t){return s(t).then(function(r){var n=a.getPersistencyKey(t.control);return e.merge(n,r,t.standardVariant)})},isVendorLayer:function(){return o.isVendorLayer()},isVariantDownport:function(){var e=t.fromQuery(window.location.search);var a=e.get("hotfix");return p.isVendorLayer()&&a==="true"},getDefaultVariantId:function(t){var e=l(t.control).defaultVariants;var a=e[e.length-1];return a?a.getContent().defaultVariantName:""}};return p});
-//# sourceMappingURL=SmartVariantManagementApplyAPI.js.map
