@@ -3,7 +3,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core" height="100%" controllerName="ag.agasown.controller.Checkout">
-	<Page id="wizardContentPage" title="{i18n>checkoutTitle}">
+	<Page id="wizardContentPage" class="wizardContentPage" title="{i18n>checkoutTitle}">
 		<customHeader>
 			<core:Fragment fragmentName="ag.agasown.view.fragment.Header" type="XML" />
 		</customHeader>
@@ -34,11 +34,11 @@
 													<VBox class="sapUiSmallMargin" renderType="Bare" justifyContent="SpaceBetween">
 														<Label text="{oDataProducts>product_name}" class="product_title"/>
 														<HBox renderType="Bare">
-															<Label text="{i18n>color}" labelFor="text-color" />
+															<Label design="Bold" text="{i18n>color}" labelFor="text-color" />
 															<Text id="text-color" text="{oGlobalModel>/detailProduct/color}"/>
 														</HBox>
 														<HBox renderType="Bare">
-															<Label text="{i18n>dimension}" labelFor="text-dimension" />
+															<Label design="Bold" text="{i18n>dimension}" labelFor="text-dimension" />
 															<Text id="text-dimension" text="{oGlobalModel>/detailProduct/size}"/>
 														</HBox>
 													</VBox>

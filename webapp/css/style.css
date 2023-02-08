@@ -1151,7 +1151,8 @@
   background-color: #3f183b;
   border: none;
 }
-.wizardContentPage .sapMBtn:hover>.sapMBtnHoverable.sapMBtnEmphasized:not(.sapMBtnActive):not(.sapMToggleBtnPressed){
+.wizardContentPage 
+.sapMBtn:hover>.sapMBtnHoverable.sapMBtnEmphasized:not(.sapMBtnActive):not(.sapMToggleBtnPressed){
   background: #d41b52;
 }
 
