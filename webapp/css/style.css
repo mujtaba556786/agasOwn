@@ -1143,10 +1143,17 @@
 
 
 .product_quantity {
-  border: 1px solid #989898;
+  color: #3f183b;
+  font-weight: bolder;
 }
 
-
+.wizardContentPage span.sapMBtnInner.sapMBtnEmphasized{
+  background-color: #3f183b;
+  border: none;
+}
+.wizardContentPage .sapMBtn:hover>.sapMBtnHoverable.sapMBtnEmphasized:not(.sapMBtnActive):not(.sapMToggleBtnPressed){
+  background: #d41b52;
+}
 
 .product_price {
   text-align: right;
