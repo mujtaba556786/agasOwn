@@ -228,7 +228,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="invoiceAddressAddress" placeholder="{i18n>addressText}" value="{ path: '/InvoiceAddress/Address', type: 'sap.ui.model.type.String', constraints: { minLength: 4, search: '^[a-zA-Z-]+\\.?\\s?[0-9a-zA-Z\\s]*$' } }" change="checkInvoiceStep" autocomplete="true" class="wrong_title" liveChange="checkInvoiceAddressAddress">
+								<Input id="invoiceAddressAddress" placeholder="{i18n>addressText}" value="{ path: 'oGlobalModel>/customerModel/address1', type: 'sap.ui.model.type.String', constraints: { minLength: 4, search: '^[a-zA-Z-]+\\.?\\s?[0-9a-zA-Z\\s]*$' } }" change="checkInvoiceStep" autocomplete="true" class="wrong_title" liveChange="checkInvoiceAddressAddress">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -238,7 +238,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="invoiceAddressCity" placeholder="{i18n>cityText}" value="{ path: '/InvoiceAddress/City', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z\\s]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressCity">
+								<Input id="invoiceAddressCity" placeholder="{i18n>cityText}" value="{ path: 'oGlobalModel>/customerModel/city', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z\\s]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressCity">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -248,7 +248,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="invoiceAddressZip" placeholder="{i18n>zipCodeText}" value="{ path: '/InvoiceAddress/ZipCode', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[0-9]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressZip">
+								<Input id="invoiceAddressZip" placeholder="{i18n>zipCodeText}" value="{ path: 'oGlobalModel>/customerModel/postal_code', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[0-9]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressZip">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -258,7 +258,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="invoiceAddressCountry" placeholder="{i18n>countryText}" value="{ path: '/InvoiceAddress/Country', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressCountry">
+								<Input id="invoiceAddressCountry" placeholder="{i18n>countryText}" value="{ path: 'oGlobalModel>/customerModel/country', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressCountry">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -273,16 +273,6 @@
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
 								</Input>
-								<Label text="{i18n>checkoutInvoiceAddressNote}" required="false">
-									<layoutData>
-										<layout:GridData span="XL4 L4 M4 S12" />
-									</layoutData>
-								</Label>
-								<TextArea id="noteArea" rows="8" placeholder="{i18n>noteText}" value="{/InvoiceAddress/Note}" width="100%">
-									<layoutData>
-										<layout:GridData span="XL8 L8 M8 S12" />
-									</layoutData>
-								</TextArea>
 							</VBox>
 						</form:SimpleForm>
 					</WizardStep>

@@ -55,10 +55,10 @@
 										<GenericTile width="5em" class="prodThumbnail tileLayout" header="" press="onPressSizeVariant" frameType="OneByHalf" subheader="{oGlobalModel>size_variant}">
 										</GenericTile>
 									</HBox>
-									<HBox justifyContent="SpaceBetween" renderType="Bare">
+									<HBox justifyContent="SpaceBetween">
 										<StepInput class="stepInput" id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" max="{/recipient/max}" textAlign="Center" width="150px" validationMode="{detailView>/validationMode}" change="onChange"/>
 										<Button class="productCart" type="Unstyled" text="{i18n>productAddButtonText}" press=".validUser"/>
-										<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
+										<Button type="Unstyled" class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
 									</HBox>
 									<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onBuyItNow"/>
 								</VBox>
