@@ -864,13 +864,12 @@
 /* ContactUs Page  */
 .send_message {
   color: white;
-  width: 21.5%;
-  min-width: 8.5rem !important;
-  background-color: #1A1A1A;
-  letter-spacing: 1px;
-  margin: 20px 0;
-  border: 1px solid #1A1A1A;
-  font-size: 15px;
+  background-color: #3f183b;
+  border-radius: 2.2rem;
+  cursor: pointer;
+}
+.send_message:hover{
+  color: #d41b52;
 }
 
 .f_Hbox {
@@ -1144,10 +1143,18 @@
 
 
 .product_quantity {
-  border: 1px solid #989898;
+  color: #3f183b;
+  font-weight: bolder;
 }
 
-
+.wizardContentPage span.sapMBtnInner.sapMBtnEmphasized{
+  background-color: #3f183b;
+  border: none;
+}
+.wizardContentPage 
+.sapMBtn:hover>.sapMBtnHoverable.sapMBtnEmphasized:not(.sapMBtnActive):not(.sapMToggleBtnPressed){
+  background: #d41b52;
+}
 
 .product_price {
   text-align: right;
@@ -1366,6 +1373,27 @@ opacity: 1;
     border-radius: 1em;
     border: 1px solid #3f183b;
 }
+.stepInput .sapMInputBaseIcon{
+  color: #3f183b;
+}
+.stepInput .sapMInputBaseIcon:hover{
+  color: #d41b52;
+  background-color: none;
+}
+
+.productFavourite{
+  border: #3F183B;
+  background-color: #fff;
+  border: 1px solid;
+}
+
+.productFavourite .sapMBtnIcon{
+  color: #3f183b;
+  cursor: pointer;
+}
+.productFavourite .sapMBtnIcon:hover{
+  color: #d41b52;
+}
 
 
 .productPrice {
@@ -1385,6 +1413,7 @@ opacity: 1;
   margin: 10px;
   border: 0px;
   width: -webkit-fill-available;
+  cursor: pointer;
 }
 
 .go_to_cus .sapMBtnIconLeft {

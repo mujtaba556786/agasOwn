@@ -41,24 +41,24 @@
 										<Text class="productStatus productStatus2" id="product_status" text="{ path : 'oGlobalModel>/detailProduct', formatter : '.formatter.variantLen' }"/>
 									</HBox>
 									<HBox renderType="Bare">
-										<Label text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
+										<Label design="Bold" text="{i18n>color}" labelFor="product_color" class="des_tilte"/>
 										<Text id="product_color" text="{oGlobalModel>/detailProduct/color}" />
 									</HBox>
 									<HBox class="prodThumbBox" items="{oGlobalModel>/detailProduct/product_variant}" displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
 										<Image class="prodThumbnail" src="{path: 'oGlobalModel>image',formatter : '.formatter.jsonPictureUrl'}" press="onPressColorVariant"/>
 									</HBox>
 									<HBox renderType="Bare">
-										<Label text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
+										<Label design="Bold" text="{i18n>dimension}" labelFor="product_dimension" class="des_tilte"/>
 										<Text id="product_dimension" text="{oGlobalModel>/detailProduct/size}" />
 									</HBox>
 									<HBox items="{oGlobalModel>/detailProduct/product_variant}" displayInline="true" justifyContent="SpaceBetween" fitContainer="true">
 										<GenericTile width="5em" class="prodThumbnail tileLayout" header="" press="onPressSizeVariant" frameType="OneByHalf" subheader="{oGlobalModel>size_variant}">
 										</GenericTile>
 									</HBox>
-									<HBox justifyContent="SpaceBetween" renderType="Bare">
+									<HBox justifyContent="SpaceBetween">
 										<StepInput class="stepInput" id="defaultValue" value="{/recipient/value}" min="{/recipient/min}" max="{/recipient/max}" textAlign="Center" width="150px" validationMode="{detailView>/validationMode}" change="onChange"/>
 										<Button class="productCart" type="Unstyled" text="{i18n>productAddButtonText}" press=".validUser"/>
-										<Button class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
+										<Button type="Unstyled" class="productFavourite" icon="sap-icon://heart-2" press=".onAddToWishList"/>
 									</HBox>
 									<Button class="productBuyNow" width="100%" type="Unstyled" text="{i18n>buyItNow}" press=".onBuyItNow"/>
 								</VBox>
@@ -77,10 +77,8 @@
 				</headerToolbar>
 				<VBox class="sapUiSmallMargin" fitContainer="true" justifyContent="Center">
 					<Text text="{oGlobalModel>/detailProduct/product_name}" class="productName"/>
-					<FormattedText class="prodDes" htmlText="{ path : 'oGlobalModel>/detailProduct', 
-					formatter : '.formatter.productHighlight' }"/>
-					<FormattedText class="prodDes" htmlText="{ path : 'oGlobalModel>/detailProduct', 
-						formatter : '.formatter.productDescription' }"/>
+					<FormattedText class="prodDes" htmlText="{oGlobalModel>/detailProduct/product_highlight}"/>
+					<FormattedText class="prodDes" htmlText="{oGlobalModel>/detailProduct/description}"/>
 				</VBox>
 			</Panel>
 			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">
