@@ -430,7 +430,9 @@
 }
 
 .slideshow .big img {
-  height: 360px;
+  width: 100%;
+  max-height: 360px;
+  height: 100%;
   border: 1px solid #3f183b;
   border-radius: 25px;
 }
