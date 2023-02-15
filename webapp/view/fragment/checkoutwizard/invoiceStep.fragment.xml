@@ -1,0 +1,71 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <form:SimpleForm layout="ResponsiveGridLayout" editable="true" class="deliveryAddress_form">
+        <VBox class="form_data">
+            <Label text="{i18n>checkoutInvoiceAddressDifferentDeliveryAddress}">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <CheckBox id="differentDeliveryAddress" selected="{/DifferentDeliveryAddress}" select="setDifferentDeliveryAddress">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </CheckBox>
+            <Label text="{i18n>checkoutInvoiceAddress}" required="true" labelFor="invoiceAddressAddress">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="invoiceAddressAddress" placeholder="{i18n>addressText}" value="{ path: 'oGlobalModel>/customerModel/address1', type: 'sap.ui.model.type.String', constraints: { minLength: 4, search: '^[a-zA-Z-]+\\.?\\s?[0-9a-zA-Z\\s]*$' } }" change="checkInvoiceStep" autocomplete="true" class="wrong_title" liveChange="checkInvoiceAddressAddress">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+            <Label text="{i18n>checkoutInvoiceAddressCity}" required="true" labelFor="invoiceAddressCity">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="invoiceAddressCity" placeholder="{i18n>cityText}" value="{ path: 'oGlobalModel>/customerModel/city', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z\\s]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressCity">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+            <Label text="{i18n>checkoutInvoiceAddressZip}" required="true" labelFor="invoiceAddressZip" autocomplete="true">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="invoiceAddressZip" placeholder="{i18n>zipCodeText}" value="{ path: 'oGlobalModel>/customerModel/postal_code', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[0-9]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressZip">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+            <Label text="{i18n>checkoutInvoiceAddressCountry}" required="true" labelFor="invoiceAddressCountry">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="invoiceAddressCountry" placeholder="{i18n>countryText}" value="{ path: 'oGlobalModel>/customerModel/country', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressCountry">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+            <Label class="dialogLabel1" text="{i18n>Loginemail}" labelFor="invoiceEmailInput" required="true">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="loginEmailInput" type="Email" placeholder="{i1n>mailText}" change="checkInvoiceStep" autocomplete="true">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+        </VBox>
+    </form:SimpleForm>
+</core:FragmentDefinition> 

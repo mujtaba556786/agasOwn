@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+    <Panel class="bankDetails">
+        <layout:Grid defaultSpan="L6 M6 S10" hSpacing="2" class="bank_details">
+            <Label text="{i18n>checkoutBankAccountName}" design="Bold" class="colorBlack"/>
+            <Label text="{i18n>beneficiaryNameText}" class="colorWhite" />
+            <Label text="{i18n>checkoutBankAccountBank}" design="Bold" class="colorBlack" />
+            <Label text="{i18n>bankNameText}" class="colorWhite" />
+            <Label text="{i18n>checkoutBankAccountNumber}" design="Bold" class="colorBlack"/>
+            <Label text="{i18n>accountNumberText}" class="colorWhite" />
+        </layout:Grid>
+    </Panel>
+</core:FragmentDefinition> 

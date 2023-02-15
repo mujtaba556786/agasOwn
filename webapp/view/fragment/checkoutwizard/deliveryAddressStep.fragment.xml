@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <form:SimpleForm editable="true" layout="ResponsiveGridLayout" class="deliveryAddress_form">
+        <VBox class="form_data">
+            <Label text="{i18n>checkoutDeliveryAddressAddress}" required="true" labelFor="deliveryAddressAddress">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="deliveryAddressAddress" placeholder="{i18n>addressText}" value="{ path: '/DeliveryAddress/Address', type: 'sap.ui.model.type.String', constraints: { minLength: 4, search: '^[a-zA-Z-]+\\.?\\s?[0-9a-zA-Z\\s]*$' } }" change="checkDeliveryAddressStep" liveChange="checkDeliveryAddressAddress">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+            <Label text="{i18n>checkoutDeliveryAddressCity}" required="true" labelFor="deliveryAddressCity">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="deliveryAddressCity" placeholder="{i18n>cityText}" value="{ path: '/DeliveryAddress/City', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z\\s]+$' } }" change="checkDeliveryAddressStep" liveChange="checkDeliveryAddressCity">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+            <Label text="{i18n>checkoutDeliveryAddressZip}" required="true" labelFor="deliveryAddressZip">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="deliveryAddressZip" placeholder="{i18n>zipCodeText}" value="{ path: '/DeliveryAddress/ZipCode', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[0-9]+$' } }" change="checkDeliveryAddressStep" liveChange="checkDeliveryAddressZip">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+            <Label text="{i18n>checkoutDeliveryAddressCountry}" required="true" labelFor="deliveryAddressCountry">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <Input id="deliveryAddressCountry" placeholder="{i18n>countryText}" value="{ path: '/DeliveryAddress/Country', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z]+$' } }" change="checkDeliveryAddressStep" liveChange="checkDeliveryAddressCountry">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </Input>
+            <Label text="{i18n>checkoutDeliveryAddressNote}">
+                <layoutData>
+                    <layout:GridData span="XL4 L4 M4 S12" />
+                </layoutData>
+            </Label>
+            <TextArea rows="8" placeholder="{i18n>noteText}" value="{/DeliveryAddress/Note}" width="100%">
+                <layoutData>
+                    <layout:GridData span="XL8 L8 M8 S12" />
+                </layoutData>
+            </TextArea>
+        </VBox>
+    </form:SimpleForm>
+</core:FragmentDefinition> 

@@ -1,0 +1,150 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+
+    <Text class="sapUiSmallMarginBottom" text="{i18n>orderSum}" />
+    <HBox renderType="Bare" justifyContent="SpaceBetween" backgroundDesign="Transparent">
+        <HBox width="50%">
+            <Panel>
+                <content>
+                    <List delete=".onCartEntriesDelete" items="{
+												path : 'oDataProducts>/cartEntries',
+												sorter : {
+													path : 'Name',
+													descending : false,
+											noData : false
+												}
+											}" noDataText="{i18n>minimumOne}">
+                        <CustomListItem class="product_show">
+                            <HBox class="sapUiSmallMargin image_pro" justifyContent="SpaceBetween" alignItems="Center">
+                                <VBox class="avatarVBox">
+                                    <Avatar displaySize="S" src="{
+															path : 'oDataProducts>picture',
+															formatter : '.formatter.picture'
+														}" class="avatar"/>
+                                </VBox>
+                                <HBox>
+                                    <VBox>
+                                        <Label text="{oDataProducts>product_name}" class="product_title"/>
+                                        <Text class="product_color" text="{oGlobalModel>/detailProduct/color}"/>
+                                        <Text class="product_dimension" text="{oGlobalModel>/detailProduct/size}"/>
+                                        <Text text="{oDataProducts>Quantity}" class="product_quantity"/>
+                                        <ObjectNumber number="{
+																parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+																type: 'sap.ui.model.type.Currency',
+																formatOptions: {showMeasure: false}
+															}" class="product_price"/>
+                                    </VBox>
+                                    <VBox class="exact_right">
+                                        <Button class="sapUiSmallMarginEnd specialButtons" icon="sap-icon://decline" press="" type="Unstyled" />
+                                    </VBox>
+                                </HBox>
+                            </HBox>
+                        </CustomListItem>
+                    </List>
+                </content>
+            </Panel>
+        </HBox>
+        <HBox class="topHori">
+            <VBox clas="firstVirt">
+                <form:SimpleForm title="{i18n>delAdd}" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="invoiceAddressTitle">
+                    <form:content>
+                        <Label text="{i18n>checkoutInvoiceAddress}" />
+                        <Text text="{/InvoiceAddress/Address}" />
+                        <Label text="{i18n>checkoutInvoiceAddressCity}" />
+                        <Text text="{/InvoiceAddress/City}" />
+                        <Label text="{i18n>checkoutInvoiceAddressZip}" />
+                        <Text text="{/InvoiceAddress/ZipCode}" />
+                        <Label text="{i18n>checkoutInvoiceAddressCountry}" />
+                        <Text text="{/InvoiceAddress/Country}" />
+                        <Label text="{i18n>checkoutInvoiceAddressNote}" />
+                        <Text text="{/InvoiceAddress/Note}" />
+                    </form:content>
+                </form:SimpleForm>
+            </VBox>
+            <VBox class="segmentBreak">
+                <VBox class="secondVirt">
+                    <VBox class="notCondition">
+                        <form:SimpleForm editable="false" title="{i18n>billAdd}" layout="ResponsiveGridLayout" visible="{= !${/DifferentDeliveryAddress}}" ariaLabelledBy="shippingAddressTitle2">
+                            <form:content>
+                                <Text text="{i18n>checkoutSummarySameAsInvoice}" />
+                            </form:content>
+                        </form:SimpleForm>
+                    </VBox>
+                    <form:SimpleForm title="{i18n>billAdd}" editable="false" layout="ResponsiveGridLayout" visible="{= ${/DifferentDeliveryAddress}}" ariaLabelledBy="shippingAddressTitle1">
+                        <form:content>
+                            <Label text="{i18n>checkoutDeliveryAddressAddress}" />
+                            <Text text="{/DeliveryAddress/Address}" />
+                            <Label text="{i18n>checkoutDeliveryAddressCity}" />
+                            <Text text="{/DeliveryAddress/City}" />
+                            <Label text="{i18n>checkoutDeliveryAddressZip}" />
+                            <Text text="{/DeliveryAddress/ZipCode}" />
+                            <Label text="{i18n>checkoutDeliveryAddressCountry}" />
+                            <Text text="{/DeliveryAddress/Country}" />
+                            <Label text="{i18n>checkoutDeliveryAddressNote}" />
+                            <Text text="{/DeliveryAddress/Note}" />
+                        </form:content>
+                    </form:SimpleForm>
+                </VBox>
+                <VBox class="thirdVirt">
+                    <form:SimpleForm title="{i18n>payMet}" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="toolbarPaymentTitle">
+                        <form:content>
+                            <Label text="{i18n>checkoutSummaryPaymentHeader}" />
+                            <Text text="{/SelectedPayment}" />
+                        </form:content>
+                    </form:SimpleForm>
+                    <form:SimpleForm visible="{= ${/SelectedPayment}==='Credit Card' ? true : false}" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="creditCardPaymentTitle">
+                        <form:content>
+                            <Label text="{i18n>checkoutCreditCardName}" />
+                            <Text text="{/CreditCard/Name}" />
+                            <Label text="{i18n>checkoutCreditCardCardNo}" />
+                            <Text text="{/CreditCard/CardNumber}" />
+                            <Label text="{i18n>checkoutCreditCardCode}" />
+                            <Text text="{/CreditCard/SecurityCode}" />
+                            <Label text="{i18n>checkoutCreditCardExpiration}" />
+                            <Text text="{/CreditCard/Expire}" />
+                        </form:content>
+                    </form:SimpleForm>
+                    <form:SimpleForm visible="{= ${/SelectedPayment}==='Bank Transfer' ? true : false}" title="{i18n>checkoutSummaryTitle3bt}" editable="false" layout="ResponsiveGridLayout">
+                        <form:content>
+                            <Label text="{i18n>checkoutBankAccountName}" design="Bold" />
+                            <Text text="{i18n>beneficiaryNameText}" />
+                            <Label text="{i18n>checkoutBankAccountBank}" design="Bold" />
+                            <Text text="{i18n>bankNameText}" />
+                            <Label text="{i18n>checkoutBankAccountNumber}" design="Bold" />
+                            <Text text="{i18n>accountNumberText}" />
+                        </form:content>
+                    </form:SimpleForm>
+                    <form:SimpleForm visible="{= ${/SelectedPayment}==='Cash on Delivery' ? true : false}" editable="false" layout="ResponsiveGridLayout" ariaLabelledBy="cashOnDeliveryTitle">
+                        <form:content>
+                            <Label text="{i18n>checkoutCodFirstName}" />
+                            <Text text="{/CashOnDelivery/FirstName}" />
+                            <Label text="{i18n>checkoutCodLastName}" />
+                            <Text text="{/CashOnDelivery/LastName}" />
+                            <Label text="{i18n>checkoutCodPhone}" />
+                            <Text text="{/CashOnDelivery/PhoneNumber}" />
+                            <Label text="{i18n>checkoutCodEmail}" />
+                            <Text text="{/CashOnDelivery/Email}" />
+                        </form:content>
+                    </form:SimpleForm>
+                </VBox>
+            </VBox>
+            <form:SimpleForm ariaLabelledBy="totalPriceTitle">
+                <form:toolbar>
+                    <Toolbar id="toolbarTotalPrice">
+                        <ToolbarSpacer />
+                        <Title id="totalPriceTitle" level="H3" titleStyle="H4" text="{ path : 'cartProducts>/cartEntries', formatter : '.formatter.totalPrice' }" />
+                    </Toolbar>
+                </form:toolbar>
+            </form:SimpleForm>
+        </HBox>
+    </HBox>
+    <HBox class="summaryBar">
+        <Button class="place_order_button" text="{i18n>placeYourOrder}" press=".handleWizardSubmitss"></Button>
+        <Button class="order_cancel_button" text="{i18n>cancelYourOrder}" press=".handleWizardCancel"></Button>
+    </HBox>
+
+</core:FragmentDefinition> 
