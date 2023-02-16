@@ -268,7 +268,7 @@ sap.ui.define(
           .then(response => response.json())
           .then(async (oSuccess) => {
             const data = oSuccess.order_details.map(async (item) => {
-              return await this.onGetProductDetails(item?.product_id);
+              return await this.onGetProductDetails(item.product_id);
             })
             const product = await Promise.all(data);
             var eachProd = product.map((i) => { return (i) });
