@@ -28,8 +28,8 @@
 					}" unit="{view>/Currency}"/>
 				</HBox>
 				<HBox class="sapUiSmallMargin productBut" justifyContent="SpaceBetween" alignItems="Center">
-					<Button class="cartButton" icon="sap-icon://favorite" type="Unstyled" />
-					<Button class="cartButton" icon="sap-icon://delete" type="Unstyled"  press=".onCartEntriesDelete" app:itemId="{oDataProducts>_id}"/>
+					<Button class="cartButton" icon="sap-icon://favorite" type="Unstyled" press=".onAddToWishList"/>
+					<Button class="cartButton" icon="sap-icon://delete" type="Unstyled"  press=".onAddToCartDetails_delete" app:itemId="{oDataProducts>_id}"/>
 				</HBox>
 			</CustomListItem>
 		</List>

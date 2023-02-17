@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" 
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Dialog  class="ForgotDialog" showHeader="false">
+        <VBox alignItems="End" class="sapUiSmallMargin">
+            <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onConfirmPDClose" type="Unstyled"/>
+        </VBox>
+        <VBox fitContainer="true" class="sapUiSmallMargin">
+            <!-- <Text class="dialogTitle sapUiSmallMarginBottom" text="Are you sure?"/> -->
+            <Text class="sapUiSmallMarginBottom sapUiLargeMarginBegin" text="Are you sure want to change Personal Details?" />
+            <HBox>
+                <Button width="12rem" class="dialogSubmit sapUiSmallMarginEnd" text="YES" type="Unstyled" press="onSavePersonalAddress"></Button>
+                <Button width="12rem" class="dialogSubmit sapUiSmallMarginEnd" text="NO" type="Unstyled" press="onNotSavePersonalAddress"></Button>
+            </HBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>

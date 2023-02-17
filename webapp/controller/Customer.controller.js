@@ -1,7 +1,9 @@
 sap.ui.define(
   ["./BaseController",
-    "sap/ui/model/json/JSONModel", "sap/m/MessageToast"],
-  function (BaseController, JSONModel, MessageToast) {
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageBox",
+     "sap/m/MessageToast"],
+  function (BaseController, JSONModel, MessageBox, MessageToast) {
     "use strict";
 
     return BaseController.extend("ag.agasown.controller.Customer", {
@@ -12,7 +14,6 @@ sap.ui.define(
         this._sIdBillingAdrs();
         this._sIdPersonalAdrs();
         this.onCustomerOderDetails();
-        
         this.onCustomerNavigationWishlistSelect();
         },
       _sIdHomeAdrs: function () {
@@ -34,6 +35,7 @@ sap.ui.define(
         this.oPwdPrsnlDtl = this.byId("pwdPrsnlDtl");
         this.oSaluMr = this.getView().byId("saluMr");
         this.oSaluMrs = this.getView().byId("saluMrs");
+        this.oSaluOther = this.getView().byId("saluOthers")
         this.oBtnEditPrsnlAdrs = this.byId("btnEditPrsnlAdrs");
         this.oBtnSavePrsnlAdrs = this.byId("btnSavePrsnlAdrs");
       },
@@ -48,6 +50,7 @@ sap.ui.define(
         this.oSaluMrsblngAdrs = this.getView().byId("billingSaluMrs");
         this.oBtnSaveblngAdrs = this.byId("btnSaveblngAdrs");
         this.oBillingName = this.byId("name");
+        this.oSaluOthersblngAdrs = this.byId("billingSaluOther");
       },
 
       onPressCustomerTile: function (oEvent) {
@@ -76,8 +79,20 @@ sap.ui.define(
         var aHomeAdrsInptId = [this.oAddress, this.oCity, this.oPostalCode, this.oCountry, this.oFirstNameHome, this.oLastNameHome];
         aHomeAdrsInptId.filter(fnSetVisibleInptFld);
         this.EditCustomerAddress();
+        this.onConfirmAddClose();
       },
-      //Patch Method for Customer API
+      onNotSaveHomeAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(false);
+        };
+        this.oBtnEditHmAdrs.setVisible(true);
+        this.oBtnSaveHmAdrs.setVisible(false);
+        var aHomeAdrsInptId = [this.oAddress, this.oCity, this.oPostalCode, this.oCountry, this.oFirstNameHome, this.oLastNameHome];
+        aHomeAdrsInptId.filter(fnSetVisibleInptFld);
+        this.onConfirmAddClose();
+        history.go();
+      },
+ 
       EditCustomerAddress: function () {
         var ID = localStorage.getItem("user");
         var token = localStorage.getItem("access_token");
@@ -105,6 +120,7 @@ sap.ui.define(
           .then(response => response.text())
           .then(result => {
             MessageToast.show("Home Address Updated Successfully!");
+          
           })
           .catch(error => {
             MessageToast.show("Error while updating Home Address!")
@@ -116,8 +132,9 @@ sap.ui.define(
         };
         this.oBtnEditblngAdrs.setVisible(false);
         this.oBtnSaveblngAdrs.setVisible(true);
-        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs, this.oSaluMrsblngAdrs];
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs, this.oSaluMrsblngAdrs, this.oSaluOthersblngAdrs];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+       
       },
       onSaveBillingAddress: function () {
         var fnSetVisibleInptFld = function (oId) {
@@ -125,9 +142,21 @@ sap.ui.define(
         };
         this.oBtnEditblngAdrs.setVisible(true);
         this.oBtnSaveblngAdrs.setVisible(false);
-        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs, this.oSaluMrsblngAdrs];
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs, this.oSaluMrsblngAdrs, this.oSaluOthersblngAdrs];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
         this.editCustomerBillingAddress();
+        this.onConfirmBillAddClose();
+      },
+      onNotSaveBillingAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(false);
+        };
+        this.oBtnEditblngAdrs.setVisible(true);
+        this.oBtnSaveblngAdrs.setVisible(false);
+        var aBillingAdrsInptId = [this.oBillingAddress, this.oBillingCity, this.oBillingPostalCode, this.oBillingCountry, this.oBillingName, this.oSaluMrblngAdrs, this.oSaluMrsblngAdrs, this.oSaluOthersblngAdrs];
+        aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+        this.onConfirmBillAddClose();
+        history.go();
       },
       //Patch Method for Customer API
       editCustomerBillingAddress: function () {
@@ -139,11 +168,14 @@ sap.ui.define(
         var salutation;
         var maleSalutation = this.getView().byId("billingSaluMr").getSelected();
         var femaleSalutation = this.getView().byId("billingSaluMrs").getSelected();
+        var otherSalutation = this.getView().byId("billingSaluOther").getSelected();
         if (maleSalutation === true) {
           salutation = "Mr."
         } else if (femaleSalutation === true) {
           salutation = "Mrs."
-        } else if (maleSalutation === false && femaleSalutation === false) {
+        } else if (otherSalutation === true) {
+          salutation = "Others"
+        }else if (maleSalutation === false && femaleSalutation === false && otherSalutation === false) {
           salutation = null
         }
 
@@ -180,7 +212,7 @@ sap.ui.define(
         this.oBtnEditPrsnlAdrs.setVisible(false);
         this.oBtnSavePrsnlAdrs.setVisible(true);
         var aBillingAdrsInptId = [this.oFirstNamePrsnlDtl, this.oLastNamePrsnlDtl,
-        this.oDateOfBirthPrsnlDtl, this.oSaluMr, this.oSaluMrs];
+        this.oDateOfBirthPrsnlDtl, this.oSaluMr, this.oSaluMrs, this.oSaluOther];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
       },
       onSavePersonalAddress: function () {
@@ -190,22 +222,41 @@ sap.ui.define(
         this.oBtnEditPrsnlAdrs.setVisible(true);
         this.oBtnSavePrsnlAdrs.setVisible(false);
         var aBillingAdrsInptId = [this.oFirstNamePrsnlDtl, this.oLastNamePrsnlDtl,
-        this.oDateOfBirthPrsnlDtl, this.oSaluMr, this.oSaluMrs];
+        this.oDateOfBirthPrsnlDtl, this.oSaluMr, this.oSaluMrs, this.oSaluOther];
         aBillingAdrsInptId.filter(fnSetVisibleInptFld);
         this.EditCustomerDetails();
+        this.onConfirmPDClose();
+
+      },
+      onNotSavePersonalAddress: function () {
+        var fnSetVisibleInptFld = function (oId) {
+          oId.setEditable(false);
+        };
+        this.oBtnEditPrsnlAdrs.setVisible(true);
+        this.oBtnSavePrsnlAdrs.setVisible(false);
+        var aBillingAdrsInptId = [this.oFirstNamePrsnlDtl, this.oLastNamePrsnlDtl,
+        this.oDateOfBirthPrsnlDtl, this.oSaluMr, this.oSaluMrs, this.oSaluOther];
+        aBillingAdrsInptId.filter(fnSetVisibleInptFld);
+        this.onConfirmPDClose();
+        history.go();
       },
       // Patch API works here
+ 
       EditCustomerDetails: function () {
+        
         var token = localStorage.getItem("access_token");
         var ID = localStorage.getItem("user");
         var salutation;
         var maleSalutation = this.getView().byId("saluMr").getSelected();
         var femaleSalutation = this.getView().byId("saluMrs").getSelected();
+        var othersSalutation = this.getView().byId("saluOthers").getSelected();
         if (maleSalutation === true) {
           salutation = "Mr."
         } else if (femaleSalutation === true) {
           salutation = "Mrs."
-        } else if (maleSalutation === false && femaleSalutation === false) {
+        } else if (othersSalutation === true) {
+          salutation = "Others"
+        } else if (maleSalutation === false && femaleSalutation === false && othersSalutation === false) {
           salutation = null
         }
 
@@ -230,6 +281,7 @@ sap.ui.define(
           .then(response => response.text())
           .then(result => {
             MessageToast.show("Personal Details Updated Successfully!")
+          
           })
           .catch(error => {
             MessageToast.show("Error while updating Personal Details!")
@@ -256,6 +308,8 @@ sap.ui.define(
       },
       // customer order details
       onCustomerOderDetails: function () {
+        var pro_data
+        var globArr = [];
         var token = localStorage.getItem("access_token");
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer " + token);
@@ -267,12 +321,18 @@ sap.ui.define(
         fetch("http://64.227.115.243:8080/order_customer/", requestOptions)
           .then(response => response.json())
           .then(async (oSuccess) => {
-            const data = oSuccess.order_details.map(async (item) => {
-              return await this.onGetProductDetails(item.product_id);
+            var prod_ids = Object(oSuccess)["order_details"];
+            prod_ids.map((i) => {
+              var req_ans = JSON.parse((i.product_details).replace(/'/g, '"'));
+               pro_data = String(Object.keys(req_ans))
+                globArr.push(pro_data);
+            })
+            const data = globArr.map(async (item) => {
+              return await this.onGetWishlistProductDetails(item);
             })
             const product = await Promise.all(data);
-            var eachProd = product.map((i) => { return (i) });
-            var oGlobalModel = new JSONModel(eachProd);  //pass product
+            var eachProd =  product.map((i) => { return (i) });
+            var oGlobalModel = new JSONModel(eachProd);
             this.getView().setModel(oGlobalModel, "customerOrderModel");
           })
           .catch(error => console.log('error', error));
@@ -310,7 +370,7 @@ sap.ui.define(
       });
           const data = globArr.map(async (item) => {
             return await this.onGetWishlistProductDetails(item);
-          })
+          });
           const product = await Promise.all(data);
           var eachProd =  product.map((i) => { return (i) });
           var oGlobalModel = new JSONModel(eachProd);
@@ -327,7 +387,6 @@ sap.ui.define(
           redirect: 'follow'
         };
         const res = await fetch(`http://64.227.115.243:8080/products/${item}`, requestOptions)
-
         return res.json();
         
       },
