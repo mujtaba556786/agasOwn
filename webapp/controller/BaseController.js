@@ -305,6 +305,7 @@ sap.ui.define(
         });
       },
 
+
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
         var uid = localStorage.getItem("access_token");
@@ -312,6 +313,7 @@ sap.ui.define(
         var pid = sessionStorage.getItem("myvalue5");
         if ((uid !== null && pid !== null) || gid !== null) {
           this.getRouter().navTo("checkout");
+          // this.checkOutFunctionality();
           this.checkOutFunctionality();
         } else if (uid === null) {
           this.getRouter().navTo("home");
@@ -328,6 +330,7 @@ sap.ui.define(
           this.getRouter().navTo("home");
         }
       },
+
 
       checkOutFunctionality: function () {
         var quantity = {};
@@ -353,16 +356,24 @@ sap.ui.define(
               "quantity": quantity
             });
           });
+          console.log("raqw",raw)
           var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            body: raw,
+            // body: raw,
             redirect: 'follow'
           };
           fetch("http://64.227.115.243:8080/total_amount/", requestOptions)
             .then(response => response.json())
             .then(result => {
-              globalVar = Object.values(result);
+              console.log(result, "result");
+              var price = Number(result)
+              
+              // this.getView().setModel(price, "oCartItemsData");
+              globalVar = Number(Object.values(result));
+
+              this.getView().setModel(globalVar, "oCartItemsData");
+              console.log("globalVar",globalVar);
               sap.ui.getCore()._globalVar = globalVar;
             })
             .catch(error => console.log("error", error));
@@ -805,6 +816,77 @@ sap.ui.define(
 
       onLoginClose: function () {
         this._mLoginDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+      },
+      handleConfirmPD: function () {
+        var oView = this.getView();
+        // creates requested dialog if not yet created
+        if (!this._mConfirmPDDialog) {
+          this._mConfirmPDDialog = Fragment.load({
+            id: oView.getId(),
+            name: "ag.agasown.view.fragment.dialog.ConfirmPD",
+            controller: this,
+          }).then(function (oDialog) {
+            oView.addDependent(oDialog);
+            return oDialog;
+          });
+        }
+        this._mConfirmPDDialog.then(function (oDialog) {
+          // opens the requested dialog
+          oDialog.open();
+        });
+      },
+      onConfirmPDClose: function () {
+        this._mConfirmPDDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+      },
+      handleConfirmBillAdd: function () {
+        var oView = this.getView();
+        // creates requested dialog if not yet created
+        if (!this._mConfirmBillAddDialog) {
+          this._mConfirmBillAddDialog = Fragment.load({
+            id: oView.getId(),
+            name: "ag.agasown.view.fragment.dialog.ConfirmBillAdd",
+            controller: this,
+          }).then(function (oDialog) {
+            oView.addDependent(oDialog);
+            return oDialog;
+          });
+        }
+        this._mConfirmBillAddDialog.then(function (oDialog) {
+          // opens the requested dialog
+          oDialog.open();
+        });
+      },
+
+      onConfirmBillAddClose: function () {
+        this._mConfirmBillAddDialog.then(function (oDialog) {
+          oDialog.close();
+        });
+      },
+      handleConfirmAdd: function () {
+        var oView = this.getView();
+        // creates requested dialog if not yet created
+        if (!this._mConfirmAddDialog) {
+          this._mConfirmAddDialog = Fragment.load({
+            id: oView.getId(),
+            name: "ag.agasown.view.fragment.dialog.ConfirmAdd",
+            controller: this,
+          }).then(function (oDialog) {
+            oView.addDependent(oDialog);
+            return oDialog;
+          });
+        }
+        this._mConfirmAddDialog.then(function (oDialog) {
+          // opens the requested dialog
+          oDialog.open();
+        });
+      },
+
+      onConfirmAddClose: function () {
+        this._mConfirmAddDialog.then(function (oDialog) {
           oDialog.close();
         });
       },

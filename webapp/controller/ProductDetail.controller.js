@@ -115,9 +115,11 @@ sap.ui.define(
        * @public
        */
       onAddToCartDetails: function (oEvent) {
-        var oSelectedPath = this.getView()
-          .getModel("oGlobalModel")
-          .getData().detailProduct;
+        var product = {};
+        var oSelectedPath = this.getView().getModel("oGlobalModel").getData().detailProduct;
+        console.log("oSelectedPath",oSelectedPath);
+        var oDataProducts = this.getView().getModel("oDataProducts");
+
         var product_id = oSelectedPath._id;
         var previous_wishlist = sessionStorage.getItem('product_id')
         if (previous_wishlist != null) {
@@ -140,7 +142,10 @@ sap.ui.define(
           var oSelectedPath = this.getView()
             .getModel("oGlobalModel")
             .getData().detailProduct;
+            
           var oDataProducts = this.getView().getModel("oDataProducts");
+          console.log("oDataProducts",(oDataProducts));
+        
           cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
           //   After add item to the cart the default value will be 1
           this.getView().byId("defaultValue").setValue(1);
@@ -151,6 +156,8 @@ sap.ui.define(
 
         var access_token = localStorage.getItem("access_token")
         var guest_access_token = localStorage.getItem("guest_access_token");
+        var oCartModel = this.getView().getModel("oDataProducts");
+        var oCartEntries = oCartModel.getProperty("/cartEntries");
         if (!guest_access_token) {
           var token = access_token;
         } else if (guest_access_token) {
@@ -158,21 +165,62 @@ sap.ui.define(
         }
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer " + token);
-        var formdata = new FormData();
-        formdata.append("product_id", product_id);
+        myHeaders.append("Content-Type", "application/json");
+        var raw;
+
+        Object.keys(oCartEntries).forEach(function (sProductId) {
+          console.log(sProductId, "test");
+          var oProduct = oCartEntries[sProductId];
+          console.log("data", oProduct);
+          product[sProductId] = oProduct.quantity;
+          raw = JSON.stringify({
+            "product": product
+          });
+        });
 
         var requestOptions = {
           method: 'PATCH',
           headers: myHeaders,
-          body: formdata,
+          body: raw,
           redirect: 'follow'
         };
 
         fetch("http://64.227.115.243:8080/checkout/", requestOptions)
           .then(response => response.text())
-          .then(result => {
-           })
+          .then(async (result) => {
+            console.log("checkout_res", result);
+            //SetModel Code
+            var globArr = [];
+            var itemdata = String(Object.keys(product));
+            console.log("checkout_response", items)
+            var items = itemdata.split(',');
+            items.forEach(function (obj) {
+              globArr.push(obj);
+              console.log("globArr", globArr);
+            });
+
+            const data = globArr.map(async (item) => {
+              return await this.onGetCartProductDetails(item);
+            });
+            const ty = await Promise.all(data);
+            var eachProd = ty.map((i) => { return (i) });
+            var oCartDataItemModel = new JSONModel(eachProd);
+            // console.log("oGlove", oCartDataItemModel);
+            // this.getView().setModel(oCartDataItemModel);
+            // console.log("sapui5",oCartModel);
+
+          })
           .catch(error => console.log('error', error));
+
+      },
+      onGetCartProductDetails: async function (item) {
+        var requestOptions = {
+          method: 'GET',
+          redirect: 'follow'
+        };
+        const res = await fetch(`http://64.227.115.243:8080/products/${item}`, requestOptions)
+        console.log("response_ki", res)
+        return res.json();
 
       },
       validUser: function () {
@@ -206,6 +254,35 @@ sap.ui.define(
         var oDataProducts = this.getView().getModel("oDataProducts");
         // var cart_entity = oDataProducts.oData.cartEntries
         cart.deleteFromCart(oResourceBundle, oSelectedPath, oDataProducts, prod_id);
+        //DELETE API works here.
+        // this.onRemoveCartItems()
+        var access_token = localStorage.getItem("access_token");
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        if (access_token) {
+          var token = access_token
+        } else if (guest_access_token) {
+          token = guest_access_token
+        }
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+          "product_id": prod_id
+        });
+
+        var requestOptions = {
+          method: 'DELETE',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+
+        fetch("http://64.227.115.243:8080/delete_checkout/", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
+
       },
       onBuyItNow: function () {
         var oSelectedPath = this.getView()
