@@ -77,8 +77,10 @@
 				</headerToolbar>
 				<VBox class="sapUiSmallMargin" fitContainer="true" justifyContent="Center">
 					<Text text="{oGlobalModel>/detailProduct/product_name}" class="productName"/>
-					<FormattedText class="prodDes" htmlText="{oGlobalModel>/detailProduct/product_highlight}"/>
-					<FormattedText class="prodDes" htmlText="{oGlobalModel>/detailProduct/description}"/>
+					<FormattedText class="prodDes" htmlText="{ path : 'oGlobalModel>/detailProduct', 
+					formatter : '.formatter.productHighlight' }"/>
+					<FormattedText class="prodDes" htmlText="{ path : 'oGlobalModel>/detailProduct', 
+						formatter : '.formatter.productDescription' }"/>
 				</VBox>
 			</Panel>
 			<Panel id="panelPromoted" backgroundDesign="Transparent" class="sapUiNoContentPadding">

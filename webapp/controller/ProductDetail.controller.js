@@ -117,7 +117,6 @@ sap.ui.define(
       onAddToCartDetails: function (oEvent) {
         var product = {};
         var oSelectedPath = this.getView().getModel("oGlobalModel").getData().detailProduct;
-        console.log("oSelectedPath",oSelectedPath);
         var oDataProducts = this.getView().getModel("oDataProducts");
 
         var product_id = oSelectedPath._id;
@@ -144,7 +143,6 @@ sap.ui.define(
             .getData().detailProduct;
             
           var oDataProducts = this.getView().getModel("oDataProducts");
-          console.log("oDataProducts",(oDataProducts));
         
           cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
           //   After add item to the cart the default value will be 1
@@ -169,9 +167,7 @@ sap.ui.define(
         var raw;
 
         Object.keys(oCartEntries).forEach(function (sProductId) {
-          console.log(sProductId, "test");
           var oProduct = oCartEntries[sProductId];
-          console.log("data", oProduct);
           product[sProductId] = oProduct.quantity;
           raw = JSON.stringify({
             "product": product
@@ -188,15 +184,12 @@ sap.ui.define(
         fetch("http://64.227.115.243:8080/checkout/", requestOptions)
           .then(response => response.text())
           .then(async (result) => {
-            console.log("checkout_res", result);
             //SetModel Code
             var globArr = [];
             var itemdata = String(Object.keys(product));
-            console.log("checkout_response", items)
             var items = itemdata.split(',');
             items.forEach(function (obj) {
               globArr.push(obj);
-              console.log("globArr", globArr);
             });
 
             const data = globArr.map(async (item) => {
@@ -205,9 +198,7 @@ sap.ui.define(
             const ty = await Promise.all(data);
             var eachProd = ty.map((i) => { return (i) });
             var oCartDataItemModel = new JSONModel(eachProd);
-            // console.log("oGlove", oCartDataItemModel);
-            // this.getView().setModel(oCartDataItemModel);
-            // console.log("sapui5",oCartModel);
+            this.getView().setModel(oCartDataItemModel);
 
           })
           .catch(error => console.log('error', error));
@@ -219,7 +210,6 @@ sap.ui.define(
           redirect: 'follow'
         };
         const res = await fetch(`http://64.227.115.243:8080/products/${item}`, requestOptions)
-        console.log("response_ki", res)
         return res.json();
 
       },
