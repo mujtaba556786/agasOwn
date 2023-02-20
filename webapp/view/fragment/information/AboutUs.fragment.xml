@@ -5,8 +5,12 @@
   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
   <HBox>
     <VBox backgroundDesign="Solid" class="sapUiSmallMargin centerVBox">
-      <core:HTML content='&lt;video loop=&quot;loop&quot; autoplay=&quot;autoplay&quot; muted=&quot;muted&quot; src=&quot;{i18n>aboutUsVideo}&quot; class=&quot;video&quot;&lt;/video&gt;'>
-      </core:HTML>
+     
+          <core:HTML content='&lt;video loop=&quot;loop&quot; autoplay=&quot;autoplay&quot; muted=&quot;muted&quot; src=&quot;{i18n>aboutUsVideo}&quot;
+       
+       class=&quot;video&quot;&lt;/video&gt;'>
+          </core:HTML>
+       
       <Text text="{i18n>aboutUsHeader}" class="AboutUs"/>
       <Text text="{i18n>aboutUsContent}" class="AboutUs_text"/>
     </VBox>

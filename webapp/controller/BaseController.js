@@ -331,7 +331,6 @@ sap.ui.define(
         }
       },
 
-
       checkOutFunctionality: function () {
         var quantity = {};
         var oCartModel = this.getView().getModel("oDataProducts");
@@ -356,7 +355,6 @@ sap.ui.define(
               "quantity": quantity
             });
           });
-          console.log("raqw",raw)
           var requestOptions = {
             method: 'POST',
             headers: myHeaders,
@@ -365,15 +363,11 @@ sap.ui.define(
           };
           fetch("http://64.227.115.243:8080/total_amount/", requestOptions)
             .then(response => response.json())
-            .then(result => {
-              console.log(result, "result");
-              var price = Number(result)
-              
+            .then(result => { 
               // this.getView().setModel(price, "oCartItemsData");
               globalVar = Number(Object.values(result));
 
               this.getView().setModel(globalVar, "oCartItemsData");
-              console.log("globalVar",globalVar);
               sap.ui.getCore()._globalVar = globalVar;
             })
             .catch(error => console.log("error", error));
@@ -700,8 +694,8 @@ sap.ui.define(
             var ID = oSuccess.id
             var ans = oSuccess.token.access_token;
             localStorage.setItem("access_token", ans)
-            localStorage.setItem("user",ID);
-            localStorage.setItem("user",ID);
+            localStorage.setItem("user", ID);
+            localStorage.setItem("user", ID);
             // this.onLoginSucces(oSuccess);
             this.getRouter().navTo("customer");
             this.onLoginClose();
@@ -711,43 +705,43 @@ sap.ui.define(
             MessageBox.error(oError.responseText);
           });
       },
-      InactivelyLogOut : function(){
+      InactivelyLogOut: function () {
         this.timeout = timeout;
         this.eventHandler = this.updateExpiredTIme.bind(this);
         this.tracker();
       },
-      tracker : function(){
-        window.addEventListener("mousemove",this.eventHandler);
-        window.addEventListener("mousewheel",this.eventHandler);
-        window.addEventListener("scroll",this.eventHandler);
-        window.addEventListener("mousedown",this.eventHandler);
-        window.addEventListener("keydown",this.eventHandler);
-        window.addEventListener("keypress",this.eventHandler);
-        window.addEventListener("MSPointerMove",this.eventHandler);
-        window.addEventListener("touchmove",this.eventHandler);
-        window.addEventListener("DOMMouseScroll",this.eventHandler);
+      tracker: function () {
+        window.addEventListener("mousemove", this.eventHandler);
+        window.addEventListener("mousewheel", this.eventHandler);
+        window.addEventListener("scroll", this.eventHandler);
+        window.addEventListener("mousedown", this.eventHandler);
+        window.addEventListener("keydown", this.eventHandler);
+        window.addEventListener("keypress", this.eventHandler);
+        window.addEventListener("MSPointerMove", this.eventHandler);
+        window.addEventListener("touchmove", this.eventHandler);
+        window.addEventListener("DOMMouseScroll", this.eventHandler);
       },
 
-      setCustomerModel: async function(sUid){
+      setCustomerModel: async function (sUid) {
         var ID = localStorage.getItem("user")
         var token = localStorage.getItem("access_token");
         var oHeaderToken = {
           Authorization: "Bearer " + token,
         };
-        if(!ID){
-					return;
-				}
+        if (!ID) {
+          return;
+        }
         var _sUrl = `http://64.227.115.243:8080/customers/${ID}`;
         await this.getService()
-        .onGet(_sUrl,oHeaderToken)
-        .then((oSuccess) => {
-          this.getView()
-          .getModel("oGlobalModel")
-          .setProperty("/", { customerModel: oSuccess });
-        })
-        .catch((oError) => {
-          MessageBox.error(oError.responseText);
-        });       
+          .onGet(_sUrl, oHeaderToken)
+          .then((oSuccess) => {
+            this.getView()
+              .getModel("oGlobalModel")
+              .setProperty("/", { customerModel: oSuccess });
+          })
+          .catch((oError) => {
+            MessageBox.error(oError.responseText);
+          });
       },
       onNavToCustomer: async function () {
         var uid = localStorage.getItem("access_token");
@@ -837,6 +831,7 @@ sap.ui.define(
           oDialog.open();
         });
       },
+
       onConfirmPDClose: function () {
         this._mConfirmPDDialog.then(function (oDialog) {
           oDialog.close();
@@ -890,6 +885,7 @@ sap.ui.define(
           oDialog.close();
         });
       },
+
 
       handleNewsLetter: function () {
         var oView = this.getView();
@@ -1049,7 +1045,7 @@ sap.ui.define(
         }
       },
 
-      onCustomerNavigationSelect:async function (oEvent) {
+      onCustomerNavigationSelect: async function (oEvent) {
         var uid = localStorage.getItem("access_token");
         var Guid = localStorage.getItem("guest_access_token");
         if (uid !== null) {
@@ -1176,47 +1172,47 @@ sap.ui.define(
         if (data_acceptance === false) {
           alert("Click to accept T&C");
         } else {
-          if(!_nwfirstName || !_nwlastName || !_nwEmail){
+          if (!_nwfirstName || !_nwlastName || !_nwEmail) {
             MessageBox.information("All Fields are mandatory!")
-          }else{
-          await this.getService()
-            .onGet(_nwUrl)
-            .then((oSuccess) => {
-              var i = oSuccess.length;
-              for (var input = 0; input < i; input++) {
-                var req_ans = oSuccess[input].email;
-                exist_emails.push(req_ans.toLowerCase().trim());
-              }
-            });
-          var oDataa = {
-            salutation: "Mr.",
-            first_name: _nwfirstName,
-            last_name: _nwlastName,
-            email: _nwEmail,
-            data_acceptance: true,
-
-            agasown: "Aga'sOwn Marketing Team",
-            message: "You subscribe to Aga'sOwn Shopping Site",
-            text: "Testing",
-            user_email: "test@gamil.com",
-          };
-          if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
-            this.getService()
-              .onPost(_nwUrl, oDataa)
-              .then((oSuccess) => {
-                MessageBox.success("Successfully subscribed!");
-                this._mNewsLetterDialog.then(function (oDialog) {
-                  oDialog.close();
-                });
-              })
-              .catch((oError) => {
-                MessageBox.error("Hey! Mail id already exist!");
-              });
           } else {
-            MessageToast.show("Mail id already exist!");
-            MessageBox.error("Hey! Mail id already exist!");
+            await this.getService()
+              .onGet(_nwUrl)
+              .then((oSuccess) => {
+                var i = oSuccess.length;
+                for (var input = 0; input < i; input++) {
+                  var req_ans = oSuccess[input].email;
+                  exist_emails.push(req_ans.toLowerCase().trim());
+                }
+              });
+            var oDataa = {
+              salutation: "Mr.",
+              first_name: _nwfirstName,
+              last_name: _nwlastName,
+              email: _nwEmail,
+              data_acceptance: true,
+
+              agasown: "Aga'sOwn Marketing Team",
+              message: "You subscribe to Aga'sOwn Shopping Site",
+              text: "Testing",
+              user_email: "test@gamil.com",
+            };
+            if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
+              this.getService()
+                .onPost(_nwUrl, oDataa)
+                .then((oSuccess) => {
+                  MessageBox.success("Successfully subscribed!");
+                  this._mNewsLetterDialog.then(function (oDialog) {
+                    oDialog.close();
+                  });
+                })
+                .catch((oError) => {
+                  MessageBox.error("Hey! Mail id already exist!");
+                });
+            } else {
+              MessageToast.show("Mail id already exist!");
+              MessageBox.error("Hey! Mail id already exist!");
+            }
           }
-        }
         }
       },
 
