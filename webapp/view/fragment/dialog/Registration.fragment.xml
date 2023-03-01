@@ -10,12 +10,12 @@
             <Text class="dialogTitle sapUiSmallMarginBottom registrationText" text="{i18n>RegText}"/>
             <VBox class="div">
                 <Label class="dialogLabel fnLabel" text="{i18n>FN}" labelFor="firstNameInput" required="true"/>
-                <Input id="firstNameInput" class="fnInput" placeholder="{i18n>FN}" ></Input>
+                <Input id="firstNameInput" class="fnInput" placeholder="{i18n>FN}" liveChange ="signUpFirstNameCheck" valueStateText="{i18n>valueStateText}" required="true" ></Input>
                 <Label required="true" class="dialogLabel lnLabel" text="{i18n>LN}" labelFor="lastNameInput" />
-                <Input id="lastNameInput" class="lnInput" placeholder="{i18n>LN}" ></Input>
+                <Input id="lastNameInput" class="lnInput" placeholder="{i18n>LN}"  liveChange ="signUpLastNameCheck" valueStateText="{i18n>valueStateText}" required="true"></Input>
             </VBox>
             <Label required="true" class="dialogLabel emLabel" text="{i18n>Loginemail}" labelFor="emailInput" />
-            <Input id="emailInput" class="sapUiSmallMarginBottom emInput" type="Email" placeholder="{i18n>mailText}" valueStateText="E-mail must be a valid email address." value="{
+            <Input id="emailInput" class="sapUiSmallMarginBottom emInput" type="Email" placeholder="{i18n>mailText}" liveChange ="signUpEmailCheck" change="validateReg" valueStateText="{i18n>emailValueStateText}" value="{
 							path: '/email',
 							type: '.customEMailType'
 						}" />
@@ -25,10 +25,8 @@
                 <Label required="true" class="dialogLabel cpLabel" text="{i18n>confpass}" labelFor="confirmPasswordInput"/>
                 <Input id="confirmPasswordInput" type="Password" class="sapUiSmallMarginBottom cpInput" placeholder="{i18n>reEnter}" />
             </VBox>
-            <CheckBox required="true" width="350px" wrapping="true" id="newsLetter" text="Ja, ich möchte per E-Mail Newsletter über Trends, Aktionen 
-						 Gutscheine informiert werden. Abmeldung jederzeit möglich. (optional)" />
-            <CheckBox required="true" width="350px" wrapping="true" id="readData" text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
-						 von Zalando sowie einer Bonitätsprüfung zu. " />
+            <CheckBox required="true" width="350px" wrapping="true" id="newsLetter" text="{i18n>TCtext}" />
+            <CheckBox required="true" width="350px" wrapping="true" id="readData" text="{i18n>TCtextAgain}" />
             <HBox>
                 <Button width="12rem" class="dialogSubmitNew" text="{i18n>Loginsign}" type="Unstyled" press="onSubmit"></Button>
             </HBox>

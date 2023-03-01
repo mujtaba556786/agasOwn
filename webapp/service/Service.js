@@ -39,6 +39,40 @@ sap.ui.define([
                         },
                     })
                 })
+            },
+
+            onPatch: function(url,oData,oHeaderToken){
+                return new Promise((resolve, reject)=>{
+                    $.ajax({
+                        url:url,
+                        headers:oHeaderToken,
+                        type: 'Patch',
+                        data : oData,
+                        success : function(data){
+                            resolve(data)
+                        },
+                        error : function(error){
+                            reject(error)
+                        }
+                    })
+                })
+            },
+
+            onDelete: function(url,oData,oHeaderToken){
+                return new Promise((resolve,reject)=>{
+                    $.ajax({
+                        url:url,
+                        headers:oHeaderToken,
+                        type: 'Delete',
+                        data: oData,
+                        success : function(data){
+                            resolve(data)
+                        },
+                        error : function(error){
+                            reject(error)
+                        }
+                    })
+                })
             }
         }
         return agService;

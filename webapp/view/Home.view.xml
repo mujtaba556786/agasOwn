@@ -30,7 +30,7 @@
 						<Image src="{path: 'oDataCategory>picture',
 											formatter : '.formatter.jsonPictureUrl'
 											}" class="categoryBox imageDisplayBlock" press="onCategoryLinkPress"/>
-						<Text textAlign="Center" text="{oDataCategory>category_name}" class="categoryBoxText"/>
+						<Text textAlign="Center" text="{parts:[{path:'oDataCategory>'}],formatter:'.formatter.getCategoryText'}" class="categoryBoxText"/>
 					</VBox>
 				</Carousel>
 			</Panel>
@@ -53,13 +53,13 @@
 					</customLayout>
 					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
 						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress" />
-						<Title text="{oDataProducts>product_name}" wrapping="true" />
+						<Title text="{parts:[{path:'oDataProducts>'}],formatter:'.formatter.getProductText'}" wrapping="true" />
 						<ObjectNumber class="sapUiSmallMarginBottom" number="{
 						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" unit="{view>/Currency}" textAlign="Center"/>
-						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
+						<Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				</Carousel>
 			</Panel>
@@ -82,7 +82,7 @@
 					</customLayout>
 					<VBox class="sapUiSmallMargin vbox-c-home" alignItems="Center">
 						<Image src="{path: 'oDataProducts>picture',formatter : '.formatter.jsonPictureUrl'}" width="100%" height="295px" press="onProductItemPress" />
-						<Title text="{oDataProducts>product_name}" wrapping="true" />
+						<Title text="{parts:[{path:'oDataProducts>'}],formatter:'.formatter.getProductText'}" wrapping="true" />
 						<ObjectNumber class="sapUiSmallMarginBottom" number="{
 						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',

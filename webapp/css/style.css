@@ -714,7 +714,7 @@
 .centerVBox {
   width: 370rem;
 }
-.centerVBox1 {
+.centerVBox_contactPage {
   width: 100%;
 }
 
@@ -1428,20 +1428,20 @@ opacity: 1;
 }
 
 
-.go_to_cus1 {
+.go_to_cus_user {
   background-color: rgb(0 0 0 / 10%);
   padding: 1px;
   border-radius: 10px;
 }
 
-.go_to_cus1 .sapUiIcon::before {
+.go_to_cus_user .sapUiIcon::before {
   content: attr(data-sap-ui-icon-content);
   font-weight: normal;
   color: white;
   -webkit-font-smoothing: antialiased;
 }
 
-.go_to_cus1 .logerName .sapUiIcon::before {
+.go_to_cus_user .logerName .sapUiIcon::before {
   color: #df3165;
 }
 

@@ -54,27 +54,20 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		 * @param {string} sStatus product status
 		 * @return {string} the corresponding text if found or the original value
 		 */
-		productDescription: function (productDetail) {
-			
+		productDescription: function (productDetail) { },
+		productTitle: function (productTitle) { },
+		productHighlight: function (productDetail) { },
 
-		},
-		productTitle: function (productTitle) {
-			
-		},
-		productHighlight: function (productDetail) {
-			
-		},
-		
-		variantLen: async function(productDetail){
+		variantLen: async function (productDetail) {
 			var ans = productDetail["quantity"];
-			var idText= this.getView().byId("product_status")
-			idText.removeStyleClass("productStatus")
-			idText.removeStyleClass("productStatus2")
-			if(ans> 0){
-				idText.addStyleClass("productStatus")
+			var idText = this.getView().byId("product_status");
+			idText.removeStyleClass("productStatus");
+			idText.removeStyleClass("productStatus2");
+			if (ans > 0) {
+				idText.addStyleClass("productStatus");
 				return "In Stock";
-			}else{
-				idText.addStyleClass("productStatus2")
+			} else {
+				idText.addStyleClass("productStatus2");
 				return "Not Available";
 			}
 		},
@@ -101,10 +94,10 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		},
 
 		/**
-		 *
-		  @param {} oCollection1
-		  @param {} oCollection2
-		 */
+			 *
+			  @param {} oCollection1
+			  @param {} oCollection2
+			 */
 		jsonPictureUrl: function (sUrl) {
 			var that = this;
 			this.bUrlExist = false;
@@ -122,17 +115,17 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 
 			if (!this.bUrlExist) {
 				//   return sap.ui.require.toUrl("ag/agasown/img/Vertical-HQ.png");
-				return sUrl
+				return sUrl;
 			} else {
 				return sap.ui.require.toUrl("ag/agasown/img/Vertical-HQ.png");
 			}
 		},
 
 		/**
-		 *
-		  @param {} oCollection1
-		  @param {} oCollection2
-		 */
+			 *
+			  @param {} oCollection1
+			  @param {} oCollection2
+			 */
 		jsonPictureProductUrl: async function (sUrl) {
 			var http = new XMLHttpRequest();
 			http.open("HEAD", sUrl, false);
@@ -161,6 +154,29 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 
 			return bCollection1Filled || bCollection2Filled;
 		},
+
+		getCategoryText: function (assignType) {
+			var enValue = Boolean(localStorage.getItem('enValue'))
+
+			if (enValue === true && typeof assignType == 'object') {
+				// localStorage.setItem('enValue', !enValue)
+				return assignType?.category_name_de;
+			} else {
+				// localStorage.setItem('enValue', !enValue)
+				return assignType?.category_name;
+			}
+		},
+		getProductText: function (assignType) {
+			var enValue = Boolean(localStorage.getItem('enValue'))
+
+			if (enValue === true && typeof assignType == 'object') {
+				// localStorage.setItem('enValue', !enValue)
+				return assignType?.title_de;
+			} else {
+				// localStorage.setItem('enValue', !enValue)
+				return assignType?.title;
+			}
+		}
 	};
 
 	return formatter;

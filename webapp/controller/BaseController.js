@@ -12,6 +12,8 @@ sap.ui.define(
     "sap/m/MessageBox",
     "sap/m/MessageToast",
     "sap/ui/model/resource/ResourceModel",
+    "sap/ui/core/XMLTemplateProcessor",
+    "sap/ui/core/util/XMLPreprocessor",
   ],
   function (
     Controller,
@@ -25,7 +27,9 @@ sap.ui.define(
     Service,
     MessageBox,
     MessageToast,
-    ResourceModel
+    ResourceModel,
+    XMLPreprocessor,
+    XMLTemplateProcessor,
   ) {
     "use strict";
 
@@ -166,6 +170,216 @@ sap.ui.define(
           detailCategory: this.selectedCategory,
         });
       },
+      signUpFirstNameCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
+          this.getView()
+            .byId("firstNameInput")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("firstNameInput")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("firstNameInput")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      signUpLastNameCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
+          this.getView()
+            .byId("lastNameInput")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("lastNameInput")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("lastNameInput")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      signUpEmailCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var booleanData = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(newValue);
+        if (booleanData === false) {
+          this.getView()
+            .byId("emailInput")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("emailInput")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("emailInput")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      newsFirstNameCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
+          this.getView()
+            .byId("newsFName")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("newsFName")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("newsFName")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      newsLastNameCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
+          this.getView()
+            .byId("newsLName")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("newsLName")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("newsLName")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      newsEmailCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var booleanData = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(newValue);
+        if (booleanData === false) {
+          this.getView()
+            .byId("newsEmail")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("newsEmail")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("newsEmail")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      guestFNameCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
+          this.getView()
+            .byId("guestLoginFN")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("guestLoginFN")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("guestLoginFN")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      guestLNameCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
+          this.getView()
+            .byId("guestLoginLN")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("guestLoginLN")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("guestLoginLN")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      guestEmailCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var booleanData = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(newValue);
+        if (booleanData === false) {
+          this.getView()
+            .byId("guestLoginEmail")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("guestLoginEmail")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("guestLoginEmail")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      forgotEmailCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var booleanData = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(newValue);
+        if (booleanData === false) {
+          this.getView()
+            .byId("emailInputFrgt")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("emailInputFrgt")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("emailInputFrgt")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      loginEmailCheck: function (oEvent) {
+        let newValue = oEvent.getParameter("newValue");
+        var booleanData = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(newValue);
+        if (booleanData === false) {
+          this.getView()
+            .byId("loginEmailInput")
+            .setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("loginEmailInput")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("loginEmailInput")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+
 
       onCategoryLinkPress: function (oEvent) {
         this.handleCategoryLink(oEvent, "oDataCategory")
@@ -178,20 +392,14 @@ sap.ui.define(
 
       setProductItemsModel: function (selectedCtgryId) {
         var arrayProducts = [];
-
         var fnFilterCategory = function (item) {
           return item.parent === selectedCtgryId;
         }
-
         var oDataCategory = this.getView().getModel("oDataCategory").getData();
         var selectedCategory = oDataCategory.filter(fnFilterCategory);
-
         var fnFilterProducts = function (item) {
           return item.category === selectedCtgryId;
         };
-
-
-
         var fnFilter = function (item) {
           if (selectedCategory.length !== 0) {
             selectedCategory.forEach((category) => {
@@ -201,12 +409,10 @@ sap.ui.define(
             });
           }
         };
-
         var oDataProducts = this.getView().getModel("oDataProducts").getData();
         var selectedProducts = oDataProducts.filter(fnFilterProducts);
         oDataProducts.filter(fnFilter);
         var all = [...selectedProducts, ...arrayProducts];
-
         this.getView().getModel("oGlobalModel").setProperty("/", {
           productLists: all,
         });
@@ -216,9 +422,7 @@ sap.ui.define(
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
-        this.getView()
-          .getModel("oGlobalModel")
-          .setProperty("/", { detailProduct: selectedPath });
+        this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
         this.getRouter().navTo("productDetail", {
           detailObj: selectedPath.product_name,
         });
@@ -231,9 +435,7 @@ sap.ui.define(
        */
       onAddToCart: function (oEvent) {
         var sGoToCardId = this.byId("goToCart");
-        var oResourceBundle = this.getOwnerComponent()
-          .getModel("i18n")
-          .getResourceBundle();
+        var oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var oSelectedPath = oBndngCtxt.getProperty(spath);
@@ -245,8 +447,6 @@ sap.ui.define(
       },
 
       onLoginOpen: function (oEvent) {
-        // this.onLoginSucces();
-        // login log out fragment show
         var uid = localStorage.getItem("access_token");
         var Guid = localStorage.getItem("guest_access_token");
         if (!uid && !Guid) {
@@ -256,20 +456,24 @@ sap.ui.define(
         }
       },
       onLanguageSelect: function () {
-        //just for try
         var i18nModel = new ResourceModel({
           bundleName: "ag.agasown.i18n.i18n",
           supportedLocales: ["en", "de"],
           fallbackLocale: "",
         });
-        this.getView().setModel(i18nModel, "i18n");
-        //try is done
+        
         if (document.documentElement.lang.includes("en")) {
+          localStorage.setItem('enValue', true);
+          localStorage.removeItem('deValue');
           sap.ui.getCore().getConfiguration().setLanguage("de");
           MessageToast.show("Switched to German");
+        
         } else {
+          localStorage.setItem('deValue', true);
+          localStorage.removeItem('enValue');
           sap.ui.getCore().getConfiguration().setLanguage("en");
           MessageToast.show("Switched to English");
+          
         }
       },
 
@@ -305,7 +509,6 @@ sap.ui.define(
         });
       },
 
-
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
         var uid = localStorage.getItem("access_token");
@@ -313,7 +516,6 @@ sap.ui.define(
         var pid = sessionStorage.getItem("myvalue5");
         if ((uid !== null && pid !== null) || gid !== null) {
           this.getRouter().navTo("checkout");
-          // this.checkOutFunctionality();
           this.checkOutFunctionality();
         } else if (uid === null) {
           this.getRouter().navTo("home");
@@ -358,15 +560,12 @@ sap.ui.define(
           var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-            // body: raw,
             redirect: 'follow'
           };
           fetch("http://64.227.115.243:8080/total_amount/", requestOptions)
             .then(response => response.json())
-            .then(result => { 
-              // this.getView().setModel(price, "oCartItemsData");
+            .then(result => {
               globalVar = Number(Object.values(result));
-
               this.getView().setModel(globalVar, "oCartItemsData");
               sap.ui.getCore()._globalVar = globalVar;
             })
@@ -442,51 +641,73 @@ sap.ui.define(
         var email = this.byId("guestLoginEmail").getValue();
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
         if (!mailregex.test(email)) {
-          alert(email + " is not a valid email address");
+          MessageBox.information(email + " is not a valid email address");
           this.getView().byId("guestLoginEmail").setValueState(sap.ui.core.ValueState.Error);
         } else {
           this.getView().byId("guestLoginEmail").setValueState(sap.ui.core.ValueState.None);
         }
       },
+      validateLogin: function () {
+        var email = this.byId("loginEmailInput").getValue();
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        if (!mailregex.test(email)) {
+          MessageBox.information(email + " is not a valid email address");
+          this.getView().byId("loginEmailInput").setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          this.getView().byId("loginEmailInput").setValueState(sap.ui.core.ValueState.None);
+        }
+      },
+      validateReg: function () {
+        var email = this.byId("emailInput").getValue();
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        if (!mailregex.test(email)) {
+          MessageBox.information(email + " is not a valid email address");
+          this.getView().byId("emailInput").setValueState(sap.ui.core.ValueState.Error);
+        } else {
+          this.getView().byId("emailInput").setValueState(sap.ui.core.ValueState.None);
+        }
+      },
       onLoginGuestOpen: function () {
-        //Try to login
-
         var first_name = this.byId("guestLoginFN").getValue();
         var last_name = this.byId("guestLoginLN").getValue();
         var email = this.byId("guestLoginEmail").getValue();
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
 
-        if (!first_name || !last_name || !email) {
-          alert("Please fill all the required fields")
+        if (!mailregex.test(email)) {
+          MessageBox.information("Please provide valid email id")
         } else {
-          var formdata = new FormData();
-          formdata.append("first_name", first_name);
-          formdata.append("last_name", last_name);
-          formdata.append("email", email);
-
-          var requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-          };
-
-          fetch("http://64.227.115.243:8080/guest_login/", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              var resp = (result.message);
-
-              if (resp == "Email_Id already exists") {
-                this.onGuestToCustomerOpen();
-              } else if (resp == "Successfully Logged In") {
-                var Guest_login = result.customer;
-                sap.ui.getCore()._GcustomerID = Guest_login;
-                localStorage.setItem("guest_access_token", result.token.access_token);
-                this.handleGuestId();
-                this._mGuestLoginDialog.then(function (oDialog) {
-                  oDialog.close();
-                });
-              }
-            })
-            .catch(error => console.log('error', error));
+          if (!first_name || !last_name || !email) {
+            MessageBox.information("Please fill all the required fields")
+          }
+          else {
+            var _sUrl = "http://64.227.115.243:8080/guest_login/";
+            var oData = {
+              first_name: first_name,
+              last_name: last_name,
+              email: email
+            };
+            this.getService()
+              .onPost(_sUrl, oData)
+              .then((oSuccess) => {
+                var resp = (oSuccess.message);
+                if (resp == "Email_Id already exists") {
+                  this.onGuestToCustomerOpen();
+                } else if (resp == "Successfully Logged In") {
+                  var Guest_login = oSuccess.customer;
+                  sap.ui.getCore()._GcustomerID = Guest_login;
+                  localStorage.setItem("guest_access_token", oSuccess.token.access_token);
+                  MessageBox.success(`Yaah ${first_name}! ${oSuccess.message} as a New Guest`);
+                  this.handleGuestId();
+                  this._mGuestLoginDialog.then(function (oDialog) {
+                    oDialog.close();
+                  });
+                }
+              })
+              .catch((oError) => {
+                var data = (JSON.parse(oError.responseText));
+                MessageBox.warning(String(Object.values(data)[0]));
+              });
+          }
         }
       },
 
@@ -496,79 +717,85 @@ sap.ui.define(
         var first_name = this.byId("guestLoginFN").getValue();
         var last_name = this.byId("guestLoginLN").getValue();
         var email = this.byId("guestLoginEmail").getValue();
+        var readData = this.getView().byId("guest_readData");
+        var data_acceptance = readData.mProperties.selected;
 
         if (!password || !confirm_password) {
-          alert("Please fill all the required fields")
+          MessageBox.information("Please fill all the required fields")
         } else {
-          var guest_token;
-          var Guest_login;
-          var formdata = new FormData();
-          formdata.append("first_name", first_name);
-          formdata.append("last_name", last_name);
-          formdata.append("email", email);
+          if (data_acceptance === false) {
+            MessageBox.information("Please accept Terms & Conditions")
+          } else if (data_acceptance === true) {
+            var guest_token;
+            var Guest_login;
+            var formdata = new FormData();
+            formdata.append("first_name", first_name);
+            formdata.append("last_name", last_name);
+            formdata.append("email", email);
 
-          var requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-          };
+            var requestOptions = {
+              method: 'POST',
+              body: formdata,
+              redirect: 'follow'
+            };
 
-          await fetch("http://64.227.115.243:8080/guest_login/", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              Guest_login = result.customer_id;
-              sap.ui.getCore()._GcustomerID = Guest_login;
-              guest_token = result.token.access_token;
-            })
-            .catch(error => console.log('error', error));
+            await fetch("http://64.227.115.243:8080/guest_login/", requestOptions)
+              .then(response => response.json())
+              .then(result => {
+                Guest_login = result.customer_id;
+                sap.ui.getCore()._GcustomerID = Guest_login;
+                guest_token = result.token.access_token;
+              })
+              .catch(error => console.log('error', error));
 
-          var myHeaders = new Headers();
-          myHeaders.append("Authorization", "Bearer " + guest_token);
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer " + guest_token);
 
-          var requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-            redirect: 'follow'
-          };
+            var requestOptions = {
+              method: 'GET',
+              headers: myHeaders,
+              redirect: 'follow'
+            };
 
-          fetch(`http://64.227.115.243:8080/customers/${Guest_login}/`, requestOptions)
-            .then(response => response.text())
-            .then(result => {
-              var myHeaders = new Headers();
-              myHeaders.append("Authorization", "Bearer " + guest_token);
+            fetch(`http://64.227.115.243:8080/customers/${Guest_login}/`, requestOptions)
+              .then(response => response.text())
+              .then(result => {
+                var myHeaders = new Headers();
+                myHeaders.append("Authorization", "Bearer " + guest_token);
 
-              var formdata = new FormData();
-              formdata.append("password", password);
-              formdata.append("confirm_password", confirm_password);
+                var formdata = new FormData();
+                formdata.append("password", password);
+                formdata.append("confirm_password", confirm_password);
 
-              var requestOptions = {
-                method: 'PATCH',
-                headers: myHeaders,
-                body: formdata,
-                redirect: 'follow'
-              };
+                var requestOptions = {
+                  method: 'PATCH',
+                  headers: myHeaders,
+                  body: formdata,
+                  redirect: 'follow'
+                };
 
-              fetch("http://64.227.115.243:8080/guest_password/", requestOptions)
-                .then(response => response.json())
-                .then(result => {
-                  var resp = Object.values(result);
-                  if (resp == "Password already stored") {
-                    localStorage.removeItem("Guest_id")
-                    MessageToast.show("You're already a customer!")
-                    this.handleLogin();
-                  } else if (resp == "Password doesn't match") {
-                    localStorage.removeItem("access_token")
-                    MessageBox.error("Password doesn't match");
-                  } else {
-                    localStorage.setItem("access_token", guest_token);
-                    MessageToast.show("You are a customer now!");
-                  }
-                  this.onGuestLoginClose();
-                  this.onGuestToCustomerLoginClose();
-                })
-                .catch(error => console.log("error", error));
-            })
-            .catch(error => console.log('error', error));
+                fetch("http://64.227.115.243:8080/guest_password/", requestOptions)
+                  .then(response => response.json())
+                  .then(result => {
+                    var resp = Object.values(result);
+                    if (resp == "Password already stored") {
+                      localStorage.removeItem("Guest_id")
+                      MessageToast.show("You're already a customer!")
+                      this.handleLogin();
+                    } else if (resp == "Password doesn't match") {
+                      localStorage.removeItem("access_token")
+                      MessageBox.error("Password doesn't match");
+                    } else {
+                      localStorage.setItem("access_token", guest_token);
+                      MessageToast.show("You are a customer now!");
+                    }
+                    this.onGuestLoginClose();
+                    this.onGuestToCustomerLoginClose();
+                  })
+                  .catch(error => console.log("error", error));
+              })
+              .catch(error => console.log('error', error));
+          }
         }
       },
       handleGuestId: function () {
@@ -614,6 +841,7 @@ sap.ui.define(
             var Guest_login = result.customer_id;
             sap.ui.getCore()._GcustomerID = Guest_login;
             localStorage.setItem("guest_access_token", result.token.access_token);
+            MessageBox.success(`Welcome Back! ${first_name}`);
 
             var ID = sap.ui.getCore()._GcustomerID;
             var token = localStorage.getItem("guest_access_token")
@@ -642,8 +870,15 @@ sap.ui.define(
             this.onGuestLoginClose();
           })
           .catch(error => console.log("error", error));
-
       },
+
+      SetTimeOutTextShow: function () {
+        var first_name = this.byId("firstNameInput").getValue();
+        setTimeout(() => {
+          MessageBox.information("Email Verification Time", first_name);
+        }, 2000);
+      },
+
       onPressAboutUs: function () {
         this.getRouter().navTo("about-us");
       },
@@ -683,45 +918,38 @@ sap.ui.define(
         var _sUrl = "http://64.227.115.243:8080/login/";
         var _sLoginEmail = this.byId("loginEmailInput").getValue();
         var _sLoginPassword = this.byId("loginPasswordInput").getValue();
-        var oData = {
-          email: _sLoginEmail,
-          password: _sLoginPassword,
-        };
-        await this.getService()
-        await this.getService()
-          .onPost(_sUrl, oData)
-          .then((oSuccess) => {
-            var ID = oSuccess.id
-            var ans = oSuccess.token.access_token;
-            localStorage.setItem("access_token", ans)
-            localStorage.setItem("user", ID);
-            localStorage.setItem("user", ID);
-            // this.onLoginSucces(oSuccess);
-            this.getRouter().navTo("customer");
-            this.onLoginClose();
-            this.setCustomerModel();
-          })
-          .catch((oError) => {
-            MessageBox.error(oError.responseText);
-          });
-      },
-      InactivelyLogOut: function () {
-        this.timeout = timeout;
-        this.eventHandler = this.updateExpiredTIme.bind(this);
-        this.tracker();
-      },
-      tracker: function () {
-        window.addEventListener("mousemove", this.eventHandler);
-        window.addEventListener("mousewheel", this.eventHandler);
-        window.addEventListener("scroll", this.eventHandler);
-        window.addEventListener("mousedown", this.eventHandler);
-        window.addEventListener("keydown", this.eventHandler);
-        window.addEventListener("keypress", this.eventHandler);
-        window.addEventListener("MSPointerMove", this.eventHandler);
-        window.addEventListener("touchmove", this.eventHandler);
-        window.addEventListener("DOMMouseScroll", this.eventHandler);
-      },
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
 
+        if (!_sLoginEmail || !_sLoginPassword) {
+          MessageBox.warning("Please fill all the fields")
+        } else if (_sLoginEmail && _sLoginPassword) {
+          if (_sLoginEmail && _sLoginPassword) {
+            var oData = {
+              email: _sLoginEmail,
+              password: _sLoginPassword,
+            };
+            if (!mailregex.test(_sLoginEmail)) {
+              MessageBox.information(_sLoginEmail + " is not a valid email address");
+            } else {
+              await this.getService()
+                .onPost(_sUrl, oData)
+                .then((oSuccess) => {
+                  var ID = oSuccess.id
+                  localStorage.setItem("user", ID);
+                  var ans = oSuccess.token.access_token;
+                  localStorage.setItem("access_token", ans)
+                  this.getRouter().navTo("customer");
+                  this.onLoginClose();
+                  this.setCustomerModel();
+                })
+                .catch((oError) => {
+                  var data = (JSON.parse(oError.responseText));
+                  MessageBox.warning(String(Object.values(data)[0]));
+                });
+            }
+          }
+        }
+      },
       setCustomerModel: async function (sUid) {
         var ID = localStorage.getItem("user")
         var token = localStorage.getItem("access_token");
@@ -740,7 +968,8 @@ sap.ui.define(
               .setProperty("/", { customerModel: oSuccess });
           })
           .catch((oError) => {
-            MessageBox.error(oError.responseText);
+            var data = (JSON.parse(oError.responseText));
+            MessageBox.warning(String(Object.values(data)[0]));
           });
       },
       onNavToCustomer: async function () {
@@ -749,7 +978,6 @@ sap.ui.define(
         if (uid !== null) {
           this.getRouter().navTo("customer");
           history.go();
-          // sap.ui.controller("ag.agasown.controller.Customer").onCustomerNavigationWishlistSelect();
         } else if (Guid !== null) {
           MessageToast.show("You must login first!");
         } else {
@@ -761,6 +989,7 @@ sap.ui.define(
         var oGlobalModel = this.getView().getModel("oGlobalModel");
         var access_token = localStorage.getItem("access_token");
         var guest_access_token = localStorage.getItem("guest_access_token");
+
         if (access_token) {
           var token = access_token;
         } else if (guest_access_token) {
@@ -768,7 +997,6 @@ sap.ui.define(
         }
         //After log out sent user to home page & refresh
         this.getRouter().navTo("home");
-        // location.reload();
         var oHeaderToken = {
           Authorization: "Bearer " + token,
         };
@@ -776,16 +1004,13 @@ sap.ui.define(
           .onPost(_sUrl, "", oHeaderToken)
           .then((oSuccess) => {
             MessageBox.success(oSuccess.detail);
-            localStorage.removeItem("access_token")
-            localStorage.removeItem("guest_access_token");
-            localStorage.removeItem("Guest_id");
-            localStorage.removeItem("user");
-            sessionStorage.removeItem("myvalue5");
-            sessionStorage.removeItem("product_id");
+            localStorage.clear();
+            sessionStorage.clear();
             oGlobalModel.setProperty("/customer", "");
           })
           .catch((oError) => {
-            MessageBox.error(oError.responseText);
+            var data = (JSON.parse(oError.responseText));
+            MessageBox.warning(String(Object.values(data)[0]));
           });
       },
 
@@ -827,7 +1052,6 @@ sap.ui.define(
           });
         }
         this._mConfirmPDDialog.then(function (oDialog) {
-          // opens the requested dialog
           oDialog.open();
         });
       },
@@ -863,7 +1087,6 @@ sap.ui.define(
       },
       handleConfirmAdd: function () {
         var oView = this.getView();
-        // creates requested dialog if not yet created
         if (!this._mConfirmAddDialog) {
           this._mConfirmAddDialog = Fragment.load({
             id: oView.getId(),
@@ -875,7 +1098,6 @@ sap.ui.define(
           });
         }
         this._mConfirmAddDialog.then(function (oDialog) {
-          // opens the requested dialog
           oDialog.open();
         });
       },
@@ -987,7 +1209,6 @@ sap.ui.define(
         this.getRouter().navTo("home");
       },
       remove_product: function () {
-        alert("hello");
       },
       onSendMessage: function () {
         var text = this.byId("text_cu").getValue();
@@ -1062,16 +1283,12 @@ sap.ui.define(
           oDialog.close();
         });
       },
-      //reset password
+
       emailvalidate: function () {
-        // alert("forgot click!!")
         var email = this.getView().byId("emailInputFrgt").getValue();
-
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
-
         if (!mailregex.test(email)) {
-          alert(email + " is not a valid email address");
-
+          MessageBox.warning(email + " is not a valid email address");
           this.getView()
             .byId("emailInputFrgt")
             .setValueState(sap.ui.core.ValueState.Error);
@@ -1079,7 +1296,7 @@ sap.ui.define(
           this.getView()
             .byId("emailInputFrgt")
             .setValueState(sap.ui.core.ValueState.None);
-          alert("email send!");
+          MessageBox.information("email send!");
           var formdata = new FormData();
           formdata.append("email", this.byId("emailInputFrgt").getValue());
           var requestOptions = {
@@ -1087,13 +1304,14 @@ sap.ui.define(
             body: formdata,
             redirect: "follow",
           };
-
           fetch(
             "http://64.227.115.243:8080/request_reset_email/",
             requestOptions
           )
             .then((response) => response.text())
-            .then((result) => console.log(result))
+            .then((result) => {
+
+            })
             .catch((error) => console.log("error", error));
           this._mForgotDialog.then(function (oDialog) {
             oDialog.close();
@@ -1103,32 +1321,24 @@ sap.ui.define(
       onReturnToShopButtonPress: function () {
         this.getRouter().navTo("home");
       },
-      //
       onPasswordSubmit: function (oEvent) {
         var _sPasswordInput1 = this.byId("passwordInput1").getValue();
         var _sConfirmPasswordInput1 = this.byId(
           "confirmPasswordInput1"
         ).getValue();
-
-        // var relative_link = document.location.hash.split("=")[1].split("Q")[1];
         var uidb64 = document.location.hash.split("=")[1].split("_")[1];
         var token = document.location.hash.split("=")[1].split("_")[2];
-        alert(uidb64);
-        alert(token);
 
         if (!_sPasswordInput1 || !_sConfirmPasswordInput1) {
-          // location.reload();
-          alert("Enter valid password");
+          MessageBox.warning("Enter valid password");
           this.getView()
             .byId("passwordInput1")
             .setValueState(sap.ui.core.ValueState.Error);
           this.getView()
             .byId("_sConfirmPasswordInput1")
             .setValueState(sap.ui.core.ValueState.Error);
-          // alert("field is empty!");
         } else if (_sPasswordInput1 != _sConfirmPasswordInput1) {
-          // location.reload();
-          alert("not match");
+          MessageBox.warning("not match");
           this.getView()
             .byId("passwordInput1")
             .setValueState(sap.ui.core.ValueState.Error);
@@ -1149,7 +1359,6 @@ sap.ui.define(
           fetch("http://64.227.115.243:8080/reset_password/", requestOptions)
             .then((response) => response.text())
             .then((result) => {
-              // location.reload();
               MessageToast.show("Reset Password Done!");
             })
             .catch((error) => console.log("error", error));
@@ -1161,62 +1370,87 @@ sap.ui.define(
       onRegisterOpen: function (oEvent) {
         this.handleRegistration(oEvent);
       },
-      EmailJs: async function () {
+      onNewsSubs: async function (data_acceptance) {
         var news_check = this.getView().byId("news_check");
         var data_acceptance = news_check.mProperties.selected;
         var _nwUrl = "http://64.227.115.243:8080/newsletter/";
-        var _nwfirstName = this.byId("firstNameInput1").getValue();
-        var _nwlastName = this.byId("lastNameInput1").getValue();
-        var _nwEmail = this.byId("emailInput1").getValue();
+        var _nwfirstName = this.byId("newsFName").getValue();
+        var _nwlastName = this.byId("newsLName").getValue();
+        var _nwEmail = this.byId("newsEmail").getValue();
+        var final_salutation;
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        var data_acceptance_mr = this.getView().byId("mrSaluNews").getSelected();
+        var data_acceptance_mrs = this.getView().byId("mrsSaluNews").getSelected();
+
+        if (data_acceptance_mr === true && data_acceptance_mrs === false) {
+          final_salutation = "Mr.";
+        } else if (data_acceptance_mr === false && data_acceptance_mrs === true) {
+          final_salutation = "Mrs.";
+        } else if (data_acceptance_mr === false && data_acceptance_mrs === false) {
+          final_salutation = null;
+        } else {
+          final_salutation = null;
+        }
+
         let exist_emails = new Array();
         if (data_acceptance === false) {
-          alert("Click to accept T&C");
+          MessageBox.information("Click to accept Terms & Condition");
         } else {
           if (!_nwfirstName || !_nwlastName || !_nwEmail) {
             MessageBox.information("All Fields are mandatory!")
           } else {
-            await this.getService()
-              .onGet(_nwUrl)
-              .then((oSuccess) => {
-                var i = oSuccess.length;
-                for (var input = 0; input < i; input++) {
-                  var req_ans = oSuccess[input].email;
-                  exist_emails.push(req_ans.toLowerCase().trim());
-                }
-              });
-            var oDataa = {
-              salutation: "Mr.",
-              first_name: _nwfirstName,
-              last_name: _nwlastName,
-              email: _nwEmail,
-              data_acceptance: true,
-
-              agasown: "Aga'sOwn Marketing Team",
-              message: "You subscribe to Aga'sOwn Shopping Site",
-              text: "Testing",
-              user_email: "test@gamil.com",
-            };
-            if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
-              this.getService()
-                .onPost(_nwUrl, oDataa)
-                .then((oSuccess) => {
-                  MessageBox.success("Successfully subscribed!");
-                  this._mNewsLetterDialog.then(function (oDialog) {
-                    oDialog.close();
-                  });
-                })
-                .catch((oError) => {
-                  MessageBox.error("Hey! Mail id already exist!");
-                });
+            if (!mailregex.test(_nwEmail)) {
+              MessageBox.information(_nwEmail + " is not a valid email address");
             } else {
-              MessageToast.show("Mail id already exist!");
-              MessageBox.error("Hey! Mail id already exist!");
+              if (data_acceptance_mr === true || data_acceptance_mrs === true) {
+                if (data_acceptance_mr === true && data_acceptance_mrs === true) {
+                  MessageBox.warning("Please Select Single Salutation!")
+                } else {
+                  await this.getService()
+                    .onGet(_nwUrl)
+                    .then((oSuccess) => {
+                      var i = oSuccess.length;
+                      for (var input = 0; input < i; input++) {
+                        var req_ans = oSuccess[input].email;
+                        exist_emails.push(req_ans.toLowerCase().trim());
+                      }
+                    });
+                  var oDataa = {
+                    salutation: final_salutation,
+                    first_name: _nwfirstName,
+                    last_name: _nwlastName,
+                    email: _nwEmail,
+                    data_acceptance: true,
+
+                    agasown: "Aga'sOwn Marketing Team",
+                    message: "You subscribe to Aga'sOwn Shopping Site",
+                    text: "Testing",
+                    user_email: "test@gamil.com",
+                  };
+                  if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
+                    this.getService()
+                      .onPost(_nwUrl, oDataa)
+                      .then((oSuccess) => {
+                        MessageBox.success("Successfully subscribed!");
+                        this._mNewsLetterDialog.then(function (oDialog) {
+                          oDialog.close();
+                        });
+                      })
+                      .catch((oError) => {
+                        var data = (JSON.parse(oError.responseText));
+                        MessageBox.warning(String(Object.values(data)[0]));
+                      });
+                  }
+                }
+              } else if (data_acceptance_mr === false && data_acceptance_mrs === false) {
+                MessageBox.warning("Please Select Any Salutation to continue!")
+              }
             }
           }
         }
       },
 
-      onSubmit: function (oEvent) {
+      onSubmit: function () {
         var readData = this.getView().byId("readData");
         var data_acceptance = readData.mProperties.selected;
         var _sUrl = "http://64.227.115.243:8080/sign-up/";
@@ -1224,30 +1458,39 @@ sap.ui.define(
         var _slastName = this.byId("lastNameInput").getValue();
         var _sEmail = this.byId("emailInput").getValue();
         var _sPasswordInput = this.byId("passwordInput").getValue();
-        var _sConfirmPasswordInput = this.byId(
-          "confirmPasswordInput"
-        ).getValue();
-        if (data_acceptance === false) {
-          alert("Click to accept T&C");
+        var _sConfirmPasswordInput = this.byId("confirmPasswordInput").getValue();
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+
+        if (!mailregex.test(_sEmail)) {
+          MessageBox.information(_sEmail + " is not a valid email address");
         } else {
-          var oData = {
-            first_name: _sfirstName,
-            last_name: _slastName,
-            email: _sEmail,
-            password: _sPasswordInput,
-            confirm_password: _sConfirmPasswordInput,
-          };
-          this.getService()
-            .onPost(_sUrl, oData)
-            .then((oSuccess) => {
-              MessageBox.success(oSuccess.detail);
-              this._mRegistrationDialog.then(function (oDialog) {
-                oDialog.close();
-              });
-            })
-            .catch((oError) => {
-              MessageBox.error(oError.responseJSON.detail);
-            });
+          if (data_acceptance === false) {
+            MessageBox.information("Click to accept Terms & Condition");
+          } else {
+            if(_sConfirmPasswordInput && _sEmail && _sfirstName && _slastName && _sPasswordInput){
+              var oData = {
+                first_name: _sfirstName,
+                last_name: _slastName,
+                email: _sEmail,
+                password: _sPasswordInput,
+                confirm_password: _sConfirmPasswordInput,
+              };
+              this.getService()
+                .onPost(_sUrl, oData)
+                .then((oSuccess) => {
+                  MessageBox.success(oSuccess.detail);
+                  this.SetTimeOutTextShow();
+                  this._mRegistrationDialog.then(function (oDialog) {
+                    oDialog.close();
+                  });
+                })
+                .catch((oError) => {
+                  MessageBox.error(oError.responseJSON.detail);
+                });
+            }else if(!_sConfirmPasswordInput || !_sEmail || !_sfirstName || !_slastName || !_sPasswordInput){
+              MessageBox.error("All fields are required to be filled to continue")
+            }
+          }
         }
       },
     });

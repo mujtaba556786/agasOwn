@@ -5,9 +5,9 @@
         </VBox>
         <VBox class="sapUiSmallMargin">
             <VBox class="div">
-                <Text text="This emailId is already exist!" />
-                <Text text="Press Continue as Guest to login as Guest" />
-                <Text text="Enter Password and Press Sign Up to become a Customer" />
+                <Text text="{i18n>alreadyEmail}" />
+                <Text text="{i18n>contasGuest}" />
+                <Text text="{i18n>contasCust}" />
             </VBox>
             <VBox class="div">
                 <Label required="true" class="dialogLabel pwLabel" text="{i18n>Loginpass}" labelFor="passwordInput"/>
@@ -20,8 +20,8 @@
             <CheckBox required="true" width="350px" wrapping="true" id="guest_readData" text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
 						 von Zalando sowie einer Bonitätsprüfung zu. " />
             <HBox class="sapUiSmallMarginBottom twoButtons">
-                <Button class="withSubmit sapUiTinyMargin" text="Login as Guest" press="handleGuest" type="Unstyled"  />
-                <Button class="withSubmit sapUiTinyMargin" text="Sign Up" press=".onGuestToCustomer" type="Unstyled"  />
+                <Button class="withSubmit sapUiTinyMargin" text="{i18n>logasGuest}" press="handleGuest" type="Unstyled"  />
+                <Button class="withSubmit sapUiTinyMargin" text="{i18n>Loginsign}" press=".onGuestToCustomer" type="Unstyled"  />
             </HBox>
         </VBox>
     </Dialog>

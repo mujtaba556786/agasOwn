@@ -16,24 +16,13 @@
 				<l:VerticalLayout class="sapUiContentPadding" width="100%">
 					<FlexBox direction="Column" width="100%">
 						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center" class="sapUiSmallMargin">
-							<!--<Label text="E-mail" labelFor="emailInput" />
-							<Input id="emailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." value="{
-								path: '/email',
-								type: '.customEMailType'
-							}" />
-							<Label text="Password" labelFor="passwordInput"/>
-							<Input class="sapUiSmallMarginBottom" placeholder="Enter password" />
-
-							<Button width="12rem" type="Emphasized" text="Submit" press=".onPressLogin" />
-
-							<Link text="Password forget" press="handleLinkPress" ariaHasPopup="Dialog" />-->
 						</VBox>
 						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
-							<Label text="First Name" labelFor="firstNameInput" />
-							<Input id="firstNameInput" placeholder="First Name"></Input>
+							<Label text="{i18n>FN}" labelFor="firstNameInput" />
+							<Input id="firstNameInput" placeholder="{i18n>FN}"></Input>
 
-							<Label text="Last Name" labelFor="lastNameInput" />
-							<Input id="lastNameInput" placeholder="Last Name"></Input>
+							<Label text="{i18n>LN}" labelFor="lastNameInput" />
+							<Input id="lastNameInput" placeholder="{i18n>LN}"></Input>
 
 							<Label text="E-mail" labelFor="emailInput" />
 							<Input id="emailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." value="{
@@ -41,19 +30,17 @@
 							type: '.customEMailType'
 						}" />
 
-							<Label text="Password" labelFor="passwordInput"/>
-							<Input id="passwordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
+							<Label text="{i18n>Loginpass}" labelFor="passwordInput"/>
+							<Input id="passwordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="{i18n>Enter}" />
 
-							<Label text="Confirm Password" labelFor="confirmPasswordInput"/>
-							<Input id="confirmPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
+							<Label text="{i18n>confpass}" labelFor="confirmPasswordInput"/>
+							<Input id="confirmPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="{i18n>reEnter}" />
 
-							<CheckBox id="newsLetter" text="Ja, ich möchte per E-Mail Newsletter über Trends, Aktionen 
-						 Gutscheine informiert werden. Abmeldung jederzeit möglich. (optional)" />
+							<CheckBox id="newsLetter" text="{i18n>TCtext}" />
 
-							<CheckBox id="readData" text="Ja, ich stimme den AGB und den Datenschutzbestimmungen 
-						 von Zalando sowie einer Bonitätsprüfung zu.* *" />
+							<CheckBox id="readData" text="{i18n>TCtextAgain}" />
 
-							<Button width="12rem" text="Login" type="Emphasized" press="onSubmit"></Button>
+							<Button width="12rem" text="{i18n>Loginsign}" type="Emphasized" press="onSubmit"></Button>
 						</VBox>
 					</FlexBox>
 				</l:VerticalLayout>

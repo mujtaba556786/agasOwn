@@ -19,7 +19,7 @@
 						}"  class="productIm"/>
 					<VBox>
 						<Text text="{oDataProducts>Quantity} x" class="productQuant"/>
-						<Label text="{oDataProducts>product_name}" class="productNam"/>
+						<Label  text="{parts:[{path:'oDataProducts>'}],formatter:'.formatter.getProductText'}" class="productNam"/>
 					</VBox>
 					<ObjectNumber number="{
 						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],

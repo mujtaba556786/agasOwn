@@ -6,7 +6,7 @@ xmlns:core="sap.ui.core"
    xmlns:cssgrid="sap.ui.layout.cssgrid"
    xmlns:app ="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
    >
-   <f:GridList id="gridListWishlist" items="{wishListmodel>/}" growing="true" growingThreshold="4" noDataText="Nothing added in Wishlist" >
+   <f:GridList id="gridListWishlist" items="{wishListmodel>/}" growing="true" growingThreshold="4" noDataText="{i18n>notWish}" >
    
       <f:customLayout>
          <cssgrid:GridBasicLayout gridAutoRows="5rem" gridTemplateColumns="repeat(auto-fill, minmax(9rem, 1fr))" gridGap="0.5rem"></cssgrid:GridBasicLayout>
@@ -31,7 +31,7 @@ xmlns:core="sap.ui.core"
                </VBox>
                <Button class="sapUiLargeMarginBegin" press="onAddToWishListDel" app:itemId="{wishListmodel>_id}" icon="sap-icon://delete"  type="Reject" />
               </HBox>
-						<Button text="Buy Now" class="sapUiTinyMarginBegin" press="onProductItemPress" />
+						<Button text="{i18n>BuyNow}" class="sapUiTinyMarginBegin" press="onProductItemPress" />
 						</VBox>
                </VBox>	
 			</Panel>        

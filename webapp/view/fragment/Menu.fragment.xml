@@ -1,5 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m"
     xmlns:f="sap.f"
+    xmlns:app ="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
     xmlns:core="sap.ui.core">
     <ResponsivePopover id="popover" showArrow="false" showHeader="false" class="sapUiPopupWithPadding" placement="Bottom">
         <content>
@@ -11,7 +12,7 @@
                     }" class="menu1">
                     <CustomListItem>
                         <HBox alignItems="Center" justifyContent="SpaceBetween">
-                            <Link id="menuLinks" class="menuLinks" text="{oDataCategory>category_name}" press="onCategoryLinkPress">
+                            <Link id="menuLinks" class="menuLinks" text="{parts:[{path:'oDataCategory>'}],formatter:'.formatter.getCategoryText'}" press="onCategoryLinkPress">
                                 <customData>
                                     <core:CustomData key="categoryId" value="{oDataCategory>_id}" writeToDom="true" />
                                 </customData>
@@ -23,7 +24,7 @@
                 class="sapUiTinyMarginBegin Menu2 second" noData="  ">
                     <CustomListItem>
                         <HBox alignItems="Center" justifyContent="SpaceBetween">
-                            <Link class="menuLinks" text="{oMenuModel>category_name}" press="onSubCategoryLinkPress"/>
+                            <Link class="menuLinks" text="{parts:[{path:'oMenuModel>'}],formatter:'.formatter.getCategoryText'}" press="onSubCategoryLinkPress"/>
                         </HBox>
                     </CustomListItem>
                 </List>

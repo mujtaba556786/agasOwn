@@ -760,11 +760,11 @@ sap.ui.define(
             })
             .catch(error => console.log('error', error));
           if (respo === 200) {
-            alert("Order Accepted!");
+            MessageBox.success("Order Accepted!");
             window.location.replace("index.html#/payment");
           }
           else {
-            alert('order not accepted')
+            MessageBox.error('order not accepted')
           }
         } else if (selectedKey == "PayPal") {
           var formdata = new FormData();
