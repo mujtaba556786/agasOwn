@@ -24,7 +24,7 @@
 													}" class="ceckoutAvtar" showBorder="true" displayShape="Square"/>
                                 </VBox>
                                 <VBox class="sapUiSmallMargin" renderType="Bare" justifyContent="SpaceBetween">
-                                    <Label text="{oDataProducts>product_name}" class="product_title"/>
+                                    <Label  text="{parts:[{path:'oDataProducts>'}],formatter:'.formatter.getProductText'}" class="product_title"/>
                                     <HBox renderType="Bare">
                                         <Label design="Bold" text="{i18n>color}" labelFor="text-color" />
                                         <Text id="text-color" text="{oGlobalModel>/detailProduct/color}"/>

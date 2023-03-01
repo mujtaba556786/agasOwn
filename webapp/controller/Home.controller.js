@@ -65,7 +65,7 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 		onPress: function (oEvent) {
-			alert("=====>");
+	
 		}
 
 	});

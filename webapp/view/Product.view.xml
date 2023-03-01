@@ -11,7 +11,7 @@
 		<content>
 			<IconTabBar select=".onFilterSelect" items="{oMenuModel>/detailCategory}" expanded="true" headerBackgroundDesign="Transparent" expandable="false" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding customerTab">
 				<items>
-					<IconTabFilter text="{oMenuModel>category_name}" key="{oMenuModel>_id}">
+					<IconTabFilter  text="{parts:[{path:'oMenuModel>'}],formatter:'.formatter.getCategoryText'}" key="{oMenuModel>_id}">
 						<customData>
 							<core:CustomData key="categoryParent" value="{oMenuModel>_id}" writeToDom="true" />
 						</customData>
@@ -21,7 +21,7 @@
 
 			<Panel id="panelForGridList">
 				<HBox renderType="Bare" justifyContent="Center">
-					<SearchField width="50%" />
+					<SearchField width="50%" placeholder="{i18n>search}"/>
 				</HBox>
 
 				<f:GridList id="gridList" items="{oGlobalModel>/productLists}" growing="true" growingThreshold="4">
@@ -35,7 +35,7 @@
 						<VBox alignItems="Center" class="sapUiSmallMargin">
 							<Image src="{path: 'oGlobalModel>picture',formatter : '.formatter.jsonPictureUrl'}" height="155px" press="onProductItemPress"/>
 
-							<Title text="{oGlobalModel>title}" wrapping="true" />
+							<Title  text="{parts:[{path:'oGlobalModel>'}],formatter:'.formatter.getProductText'}" wrapping="true" />
 							<ObjectNumber class="sapUiSmallMarginBottom" number="{
 						parts:[{path:'oGlobalModel>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',

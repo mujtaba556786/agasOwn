@@ -7,11 +7,10 @@
             <Button class="dialogCloseBtn" icon="sap-icon://sys-cancel" press=".onConfirmBillAddClose" type="Unstyled"/>
         </VBox>
         <VBox fitContainer="true" class="sapUiSmallMargin">
-            <!-- <Text class="dialogTitle sapUiSmallMarginBottom" text="Are you sure?"/> -->
-            <Text class="sapUiSmallMarginBottom sapUiLargeMarginBegin" text="Are you sure want to change Billing Address?" />
+            <Text class="sapUiSmallMarginBottom sapUiLargeMarginBegin" text="{i18n>billConf}" />
             <HBox>
-                <Button width="12rem" class="dialogSubmit sapUiSmallMarginEnd" text="YES" type="Unstyled" press="onSaveBillingAddress"></Button>
-                <Button width="12rem" class="dialogSubmit sapUiSmallMarginEnd" text="NO" type="Unstyled" press="onNotSaveBillingAddress"></Button>
+                <Button width="12rem" class="dialogSubmit sapUiSmallMarginEnd" text="{i18n>optYes}" type="Unstyled" press="onSaveBillingAddress"></Button>
+                <Button width="12rem" class="dialogSubmit sapUiSmallMarginEnd" text="{i18n>optNo}" type="Unstyled" press="onNotSaveBillingAddress"></Button>
             </HBox>
         </VBox>
     </Dialog>

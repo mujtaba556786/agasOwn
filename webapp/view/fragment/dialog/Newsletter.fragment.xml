@@ -10,23 +10,23 @@
             <Text class="dialogTitle sapUiSmallMarginBottom registrationText" text="{i18n>subsNews}"/>
             <VBox class="div">
                 <HBox>
-                    <CheckBox text="{i18n>mr_salu}" id="random_id"/>
-                    <CheckBox text="{i18n>mrs_salu}"/>
+                    <CheckBox text="{i18n>mr_salu}" id="mrSaluNews"/>
+                    <CheckBox text="{i18n>mrs_salu}" id="mrsSaluNews"/>
                 </HBox>
                 <Label class="dialogLabel fnLabel" text="{i18n>FN}" labelFor="firstNameInput" required="true"/>
-                <Input id="firstNameInput1" class="fnInput" placeholder="{i18n>FN}" ></Input>
-                <Label class="dialogLabel lnLabel" text="{i18n>LN}" labelFor="lastNameInput" />
-                <Input id="lastNameInput1" class="lnInput" placeholder="{i18n>LN}" ></Input>
+                <Input id="newsFName" class="fnInput" placeholder="{i18n>FN}" liveChange ="newsFirstNameCheck" valueStateText="{i18n>valueStateText}" required="true" ></Input>
+                <Label class="dialogLabel lnLabel" text="{i18n>LN}" labelFor="lastNameInput" required="true"/>
+                <Input id="newsLName" class="lnInput" placeholder="{i18n>LN}" liveChange ="newsLastNameCheck" valueStateText="{i18n>valueStateText}" required="true" ></Input>
             </VBox>
             <VBox class="div">
-                <Label class="dialogLabel emLabel" text="{i18n>mailText}" labelFor="emailInput" />
-                <Input id="emailInput1" class="sapUiSmallMarginBottom emInput" type="Email" placeholder="{i18n>mailText}" valueStateText="E-mail must be a valid email address." value="{
+                <Label class="dialogLabel emLabel" text="{i18n>mailText}" labelFor="emailInput" required="true"/>
+                <Input id="newsEmail" class="sapUiSmallMarginBottom emInput" type="Email" placeholder="{i18n>mailText}" liveChange ="newsEmailCheck" valueStateText="{i18n>emailValueStateText}" value="{
 							path: '/email',
 							type: '.customEMailType'
 						}" />
                 <CheckBox text="{i18n>TandC}" required="true" id="news_check" selected="true" />
-                <Button class="dialogSubmitNew" text="{i18n>subscribe}" type="Unstyled" press="EmailJs"></Button>
+                <Button class="dialogSubmitNew" text="{i18n>subscribe}" type="Unstyled" press="onNewsSubs"></Button>
             </VBox>
-        </VBox>
+        </VBox> 
     </Dialog>
 </core:FragmentDefinition>

@@ -13,14 +13,14 @@
                      <VBox renderType="Bare" justifyContent="SpaceBetween" width="100%">
                      <Text text="{i18n>salu}" />
                      <HBox>
-                     <CheckBox id="saluMr" text="Mr." editable="false" />
-                     <CheckBox id="saluMrs" text="Mrs." editable="false" selected="false"/>
-                     <CheckBox id="saluOthers" text="Others" editable="false" selected="false"/>
+                     <CheckBox id="saluMr" text="{i18n>mr_salu}" editable="false" />
+                     <CheckBox id="saluMrs" text="{i18n>mrs_salu}" editable="false" selected="false"/>
+                     <CheckBox id="saluOthers" text="{i18n>other_salu}" editable="false" selected="false"/>
                      </HBox>
                         <Text text="{i18n>FN}" />
-                        <Input id="firstNamePrsnlDtl" editable="false"  placeholder="{i18n>firstNameText}" value="{ path: 'oGlobalModel>/customerModel/first_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userFirstNameCheck" valueStateText="Must be greater than 3 letters" required="true" type="text"/>
+                        <Input id="firstNamePrsnlDtl" editable="false"  placeholder="{i18n>firstNameText}" value="{ path: 'oGlobalModel>/customerModel/first_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userFirstNameCheck" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Text text="{i18n>LN}" />
-                        <Input id="lastNamePrsnlDtl" editable="false" placeholder="{i18n>lastNameText}" value="{ path: 'oGlobalModel>/customerModel/last_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userLastNameCheck" valueStateText="Must be greater than 3 letters" required="true" type="text"/>
+                        <Input id="lastNamePrsnlDtl" editable="false" placeholder="{i18n>lastNameText}" value="{ path: 'oGlobalModel>/customerModel/last_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userLastNameCheck" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                          <Text text="{i18n>DOB}" />
                         <Input id="dateOfBirthPrsnlDtl" editable="false" value='{oGlobalModel>/customerModel/date_of_birth}'/>
                      </VBox>
@@ -32,13 +32,6 @@
                         <Input id="emailPrsnlDtl" editable="false" class = "check" value="{oGlobalModel>/customerModel/email}"/>
                      </VBox>
                   </HBox>
-                  <!-- <HBox >
-                     <Button type="Unstyled" class="menu sapUiLargeMarginEnd" icon="sap-icon://locked" press=".offLoginOpen" />
-                     <VBox renderType="Bare" justifyContent="SpaceBetween" width="100%">
-                        <Text text="{i18n>Loginpass}"/>
-                        <Input id="pwdPrsnlDtl" type="password" class = "check" editable="false" value="{oGlobalModel>/customerModel/password}"/>
-                     </VBox>
-                  </HBox> -->
                   <Button id="btnEditPrsnlAdrs" visible="true" class="buttonEdit" text="{i18n>editText}" press=".onEditPersonalAddress" type="Unstyled" />
                   <Button id="btnSavePrsnlAdrs" visible="false" class="buttonSave" text="{i18n>save}" press=".handleConfirmPD" type="Unstyled" />
                </VBox>

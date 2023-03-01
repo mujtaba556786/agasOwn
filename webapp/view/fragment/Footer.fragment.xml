@@ -41,7 +41,7 @@
                         filters: [{path: 'parent', operator: 'EQ', value1: 'None'}],
                         sorter: {path: 'id'}
                     }">
-                            <Link class="link" text="{oDataCategory>category_name}" press="onCategoryLinkPress">
+                            <Link class="link" text="{parts:[{path:'oDataCategory>'}],formatter:'.formatter.getCategoryText'}" press="onCategoryLinkPress">
                             </Link>
                         </VBox>
                     </VBox>

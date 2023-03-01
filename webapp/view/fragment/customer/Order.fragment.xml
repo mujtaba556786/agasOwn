@@ -7,7 +7,7 @@ xmlns:core="sap.ui.core"
    xmlns:cssgrid="sap.ui.layout.cssgrid"
    xmlns:app ="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
    >
-   <f:GridList id="gridLis" items="{customerOrderModel>/}" growing="true" growingThreshold="4" noDataText="No Order History">
+   <f:GridList id="gridLis" items="{customerOrderModel>/}" growing="true" growingThreshold="4" noDataText="{i18n>noDataText}">
       <f:customLayout>
          <cssgrid:GridBasicLayout gridAutoRows="5rem" gridTemplateColumns="repeat(auto-fill, minmax(9rem, 1fr))" gridGap="0.5rem"></cssgrid:GridBasicLayout>
       </f:customLayout>
@@ -25,7 +25,7 @@ xmlns:core="sap.ui.core"
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" unit="{view>/Currency}" textAlign="Center"/>
-						<Button text="Buy Now" class="btn-abs-home" press="onProductItemPress" />
+						<Button text="{i18n>BuyNow}" class="btn-abs-home" press="onProductItemPress" />
 					</VBox>
 				
 			</Panel>

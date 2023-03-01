@@ -197,8 +197,8 @@ sap.ui.define(
             });
             const ty = await Promise.all(data);
             var eachProd = ty.map((i) => { return (i) });
-            var oCartDataItemModel = new JSONModel(eachProd);
-            this.getView().setModel(oCartDataItemModel);
+            // var oCartDataItemModel = new JSONModel(eachProd);
+            // this.getView().setModel(oCartDataItemModel);
 
           })
           .catch(error => console.log('error', error));

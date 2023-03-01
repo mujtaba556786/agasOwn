@@ -4,11 +4,10 @@
    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 
    <HBox>
-
-      <VBox backgroundDesign="Solid" class="sapUiSmallMargin centerVBox1 centerVBox_ContactUs1">
+      <VBox backgroundDesign="Solid" class="sapUiSmallMargin centerVBox_contactPage">
          <Text text="{i18n>contactUs}" class="AboutUs"/>
          <Text text="{i18n>helpText}" class="AboutUs_text"/>
-         <TextArea width="100%" rows="8" placeholder="Write Your Message" value="" class="sapUiTinyMargin textArea_ContactUs" id="text_cu" required="true">
+         <TextArea width="100%" rows="8" placeholder="{i18n>writeYourMessage}" value="" class="sapUiTinyMargin textArea_ContactUs" id="text_cu" required="true">
          </TextArea>
          <HBox class="f_Hbox">
          <Input placeholder="{i18n>FN}" value="" class="sapUiTinyMargin fn_contactUs" id="fn_cu" type="text" required="true"/>
@@ -19,19 +18,6 @@
          <Input placeholder="{i18n>orderNum}" value="" class="sapUiTinyMargin on_contactUs" id="on_cu" required="true"/>
          </HBox>
          <Button class="sapUiTinyMargin send_message" text="{i18n>sendMess}" press=".onSendMessage" type="Unstyled" />
-
       </VBox>
-
-      <!-- <VBox visible="true" backgroundDesign="Solid" class="categories sapUiSmallMargin lastVBox">
-         <Image src="{
-											path: 'view>/Jewel',
-											formatter : '.formatter.pictureUrl'
-											}" width="100%" height="100%" class="aboutUs mt4"/>
-
-         <Text text="Check our latest products" class="latestProducts"/>
-         <Button width="100%" class="continue_shopping" text="Continue Shopping" press=".onContinueShopping" type="Unstyled" />
-
-
-      </VBox> -->
    </HBox>
 </core:FragmentDefinition>

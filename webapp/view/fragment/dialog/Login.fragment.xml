@@ -5,10 +5,10 @@
         </VBox>
         <VBox class="sapUiSmallMargin">
             <Text class="dialogTitle sapUiSmallMarginBottom" text="{i18n>custLog}" />
-            <Label class="dialogLabel" text="{i18n>Loginemail}" labelFor="loginEmailInput" />
-            <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="Enter email" valueStateText="E-mail must be a valid email address." />
-            <Label class="dialogLabel" text="{i18n>Loginpass}" labelFor="loginPasswordInput" />
-            <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="Enter password" />
+            <Label class="dialogLabel" text="{i18n>Loginemail}" labelFor="loginEmailInput" required="true"/>
+            <Input id="loginEmailInput" class="sapUiSmallMarginBottom" type="Email" placeholder="{i18n>emailPlaceholder}" valueStateText="{i18n>emailValueStateText}" liveChange="loginEmailCheck" change="validateLogin"/>
+            <Label class="dialogLabel" text="{i18n>Loginpass}" labelFor="loginPasswordInput" required="true"/>
+            <Input id="loginPasswordInput" type="Password" class="sapUiSmallMarginBottom" placeholder="{i18n>passwordPlaceholder}" valueStateText="{i18n>valueStateText}" liveChange="loginLastNameCheck" />
             <HBox class="sapUiSmallMarginBottom">
                 <Button class="sapUiTinyMargin dialogSubmit" text="{i18n>Loginsub}" press=".onLoginSubmit" type="Unstyled" />
                 <Button class="sapUiTinyMargin loginPasswordForget" text="{i18n>Loginforpass}" press="onForgotOpen" type="Unstyled" />

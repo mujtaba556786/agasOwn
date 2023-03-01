@@ -5,9 +5,7 @@ controllerName="ag.agasown.controller.Registration"
 xmlns:core="sap.ui.core">
     <ResponsivePopover showArrow="false" showHeader="false" class="sapUiPopupWithPadding" placement="Bottom">
         <content>
-            <VBox class="sapUiSmallMargin go_to_cus1">
-                <!-- //!CUSTOM CODE FOR USER NAME  -->
-                <!-- <Button type="Transparent" text="{view10>/myName}" icon="sap-icon://employee" press=".onNavToCustomer" class="logerName"/> -->
+            <VBox class="sapUiSmallMargin go_to_cus_user">
                 <Button type="Unstyled" text="{i18n>goToCust}" press=".onNavToCustomer" class="go_to_cus"/>
                 <Button type="Unstyled" text="{i18n>logout}" icon="sap-icon://log" press=".onLogout" class="go_to_cus"/>
             </VBox>
