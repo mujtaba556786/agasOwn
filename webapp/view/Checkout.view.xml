@@ -11,7 +11,6 @@
 			<Wizard class="checkoutSteps" id="shoppingCartWizard" complete="checkCompleted" enableBranching="true">
 				<steps>
 					<WizardStep id="contentsStep" nextStep="paymentTypeStep" title="{i18n>checkoutContentsTitle}" icon="sap-icon://cart">
-						<core:Fragment fragmentName="ag.agasown.view.fragment.checkoutWizard.contentsStep" type="XML" />
 					</WizardStep>
 					<WizardStep id="paymentTypeStep" title="{i18n>checkoutPaymentTitle}" subsequentSteps="creditCardStep, bankAccountStep, cashOnDeliveryStep" complete="goToPaymentStep" icon="sap-icon://money-bills">
 						<core:Fragment fragmentName="ag.agasown.view.fragment.checkoutWizard.paymentTypeStep" type="XML" />

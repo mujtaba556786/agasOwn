@@ -91,8 +91,17 @@ sap.ui.define(
           .attachMatched(function () { }.bind(this));
         // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         // oRouter.stop();
-
+         this._setFragments(); 
         this.setHeaderModel();
+      },
+
+      _setFragments : function(){
+        this.loadFragment({
+          name: "ag.agasown.view.fragment.checkoutWizard.contentsStep"
+       }).then(function(oFragment){
+          oFragment.placeAt('container-agasown---checkout--contentsStep');
+       }); // Button ID will be prefixed by the view ID
+
       },
 
       /**
