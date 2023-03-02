@@ -19,10 +19,10 @@
     "int-tests": "fiori run --open test/integration/opaTests.qunit.html"
   },
   "devDependencies": {
-    "@sap/ux-ui5-tooling": "1.7.6",
-    "@ui5/cli": "2.7.1",
-    "@ui5/fs": "2.0.1",
-    "@ui5/logger": "2.0.0"
+    "@sap/ux-ui5-tooling": "1.9.0",
+    "@ui5/cli": "3.0.3",
+    "@ui5/fs": "3.0.2",
+    "@ui5/logger": "3.0.0"
   },
   "ui5": {
     "dependencies": [
