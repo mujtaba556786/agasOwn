@@ -11,6 +11,7 @@ sap.ui.define(
     "sap/m/MessagePopover",
     "sap/m/MessagePopoverItem",
     "../model/EmailType",
+    "sap/ui/core/Fragment"
   ],
   function (
     BaseController,
@@ -23,7 +24,8 @@ sap.ui.define(
     MessagePopover,
     MessagePopoverItem,
     MessageToast,
-    EmailType
+    EmailType,
+    Fragment
   ) {
     "use strict";
 
@@ -91,17 +93,14 @@ sap.ui.define(
           .attachMatched(function () { }.bind(this));
         // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         // oRouter.stop();
-         this._setFragments(); 
+         this._setFragments("contentsStep", "contentsStep");
+        // this._setFragments("paymentTypeStep", "ptStepsPanel");  
         this.setHeaderModel();
       },
 
-      _setFragments : function(){
-        this.loadFragment({
-          name: "ag.agasown.view.fragment.checkoutWizard.contentsStep"
-       }).then(function(oFragment){
-          oFragment.placeAt('container-agasown---checkout--contentsStep');
-       }); // Button ID will be prefixed by the view ID
-
+      _setFragments : function(name, Id){
+        var fragmentName= sap.ui.xmlfragment("ag.agasown.view.fragment.checkoutWizard."+name, this);
+        this.byId(Id).insertContent(fragmentName);
       },
 
       /**
