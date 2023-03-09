@@ -13,7 +13,7 @@
             <Text text="{i18n>wantTo}" class="giftCard"/>
             <Text text="{i18n>wantToEnter}" class="giftCardCode"/>
             <HBox class="redeem">
-               <Input class="giftCard_input" id="gift_card" value="{oGlobalModel>/customerModel/voucher}"  editable="false"/>
+               <Input class="giftCard_input" id="gift_card" value="{oCustomerModel>/customerModel/voucher}"  editable="false"/>
             </HBox>
          </VBox>
       </VBox>

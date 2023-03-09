@@ -29,7 +29,7 @@ sap.ui.define([
 			this.setModel(new sap.ui.model.json.JSONModel() , "oGlobalModel");
 			// set the Menu model
 			this.setModel(new sap.ui.model.json.JSONModel() , "oMenuModel");
-			this.setModel(new sap.ui.model.json.JSONModel(), "customerModel");
+			this.setModel(new sap.ui.model.json.JSONModel(), "oCustomerModel");
 			this.setModel(new sap.ui.model.json.JSONModel(), "wishListmodel");
 			this.setModel(new sap.ui.model.json.JSONModel(), "cartDetailsModel");	
 			this.setModel(new sap.ui.model.json.JSONModel(), "oCartItemDataModel");

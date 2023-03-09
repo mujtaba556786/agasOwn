@@ -40,7 +40,7 @@ sap.ui.define([
 					.onGet(_sUrl, oHeaderToken)
 					.then((oSuccess) => {
 						this.getView()
-							.getModel("oGlobalModel")
+							.getModel("oCustomerModel")
 							.setProperty("/", { customerModel: oSuccess });
 					})
 					.catch((oError) => {

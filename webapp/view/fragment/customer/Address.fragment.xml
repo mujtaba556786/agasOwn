@@ -9,17 +9,17 @@
                 <l:BlockLayoutCell title="{i18n>homeAddressTitle}">
                     <VBox renderType="Bare" displayInline="true" fitContainer="true">
                     <Text text="{i18n>FN}" />
-                        <Input id="firstNameHome" editable="false"  placeholder="{i18n>firstNameText}" value="{ path: 'oGlobalModel>/customerModel/first_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userFirstNameCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="firstNameHome" editable="false"  placeholder="{i18n>firstNameText}" value="{ path: 'oCustomerModel>/customerModel/first_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userFirstNameCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Text text="{i18n>LN}" />
-                        <Input id="lastNameHome" editable="false" placeholder="{i18n>lastNameText}" value="{ path: 'oGlobalModel>/customerModel/last_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userLastNameCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="lastNameHome" editable="false" placeholder="{i18n>lastNameText}" value="{ path: 'oCustomerModel>/customerModel/last_name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userLastNameCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Text text="{i18n>custAddress}" />
-                        <Input id="address1" editable="false" placeholder="{i18n>addressText}" value="{ path: 'oGlobalModel>/customerModel/address1', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userAddeessCheck" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="address1" editable="false" placeholder="{i18n>addressText}" value="{ path: 'oCustomerModel>/customerModel/address1', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userAddeessCheck" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Text text="{i18n>custCity}" />
-                        <Input id="city" editable="false" placeholder="{i18n>cityText}" value="{ path: 'oGlobalModel>/customerModel/city', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userCityCheck" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="city" editable="false" placeholder="{i18n>cityText}" value="{ path: 'oCustomerModel>/customerModel/city', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userCityCheck" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Text text="{i18n>custPostalCode}"/>
-                        <Input id="postalCode" editable="false" placeholder="{i18n>zipCodeText}" value="{ path: 'oGlobalModel>/customerModel/postal_code', type: 'sap.ui.model.type.Integer', constraints: { minLength: 4 } }" liveChange ="userZipCodeCheck" valueStateText="{i18n>valueStateTextAdd}" required="true" type="Number"/>
+                        <Input id="postalCode" editable="false" placeholder="{i18n>zipCodeText}" value="{ path: 'oCustomerModel>/customerModel/postal_code', type: 'sap.ui.model.type.Integer', constraints: { minLength: 4 } }" liveChange ="userZipCodeCheck" valueStateText="{i18n>valueStateTextAdd}" required="true" type="Number"/>
                         <Text text="{i18n>custCountry}" />
-                        <Input id="country" editable="false" placeholder="{i18n>countryText}" value="{ path: 'oGlobalModel>/customerModel/country', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userCountryCheck" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="country" editable="false" placeholder="{i18n>countryText}" value="{ path: 'oCustomerModel>/customerModel/country', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userCountryCheck" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Button id="btnEditHmAdrs" visible="true" class="buttonEdit" text="{i18n>editText}" press=".onEditHomeAddress" type="Unstyled" />
                         <Button id="btnSaveHmAdrs" visible="false" class="buttonSave" text="{i18n>save}" press=".handleConfirmAdd" type="Unstyled" />
                     </VBox>
@@ -34,15 +34,15 @@
                       <CheckBox id="billingSaluOther" text="{i18n>other_salu}" editable="false" selected="false"/>
                      </HBox>
                      <Text text="{i18n>fullName}" />
-                        <Input id="name" editable="false"  placeholder="{i18n>fullNamePH}" value="{ path: 'oGlobalModel>/customerModel/name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userNameCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="name" editable="false"  placeholder="{i18n>fullNamePH}" value="{ path: 'oCustomerModel>/customerModel/name', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userNameCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Text text="{i18n>custAddress}" />
-                        <Input id="billingAddress" editable="false" placeholder="{i18n>addressText}" value="{ path: 'oGlobalModel>/customerModel/billing_address', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userAddressCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="billingAddress" editable="false" placeholder="{i18n>addressText}" value="{ path: 'oCustomerModel>/customerModel/billing_address', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userAddressCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Text text="{i18n>custCity}" />
-                        <Input id="billingCity" editable="false" placeholder="{i18n>cityText}" value="{ path: 'oGlobalModel>/customerModel/billing_city', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userCityCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="billingCity" editable="false" placeholder="{i18n>cityText}" value="{ path: 'oCustomerModel>/customerModel/billing_city', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userCityCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Text text="{i18n>custPostalCode}"/>
-                        <Input id="billingPostalCode" editable="false" placeholder="{i18n>zipCodeText}" value="{ path: 'oGlobalModel>/customerModel/billing_postal_code', type: 'sap.ui.model.type.Integer', constraints: { minLength: 4 } }" liveChange ="userZipCodeCheckAgain" valueStateText="{i18n>valueStateTextAdd}" required="true" type="Number"/>
+                        <Input id="billingPostalCode" editable="false" placeholder="{i18n>zipCodeText}" value="{ path: 'oCustomerModel>/customerModel/billing_postal_code', type: 'sap.ui.model.type.Integer', constraints: { minLength: 4 } }" liveChange ="userZipCodeCheckAgain" valueStateText="{i18n>valueStateTextAdd}" required="true" type="Number"/>
                         <Text text="{i18n>custCountry}"/>
-                        <Input id="billingCountry" editable="false" placeholder="{i18n>countryText}" value="{ path: 'oGlobalModel>/customerModel/billing_country', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userCountryCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
+                        <Input id="billingCountry" editable="false" placeholder="{i18n>countryText}" value="{ path: 'oCustomerModel>/customerModel/billing_country', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" liveChange ="userCountryCheckAgain" valueStateText="{i18n>valueStateText}" required="true" type="text"/>
                         <Button id="btnEditblngAdrs" visible="true" class="buttonEdit" text="{i18n>editText}" press=".onEditBillingAddress" type="Unstyled" />
                         <Button id="btnSaveblngAdrs" visible="false" class="buttonSave" text="{i18n>save}" press=".handleConfirmBillAdd" type="Unstyled" />
                     </VBox>
