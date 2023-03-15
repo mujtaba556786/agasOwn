@@ -461,19 +461,19 @@ sap.ui.define(
           supportedLocales: ["en", "de"],
           fallbackLocale: "",
         });
-        
+
         if (document.documentElement.lang.includes("en")) {
           localStorage.setItem('enValue', true);
           localStorage.removeItem('deValue');
           sap.ui.getCore().getConfiguration().setLanguage("de");
           MessageToast.show("Switched to German");
-        
+
         } else {
           localStorage.setItem('deValue', true);
           localStorage.removeItem('enValue');
           sap.ui.getCore().getConfiguration().setLanguage("en");
-          MessageToast.show("Switched to English");
-          
+          MessageToast.show("Ins Englische übersetzen");
+
         }
       },
 
@@ -514,15 +514,30 @@ sap.ui.define(
         var uid = localStorage.getItem("access_token");
         var gid = localStorage.getItem("guest_access_token");
         var pid = sessionStorage.getItem("myvalue5");
+        var geTerms = localStorage.getItem('deValue');
+        var enTerms = localStorage.getItem('enValue');
+
         if ((uid !== null && pid !== null) || gid !== null) {
           this.getRouter().navTo("checkout");
           this.checkOutFunctionality();
         } else if (uid === null) {
           this.getRouter().navTo("home");
-          MessageToast.show("You must login first!");
+          if (geTerms) {
+            MessageToast.show("Hi friend, you must login first!");
+          } else if (enTerms) {
+            MessageToast.show("Hallo Freund, Sie müssen sich zuerst anmelden!");
+          } else {
+            MessageToast.show("Hi friend, you must login first!")
+          }
         } else if (pid === null) {
           this.getRouter().navTo("home");
-          MessageToast.show("You must add some item!");
+          if (geTerms) {
+            MessageToast.show("You must add some item!");
+          } else if (enTerms) {
+            MessageToast.show("Sie müssen ein Element hinzufügen!");
+          } else {
+            MessageToast.show("You must add some item!");
+          }
         } else if (gid !== null && pid !== null) {
           this.getRouter().navTo("checkout");
         } else if (gid !== null && pid === null) {
@@ -533,12 +548,9 @@ sap.ui.define(
         }
       },
 
-      checkOutFunctionality: function () {
-        var quantity = {};
-        var oCartModel = this.getView().getModel("oDataProducts");
-        var raw;
+      checkOutFunctionality: async function () {
         var globalVar;
-        var myHeaders = new Headers();
+        var _sUrl = "http://64.227.115.243:8080/total_amount/";
         var access_token = localStorage.getItem("access_token");
         var guest_access_token = localStorage.getItem("guest_access_token");
         if (!guest_access_token) {
@@ -546,31 +558,16 @@ sap.ui.define(
         } else {
           token = guest_access_token;
         }
-        myHeaders.append("Authorization", "Bearer " + token);
-        myHeaders.append("Content-Type", "application/json");
-        var oCartEntries = oCartModel.getProperty("/cartEntries");
-        if (oCartEntries !== undefined) {
-          Object.keys(oCartEntries).forEach(function (sProductId) {
-            var oProduct = oCartEntries[sProductId];
-            quantity[sProductId] = oProduct.Quantity;
-            raw = JSON.stringify({
-              "quantity": quantity
-            });
-          });
-          var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            redirect: 'follow'
-          };
-          fetch("http://64.227.115.243:8080/total_amount/", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-              globalVar = Number(Object.values(result));
-              this.getView().setModel(globalVar, "oCartItemsData");
-              sap.ui.getCore()._globalVar = globalVar;
-            })
-            .catch(error => console.log("error", error));
-        }
+        var oHeaderToken = {
+          Authorization: "Bearer " + token,
+        };
+        await this.getService()
+          .onPost(_sUrl, "", oHeaderToken)
+          .then((oSuccess) => {
+            globalVar = Number(Object.values(oSuccess));
+            this.getView().setModel(globalVar, "oCartItemsData");
+            sap.ui.getCore()._globalVar = globalVar;
+          }).catch(error => console.log("error", error));
       },
       onNavBack: function () {
         var oHistory = History.getInstance();
@@ -640,8 +637,17 @@ sap.ui.define(
       validate: function () {
         var email = this.byId("guestLoginEmail").getValue();
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         if (!mailregex.test(email)) {
-          MessageBox.information(email + " is not a valid email address");
+          if (geTerms) {
+            MessageBox.information(`${email} is not a valid email address`);
+          } else if (enTerms) {
+            MessageBox.information(`${email} ist keine gültige E-Mail-Adresse`)
+          } else {
+            MessageBox.information(email + " is not a valid email address");
+          }
+
           this.getView().byId("guestLoginEmail").setValueState(sap.ui.core.ValueState.Error);
         } else {
           this.getView().byId("guestLoginEmail").setValueState(sap.ui.core.ValueState.None);
@@ -650,8 +656,16 @@ sap.ui.define(
       validateLogin: function () {
         var email = this.byId("loginEmailInput").getValue();
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         if (!mailregex.test(email)) {
-          MessageBox.information(email + " is not a valid email address");
+          if (geTerms) {
+            MessageBox.information(`${email} is not a valid email address`);
+          } else if (enTerms) {
+            MessageBox.information(`${email} ist keine gültige E-Mail-Adresse`)
+          } else {
+            MessageBox.information(email + " is not a valid email address");
+          }
           this.getView().byId("loginEmailInput").setValueState(sap.ui.core.ValueState.Error);
         } else {
           this.getView().byId("loginEmailInput").setValueState(sap.ui.core.ValueState.None);
@@ -659,9 +673,17 @@ sap.ui.define(
       },
       validateReg: function () {
         var email = this.byId("emailInput").getValue();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
         if (!mailregex.test(email)) {
-          MessageBox.information(email + " is not a valid email address");
+          if (geTerms) {
+            MessageBox.information(`${email} is not a valid email address`);
+          } else if (enTerms) {
+            MessageBox.information(`${email} ist keine gültige E-Mail-Adresse`)
+          } else {
+            MessageBox.information(email + " is not a valid email address");
+          }
           this.getView().byId("emailInput").setValueState(sap.ui.core.ValueState.Error);
         } else {
           this.getView().byId("emailInput").setValueState(sap.ui.core.ValueState.None);
@@ -672,12 +694,26 @@ sap.ui.define(
         var last_name = this.byId("guestLoginLN").getValue();
         var email = this.byId("guestLoginEmail").getValue();
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
 
         if (!mailregex.test(email)) {
-          MessageBox.information("Please provide valid email id")
+          if (geTerms) {
+            MessageBox.information("Please provide a valid email address");
+          } else if (enTerms) {
+            MessageBox.information("Bitte geben Sie eine gültige E-Mail Adresse an");
+          } else {
+            MessageBox.information("Please provide a valid email address");
+          }
         } else {
           if (!first_name || !last_name || !email) {
-            MessageBox.information("Please fill all the required fields")
+            if (geTerms) {
+              MessageBox.information("Please fill all the required fields");
+            } else if (enTerms) {
+              MessageBox.information("Bitte füllen Sie alle Pflichtfelder aus");
+            } else {
+              MessageBox.information("Please fill all the required fields");
+            }
           }
           else {
             var _sUrl = "http://64.227.115.243:8080/guest_login/";
@@ -696,7 +732,15 @@ sap.ui.define(
                   var Guest_login = oSuccess.customer;
                   sap.ui.getCore()._GcustomerID = Guest_login;
                   localStorage.setItem("guest_access_token", oSuccess.token.access_token);
-                  MessageBox.success(`Yaah ${first_name}! ${oSuccess.message} as a New Guest`);
+
+                  if (geTerms) {
+                    MessageBox.success(`Yaah ${first_name}! ${oSuccess.message} as a New Guest`);
+                  } else if (enTerms) {
+                    MessageBox.success(`Yaah ${first_name}! Erfolgreich als Neuer Gast angemeldet`)
+                  } else {
+                    MessageBox.success(`Yaah ${first_name}! ${oSuccess.message} as a New Guest`);
+                  }
+
                   this.handleGuestId();
                   this._mGuestLoginDialog.then(function (oDialog) {
                     oDialog.close();
@@ -710,7 +754,6 @@ sap.ui.define(
           }
         }
       },
-
       onGuestToCustomer: async function () {
         var password = this.byId("guest_guestPasswordInput").getValue();
         var confirm_password = this.byId("guest_guestConfirmPasswordInput").getValue();
@@ -719,12 +762,27 @@ sap.ui.define(
         var email = this.byId("guestLoginEmail").getValue();
         var readData = this.getView().byId("guest_readData");
         var data_acceptance = readData.mProperties.selected;
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
 
         if (!password || !confirm_password) {
-          MessageBox.information("Please fill all the required fields")
+          if (geTerms) {
+            MessageBox.information("Please fill all the required fields");
+          } else if (enTerms) {
+            MessageBox.information("Bitte füllen Sie alle Pflichtfelder aus");
+          } else {
+            MessageBox.information("Please fill all the required fields");
+          }
+
         } else {
           if (data_acceptance === false) {
-            MessageBox.information("Please accept Terms & Conditions")
+            if (geTerms) {
+              MessageBox.information("Please accept Terms and Conditions");
+            } else if (enTerms) {
+              MessageBox.information("Bitte akzeptieren Sie die Allgemeinen Geschäftsbedingungen");
+            } else {
+              MessageBox.information("Please accept Terms & Conditions");
+            }
           } else if (data_acceptance === true) {
             var guest_token;
             var Guest_login;
@@ -780,14 +838,32 @@ sap.ui.define(
                     var resp = Object.values(result);
                     if (resp == "Password already stored") {
                       localStorage.removeItem("Guest_id")
-                      MessageToast.show("You're already a customer!")
+                      if (geTerms) {
+                        MessageToast.show("You're already a customer!");
+                      } else if (enTerms) {
+                        MessageToast.show("Sie sind bereits Kunde!")
+                      } else {
+                        MessageToast.show("You're already a customer!");
+                      }
                       this.handleLogin();
                     } else if (resp == "Password doesn't match") {
                       localStorage.removeItem("access_token")
-                      MessageBox.error("Password doesn't match");
+                      if (geTerms) {
+                        MessageBox.error("Password doesn't match");
+                      } else if (enTerms) {
+                        MessageBox.error("Passwort stimmt nicht überein");
+                      } else {
+                        MessageBox.error("Password doesn't match");
+                      }
                     } else {
                       localStorage.setItem("access_token", guest_token);
-                      MessageToast.show("You are a customer now!");
+                      if (geTerms) {
+                        MessageToast.show("Congrats! You are a customer now!");
+                      } else if (enTerms) {
+                        MessageBox.show("Glückwunsch! Sie sind jetzt Kunde!")
+                      } else {
+                        MessageToast.show("Congratulations! You are a customer now!");
+                      }
                     }
                     this.onGuestLoginClose();
                     this.onGuestToCustomerLoginClose();
@@ -798,87 +874,97 @@ sap.ui.define(
           }
         }
       },
-      handleGuestId: function () {
+      handleGuestId: async function () {
         var ID = sap.ui.getCore()._GcustomerID;
         var token = localStorage.getItem("guest_access_token");
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer " + token);
 
-        var requestOptions = {
-          method: 'GET',
-          headers: myHeaders,
-          redirect: 'follow'
+        var oHeaderToken = {
+          Authorization: "Bearer " + token,
         };
-        fetch(`http://64.227.115.243:8080/customers/${ID}`, requestOptions)
-          .then((response) => response.text())
-          .then((result) => {
-            var customer_id = (JSON.parse(result)._id);
-            sap.ui.getCore()._boolval = JSON.parse(result).guest_login;
+        var _sUrl = `http://64.227.115.243:8080/customers/${ID}`;
+        await this.getService()
+          .onGet(_sUrl, oHeaderToken)
+          .then((oSuccess) => {
+            var customer_id = oSuccess._id;
+            sap.ui.getCore()._boolval = oSuccess.guest_login;
             localStorage.setItem("Guest_id", customer_id)
-
           })
-          .catch((error) => console.log("error", error));
+          .catch((oError) => {
+            console.log("oError", oError);
+          });
       },
       handleGuest: function () {
         var first_name = this.byId("guestLoginFN").getValue();
         var last_name = this.byId("guestLoginLN").getValue();
         var email = this.byId("guestLoginEmail").getValue();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         var bool_val;
-        var formdata = new FormData();
-        formdata.append("first_name", first_name);
-        formdata.append("last_name", last_name);
-        formdata.append("email", email);
-
-        var requestOptions = {
-          method: 'POST',
-          body: formdata,
-          redirect: 'follow'
+        var _sUrl = "http://64.227.115.243:8080/guest_login/";
+        var oData = {
+          first_name: first_name,
+          last_name: last_name,
+          email: email
         };
-
-        fetch("http://64.227.115.243:8080/guest_login/", requestOptions)
-          .then(response => response.json())
-          .then(result => {
-            var Guest_login = result.customer_id;
+        this.getService()
+          .onPost(_sUrl, oData).then((oSuccess) => {
+            var Guest_login = oSuccess.customer_id;
             sap.ui.getCore()._GcustomerID = Guest_login;
-            localStorage.setItem("guest_access_token", result.token.access_token);
-            MessageBox.success(`Welcome Back! ${first_name}`);
+            localStorage.setItem("guest_access_token", oSuccess.token.access_token);
+            if (geTerms) {
+              MessageBox.success(`Welcome Back! ${first_name}`);
+            } else if (enTerms) {
+              MessageBox.success(`Willkommen zurück! ${first_name}`);
+            } else {
+              MessageBox.success(`Welcome Back! ${first_name}`);
+            }
 
             var ID = sap.ui.getCore()._GcustomerID;
-            var token = localStorage.getItem("guest_access_token")
-            var myHeaders = new Headers();
-            myHeaders.append("Authorization", "Bearer " + token);
-
-            var requestOptions = {
-              method: 'GET',
-              headers: myHeaders,
-              redirect: 'follow'
+            var token = localStorage.getItem("guest_access_token");
+            var oHeaderToken = {
+              Authorization: "Bearer " + token,
             };
-            // var email = this.byId("loginEmailInput").getValue();
-            fetch(`http://64.227.115.243:8080/customers/${ID}`, requestOptions)
-              .then((response) => response.text())
-              .then((result) => {
-                bool_val = JSON.parse(result).guest_login;
+            var newUrl = `http://64.227.115.243:8080/customers/${ID}`;
+            this.getService()
+              .onGet(newUrl, oHeaderToken)
+              .then((oSuccess) => {
+                bool_val = oSuccess.guest_login;
+                this.SetTimeOutTextShow();
                 if (bool_val == true) {
                   this.handleGuestId();
                 } else if (bool_val == false) {
                   localStorage.removeItem("access_token");
                   this.onLoginOpen();
-                  MessageToast.show("You're already a customer");
+                  if (geTerms) {
+                    MessageToast.show("You're already a customer");
+                  } else if (enTerms) {
+                    MessageToast.show("Sie sind bereits Kunde")
+                  } else {
+                    MessageToast.show("You're already a customer");
+                  }
                 }
               });
             this.onGuestToCustomerLoginClose();
             this.onGuestLoginClose();
+
           })
           .catch(error => console.log("error", error));
       },
 
       SetTimeOutTextShow: function () {
-        var first_name = this.byId("firstNameInput").getValue();
+        var first_name = this.byId("guestLoginFN").getValue();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         setTimeout(() => {
-          MessageBox.information("Email Verification Time", first_name);
+          if (geTerms) {
+            MessageBox.information(`Dear ${first_name}, Let's become customer to explore more!`);
+          } else if (enTerms) {
+            MessageBox.information(`Liebling ${first_name}, Lassen Sie uns Kunde werden, um mehr zu entdecken!`)
+          } else {
+            MessageBox.information(`Hey ${first_name}, Let's become customer to explore more!`);
+          }
         }, 2000);
       },
-
       onPressAboutUs: function () {
         this.getRouter().navTo("about-us");
       },
@@ -919,6 +1005,9 @@ sap.ui.define(
         var _sLoginEmail = this.byId("loginEmailInput").getValue();
         var _sLoginPassword = this.byId("loginPasswordInput").getValue();
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
+
 
         if (!_sLoginEmail || !_sLoginPassword) {
           MessageBox.warning("Please fill all the fields")
@@ -929,7 +1018,16 @@ sap.ui.define(
               password: _sLoginPassword,
             };
             if (!mailregex.test(_sLoginEmail)) {
-              MessageBox.information(_sLoginEmail + " is not a valid email address");
+              //TRY Forcebolt
+              if (geTerms) {
+                MessageBox.information(_sLoginEmail + " is not a valid email address");
+              } else if (enTerms) {
+                MessageBox.information(_sLoginEmail + " ist keine gültige E-Mail-Adresse");
+              } else {
+                MessageBox.information(_sLoginEmail + " is not a valid email address");
+              }
+
+
             } else {
               await this.getService()
                 .onPost(_sUrl, oData)
@@ -964,7 +1062,7 @@ sap.ui.define(
           .onGet(_sUrl, oHeaderToken)
           .then((oSuccess) => {
             this.getView()
-              .getModel("oCustomerModel")
+              .getModel("oGlobalModel")
               .setProperty("/", { customerModel: oSuccess });
           })
           .catch((oError) => {
@@ -975,11 +1073,20 @@ sap.ui.define(
       onNavToCustomer: async function () {
         var uid = localStorage.getItem("access_token");
         var Guid = localStorage.getItem("guest_access_token");
+        var geTerms = localStorage.getItem('deValue');
+        var enTerms = localStorage.getItem('enValue');
+
         if (uid !== null) {
           this.getRouter().navTo("customer");
           history.go();
         } else if (Guid !== null) {
-          MessageToast.show("You must login first!");
+          if (geTerms) {
+            MessageToast.show("Hi friend, you must login first!");
+          } else if (enTerms) {
+            MessageToast.show("Hallo Freund, Sie müssen sich zuerst anmelden!");
+          } else {
+            MessageToast.show("Hi friend, you must login first!")
+          }
         } else {
           this.getRouter().navTo("home");
         }
@@ -989,6 +1096,8 @@ sap.ui.define(
         var oGlobalModel = this.getView().getModel("oGlobalModel");
         var access_token = localStorage.getItem("access_token");
         var guest_access_token = localStorage.getItem("guest_access_token");
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
 
         if (access_token) {
           var token = access_token;
@@ -1003,7 +1112,13 @@ sap.ui.define(
         this.getService()
           .onPost(_sUrl, "", oHeaderToken)
           .then((oSuccess) => {
-            MessageBox.success(oSuccess.detail);
+            if (geTerms) {
+              MessageBox.success(oSuccess.detail);
+            } else if (enTerms) {
+              MessageBox.success("Du hast dich erfolgreich abgemeldet.")
+            } else {
+              MessageBox.success(oSuccess.detail);
+            }
             localStorage.clear();
             sessionStorage.clear();
             oGlobalModel.setProperty("/customer", "");
@@ -1216,6 +1331,8 @@ sap.ui.define(
         var lname = this.byId("ln_cu").getValue();
         var email = this.byId("email_cu").getValue();
         var order = this.byId("on_cu").getValue();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         var oDataNew = {
           text: text,
           fname: fname,
@@ -1228,11 +1345,13 @@ sap.ui.define(
         var ln_clear = this.getView().byId("ln_cu");
         var email_clear = this.getView().byId("email_cu");
         var order_clear = this.getView().byId("on_cu");
+
         text_clear.setValue("");
         fn_clear.setValue("");
         ln_clear.setValue("");
         email_clear.setValue("");
         order_clear.setValue("");
+
         if (
           oDataNew.email &&
           oDataNew.text &&
@@ -1252,29 +1371,59 @@ sap.ui.define(
             .send("service_mr4cg1j", "template_yxbawkk", tempParams)
             .then(function (res) {
               if (res.status === 200) {
-                MessageToast.show(
-                  "We received your queries, We will contact you soon!"
-                );
+                if (geTerms) {
+                  MessageToast.show("We received your queries, We will contact you soon!");
+                } else if (enTerms) {
+                  MessageToast.show("Wir haben Ihre Anfragen erhalten, wir werden uns bald mit Ihnen in Verbindung setzen!")
+                } else {
+                  MessageToast.show("We received your queries, We will contact you soon!");
+                }
               } else {
-                MessageToast.show(
-                  `${oDataNew.fname} , Sorry! You are not connected with us.`
-                );
+                if (geTerms) {
+                  MessageToast.show(`${oDataNew.fname} , Sorry! You are not connected with us.`);
+                } else if (enTerms) {
+                  MessageToast.show(`${oDataNew.fname} , Verzeihung! Sie sind nicht mit uns verbunden.`);
+                } else {
+                  MessageToast.show(`${oDataNew.fname} , Sorry! You are not connected with us.`);
+                }
               }
             });
         } else {
-          MessageToast.show("All Fields are mandatory!");
+          if (geTerms) {
+            MessageToast.show("All Fields are mandatory!");
+          } else if (enTerms) {
+            MessageToast.show("Alle Felder sind Pflichtfelder!")
+          } else {
+            MessageToast.show("All Fields are mandatory!");
+          }
         }
       },
+
 
       onCustomerNavigationSelect: async function (oEvent) {
         var uid = localStorage.getItem("access_token");
         var Guid = localStorage.getItem("guest_access_token");
+        var geTerms = localStorage.getItem('deValue');
+        var enTerms = localStorage.getItem('enValue');
+
         if (uid !== null) {
           this.getRouter().navTo("customer");
         } else if (Guid !== null) {
-          MessageToast.show("You must login first!");
+          if (geTerms) {
+            MessageToast.show("Hi friend, you must login first!");
+          } else if (enTerms) {
+            MessageToast.show("Hallo Freund, Sie müssen sich zuerst anmelden!");
+          } else {
+            MessageToast.show("Hi friend, you must login first!")
+          }
         } else {
-          MessageToast.show("You must login first!");
+          if (geTerms) {
+            MessageToast.show("Hi friend, you must login first!");
+          } else if (enTerms) {
+            MessageToast.show("Hallo Freund, Sie müssen sich zuerst anmelden!");
+          } else {
+            MessageToast.show("Hi friend, you must login first!")
+          }
           this.getRouter().navTo("home");
         }
       },
@@ -1284,11 +1433,18 @@ sap.ui.define(
         });
       },
 
-      emailvalidate: function () {
+      emailvalidate: async function () {
         var email = this.getView().byId("emailInputFrgt").getValue();
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         if (!mailregex.test(email)) {
-          MessageBox.warning(email + " is not a valid email address");
+          if (geTerms) {
+            MessageBox.warning(`${email} is not a valid email address`);
+          } else if (enTerms) {
+            MessageBox.warning(`${email} ist keine gültige E-Mail-Adresse`)
+          }
+          MessageBox.warning(`${email} is not a valid email address`);
           this.getView()
             .byId("emailInputFrgt")
             .setValueState(sap.ui.core.ValueState.Error);
@@ -1296,21 +1452,21 @@ sap.ui.define(
           this.getView()
             .byId("emailInputFrgt")
             .setValueState(sap.ui.core.ValueState.None);
-          MessageBox.information("email send!");
-          var formdata = new FormData();
-          formdata.append("email", this.byId("emailInputFrgt").getValue());
-          var requestOptions = {
-            method: "POST",
-            body: formdata,
-            redirect: "follow",
-          };
-          fetch(
-            "http://64.227.115.243:8080/request_reset_email/",
-            requestOptions
-          )
-            .then((response) => response.text())
-            .then((result) => {
+          if (geTerms) {
+            MessageBox.information("email send!");
+          } else if (enTerms) {
+            MessageBox.information("E-Mail senden!")
+          } else {
+            MessageBox.information("email send!");
+          }
 
+          var oData = {
+            email: email
+          };
+          var _sUrl = "http://64.227.115.243:8080/request_reset_email/";
+          await this.getService()
+            .onPost(_sUrl, oData)
+            .then((oSuccess) => {
             })
             .catch((error) => console.log("error", error));
           this._mForgotDialog.then(function (oDialog) {
@@ -1321,16 +1477,23 @@ sap.ui.define(
       onReturnToShopButtonPress: function () {
         this.getRouter().navTo("home");
       },
-      onPasswordSubmit: function (oEvent) {
+      onPasswordSubmit: async function (oEvent) {
         var _sPasswordInput1 = this.byId("passwordInput1").getValue();
-        var _sConfirmPasswordInput1 = this.byId(
-          "confirmPasswordInput1"
-        ).getValue();
+        var _sConfirmPasswordInput1 = this.byId("confirmPasswordInput1").getValue();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         var uidb64 = document.location.hash.split("=")[1].split("_")[1];
         var token = document.location.hash.split("=")[1].split("_")[2];
 
         if (!_sPasswordInput1 || !_sConfirmPasswordInput1) {
-          MessageBox.warning("Enter valid password");
+          if (geTerms) {
+            MessageBox.warning("Enter valid password");
+          } else if (enTerms) {
+            MessageBox.warning("Geben Sie ein gültiges Passwort ein")
+          } else {
+            MessageBox.warning("Enter valid password");
+          }
+
           this.getView()
             .byId("passwordInput1")
             .setValueState(sap.ui.core.ValueState.Error);
@@ -1338,7 +1501,13 @@ sap.ui.define(
             .byId("_sConfirmPasswordInput1")
             .setValueState(sap.ui.core.ValueState.Error);
         } else if (_sPasswordInput1 != _sConfirmPasswordInput1) {
-          MessageBox.warning("not match");
+          if (geTerms) {
+            MessageBox.warning("Password does not match");
+          } else if (enTerms) {
+            MessageBox.warning("Passwort stimmt nicht überein")
+          } else {
+            MessageBox.warning("Password does not match");
+          }
           this.getView()
             .byId("passwordInput1")
             .setValueState(sap.ui.core.ValueState.Error);
@@ -1359,9 +1528,27 @@ sap.ui.define(
           fetch("http://64.227.115.243:8080/reset_password/", requestOptions)
             .then((response) => response.text())
             .then((result) => {
-              MessageToast.show("Reset Password Done!");
+              if (geTerms) {
+                MessageToast.show("Reset Password Done!");
+              } else if (enTerms) {
+                MessageToast.show("Passwort zurücksetzen Fertig!")
+              } else {
+                MessageToast.show("Reset Password Done!");
+              }
             })
             .catch((error) => console.log("error", error));
+          //TRY
+          // var oData = {
+          //   uidb64 : uidb64,
+          //   token : token,
+          //   password : _sPasswordInput1
+          // };
+          // var _newUrl ="http://64.227.115.243:8080/reset_password/";
+          // await this.getService().onPatch(
+          //   _newUrl,oData
+          // ).then((oSuccess)=>{
+          //   MessageToast.show("Reset Password Done!");
+          // }).catch((error)=> console.log("error",error))
         }
       },
       onForgotOpen: function (oEvent) {
@@ -1381,6 +1568,8 @@ sap.ui.define(
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
         var data_acceptance_mr = this.getView().byId("mrSaluNews").getSelected();
         var data_acceptance_mrs = this.getView().byId("mrsSaluNews").getSelected();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
 
         if (data_acceptance_mr === true && data_acceptance_mrs === false) {
           final_salutation = "Mr.";
@@ -1394,17 +1583,41 @@ sap.ui.define(
 
         let exist_emails = new Array();
         if (data_acceptance === false) {
-          MessageBox.information("Click to accept Terms & Condition");
+          if (geTerms) {
+            MessageBox.information("Click to accept Terms & Condition");
+          } else if (enTerms) {
+            MessageBox.information("Klicken Sie hier, um die Allgemeinen Geschäftsbedingungen zu akzeptieren")
+          } else {
+            MessageBox.information("Click to accept Terms & Condition");
+          }
         } else {
-          if (!_nwfirstName || !_nwlastName || !_nwEmail) {
-            MessageBox.information("All Fields are mandatory!")
+          if (!nwfirstName || !nwlastName || !_nwEmail) {
+            if (geTerms) {
+              MessageBox.information("All Fields are mandatory!");
+            } else if (enTerms) {
+              MessageBox.information("Alle Felder sind Pflichtfelder!")
+            } else {
+              MessageBox.information("All Fields are mandatory!")
+            }
           } else {
             if (!mailregex.test(_nwEmail)) {
-              MessageBox.information(_nwEmail + " is not a valid email address");
+              if (geTerms) {
+                MessageBox.information(`${_nwEmail} is not a valid email address`);
+              } else if (enTerms) {
+                MessageBox.information(`${_nwEmail} ist keine gültige E-Mail-Adresse`)
+              } else {
+                MessageBox.information(`${_nwEmail} is not a valid email address`);
+              }
             } else {
               if (data_acceptance_mr === true || data_acceptance_mrs === true) {
                 if (data_acceptance_mr === true && data_acceptance_mrs === true) {
-                  MessageBox.warning("Please Select Single Salutation!")
+                  if (geTerms) {
+                    MessageBox.warning("Please Select Single Salutation!")
+                  } else if (enTerms) {
+                    MessageBox.warning("Bitte Einzelanrede auswählen!")
+                  } else {
+                    MessageBox.warning("Please Select Single Salutation!")
+                  }
                 } else {
                   await this.getService()
                     .onGet(_nwUrl)
@@ -1423,18 +1636,58 @@ sap.ui.define(
                     data_acceptance: true,
 
                     agasown: "Aga'sOwn Marketing Team",
-                    message: "You subscribe to Aga'sOwn Shopping Site",
+                    message: "You subscribe to Agas'Own Shopping Site",
+                    gerMessage: "Sie abonnieren Agas'Own Shopping Site",
                     text: "Testing",
-                    user_email: "test@gamil.com",
+                    user_email: "mailto:titlishawan@gmail.com",
                   };
                   if (!exist_emails.includes(oDataa.email.toLowerCase().trim())) {
                     this.getService()
                       .onPost(_nwUrl, oDataa)
                       .then((oSuccess) => {
-                        MessageBox.success("Successfully subscribed!");
+                        if (geTerms) {
+                          MessageBox.success("Successfully subscribed!");
+                        } else if (enTerms) {
+                          MessageBox.success("Erfolgreich abonniert!");
+                        } else {
+                          MessageBox.success("Successfully subscribed!");
+                        }
                         this._mNewsLetterDialog.then(function (oDialog) {
                           oDialog.close();
                         });
+                        emailjs
+                          .send("service_mr4cg1j", "template_a7z62ad", oDataa)
+                          .then(function (res) {
+                            if (res.status === 200) {
+                              if (geTerms) {
+                                MessageToast.show(
+                                  "Thanks for Subscribing us!"
+                                );
+                              } else if (enTerms) {
+                                MessageToast.show(
+                                  "Danke, dass Sie uns abonniert haben!"
+                                );
+                              } else {
+                                MessageToast.show(
+                                  "Thanks for Subscribing us!"
+                                );
+                              }
+                            } else {
+                              if (geTerms) {
+                                MessageToast.show(
+                                  `${_nwfirstName} , Sorry! You are not connected with us.`
+                                );
+                              } else if (enTerms) {
+                                MessageToast.show(
+                                  `${_nwfirstName} , Verzeihung! Sie sind nicht mit uns verbunden.`
+                                );
+                              } else {
+                                MessageToast.show(
+                                  `${_nwfirstName} , Sorry! You are not connected with us.`
+                                );
+                              }
+                            }
+                          });
                       })
                       .catch((oError) => {
                         var data = (JSON.parse(oError.responseText));
@@ -1443,11 +1696,32 @@ sap.ui.define(
                   }
                 }
               } else if (data_acceptance_mr === false && data_acceptance_mrs === false) {
-                MessageBox.warning("Please Select Any Salutation to continue!")
+                if (geTerms) {
+                  MessageBox.warning("Please Select Any Salutation to continue!")
+                } else if (enTerms) {
+                  MessageBox.warning("Bitte wählen Sie eine beliebige Anrede aus, um fortzufahren!")
+                } else {
+                  MessageBox.warning("Please Select Any Salutation to continue!")
+                }
               }
             }
           }
         }
+      },
+
+      showToLoginFun: function () {
+        var _sfirstName = this.byId("firstNameInput").getValue();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
+        setTimeout(() => {
+          if (geTerms) {
+            MessageBox.information(`Hello ${_sfirstName}, Please Login to continue`);
+          } else if (enTerms) {
+            MessageBox.information(`Hello ${_sfirstName}, bitte einloggen zum Fortfahren`);
+          } else {
+            MessageBox.information(`Hello ${_sfirstName}, Please Login to explore us!`);
+          }
+        }, 5000);
       },
 
       onSubmit: function () {
@@ -1459,15 +1733,29 @@ sap.ui.define(
         var _sEmail = this.byId("emailInput").getValue();
         var _sPasswordInput = this.byId("passwordInput").getValue();
         var _sConfirmPasswordInput = this.byId("confirmPasswordInput").getValue();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
 
         if (!mailregex.test(_sEmail)) {
-          MessageBox.information(_sEmail + " is not a valid email address");
+          if (geTerms) {
+            MessageBox.information(`${_sEmail} is not a valid email address`);
+          } else if (enTerms) {
+            MessageBox.information(`${_sEmail} ist keine gültige E-Mail-Adresse`);
+          } else {
+            MessageBox.information(`${_sEmail} is not a valid email address`);
+          }
         } else {
           if (data_acceptance === false) {
-            MessageBox.information("Click to accept Terms & Condition");
+            if (geTerms) {
+              MessageBox.information("Click to accept Terms & Condition");
+            } else if (enTerms) {
+              MessageBox.information("Klicken Sie hier, um die Allgemeinen Geschäftsbedingungen zu akzeptieren");
+            } else {
+              MessageBox.information("Click to accept Terms & Condition");
+            }
           } else {
-            if(_sConfirmPasswordInput && _sEmail && _sfirstName && _slastName && _sPasswordInput){
+            if (_sConfirmPasswordInput && _sEmail && _sfirstName && _slastName && _sPasswordInput) {
               var oData = {
                 first_name: _sfirstName,
                 last_name: _slastName,
@@ -1478,8 +1766,17 @@ sap.ui.define(
               this.getService()
                 .onPost(_sUrl, oData)
                 .then((oSuccess) => {
-                  MessageBox.success(oSuccess.detail);
-                  this.SetTimeOutTextShow();
+                  if (geTerms) {
+                    MessageBox.success(oSuccess.detail);
+                    this.showToLoginFun();
+                  } else if (enTerms) {
+                    MessageBox.success("Benutzer wurde erfolgreich registriert.");
+                    this.showToLoginFun();
+                  }
+                  else {
+                    MessageBox.success(oSuccess.detail);
+                    this.showToLoginFun();
+                  }
                   this._mRegistrationDialog.then(function (oDialog) {
                     oDialog.close();
                   });
@@ -1487,8 +1784,14 @@ sap.ui.define(
                 .catch((oError) => {
                   MessageBox.error(oError.responseJSON.detail);
                 });
-            }else if(!_sConfirmPasswordInput || !_sEmail || !_sfirstName || !_slastName || !_sPasswordInput){
-              MessageBox.error("All fields are required to be filled to continue")
+            } else if (!_sConfirmPasswordInput || !_sEmail || !_sfirstName || !_slastName || !_sPasswordInput) {
+              if (geTerms) {
+                MessageBox.error("All fields are required to be filled to continue")
+              } else if (enTerms) {
+                MessageBox.error("Alle Felder müssen ausgefüllt werden, um fortzufahren")
+              } else {
+                MessageBox.error("All fields are required to be filled to continue")
+              }
             }
           }
         }

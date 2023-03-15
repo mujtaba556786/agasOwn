@@ -93,15 +93,12 @@ sap.ui.define(
           .attachMatched(function () { }.bind(this));
         // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         // oRouter.stop();
-         this._setFragments("contentsStep", "contentsStep");
+        //  this._setFragments("contentsStep", "contentsStep");
         // this._setFragments("paymentTypeStep", "ptStepsPanel");  
         this.setHeaderModel();
       },
 
-      _setFragments : function(name, Id){
-        var fragmentName= sap.ui.xmlfragment("ag.agasown.view.fragment.checkoutWizard."+name, this);
-        this.byId(Id).insertContent(fragmentName);
-      },
+     
 
       /**
        * Only validation on client side, does not involve a back-end server.
@@ -509,15 +506,22 @@ sap.ui.define(
         oNavContainer.to(this.byId("wizardContentPage"));
       },
       checkCardHolderName: function (oEvent) {
-        var data = oEvent.getParameter("newValue");
-        if (data.length < 2) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("creditCardHolderName")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length >= 3) {
-          this.getView()
-            .byId("creditCardHolderName")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("creditCardHolderName")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("creditCardHolderName")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkCardNumber: function (oEvent) {
@@ -563,123 +567,207 @@ sap.ui.define(
         }
       },
       checkInvoiceAddressAddress: function (oEvent) {
-        let data = this.byId("invoiceAddressAddress").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("invoiceAddressAddress")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("invoiceAddressAddress")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("invoiceAddressAddress")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("invoiceAddressAddress")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkInvoiceAddressCity: function (oEvent) {
-        let data = this.byId("invoiceAddressCity").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("invoiceAddressCity")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("invoiceAddressCity")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("invoiceAddressCity")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("invoiceAddressCity")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkInvoiceAddressZip: function (oEvent) {
-        let data = this.byId("invoiceAddressZip").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /^\d+$/.test(newValue);
+        if (bool === false) {
           this.getView()
             .byId("invoiceAddressZip")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("invoiceAddressZip")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("invoiceAddressZip")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("invoiceAddressZip")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkInvoiceAddressCountry: function (oEvent) {
-        let data = this.byId("invoiceAddressCountry").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("invoiceAddressCountry")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("invoiceAddressCountry")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("invoiceAddressCountry")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("invoiceAddressCountry")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkDeliveryAddressAddress: function (oEvent) {
-        let data = this.byId("deliveryAddressAddress").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("deliveryAddressAddress")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("deliveryAddressAddress")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("deliveryAddressAddress")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("deliveryAddressAddress")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkDeliveryAddressCity: function (oEvent) {
-        let data = this.byId("deliveryAddressCity").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("deliveryAddressCity")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("deliveryAddressCity")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("deliveryAddressCity")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("deliveryAddressCity")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkDeliveryAddressZip: function (oEvent) {
-        let data = this.byId("deliveryAddressZip").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /^\d+$/.test(newValue);
+        if (bool === false) {
           this.getView()
             .byId("deliveryAddressZip")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("deliveryAddressZip")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("deliveryAddressZip")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("deliveryAddressZip")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkDeliveryAddressCountry: function (oEvent) {
         let data = this.byId("deliveryAddressCountry").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("deliveryAddressCountry")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("deliveryAddressCountry")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("deliveryAddressCountry")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
+        }
+      },
+      checkInvoiceAddressEmail : function(oEvent){
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
+        var newValue =oEvent.getParameter("newValue");
+        if (!mailregex.test(newValue)){
           this.getView()
-            .byId("deliveryAddressCountry")
-            .setValueState(sap.ui.core.ValueState.Success);
+            .byId("loginEmailInput")
+            .setValueState(sap.ui.core.ValueState.Error);
+        }else{
+          this.getView()
+            .byId("loginEmailInput")
+            .setValueState(sap.ui.core.ValueState.None);
         }
       },
       checkPaypalUserName: function (oEvent) {
-        let data = this.byId("cashOnDeliveryName").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("cashOnDeliveryName")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("cashOnDeliveryName")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("cashOnDeliveryName")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("cashOnDeliveryName")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkPaypalUserLastName: function (oEvent) {
-        let data = this.byId("cashOnDeliveryLastName").getValue();
-        if (data.length < 3) {
+        let newValue = oEvent.getParameter("newValue");
+        var bool = /\d/.test(newValue);
+        if (bool === true) {
           this.getView()
             .byId("cashOnDeliveryLastName")
             .setValueState(sap.ui.core.ValueState.Error);
-        } else if (data.length > 3) {
-          this.getView()
-            .byId("cashOnDeliveryLastName")
-            .setValueState(sap.ui.core.ValueState.Success);
+        } else {
+          if (newValue.length >= 4) {
+            this.getView()
+              .byId("cashOnDeliveryLastName")
+              .setValueState(sap.ui.core.ValueState.None);
+          } else {
+            this.getView()
+              .byId("cashOnDeliveryLastName")
+              .setValueState(sap.ui.core.ValueState.Error);
+          }
         }
       },
       checkPaypalUserPhoneNumber: function (oEvent) {
@@ -696,7 +784,13 @@ sap.ui.define(
       },
 
       checkPaypalUserEmail: function (oEvent) {
+        var mailregex = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}$/;
         let data = this.byId("cashOnDeliveryEmail").getValue();
+        if(!mailregex.test(data)){
+          this.getView()
+            .byId("cashOnDeliveryEmail")
+            .setValueState(sap.ui.core.ValueState.Error);
+        }else{
         if (data.length < 3) {
           this.getView()
             .byId("cashOnDeliveryEmail")
@@ -706,6 +800,7 @@ sap.ui.define(
             .byId("cashOnDeliveryEmail")
             .setValueState(sap.ui.core.ValueState.Success);
         }
+      }
       },
       userAddressSave: function () {
         let userAddressAddress = this.byId("invoiceAddressAddress").getValue();
@@ -713,6 +808,7 @@ sap.ui.define(
         let userAddressZip = this.byId("invoiceAddressZip").getValue();
         let userAddressCountry = this.byId("invoiceAddressCountry").getValue();
       },
+
 
       handleWizardSubmitss: async function (oEvent) {
         var selectedKey = this.getView()
@@ -732,7 +828,9 @@ sap.ui.define(
         var expDate = this.byId("creditCardExpirationDate").getValue();
         var expDate1 = expDate.slice(0, 2);
         var expYear = expDate.slice(3);
-        // product details
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
+
         // var oCartModels = this.getView()
         //   .getModel("oDataProducts")
         //   .getProperty("/cartEntries");
@@ -768,11 +866,24 @@ sap.ui.define(
             })
             .catch(error => console.log('error', error));
           if (respo === 200) {
-            MessageBox.success("Order Accepted!");
+            if(geTerms){
+              MessageBox.success("Order Accepted!");
+            }else if(enTerms){
+              MessageBox.success("Bestellung angenommen!");
+            }else{
+              MessageBox.success("Order Accepted!");
+            }
+            
             window.location.replace("index.html#/payment");
           }
           else {
-            MessageBox.error('order not accepted')
+            if(geTerms){
+              MessageBox.error('Order not accepted');
+            }else if(enTerms){
+              MessageBox.error('Bestellung nicht angenommen')
+            }else{
+              MessageBox.error('Order not accepted')
+            }
           }
         } else if (selectedKey == "PayPal") {
           var formdata = new FormData();
