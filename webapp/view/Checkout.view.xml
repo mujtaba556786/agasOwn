@@ -65,7 +65,7 @@
 							</HBox>
 							<HBox alignItems="Center">
 								<VBox backgroundDesign="Solid" class="sideVBox" width="100%" justifyContent="SpaceAround">
-									<Text class="checkoutTotal" id="totalPricefinal" text="{i18n>totalText}" />
+									<Text class="checkoutTotal" id="totalPricefinal" text="Total" />
 									<HBox justifyContent="SpaceBetween">
 										<Label design="Bold" vAlign="Middle" text="{i18n>subTotalText}" labelFor="text-subTotal" />
 										<Text id="text-subTotal" text="0.00" class="deliveryText"/>
@@ -108,7 +108,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="creditCardHolderName" placeholder="{i18n>creditCardHolderText}" value="{ path: '/CreditCard/Name', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z]+[\\s]?[a-zA-Z]+$' } }" change="checkCreditCardStep" liveChange="checkCardHolderName" valueStateText="{i18n>valueStateText}">
+								<Input id="creditCardHolderName" placeholder="{i18n>creditCardHolderText}" value="{ path: '/CreditCard/Name', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z]+[\\s]?[a-zA-Z]+$' } }" change="checkCreditCardStep" liveChange="checkCardHolderName" valueStateText="{i18n>valueStateText}" daya="x">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -182,7 +182,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="cashOnDeliveryLastName" placeholder="{i18n>lastNameText}" value="{ path: '/CashOnDelivery/LastName', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" change="checkCashOnDeliveryStep" liveChange="checkPaypalUserLastName" valueStateText="{i18n>valueStateText}" >
+								<Input id="cashOnDeliveryLastName" placeholder="{i18n>lastNameText}" value="{ path: '/CashOnDelivery/LastName', type: 'sap.ui.model.type.String', constraints: { minLength: 4 } }" change="checkCashOnDeliveryStep" liveChange="checkPaypalUserLastName" valueStateText="{i18n>valueStateText}">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -192,7 +192,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="cashOnDeliveryPhoneNumber" placeholder="{i18n>phoneNumberText}" value="{ path: '/CashOnDelivery/PhoneNumber', type: 'sap.ui.model.type.Number', constraints: { minLength: 10,maxLength:10, search: '^[(0-9+]+[)\\s]?[0-9\\/\\s]+$' } }" change="checkCashOnDeliveryStep" liveChange="checkPaypalUserPhoneNumber" valueStateText="{i18n>valueStateNumber}">
+								<Input id="cashOnDeliveryPhoneNumber" placeholder="{i18n>phoneNumberText}" value="{ path: '/CashOnDelivery/PhoneNumber', type: 'sap.ui.model.type.String', constraints: { minLength: 10,maxLength:10, search: '^[(0-9+]+[)\\s]?[0-9\\/\\s]+$' } }" change="checkCashOnDeliveryStep" liveChange="checkPaypalUserPhoneNumber" valueStateText="{i18n>valueStateNumber}" >
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -238,7 +238,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="invoiceAddressCity" placeholder="{i18n>cityText}" value="{ path: '/InvoiceAddress/City', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z\\s]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressCity" valueStateText="{i18n>valueStateText}" >
+								<Input id="invoiceAddressCity" placeholder="{i18n>cityText}" value="{ path: '/InvoiceAddress/City', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z\\s]+$' } }" change="checkInvoiceStep" autocomplete="true" liveChange="checkInvoiceAddressCity" valueStateText="{i18n>valueStateText}">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -268,7 +268,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="loginEmailInput" type="Email" placeholder="{i1n>mailText}" change="checkInvoiceStep" autocomplete="true" valueStateText="{i18n>emailValueStateText}" liveChange="checkInvoiceAddressEmail">
+								<Input id="loginEmailInput" type="Email" placeholder="{i18n>mailText}" change="checkInvoiceStep" autocomplete="true" valueStateText="{i18n>emailValueStateText}" liveChange="checkInvoiceAddressEmail">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
@@ -304,7 +304,7 @@
 										<layout:GridData span="XL4 L4 M4 S12" />
 									</layoutData>
 								</Label>
-								<Input id="deliveryAddressCity" placeholder="{i18n>cityText}" value="{ path: '/DeliveryAddress/City', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z\\s]+$' } }" change="checkDeliveryAddressStep" liveChange="checkDeliveryAddressCity" valueStateText="{i18n>valueStateText}">
+								<Input id="deliveryAddressCity" placeholder="{i18n>cityText}" value="{ path: '/DeliveryAddress/City', type: 'sap.ui.model.type.String', constraints: { minLength: 3, search: '^[a-zA-Z\\s]+$' } }" change="checkDeliveryAddressStep" liveChange="checkDeliveryAddressCity"  valueStateText="{i18n>valueStateText}">
 									<layoutData>
 										<layout:GridData span="XL8 L8 M8 S12" />
 									</layoutData>
