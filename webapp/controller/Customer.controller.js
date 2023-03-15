@@ -96,6 +96,8 @@ sap.ui.define(
       EditCustomerAddress: function () {
         var ID = localStorage.getItem("user");
         var token = localStorage.getItem("access_token");
+        var geTerms = localStorage.getItem('deValue');
+        var enTerms = localStorage.getItem('enValue');
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer " + token);
         myHeaders.append("Content-Type", "application/json");
@@ -119,11 +121,23 @@ sap.ui.define(
         fetch(`http://64.227.115.243:8080/customers/${ID}/`, requestOptions)
           .then(response => response.text())
           .then(result => {
-            MessageToast.show("Home Address Updated Successfully!");
+            if(geTerms){
+              MessageToast.show("Home Address Updated Successfully!");
+            }else if(enTerms){
+              MessageToast.show("Privatadresse erfolgreich aktualisiert!");
+            }else{
+              MessageToast.show("Home Address Updated Successfully!");
+            }
           
           })
           .catch(error => {
-            MessageToast.show("Error while updating Home Address!")
+            if(geTerms){
+              MessageToast.show("Error while updating Home Address!");
+            }else if(enTerms){
+              MessageToast.show("Fehler beim Aktualisieren der Heimatadresse!");
+            }else{
+              MessageToast.show("Error while updating Home Address!");
+            }
           });
       },
       onEditBillingAddress: function () {
@@ -162,6 +176,8 @@ sap.ui.define(
       editCustomerBillingAddress: function () {
         var ID = localStorage.getItem("user");
         var token = localStorage.getItem("access_token");
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer " + token);
         myHeaders.append("Content-Type", "application/json");
@@ -198,11 +214,23 @@ sap.ui.define(
         fetch(`http://64.227.115.243:8080/customers/${ID}/`, requestOptions)
           .then(response => response.text())
           .then(result => {
-            MessageToast.show("Billing Address Updated Successfully!")
+            if(geTerms){
+              MessageToast.show("Billing Address Updated Successfully!");
+            }else if(enTerms){
+              MessageToast.show("Rechnungsadresse erfolgreich aktualisiert!");
+            }else{
+              MessageToast.show("Billing Address Updated Successfully!");
+            }
           })
           .catch(error => {
             console.log('error', error);
-            MessageToast.show("Error while updating Billing Address!")
+            if(geTerms){
+              MessageToast.show("Error while updating Billing Address!");
+            }else if(enTerms){
+              MessageToast.show("Fehler beim Aktualisieren der Rechnungsadresse!");
+            }else{
+              MessageToast.show("Error while updating Billing Address!");
+            }
           });
       },
       onEditPersonalAddress: function () {
@@ -250,6 +278,9 @@ sap.ui.define(
         var maleSalutation = this.getView().byId("saluMr").getSelected();
         var femaleSalutation = this.getView().byId("saluMrs").getSelected();
         var othersSalutation = this.getView().byId("saluOthers").getSelected();
+        var geTerms = localStorage.getItem("deValue");
+        var enTerms = localStorage.getItem("enValue");
+
         if (maleSalutation === true) {
           salutation = "Mr."
         } else if (femaleSalutation === true) {
@@ -280,11 +311,23 @@ sap.ui.define(
         fetch(`http://64.227.115.243:8080/customers/${ID}/`, requestOptions)
           .then(response => response.text())
           .then(result => {
-            MessageToast.show("Personal Details Updated Successfully!")
+            if(geTerms){
+              MessageToast.show("Personal Details Updated Successfully!");
+            }else if(enTerms){
+              MessageToast.show("Persönliche Daten erfolgreich aktualisiert!");
+            }else{
+              MessageToast.show("Personal Details Updated Successfully!")
+            }
           
           })
           .catch(error => {
-            MessageToast.show("Error while updating Personal Details!")
+            if(geTerms){
+            MessageToast.show("Error while updating Personal Details!");
+            }else if(enTerms){
+              MessageToast.show("Fehler beim Aktualisieren der persönlichen Daten!")
+            }else{
+              MessageToast.show("Error while updatinmg Personal Details!")
+            }
           });
       },
       onProductItemPress: function (oEvent) {
