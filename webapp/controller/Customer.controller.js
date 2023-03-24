@@ -334,6 +334,7 @@ sap.ui.define(
         var oBndngCtxt = oEvent.getSource().getBindingContext("wishListmodel");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
+
         this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
         this.getRouter().navTo("productDetail", {
           detailObj: selectedPath.product_name,

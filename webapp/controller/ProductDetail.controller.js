@@ -84,6 +84,7 @@ sap.ui.define(
         var oBndngCtxt = oEvent.getSource().getBindingContext("prdctCatgryMdl");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
+
         this.getView()
           .getModel("oGlobalModel")
           .setProperty("/", { detailProduct: selectedPath });
@@ -126,8 +127,13 @@ sap.ui.define(
         var enTerms = localStorage.getItem("enValue");
         var access_token = localStorage.getItem("access_token")
         var guest_access_token = localStorage.getItem("guest_access_token");
+        //TRY Start
+
         var oCartModel = this.getView().getModel("oDataProducts");
-        var oCartEntries = oCartModel.getProperty("/cartEntries");
+        // var oCartModel = this.getView().getModel("oCartFinalModel");
+        var sRecipient = this.getView()
+          .getModel()
+          .getProperty("/recipient/value");
 
         if (previous_wishlist != null) {
           var temp = previous_wishlist + ';' + product_id
@@ -141,29 +147,25 @@ sap.ui.define(
             .getModel("i18n")
             .getResourceBundle();
           //!Store Cart data into session storage
-          var sRecipient = this.getView()
-            .getModel()
-            .getProperty("/recipient/value");
+
           sessionStorage.setItem("myvalue5", sRecipient);
-          var oSelectedPath = this.getView()
-            .getModel("oGlobalModel")
-            .getData().detailProduct;
+          var oSelectedPath = this.getView().getModel("oGlobalModel").getData().detailProduct;
           var oDataProducts = this.getView().getModel("oDataProducts");
           cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
           //   After add item to the cart the default value will be 1
           this.getView().byId("defaultValue").setValue(1);
         } else {
-         if(geTerms){
-          MessageToast.show("Product is not available!");
-         }else if(enTerms){
-          MessageToast.show("Produkt ist nicht verfügbar!");
-         }else{
-          MessageToast.show("Product is not available!");
-         }
+          if (geTerms) {
+            MessageToast.show("Product is not available!");
+          } else if (enTerms) {
+            MessageToast.show("Produkt ist nicht verfügbar!");
+          } else {
+            MessageToast.show("Product is not available!");
+          }
           this.getView().byId("defaultValue").setValue(1);
         }
 
-        
+
         if (!guest_access_token) {
           var token = access_token;
         } else if (guest_access_token) {
@@ -173,13 +175,15 @@ sap.ui.define(
         myHeaders.append("Authorization", "Bearer " + token);
         myHeaders.append("Content-Type", "application/json");
         var raw;
-
+        var oCartEntries = oCartModel.getProperty("/cartEntries");
         Object.keys(oCartEntries).forEach(function (sProductId) {
-          var oProduct = oCartEntries[sProductId];
-          product[sProductId] = oProduct.quantity;
-          raw = JSON.stringify({
-            "product": product
-          });
+          if (sProductId === product_id) {
+            product[sProductId] = sRecipient;
+            raw = JSON.stringify({
+              "product": product
+            });
+            product = {}
+          }
         });
 
         var requestOptions = {
@@ -234,11 +238,11 @@ sap.ui.define(
         }
         if (!token) {
           this.getRouter().navTo("home");
-          if(geTerms){
+          if (geTerms) {
             MessageToast.show("You must Login first!");
-          }else if(enTerms){
+          } else if (enTerms) {
             MessageToast.show("Du musst dich zuerst einloggen!");
-          }else{
+          } else {
             MessageToast.show("You must Login first!");
           }
         } else if (token) {
@@ -287,7 +291,10 @@ sap.ui.define(
 
         fetch("http://64.227.115.243:8080/delete_checkout/", requestOptions)
           .then(response => response.text())
-          .then(result => console.log(result))
+          .then(result => {
+            console.log(result);
+            MessageToast.show(JSON.parse(result).message);
+          })
           .catch(error => console.log('error', error));
 
       },
@@ -296,10 +303,12 @@ sap.ui.define(
           .getModel("oGlobalModel")
           .getData().detailProduct;
         var product_id = oSelectedPath._id;
+        var product = {};
+        var oCartModel = this.getView().getModel("oDataProducts");
         var customer_id_guest = localStorage.getItem("guest_access_token");
         var customer_id_login = localStorage.getItem("access_token");
         var geTerms = localStorage.getItem("deValue");
-        var enTerms =localStorage.getItem("envalue");
+        var enTerms = localStorage.getItem("envalue");
         if (!customer_id_guest) {
           var customer_id = customer_id_login;
         } else {
@@ -322,33 +331,54 @@ sap.ui.define(
           var oDataProducts = this.getView().getModel("oDataProducts");
           cart.addToCart(oResourceBundle, oSelectedPath, oDataProducts);
 
-          var formdata = new FormData();
-          formdata.append("customer_id", customer_id);
-          formdata.append("product_id", product_id);
-          formdata.append("quantity", "1");
-          formdata.append("voucher", "welcome12");
-          // formdata.append("voucher", "welcome12");
+          //Checkout API[Patch]
+          var myHeaders = new Headers();
+          myHeaders.append("Authorization", "Bearer " + customer_id);
+          myHeaders.append("Content-Type", "application/json");
+          var raw;
+          product[product_id] = 1;
+          raw = JSON.stringify({
+            "product": product
+          });
+          product = {};
+
 
           var requestOptions = {
-            method: 'POST',
-            body: formdata,
+            method: 'PATCH',
+            headers: myHeaders,
+            body: raw,
             redirect: 'follow'
           };
 
-          fetch("http://64.227.115.243:8080/buy_now/", requestOptions)
+          fetch("http://64.227.115.243:8080/checkout/", requestOptions)
             .then(response => response.text())
-            .then(result => console.log(result))
+            .then(async (result) => {
+              //SetModel Code
+              var globArr = [];
+              var itemdata = String(Object.keys(product));
+              var items = itemdata.split(',');
+              items.forEach(function (obj) {
+                globArr.push(obj);
+              });
+
+              const data = globArr.map(async (item) => {
+                return await this.onGetCartProductDetails(item);
+              });
+              // var oCartDataItemModel = new JSONModel(eachProd);
+              // this.getView().setModel(oCartDataItemModel);
+
+            })
             .catch(error => console.log('error', error));
 
           //   After add item to the cart the default value will be 1
           this.getView().byId("defaultValue").setValue(1);
           this.getRouter().navTo("checkout");
         } else {
-          if(geTerms){
+          if (geTerms) {
             MessageToast.show("Product is not available at this moment!");
-          }else if(enTerms){
+          } else if (enTerms) {
             MessageToast.show("Produkt ist derzeit nicht verfügbar!");
-          }else{
+          } else {
             MessageToast.show("Product is not available at this moment!");
           }
         }
@@ -417,11 +447,11 @@ sap.ui.define(
         var token = localStorage.getItem("access_token");
 
         if (!token) {
-          if(geTerms){
+          if (geTerms) {
             MessageToast.show("You have to login first");
-          }else if(enTerms){
+          } else if (enTerms) {
             MessageToast.show("Sie müssen sich zuerst anmelden");
-          }else{
+          } else {
             MessageToast.show("You have to login first");
           }
           if (token == null) {
@@ -452,11 +482,11 @@ sap.ui.define(
                 var product_id = oSelectedPath._id;
 
                 if (!token) {
-                  if(geTerms){
+                  if (geTerms) {
                     MessageToast.show("You have to login first");
-                  }else if(enTerms){
+                  } else if (enTerms) {
                     MessageToast.show("Sie müssen sich zuerst anmelden");
-                  }else{
+                  } else {
                     MessageToast.show("You have to login first");
                   }
                 } else {
@@ -488,11 +518,11 @@ sap.ui.define(
                 $(".productFavourite").click(function () {
                   $(this).removeClass("bgcol");
                 });
-                if(geTerms){
+                if (geTerms) {
                   MessageToast.show("Added Successfully");
-                }else if(enTerms){
+                } else if (enTerms) {
                   MessageToast.show("Erfolgreich hinzugefügt");
-                }else{
+                } else {
                   MessageToast.show("Added Successfully");
                 }
               }
@@ -505,4 +535,3 @@ sap.ui.define(
     });
   }
 );
- 

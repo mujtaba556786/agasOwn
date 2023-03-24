@@ -11,12 +11,6 @@ sap.ui.define([
 
 		return Controller.extend("ag.agasown.controller.App", {
 			onInit: function () {
-				// var i18nModel = new ResourceModel({
-				// 	bundleName: "ag.agasown.i18n.i18n",
-				// 	supportedLocales: ["en", "de"],
-				// 	fallbackLocale: ""
-				// });
-				// this.getView().setModel(i18nModel, "i18n");
 				var access_token = localStorage.getItem("access_token");
 				if (access_token) {
 					this.newFunc()

@@ -422,6 +422,7 @@ sap.ui.define(
         var oBndngCtxt = oEvent.getSource().getBindingContext("oDataProducts");
         var spath = oBndngCtxt.getPath();
         var selectedPath = oBndngCtxt.getProperty(spath);
+
         this.getView().getModel("oGlobalModel").setProperty("/", { detailProduct: selectedPath });
         this.getRouter().navTo("productDetail", {
           detailObj: selectedPath.product_name,
@@ -492,6 +493,65 @@ sap.ui.define(
       onToggleCart: function (oEvent) {
         var oMenu = oEvent.getSource();
         var oView = this.getView();
+        var product_id;
+        var product_quantity;
+        var user_id = localStorage.getItem("user");
+        var req_url = `http://64.227.115.243:8080/customers/${user_id}/`;
+        var access_token = localStorage.getItem("access_token");
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        var token;
+
+        if (access_token) {
+          token = access_token;
+        } else if (guest_access_token) {
+          token = guest_access_token;
+        }
+
+        var oHeaderToken = {
+          Authorization: "Bearer " + token
+        }
+        if (user_id) {
+          this.getService().onGet(req_url, oHeaderToken).
+            then(async (oSuccess) => {
+              product_id = oSuccess.checkout;
+              product_quantity = oSuccess.checkout_quantity;
+              var id_exists = product_id.length 
+
+              if (id_exists !== 0) {
+                var globArr = [];
+                var answ = product_id.split(',');
+                answ.forEach(function (obj) {
+                  globArr.push(obj);
+                });
+                const data = globArr.map(async (item) => {
+                  return await this.onGetCartDataProductDetails(item);
+                })
+                const product = await Promise.all(data);
+
+                if (product_quantity !== null) {
+                  var globArray = [];
+                  var newansw = product_quantity.split(',');
+                  newansw.forEach(function (obj) {
+                    globArray.push(Number(obj));
+                  });
+                } else {
+                  //pass product
+                }
+                var eachProduct = product.map((i, ine) => {
+                  i.quan = globArray[ine]
+                  return i;
+
+                });
+                var oCartFinalModel = new JSONModel(eachProduct);
+              } else {
+                oCartFinalModel = new JSONModel(null);  //pass product
+              }
+              this.getView().setModel(oCartFinalModel, "oCartFinalModel");
+            }).catch((oError) => {
+              console.log("error", oError);
+            });
+        }
+
 
         // create popover
         if (!this._oPopoverCart) {
@@ -508,18 +568,28 @@ sap.ui.define(
           oPopover.openBy(oMenu);
         });
       },
+      onGetCartDataProductDetails: async function (item) {
+        var requestOptions = {
+          method: 'GET',
+          redirect: 'follow'
+        };
+        const res = await fetch(`http://64.227.115.243:8080/products/${item}`, requestOptions)
+        return res.json();
+
+      },
 
       onNavToCheckout: function () {
         //  After logout user cannot access the cart option
         var uid = localStorage.getItem("access_token");
         var gid = localStorage.getItem("guest_access_token");
-        var pid = sessionStorage.getItem("myvalue5");
+        var pid = this.getView().getModel("oCartFinalModel").getData();
         var geTerms = localStorage.getItem('deValue');
         var enTerms = localStorage.getItem('enValue');
 
         if ((uid !== null && pid !== null) || gid !== null) {
           this.getRouter().navTo("checkout");
           this.checkOutFunctionality();
+          
         } else if (uid === null) {
           this.getRouter().navTo("home");
           if (geTerms) {
@@ -1093,7 +1163,7 @@ sap.ui.define(
       },
       onLogout: function () {
         var _sUrl = "http://64.227.115.243:8080/logout/";
-        var oGlobalModel = this.getView().getModel("oGlobalModel");
+        var oCartFinalModel = this.getView().getModel("oCartFinalModel");
         var access_token = localStorage.getItem("access_token");
         var guest_access_token = localStorage.getItem("guest_access_token");
         var geTerms = localStorage.getItem("deValue");
@@ -1121,7 +1191,7 @@ sap.ui.define(
             }
             localStorage.clear();
             sessionStorage.clear();
-            oGlobalModel.setProperty("/customer", "");
+            oCartFinalModel.setProperty("/", "");
           })
           .catch((oError) => {
             var data = (JSON.parse(oError.responseText));
@@ -1537,18 +1607,6 @@ sap.ui.define(
               }
             })
             .catch((error) => console.log("error", error));
-          //TRY
-          // var oData = {
-          //   uidb64 : uidb64,
-          //   token : token,
-          //   password : _sPasswordInput1
-          // };
-          // var _newUrl ="http://64.227.115.243:8080/reset_password/";
-          // await this.getService().onPatch(
-          //   _newUrl,oData
-          // ).then((oSuccess)=>{
-          //   MessageToast.show("Reset Password Done!");
-          // }).catch((error)=> console.log("error",error))
         }
       },
       onForgotOpen: function (oEvent) {

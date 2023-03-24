@@ -5,7 +5,8 @@
 	<Popover contentWidth="25%" showArrow="false" showHeader="false" id="myCart" placement="Left" class="productCartdata">
 		<List delete=".onCartEntriesDelete" id="entryList" items="{
 
-					path : 'oDataProducts>/cartEntries',
+					path : 'oCartFinalModel>/',
+					
 					sorter : {
 						path : 'Name',
 						descending : false
@@ -14,28 +15,28 @@
 			<CustomListItem>
 				<HBox wrap="Wrap" class="sapUiSmallMargin prodductDet" justifyContent="SpaceBetween" alignItems="Center">
 					<Avatar displaySize="M" src="{
-							path : 'oDataProducts>picture',
+							path : 'oCartFinalModel>picture',
 							formatter : '.formatter.jsonPictureUrl'
 						}"  class="productIm"/>
 					<VBox>
-						<Text text="{oDataProducts>Quantity} x" class="productQuant"/>
-						<Label  text="{parts:[{path:'oDataProducts>'}],formatter:'.formatter.getProductText'}" class="productNam"/>
+						<Text text="{oCartFinalModel>quan} x" class="productQuant"/>
+						<Label  text="{parts:[{path:'oCartFinalModel>'}],formatter:'.formatter.getProductText'}" class="productNam"/>
 					</VBox>
 					<ObjectNumber number="{
-						parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
+						parts:[{path:'oCartFinalModel>price'},{path:'view>/Currency'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}" unit="{view>/Currency}"/>
 				</HBox>
 				<HBox class="sapUiSmallMargin productBut" justifyContent="SpaceBetween" alignItems="Center">
 					<Button class="cartButton" icon="sap-icon://favorite" type="Unstyled" press=".onAddToWishList"/>
-					<Button class="cartButton" icon="sap-icon://delete" type="Unstyled"  press=".onAddToCartDetails_delete" app:itemId="{oDataProducts>_id}"/>
+					<Button class="cartButton" icon="sap-icon://delete" type="Unstyled"  press=".onAddToCartDetails_delete" app:itemId="{oCartFinalModel>_id}"/>
 				</HBox>
 			</CustomListItem>
 		</List>
 		<HBox class="sapUiSmallMargin" wrap="Wrap" justifyContent="SpaceBetween" alignItems="Center">
 			<Button class="cartButtonCheckOut" text="{i18n>checkOutText}" press="onNavToCheckout" type="Unstyled" />
-			<Text text="{path : 'oDataProducts>/cartEntries',
+			<Text text="{path : 'oCartFinalModel>/',
 						formatter : '.formatter.totalPrice'
 					} EUR" class="productPr"/>
 		</HBox>

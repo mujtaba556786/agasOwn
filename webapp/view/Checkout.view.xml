@@ -15,7 +15,7 @@
 							<HBox>
 								<VBox class="sapUiSmallMargin" width="100%" justifyContent="">
 									<List delete=".onCartEntriesDelete" items="{
-										path : 'oDataProducts>/cartEntries',
+										path : 'oCartFinalModel>/',
 										sorter : {
 												path : 'Name',
 												descending : false,
@@ -27,29 +27,29 @@
 												<HBox>
 													<VBox>
 														<Avatar displaySize="XL" src="{
-														path : 'oDataProducts>picture',
+														path : 'oCartFinalModel>picture',
 														formatter : '.formatter.picture'
 													}" class="ceckoutAvtar" showBorder="true" displayShape="Square"/>
 													</VBox>
 													<VBox class="sapUiSmallMargin" renderType="Bare" justifyContent="SpaceBetween">
-														<Label text="{oDataProducts>product_name}" class="product_title"/>
+														<Label text="{oCartFinalModel>product_name}" class="product_title"/>
 														<HBox renderType="Bare">
 															<Label text="{i18n>color}" labelFor="text-color" />
-															<Text id="text-color" text="{oGlobalModel>/detailProduct/color}"/>
+															<Text id="text-color" text="{oCartFinalModel>color}"/>
 														</HBox>
 														<HBox renderType="Bare">
 															<Label text="{i18n>dimension}" labelFor="text-dimension" />
-															<Text id="text-dimension" text="{oGlobalModel>/detailProduct/size}"/>
+															<Text id="text-dimension" text="{oCartFinalModel>size}"/>
 														</HBox>
 													</VBox>
 												</HBox>
 												<VBox>
-													<Text text="{oDataProducts>Quantity}" class="product_quantity"/>
+													<Text text="{oCartFinalModel>quan}" class="product_quantity"/>
 													<ObjectNumber number="{
-																		parts:[{path:'oDataProducts>price'},{path:'view>/Currency'}],
-																		type: 'sap.ui.model.type.Currency',
-																		formatOptions: {showMeasure: false}
-														}" class="product_price"/>
+						parts:[{path:'oCartFinalModel>price'},{path:'view>/Currency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{view>/Currency}" class="product_price"/>
 												</VBox>
 											</HBox>
 											<HBox class="sapUiSmallMargin productBut" justifyContent="SpaceBetween" alignItems="Center">
@@ -68,7 +68,7 @@
 									<Text class="checkoutTotal" id="totalPricefinal" text="Total" />
 									<HBox justifyContent="SpaceBetween">
 										<Label design="Bold" vAlign="Middle" text="{i18n>subTotalText}" labelFor="text-subTotal" />
-										<Text id="text-subTotal" text="0.00" class="deliveryText"/>
+										<Text id="text-subTotal" text=" {path : 'oCartFinalModel>/',formatter : '.formatter.totalPrice' } EUR" class="deliveryText"/>
 									</HBox>
 									<HBox class="checkoutDelivery" justifyContent="SpaceBetween">
 										<Label design="Bold" vAlign="Middle" text="{i18n>deliveryText}" labelFor="text-deliveryText" />
@@ -76,7 +76,7 @@
 									</HBox>
 									<HBox justifyContent="SpaceBetween">
 										<Label design="Bold" vAlign="Middle" text="{i18n>vatText}" labelFor="text-vatText" />
-										<Text id="text-vatText" class="priceText" text=" {path : 'oDataProducts>/cartEntries',formatter : '.formatter.totalPrice' }"/>
+										<Text id="text-vatText" class="priceText" text=" {path : 'oCartFinalModel>/',formatter : '.formatter.totalPrice' } EUR"/>
 									</HBox>
 								</VBox>
 								<layoutData>

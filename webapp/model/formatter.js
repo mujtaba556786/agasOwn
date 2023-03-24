@@ -26,22 +26,34 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 
 		/**
 		 * Sums up the price for all products in the cart
-		 * @param {object} oCartEntries current cart entries
+		 * @param {object} product_quantity current cart entries
+		 * @return {string} string with the total value
+		 * @param {object} product_id current cart entrieses
 		 * @return {string} string with the total value
 		 */
-		totalPrice: function (oCartEntries) {
-			var oBundle = this.getResourceBundle(),
-				fTotalPrice = 0;
-			//TODO have to check another way
-			if (oCartEntries !== undefined) {
-				Object.keys(oCartEntries).forEach(function (sProductId) {
-					var oProduct = oCartEntries[sProductId];
-					fTotalPrice += parseFloat(oProduct.price) * oProduct.Quantity;
-				});
-				return oBundle.getText("cartTotalPrice", [
-					formatter.price(fTotalPrice),
-				]);
-			}
+		totalPrice: function (assignType) {
+			// var oBundle = this.getResourceBundle(),
+			// 	fTotalPrice = 0;
+			// //TODO have to check another way
+			// if (oCartEntries !== undefined) {
+			// 	Object.keys(oCartEntries).forEach(function (sProductId) {
+			// 		var oProduct = oCartEntries[sProductId];
+			// 		fTotalPrice += parseFloat(oProduct.price) * oProduct.Quantity;
+			// 	});
+			// 	return oBundle.getText("cartTotalPrice", [
+			// 		formatter.price(fTotalPrice),
+			// 	]);
+			// }
+
+			var getModel = this.getView().getModel("oCartFinalModel");
+			var product_quantity = getModel.oData;
+
+			var totalPrice = 0;
+			Object.keys(product_quantity).forEach(function (sProductId) {
+				var oProduct = product_quantity[sProductId];
+				totalPrice += parseFloat(oProduct.price) * parseFloat(oProduct.quan);
+			});
+			return totalPrice;
 		},
 		/**
 		 * Returns the status text based on the product status
@@ -61,14 +73,34 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 		variantLen: async function (productDetail) {
 			var ans = productDetail["quantity"];
 			var idText = this.getView().byId("product_status");
+			var geTerms = localStorage.getItem("deValue");
+			var enTerms = localStorage.getItem("enValue");
 			idText.removeStyleClass("productStatus");
 			idText.removeStyleClass("productStatus2");
-			if (ans > 0) {
-				idText.addStyleClass("productStatus");
-				return "In Stock";
+			if (geTerms) {
+				if (ans > 0) {
+					idText.addStyleClass("productStatus");
+					return "In Stock";
+				} else {
+					idText.addStyleClass("productStatus2");
+					return "Not Available";
+				}
+			} else if (enTerms) {
+				if (ans > 0) {
+					idText.addStyleClass("productStatus");
+					return "Auf Lager";
+				} else {
+					idText.addStyleClass("productStatus2");
+					return "Nicht verfügbar";
+				}
 			} else {
-				idText.addStyleClass("productStatus2");
-				return "Not Available";
+				if (ans > 0) {
+					idText.addStyleClass("productStatus");
+					return "In Stock";
+				} else {
+					idText.addStyleClass("productStatus2");
+					return "Not Available";
+				}
 			}
 		},
 		/**
@@ -176,7 +208,13 @@ sap.ui.define(["sap/ui/core/format/NumberFormat"], function (NumberFormat) {
 				// localStorage.setItem('enValue', !enValue)
 				return assignType?.title;
 			}
-		}
+		},
+		/**
+		 * Returns the status text based on the product status
+		 * @param {string} items product status
+		 * @return {string} the corresponding text if found or the original value
+		 */
+
 	};
 
 	return formatter;

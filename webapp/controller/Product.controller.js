@@ -23,6 +23,7 @@ sap.ui.define([
 			var oBndngCtxt = oEvent.getSource().getBindingContext("oGlobalModel");
 			var spath = oBndngCtxt.getPath();
 			var selectedPath = oBndngCtxt.getProperty(spath);
+
 			this.getView()
 			  .getModel("oGlobalModel")
 			  .setProperty("/", { detailProduct: selectedPath });
