@@ -96,6 +96,64 @@ sap.ui.define(
         //  this._setFragments("contentsStep", "contentsStep");
         // this._setFragments("paymentTypeStep", "ptStepsPanel");  
         this.setHeaderModel();
+        var product_id;
+        var product_quantity;
+        var user_id = localStorage.getItem("user");
+        var req_url = `http://64.227.115.243:8080/customers/${user_id}/`;
+        var access_token = localStorage.getItem("access_token");
+        var guest_access_token = localStorage.getItem("guest_access_token");
+        var token;
+
+        if (access_token) {
+          token = access_token;
+        } else if (guest_access_token) {
+          token = guest_access_token;
+        }
+
+        var oHeaderToken = {
+          Authorization: "Bearer " + token
+        }
+        if (user_id) {
+          this.getService().onGet(req_url, oHeaderToken).
+            then(async (oSuccess) => {
+              product_id = oSuccess.checkout;
+              product_quantity = oSuccess.checkout_quantity;
+
+              if (product_id !== null) {
+                var globArr = [];
+                var answ = product_id.split(',');
+                answ.forEach(function (obj) {
+                  globArr.push(obj);
+                });
+                const data = globArr.map(async (item) => {
+                  return await this.onGetCartDataProductDetails(item);
+                })
+                const product = await Promise.all(data);
+
+                if (product_quantity !== null) {
+                  var globArray = [];
+                  var newansw = product_quantity.split(',');
+                  newansw.forEach(function (obj) {
+                    globArray.push(Number(obj));
+                  });
+                } else {
+                  //pass product
+                }
+                var eachProduct = product.map((i, ine) => {
+                  i.quan = globArray[ine]
+                  return i;
+
+                });
+                var oCartFinalModel = new JSONModel(eachProduct);
+              } else {
+                oCartFinalModel = new JSONModel(null);  //pass product
+              }
+              this.getView().setModel(oCartFinalModel, "oCartFinalModel");
+            }).catch((oError) => {
+              console.log("error", oError);
+            });
+        }
+
       },
 
      

@@ -12,6 +12,7 @@
                     <Image class="header-img" src="{path: 'view>/welcomeLogo', formatter : '.formatter.pictureUrl' }" press="onNavBackHome"></Image>
                 </contentMiddle>
                 <contentRight>
+                <Text text="bholenath" />
                 </contentRight>
             </Bar>
         </customHeader>
