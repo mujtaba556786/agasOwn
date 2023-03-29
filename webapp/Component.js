@@ -19,9 +19,13 @@ sap.ui.define([
 		init: function () {
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
-
+			var i18nModel = new sap.ui.model.resource.ResourceModel({
+				bundleUrl : "i18n/i18n.properties"
+			});
 			// enable routing
 			this.getRouter().initialize();
+			sap.ui.getCore().setModel(i18nModel, "i18n");
+			this.setModel(i18nModel, "i18n");
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");

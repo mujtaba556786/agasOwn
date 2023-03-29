@@ -368,8 +368,15 @@ sap.ui.define(
             var prod_ids = Object(oSuccess)["order_details"];
             prod_ids.map((i) => {
               var req_ans = JSON.parse((i.product_details).replace(/'/g, '"'));
-               pro_data = String(Object.keys(req_ans))
+               var pro_data_str = String(Object.keys(req_ans));
+               pro_data = pro_data_str.split(',');
+               if(pro_data.length>1){
+                for(let i=0; i<pro_data.length;i++){
+                  globArr.push(pro_data[i]);
+                }
+               }else{
                 globArr.push(pro_data);
+               }
             })
             const data = globArr.map(async (item) => {
               return await this.onGetWishlistProductDetails(item);
